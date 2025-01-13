@@ -1,0 +1,7 @@
+@use 'abstracts/variables' as *;
+.flex {
+	display: flex;
+}
+.bg-yellow {
+	background-color: $clr-yellow;
+}
