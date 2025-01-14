@@ -27,9 +27,11 @@
 	padding-top: min(80px, 6vw);
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 40px;
 	@include section-padding-inline;
 	@media only screen and (max-width: $bp-lg) {
 		padding: 0;
+		padding-bottom: 40px;
 		border-radius: 0;
 	}
 	&__title {

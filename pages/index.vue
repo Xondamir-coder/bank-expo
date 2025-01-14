@@ -6,9 +6,9 @@
 	</div>
 	<HomeEvents />
 	<HomeWelcome />
-	<!-- <div class="wrapper" data-no-margin>
+	<div class="wrapper" data-no-margin>
 		<HomeExperts />
-	</div> -->
+	</div>
 </template>
 
 <script setup></script>
@@ -20,6 +20,10 @@
 	border-top-left-radius: clamp(20px, 4vw, 45px);
 	border-top-right-radius: clamp(20px, 4vw, 45px);
 	padding-block: clamp(22px, 6vw, 80px);
+	transform: translateY(-40px);
+	& > *:not([data-no-margin]) {
+		@include section-margin-inline;
+	}
 }
 .content {
 	display: flex;

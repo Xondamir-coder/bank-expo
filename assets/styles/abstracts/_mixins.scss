@@ -27,14 +27,14 @@
 }
 
 @mixin section-margin-inline {
-	margin-inline: clamp(15px, 5vw, 70px);
+	margin-inline: clamp(16px, 5vw, 70px);
 	@media only screen and (max-width: $bp-xxl) {
-		margin-inline: clamp(15px, 2vw, 70px);
+		margin-inline: clamp(16px, 2vw, 70px);
 	}
 }
 @mixin section-padding-inline {
-	padding-inline: clamp(15px, 5vw, 70px);
+	padding-inline: clamp(16px, 5vw, 70px);
 	@media only screen and (max-width: $bp-xxl) {
-		padding-inline: clamp(15px, 2vw, 70px);
+		padding-inline: clamp(16px, 2vw, 70px);
 	}
 }

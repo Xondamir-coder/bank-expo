@@ -44,7 +44,6 @@
 
 <script setup>
 const { $gsap } = useNuxtApp();
-console.log($gsap);
 const links = [
 	{
 		to: '/about',
@@ -104,7 +103,6 @@ onMounted(() => {
 	top: 0;
 	gap: 10px;
 	z-index: 100;
-	background-color: $clr-accent-dark-blue;
 	@include section-margin-inline;
 
 	@media only screen and (max-width: $bp-md) {
