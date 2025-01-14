@@ -1,3 +1,5 @@
+@use '../abstracts/variables' as *;
+
 *,
 *::before,
 *::after {
@@ -9,7 +11,7 @@ html {
 	font-size: clamp(0.8rem, 1vw + 0.1rem, 1.3rem);
 }
 body {
-	font-family: 'AA Stetica';
+	font-family: $font-base, sans-serif;
 	font-weight: 400;
 }
 a {

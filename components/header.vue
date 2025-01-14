@@ -43,6 +43,8 @@
 </template>
 
 <script setup>
+const { $gsap } = useNuxtApp();
+console.log($gsap);
 const links = [
 	{
 		to: '/about',
@@ -61,6 +63,17 @@ const links = [
 		label: 'Partners'
 	}
 ];
+
+onMounted(() => {
+	$gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
+		background: '#011224CC',
+		scrollTrigger: {
+			trigger: 'header',
+			start: '+=5',
+			toggleActions: 'play none none reverse'
+		}
+	});
+});
 </script>
 
 <style lang="scss" scoped>
@@ -91,11 +104,14 @@ const links = [
 	top: 0;
 	gap: 10px;
 	z-index: 100;
+	background-color: $clr-accent-dark-blue;
+	@include section-margin-inline;
 
 	@media only screen and (max-width: $bp-md) {
 		padding-block: 16px;
 		align-items: stretch;
 		justify-content: initial;
+		background-color: $clr-accent-dark-blue;
 	}
 	&__hamburger {
 		border: 1px solid #ffffff1a;

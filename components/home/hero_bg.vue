@@ -197,6 +197,9 @@ const list = [
 	position: absolute;
 	inset: 0;
 	opacity: 0.5;
+	@media only screen and (max-width: $bp-lg) {
+		transform: rotate(-10deg) translateY(0%);
+	}
 	&__wrapper {
 		background-color: #ffffff1a;
 		border-radius: clamp(10px, 1vw, 16px);

@@ -12,11 +12,13 @@
 
 <style lang="scss" scoped>
 .container {
-	padding-inline: clamp(15px, 5vw, 70px);
+	color: #fff;
 	background-color: $clr-accent-dark-blue;
-
-	@media only screen and (max-width: 1500px) {
-		padding-inline: 15px;
+}
+.content {
+	background-color: $clr-accent-dark-blue;
+	& > *:not([data-no-margin]) {
+		@include section-margin-inline;
 	}
 }
 </style>

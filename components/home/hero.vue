@@ -96,13 +96,13 @@ onMounted(() => {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	color: #fff;
 	border-radius: 24px;
 	overflow: hidden;
 	@media only screen and (max-width: $bp-md) {
 		border-radius: 20px;
 		justify-content: flex-end;
 		gap: 24px;
+		min-height: calc(100vh - 95px);
 	}
 
 	& > *:not(:first-child) {
