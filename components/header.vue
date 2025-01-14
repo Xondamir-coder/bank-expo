@@ -90,10 +90,10 @@ const links = [
 	position: sticky;
 	top: 0;
 	gap: 10px;
+	z-index: 100;
 
 	@media only screen and (max-width: $bp-md) {
-		padding-block: 0;
-		padding-top: 16px;
+		padding-block: 16px;
 		align-items: stretch;
 		justify-content: initial;
 	}

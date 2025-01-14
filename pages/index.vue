@@ -1,5 +1,5 @@
 <template>
-	<div>home</div>
+	<HomeHero />
 </template>
 
 <script setup></script>
