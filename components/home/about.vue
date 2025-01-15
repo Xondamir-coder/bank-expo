@@ -1,5 +1,5 @@
 <template>
-	<section class="about">
+	<section class="about" id="home-about">
 		<div class="about__top">
 			<h2 class="about__title">About the Event</h2>
 			<p class="about__text">
@@ -34,7 +34,32 @@
 	</section>
 </template>
 
-<script setup></script>
+<script setup>
+const { $gsap } = useNuxtApp();
+
+onMounted(() => {
+	const aboutTopX = 100;
+	const parentId = '#home-about';
+	const parentContainer = `${parentId} .about`;
+
+	$gsap.from(`${parentContainer}__title`, {
+		x: -aboutTopX,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__text`, {
+		x: aboutTopX,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__video`, {
+		scale: 1.1,
+		...fadeOnScrollTrigger(`${parentContainer}__video`)
+	});
+	$gsap.from(`${parentContainer}__bottom`, {
+		y: 50,
+		...fadeOnScrollTrigger(`${parentContainer}__bottom`, 'bottom 90%')
+	});
+});
+</script>
 
 <style lang="scss" scoped>
 .about {
@@ -121,7 +146,7 @@
 		transition: background-color 0.3s;
 		&:hover {
 			background-color: #fff;
-			.about__play-icon {
+			__play-icon {
 				fill: $clr-yellow;
 			}
 		}

@@ -1,5 +1,5 @@
 <template>
-	<section class="experts">
+	<section class="experts" id="home-experts">
 		<div class="experts__top">
 			<h2 class="experts__title">Experts Shaping the Future of Finance</h2>
 			<p class="experts__text">
@@ -61,6 +61,7 @@ const items = [
 		text: 'Ko‘plab xalqaro konferensiya va forumlarning mashhur spikerlari'
 	}
 ];
+const { $gsap } = useNuxtApp();
 
 useSwiper(sliderRef, {
 	grabCursor: true,
@@ -78,6 +79,40 @@ useSwiper(sliderRef, {
 			spaceBetween: 24
 		}
 	}
+});
+
+onMounted(() => {
+	const parentId = '#home-experts';
+	const parentContainer = `${parentId} .experts`;
+	const travelDistance = 100;
+	const TIMEOUT_SWIPER = 500;
+
+	$gsap.from(`${parentContainer}__title`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__text`, {
+		x: travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__text`)
+	});
+	setTimeout(() => {
+		$gsap.utils.toArray(`${parentContainer}__slide`).forEach((slide, i) => {
+			$gsap.from(slide, {
+				y: i % 2 ? travelDistance : -travelDistance,
+				...fadeOnScrollTrigger(slide.parentElement, 'bottom 90%')
+			});
+		});
+		$gsap.utils.toArray(`${parentContainer}__bottom-item`).forEach(item => {
+			$gsap.from(item.firstElementChild, {
+				x: -travelDistance / 4,
+				...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
+			});
+			$gsap.from(item.lastElementChild, {
+				x: travelDistance / 4,
+				...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
+			});
+		});
+	}, TIMEOUT_SWIPER);
 });
 </script>
 

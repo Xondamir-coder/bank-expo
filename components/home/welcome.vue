@@ -1,5 +1,5 @@
 <template>
-	<section class="welcome" data-no-margin>
+	<section class="welcome" data-no-margin id="home-welcome">
 		<div class="welcome__container">
 			<HomePattern class="welcome__pattern" />
 			<div class="welcome__content">
@@ -17,10 +17,64 @@
 	</section>
 </template>
 
-<script setup></script>
+<script setup>
+const { $gsap } = useNuxtApp();
+
+onMounted(() => {
+	const parentId = '#home-welcome';
+	const parentContainer = `${parentId} .welcome`;
+	const travelDistance = 100;
+
+	$gsap.from(`${parentContainer}__subtitle`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__subtitle`)
+	});
+	$gsap.from(`${parentContainer}__title`, {
+		x: travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__text`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__text`)
+	});
+	$gsap.from(`${parentContainer}__image`, {
+		scale: 1.1,
+		...fadeOnScrollTrigger(`${parentContainer}__image`)
+	});
+	$gsap.utils.toArray(`${parentContainer}__pattern path`).forEach(path => {
+		const color = path.getAttribute('fill');
+		const totalLength = path.getTotalLength();
+
+		$gsap.set(path, {
+			strokeDasharray: totalLength,
+			strokeDashoffset: 0,
+			fill: 'transparent',
+			stroke: color
+		});
+		$gsap
+			.timeline({
+				scrollTrigger: {
+					trigger: `${parentContainer}__pattern`,
+					scrub: 1,
+					end: 'bottom bottom',
+					start: '+=20 75%'
+					// markers: true
+				}
+			})
+			.from(path, {
+				strokeDashoffset: totalLength
+			})
+			.to(path, {
+				stroke: 'transparent',
+				fill: color
+			});
+	});
+});
+</script>
 
 <style lang="scss" scoped>
 .welcome {
+	overflow: hidden;
 	background-color: $clr-primary-dark;
 	border-top-right-radius: 45px;
 	border-top-left-radius: 45px;

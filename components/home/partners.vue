@@ -1,5 +1,5 @@
 <template>
-	<section class="partners">
+	<section class="partners" id="home-partners">
 		<div class="partners__top">
 			<h2 class="partners__title">Partners & Sponsors</h2>
 			<p class="partners__text">
@@ -21,7 +21,7 @@
 import partners1 from '~/assets/images/partners-1.png';
 import partners2 from '~/assets/images/partners-2.png';
 import partners3 from '~/assets/images/partners-3.png';
-
+const { $gsap } = useNuxtApp();
 const partners = [
 	{
 		img: partners1,
@@ -40,6 +40,31 @@ const partners = [
 		text: 'Oʻzbekiston Respublikasi Adliya Vazirligi'
 	}
 ];
+
+onMounted(async () => {
+	const parentId = '#home-partners';
+	const parentContainer = `${parentId} .partners`;
+	const travelDistance = 100;
+	const TIMEOUT_SWIPER = 500;
+
+	setTimeout(() => {
+		$gsap.from(`${parentContainer}__title`, {
+			x: -travelDistance,
+			...fadeOnScrollTrigger(`${parentContainer}__title`)
+		});
+		$gsap.from(`${parentContainer}__text`, {
+			x: travelDistance,
+			...fadeOnScrollTrigger(`${parentContainer}__text`)
+		});
+		$gsap.utils.toArray(`${parentContainer}__item`).forEach((item, i) => {
+			$gsap.from(item, {
+				x: i % 2 ? travelDistance * 0.25 : -travelDistance * 0.25,
+				y: i % 2 ? -travelDistance * 0.25 : travelDistance * 0.25,
+				...fadeOnScrollTrigger(item, 'bottom 90%', 'top bottom')
+			});
+		});
+	}, TIMEOUT_SWIPER);
+});
 </script>
 
 <style lang="scss" scoped>

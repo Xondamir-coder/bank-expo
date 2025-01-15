@@ -76,7 +76,7 @@ onMounted(() => {
 		background: '#011224CC',
 		scrollTrigger: {
 			trigger: '.header',
-			start: '+=5',
+			start: '+=30',
 			toggleActions: 'play none none reverse'
 		}
 	});
@@ -84,6 +84,16 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@keyframes slide-from-top {
+	from {
+		transform: translateY(-30px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
 @mixin bg-br {
 	border-radius: 10px;
 	background-color: #ffffff1a;
@@ -111,6 +121,7 @@ onMounted(() => {
 	top: 0;
 	gap: 10px;
 	z-index: 100;
+	animation: slide-from-top 0.7s 0.3s backwards;
 	@include section-padding-inline;
 
 	@media only screen and (max-width: $bp-md) {

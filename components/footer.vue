@@ -1,5 +1,5 @@
 <template>
-	<footer class="footer">
+	<footer class="footer" id="footer">
 		<div class="footer__wrapper">
 			<div class="footer__top">
 				<Logo class="footer__logo" />
@@ -179,11 +179,28 @@ const contacts = [
 		type: 'location'
 	}
 ];
+const { $gsap } = useNuxtApp();
 const email = ref();
 
 const submitForm = () => {
 	console.log(email.value);
 };
+
+onMounted(async () => {
+	const parentId = '#footer';
+	const parentContainer = `${parentId} .footer__wrapper`;
+	const travelDistance = 100;
+	const TIMEOUT_SWIPER = 500;
+
+	setTimeout(() => {
+		$gsap.utils.toArray(`${parentContainer}>*`).forEach((child, i) => {
+			$gsap.from(child, {
+				x: i % 2 === 0 ? travelDistance : -travelDistance,
+				...fadeOnScrollTrigger(child, null, null, false)
+			});
+		});
+	}, TIMEOUT_SWIPER);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -205,6 +222,7 @@ const submitForm = () => {
 .footer {
 	position: relative;
 	display: flex;
+	overflow: hidden;
 
 	&__title {
 		font-size: clamp(18px, 3vw, 36px);

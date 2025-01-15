@@ -52,10 +52,10 @@
 </template>
 
 <script setup>
-const days = ref();
-const hours = ref();
-const minutes = ref();
-const seconds = ref();
+const days = ref(0);
+const hours = ref(0);
+const minutes = ref(0);
+const seconds = ref(0);
 
 const fakeDeadline = new Date('2025-03-16T00:00:00.000Z');
 const place = 'Tashkent';
@@ -76,20 +76,43 @@ const months = [
 const calculatedDeadline = ` ${fakeDeadline.getDate()} ${months[fakeDeadline.getMonth()]}
 ${fakeDeadline.getFullYear()}`;
 
+const countdown = () => {
+	const now = new Date().getTime();
+	const distance = fakeDeadline - now;
+	days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
+	hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	seconds.value = Math.floor((distance % (1000 * 60)) / 1000);
+};
+countdown();
 onMounted(() => {
-	const interval = setInterval(() => {
-		const now = new Date().getTime();
-		const distance = fakeDeadline - now;
-		days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
-		hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		seconds.value = Math.floor((distance % (1000 * 60)) / 1000);
-	}, 1000);
+	setInterval(countdown, 1000);
 });
 </script>
 
 <style lang="scss" scoped>
+@keyframes slide-from-left {
+	from {
+		transform: translateX(-70px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-from-right {
+	from {
+		transform: translateX(70px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
 .hero {
+	$duration: 1s;
 	background: linear-gradient(104.19deg, #042d52 0%, #044988 55.94%, #042d52 92.59%);
 	position: relative;
 	min-height: calc(100vh - 110px);
@@ -123,6 +146,7 @@ onMounted(() => {
 		align-self: flex-end;
 		gap: 12px;
 		text-transform: uppercase;
+		animation: slide-from-right $duration;
 		@media only screen and (max-width: $bp-md) {
 			position: absolute;
 			left: 16px;
@@ -153,6 +177,7 @@ onMounted(() => {
 		justify-content: space-between;
 		width: 100%;
 		max-width: 455px;
+		animation: slide-from-left $duration;
 		&-container {
 			display: flex;
 			flex-direction: column;
@@ -180,11 +205,13 @@ onMounted(() => {
 		font-weight: 900;
 		text-transform: uppercase;
 		line-height: 1.4;
+		animation: slide-from-left $duration;
 	}
 	&__text {
 		font-size: clamp(14px, 1.5vw, 20px);
 		line-height: 1.45;
 		max-width: 45ch;
+		animation: slide-from-right $duration;
 	}
 	&__content {
 		display: flex;

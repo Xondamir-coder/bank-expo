@@ -1,5 +1,5 @@
 <template>
-	<section class="banks">
+	<section class="banks" id="home-banks">
 		<div class="banks__top">
 			<h2 class="banks__title">Participating Banks</h2>
 			<p class="banks__text">
@@ -28,6 +28,7 @@ import IconsTrastBank from '~/components/icons/trast-bank.vue';
 import IconsZiraatBank from '~/components/icons/ziraat-bank.vue';
 import IconsVisa from '~/components/icons/visa.vue';
 import IconsMastercard from '~/components/icons/mastercard.vue';
+const { $gsap } = useNuxtApp();
 
 const banks = [
 	IconsTrastBank,
@@ -43,6 +44,30 @@ const banks = [
 	IconsBank,
 	IconsBank9
 ];
+
+onMounted(async () => {
+	const parentId = '#home-banks';
+	const parentContainer = `${parentId} .banks`;
+	const travelDistance = 100;
+	const TIMEOUT_SWIPER = 500;
+
+	setTimeout(() => {
+		$gsap.from(`${parentContainer}__title`, {
+			x: -travelDistance,
+			...fadeOnScrollTrigger(`${parentContainer}__title`)
+		});
+		$gsap.from(`${parentContainer}__text`, {
+			x: travelDistance,
+			...fadeOnScrollTrigger(`${parentContainer}__text`)
+		});
+		$gsap.utils.toArray(`${parentContainer}__item`).forEach((item, i) => {
+			$gsap.from(item, {
+				x: i % 2 ? travelDistance * 0.25 : -travelDistance * 0.25,
+				...fadeOnScrollTrigger(item, 'bottom 90%', 'top bottom')
+			});
+		});
+	}, TIMEOUT_SWIPER);
+});
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,5 @@
 <template>
-	<section class="events">
+	<section class="events" id="home-events">
 		<h2 class="events__title">Upcoming events</h2>
 		<div class="events__container">
 			<div class="events__cards">
@@ -72,8 +72,29 @@ const items = [
 		img: img1
 	}
 ];
+const { $gsap } = useNuxtApp();
 
 const changeCurId = newId => (curId.value = newId);
+
+onMounted(() => {
+	const parentId = '#home-events';
+	const parentContainer = `${parentId} .events`;
+
+	$gsap.from(`${parentContainer}__title`, {
+		x: -100,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__items`, {
+		scale: 1.1,
+		...fadeOnScrollTrigger(`${parentContainer}__items`)
+	});
+	$gsap.utils.toArray(`${parentContainer}__card`).forEach(card => {
+		$gsap.from(card, {
+			x: -100,
+			...fadeOnScrollTrigger(card)
+		});
+	});
+});
 </script>
 
 <style lang="scss" scoped>

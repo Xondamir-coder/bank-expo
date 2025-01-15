@@ -22,6 +22,9 @@ const headerStyle = computed(() => ({ backgroundColor: isMenuOpen.value ? '#000c
 .container {
 	color: #fff;
 	background-color: $clr-accent-dark-blue;
+	@media only screen and (max-width: $bp-lg) {
+		overflow: hidden;
+	}
 }
 .content {
 	background-color: $clr-accent-dark-blue;

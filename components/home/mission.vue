@@ -1,5 +1,5 @@
 <template>
-	<section class="mission">
+	<section class="mission" id="home-mission">
 		<h2 class="mission__title">Our mission</h2>
 		<div class="mission__cards">
 			<div class="mission__card">
@@ -18,7 +18,7 @@
 					va texnologiyalari namoyish etiladi.
 				</p>
 			</div>
-			<div class="mission__card">
+			<div class="mission__card" :data-y-spanned="true">
 				<img src="~/assets/images/globe.png" alt="globe" class="mission__img" />
 				<h4 class="mission__card-title">Xalqaro Ishtirokchilar</h4>
 				<p class="mission__card-text">
@@ -30,12 +30,38 @@
 	</section>
 </template>
 
-<script setup></script>
+<script setup>
+const { $gsap } = useNuxtApp();
+onMounted(() => {
+	const travelDistance = 100;
+	const parentId = '#home-mission';
+	const parentContainer = `${parentId} .mission`;
+
+	$gsap.from(`${parentContainer}__title`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.utils.toArray(`${parentContainer}__card`).forEach(card => {
+		if (card.dataset.ySpanned) {
+			$gsap.from(card, {
+				y: travelDistance,
+				...fadeOnScrollTrigger(card, 'bottom 90%')
+			});
+		} else {
+			$gsap.from(card, {
+				x: -travelDistance,
+				...fadeOnScrollTrigger(card, 'bottom 90%')
+			});
+		}
+	});
+});
+</script>
 
 <style lang="scss" scoped>
 .mission {
 	display: grid;
 	grid-template-columns: 1fr 2.5fr;
+	align-items: flex-start;
 	@media only screen and (max-width: $bp-lg) {
 		grid-template-columns: initial;
 		gap: 16px;
