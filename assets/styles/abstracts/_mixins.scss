@@ -66,3 +66,25 @@
 		transition: height 0.2s;
 	}
 }
+
+@mixin social-icon {
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.1019607843);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	aspect-ratio: 1;
+	width: 44px;
+	transition: background-color 0.3s;
+	&:hover {
+		background-color: $clr-yellow;
+		svg {
+			transform: scale(1.1);
+		}
+	}
+	svg {
+		width: 50%;
+		fill: #fff;
+		transition: fill 0.3s, transform 0.3s;
+	}
+}

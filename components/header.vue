@@ -1,9 +1,14 @@
 <template>
 	<header class="header">
-		<button class="header__hamburger">
+		<button
+			class="header__hamburger"
+			@click="$emit('toggleMenu')"
+			:class="{ 'header__hamburger--open': menuOpen }">
 			<div class="header__hamburger-wrapper">
 				<div class="header__hamburger-container">
-					<div class="header__hamburger-line"></div>
+					<div class="header__hamburger-line header__hamburger-line--1"></div>
+					<div class="header__hamburger-line header__hamburger-line--2"></div>
+					<div class="header__hamburger-line header__hamburger-line--3"></div>
 				</div>
 			</div>
 		</button>
@@ -63,6 +68,9 @@ const links = [
 	}
 ];
 
+defineProps({
+	menuOpen: Boolean
+});
 onMounted(() => {
 	$gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
 		background: '#011224CC',
@@ -103,7 +111,7 @@ onMounted(() => {
 	top: 0;
 	gap: 10px;
 	z-index: 100;
-	@include section-margin-inline;
+	@include section-padding-inline;
 
 	@media only screen and (max-width: $bp-md) {
 		padding-block: 16px;
@@ -118,6 +126,20 @@ onMounted(() => {
 		aspect-ratio: 1;
 		@media only screen and (min-width: $bp-xxl) {
 			display: none;
+		}
+		&--open {
+			.header__hamburger-line {
+				&--3 {
+					opacity: 0;
+				}
+				&--2 {
+					transform: rotate(45deg);
+				}
+				&--1 {
+					transform: rotate(-45deg);
+					transform-origin: 91% 125%;
+				}
+			}
 		}
 		&:hover {
 			.header__hamburger-line {
@@ -134,28 +156,15 @@ onMounted(() => {
 			height: 22px;
 			position: relative;
 			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
 		}
 		&-line {
 			width: inherit;
 			height: 4px;
 			background-color: #fff;
 			align-self: center;
-			transition: background-color 0.3s;
-			&::after,
-			&::before {
-				content: '';
-				background-color: inherit;
-				width: inherit;
-				height: 4px;
-				position: absolute;
-				left: 0;
-			}
-			&::before {
-				top: 2px;
-			}
-			&::after {
-				bottom: 2px;
-			}
+			transition: background-color 0.3s, opacity 0.3s, transform 0.4s;
 		}
 	}
 	&__lang {
@@ -187,19 +196,7 @@ onMounted(() => {
 		}
 	}
 	&__social {
-		@include bg-br();
-		@include flex-center;
-		aspect-ratio: 1;
-		width: 44px;
-		&-icon {
-			fill: #fff;
-			transition: fill 0.3s, transform 0.3s;
-		}
-		&:hover {
-			.header__social-icon {
-				fill: $clr-yellow;
-			}
-		}
+		@include social-icon;
 	}
 	&__nav {
 		@include col-style();

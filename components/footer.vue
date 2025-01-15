@@ -351,19 +351,7 @@ const submitForm = () => {
 		display: flex;
 		gap: 12px;
 		&-item {
-			background: #ffffff14;
-			backdrop-filter: blur(12px);
-			width: 48px;
-			aspect-ratio: 1;
-			border-radius: 12px;
-			transition: background-color 0.3s;
-			@include flex-center;
-			&:hover {
-				background-color: $clr-yellow;
-				& > * {
-					transform: scale(1.15);
-				}
-			}
+			@include social-icon;
 		}
 		&-icon {
 			fill: #fff;
