@@ -24,8 +24,8 @@ import IconsBank10 from '~/components/icons/bank-10.vue';
 import IconsBank11 from '~/components/icons/bank-11.vue';
 import IconsBank13 from '~/components/icons/bank-13.vue';
 import IconsBank14 from '~/components/icons/bank-14.vue';
-import IconsTrastBank from '~/components/icons/trast_bank.vue';
-import IconsZiraatBank from '~/components/icons/ziraat_bank.vue';
+import IconsTrastBank from '~/components/icons/trast-bank.vue';
+import IconsZiraatBank from '~/components/icons/ziraat-bank.vue';
 import IconsVisa from '~/components/icons/visa.vue';
 import IconsMastercard from '~/components/icons/mastercard.vue';
 
@@ -59,7 +59,7 @@ const banks = [
 	}
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 		gap: clamp(20px, 3vw, 32px);
 		@media only screen and (max-width: $bp-sm) {
 			display: grid;
