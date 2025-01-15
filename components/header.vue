@@ -67,7 +67,7 @@ onMounted(() => {
 	$gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
 		background: '#011224CC',
 		scrollTrigger: {
-			trigger: 'header',
+			trigger: '.header',
 			start: '+=5',
 			toggleActions: 'play none none reverse'
 		}

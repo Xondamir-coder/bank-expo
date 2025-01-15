@@ -138,27 +138,27 @@ const links = [
 ];
 const services = [
 	{
-		to: '/service-1',
+		to: '/service',
 		label: 'Service name'
 	},
 	{
-		to: '/service-2',
+		to: '/service',
 		label: 'Service name'
 	},
 	{
-		to: '/service-3',
+		to: '/service',
 		label: 'Service name'
 	},
 	{
-		to: '/service-4',
+		to: '/service',
 		label: 'Service name'
 	},
 	{
-		to: '/service-5',
+		to: '/service',
 		label: 'Service name'
 	},
 	{
-		to: '/service-6',
+		to: '/service',
 		label: 'Service name'
 	}
 ];
