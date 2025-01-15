@@ -8,6 +8,7 @@
 	<HomeWelcome />
 	<div class="wrapper" data-no-margin>
 		<HomeExperts />
+		<HomeBanks />
 	</div>
 </template>
 
@@ -21,6 +22,9 @@
 	border-top-right-radius: clamp(20px, 4vw, 45px);
 	padding-block: clamp(22px, 6vw, 80px);
 	transform: translateY(-40px);
+	display: flex;
+	flex-direction: column;
+	gap: clamp(40px, 7vw, 80px);
 	& > *:not([data-no-margin]) {
 		@include section-margin-inline;
 	}

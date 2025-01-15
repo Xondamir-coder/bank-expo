@@ -161,3 +161,49 @@
 		<path d="M125.69 105.679H125.222V109.004H125.69V105.679Z" fill="white" />
 	</svg>
 </template>
+
+<style scoped lang="scss">
+svg[data-original] path {
+	fill: #00441c;
+
+	&:first-child,
+	&:nth-child(2),
+	&:nth-child(9),
+	&:nth-child(10),
+	&:nth-child(11),
+	&:nth-child(12) {
+		fill: #52ae26;
+	}
+
+	&:nth-child(13),
+	&:nth-child(14),
+	&:nth-child(15),
+	&:nth-child(16),
+	&:nth-child(17),
+	&:nth-child(18),
+	&:nth-child(19),
+	&:nth-child(20),
+	&:nth-child(21),
+	&:nth-child(22),
+	&:nth-child(23),
+	&:nth-child(24),
+	&:nth-child(25),
+	&:nth-child(26),
+	&:nth-child(27),
+	&:nth-child(28),
+	&:nth-child(29),
+	&:nth-child(30),
+	&:nth-child(31),
+	&:nth-child(32),
+	&:nth-child(33),
+	&:nth-child(34),
+	&:nth-child(35),
+	&:nth-child(36),
+	&:nth-child(37),
+	&:nth-child(38),
+	&:nth-child(39),
+	&:nth-child(40) {
+		fill: $clr-secondary;
+	}
+}
+</style>

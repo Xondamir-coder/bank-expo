@@ -207,6 +207,7 @@ const list = [
 	&__icon {
 		aspect-ratio: 1;
 		width: clamp(70px, 9vw, 200px);
+		fill: #fff;
 	}
 	&__row {
 		gap: clamp(14px, 2vw, 20px);
