@@ -9,6 +9,7 @@
 	<div class="wrapper" data-no-margin>
 		<HomeExperts />
 		<HomeBanks />
+		<HomePartners />
 	</div>
 </template>
 

@@ -146,14 +146,13 @@ useSwiper(sliderRef, {
 		}
 	}
 	&__top {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
+		@include section-top;
 	}
 	&__text {
 		font-size: clamp(14px, 1vw, 17px);
 		line-height: 1.5;
 		max-width: 60ch;
+		opacity: 0.8;
 	}
 	&__title {
 		@include section-title;

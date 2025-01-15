@@ -68,18 +68,19 @@ const banks = [
 			grid-auto-columns: 240px;
 			overflow-x: auto;
 			scroll-snap-type: x mandatory;
+			&::-webkit-scrollbar {
+				display: none;
+			}
 			& > * {
 				scroll-snap-align: start;
 			}
 		}
 	}
 	&__top {
-		display: flex;
-		flex-direction: column;
-		gap: 16px;
+		@include section-top;
 	}
 	&__text {
-		font-size: 17px;
+		font-size: clamp(14px, 1vw, 17px);
 		line-height: 1.5;
 		max-width: 55ch;
 		opacity: 0.8;
