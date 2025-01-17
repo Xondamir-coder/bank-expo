@@ -2,10 +2,9 @@
 	<div class="layout" :style="containerStyle">
 		<Header
 			@toggle-menu="toggleMenu"
-			:style="headerStyle"
 			:menu-open="isMenuOpen"
-			:class="{ 'header--home': route.path === '/' }" />
-		<Menu :class="{ 'menu--open': isMenuOpen }" />
+			:class="{ 'header--home': route.path === '/', 'header--open': isMenuOpen }" />
+		<Menu :class="{ 'menu--open': isMenuOpen }" @toggle-menu="toggleMenu" />
 		<slot />
 		<Footer />
 	</div>
@@ -25,9 +24,6 @@ const getBgColor = path => {
 	if (path === '/banks') return '#F8F8F8';
 };
 
-const headerStyle = computed(() => ({
-	backgroundColor: isMenuOpen.value ? '#000c1a' : ''
-}));
 const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));
 </script>
 

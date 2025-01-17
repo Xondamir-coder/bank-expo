@@ -1,7 +1,12 @@
 <template>
 	<div class="menu">
 		<div class="menu__links">
-			<NuxtLink class="menu__link" v-for="link in links" :key="link.to" :to="link.to">
+			<NuxtLink
+				class="menu__link"
+				v-for="link in links"
+				:key="link.to"
+				:to="link.to"
+				@click="$emit('toggleMenu')">
 				{{ link.label }}
 			</NuxtLink>
 		</div>
@@ -46,7 +51,7 @@ const links = [
 	$duration: 0.6s;
 	position: fixed;
 	inset: 0;
-	top: 82.4px;
+	top: 81.6px;
 	background-color: #000c1a;
 	z-index: 99;
 	padding-inline: 16px;

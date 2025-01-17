@@ -21,6 +21,9 @@
 
 <style lang="scss" scoped>
 .home {
+	& > * {
+		overflow: hidden;
+	}
 	& > *:not([data-no-margin]) {
 		@include section-margin-inline;
 	}

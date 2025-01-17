@@ -14,7 +14,7 @@
 		</button>
 		<div class="header__col header__col--left">
 			<NuxtLink to="/" class="header__logo-container">
-				<Logo :is-white="route.path === '/'" />
+				<Logo :is-white="route.path === '/' || menuOpen" />
 			</NuxtLink>
 			<nav class="header__nav">
 				<NuxtLink
@@ -132,7 +132,7 @@ onMounted(() => {
 	gap: 10px;
 	z-index: 100;
 	animation: slide-from-top 0.7s 0.3s backwards;
-
+	transition: background-color 0.6s;
 	@include section-padding-inline;
 
 	@media only screen and (max-width: $bp-md) {
@@ -140,8 +140,11 @@ onMounted(() => {
 		align-items: stretch;
 		justify-content: initial;
 	}
-
-	&--home {
+	&--open {
+		background-color: #000c1a;
+	}
+	&--home,
+	&--open {
 		.header__social {
 			@include social-icon;
 		}
@@ -152,13 +155,22 @@ onMounted(() => {
 		.header__lang-inside {
 			@include item-dark;
 		}
+		.header__hamburger {
+			background: #ffffff05;
+			&-wrapper {
+				background: #ffffff1a;
+			}
+			&-line {
+				background: #fff;
+			}
+		}
 	}
 
 	&__hamburger {
-		border: 1px solid #ffffff1a;
 		padding: 5px;
 		border-radius: 7px;
 		aspect-ratio: 1;
+		background-color: #fff;
 
 		@media only screen and (min-width: $bp-xxl) {
 			display: none;
@@ -179,6 +191,7 @@ onMounted(() => {
 		&-wrapper {
 			padding: 8px;
 			border-radius: inherit;
+			background-color: #e9eaec;
 		}
 
 		&-container {
@@ -193,7 +206,7 @@ onMounted(() => {
 		&-line {
 			width: inherit;
 			height: 4px;
-			background-color: #fff;
+			background-color: #323b49;
 			align-self: center;
 			transition: background-color 0.3s, opacity 0.3s, transform 0.4s;
 		}
