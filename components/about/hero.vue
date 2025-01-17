@@ -14,7 +14,7 @@
 					Expo Banking – the premier platform for banks and financial institutions
 				</p>
 				<h1 class="hero__title">
-					<span class="hero__title--grey">Expo Banking – the premier</span> <br />
+					<span class="hero__title--grey">Expo Banking – the premier</span>
 					<span class="hero__title--yellow">platform for banks</span>
 				</h1>
 			</div>
@@ -72,12 +72,33 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @use 'sass:list';
+@keyframes slide-from-right {
+	from {
+		transform: translateX(100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-from-left {
+	from {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
 .hero {
 	background-color: #fff;
 	border-radius: clamp(16px, 3vw, 32px);
 	margin-top: clamp(20px, 3vw, 30px);
 	position: relative;
 	overflow: hidden;
+	$duration: 1s;
 	&__circle {
 		$scales: (0.85, 0.65, 0.45, 0.25);
 
@@ -102,6 +123,7 @@ onMounted(() => {
 		font-size: clamp(12px, 1.5vw, 20px);
 		text-align: center;
 		color: #323b49;
+		animation: slide-from-left 1s;
 	}
 	&__bottom {
 		display: grid;
@@ -135,10 +157,16 @@ onMounted(() => {
 		text-align: center;
 		text-transform: uppercase;
 		line-height: 1.2;
+		display: flex;
+		flex-direction: column;
 		&--grey {
 			color: #111827;
+			display: inline-block;
+			animation: slide-from-right $duration;
 		}
 		&--yellow {
+			display: inline-block;
+			animation: slide-from-left $duration;
 			color: $clr-yellow;
 		}
 	}

@@ -34,9 +34,6 @@ const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path)
 <style lang="scss" scoped>
 .layout {
 	color: #fff;
-	@media only screen and (max-width: $bp-lg) {
-		overflow: hidden;
-	}
 }
 .content {
 	& > *:not([data-no-margin]) {
