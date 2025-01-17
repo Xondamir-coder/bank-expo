@@ -41,6 +41,7 @@ import expert5 from '~/assets/images/expert-5.jpg';
 import IconsShuriken from '~/components/icons/shuriken.vue';
 import IconsLamp from '~/components/icons/lamp.vue';
 import IconsSpeaking from '~/components/icons/speaking.vue';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const sliderRef = ref();
 const images = [expert, expert1, expert2, expert3, expert4, expert5];
@@ -112,6 +113,7 @@ onMounted(() => {
 				...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
 			});
 		});
+		ScrollTrigger.refresh();
 	}, TIMEOUT_SWIPER);
 });
 </script>

@@ -49,24 +49,20 @@ onMounted(async () => {
 	const parentId = '#home-banks';
 	const parentContainer = `${parentId} .banks`;
 	const travelDistance = 100;
-	const TIMEOUT_SWIPER = 500;
-
-	setTimeout(() => {
-		$gsap.from(`${parentContainer}__title`, {
-			x: -travelDistance,
-			...fadeOnScrollTrigger(`${parentContainer}__title`)
+	$gsap.from(`${parentContainer}__title`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__text`, {
+		x: travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__text`)
+	});
+	$gsap.utils.toArray(`${parentContainer}__item`).forEach((item, i) => {
+		$gsap.from(item, {
+			x: i % 2 ? travelDistance * 0.25 : -travelDistance * 0.25,
+			...fadeOnScrollTrigger(item, 'bottom 90%', 'top bottom')
 		});
-		$gsap.from(`${parentContainer}__text`, {
-			x: travelDistance,
-			...fadeOnScrollTrigger(`${parentContainer}__text`)
-		});
-		$gsap.utils.toArray(`${parentContainer}__item`).forEach((item, i) => {
-			$gsap.from(item, {
-				x: i % 2 ? travelDistance * 0.25 : -travelDistance * 0.25,
-				...fadeOnScrollTrigger(item, 'bottom 90%', 'top bottom')
-			});
-		});
-	}, TIMEOUT_SWIPER);
+	});
 });
 </script>
 

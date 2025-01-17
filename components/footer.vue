@@ -197,16 +197,12 @@ onMounted(async () => {
 	const parentId = '#footer';
 	const parentContainer = `${parentId} .footer__wrapper`;
 	const travelDistance = 100;
-	const TIMEOUT_SWIPER = 500;
-
-	setTimeout(() => {
-		$gsap.utils.toArray(`${parentContainer}>*`).forEach((child, i) => {
-			$gsap.from(child, {
-				x: i % 2 === 0 ? travelDistance : -travelDistance,
-				...fadeOnScrollTrigger(child, null, null, false)
-			});
+	$gsap.utils.toArray(`${parentContainer}>*`).forEach((child, i) => {
+		$gsap.from(child, {
+			x: i % 2 === 0 ? travelDistance : -travelDistance,
+			...fadeOnScrollTrigger(child, null, null, false)
 		});
-	}, TIMEOUT_SWIPER);
+	});
 });
 </script>
 
