@@ -67,9 +67,9 @@
 	}
 }
 
-@mixin social-icon {
+@mixin social-icon($bg-color: rgba(255, 255, 255, 0.1)) {
 	border-radius: 10px;
-	background-color: rgba(255, 255, 255, 0.1019607843);
+	background-color: $bg-color;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -80,11 +80,12 @@
 		background-color: $clr-yellow;
 		svg {
 			transform: scale(1.1);
+			fill: #fff;
 		}
 	}
 	svg {
 		width: 50%;
-		fill: #fff;
+		fill: currentColor;
 		transition: fill 0.3s, transform 0.3s;
 	}
 }

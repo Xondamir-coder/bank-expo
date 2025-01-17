@@ -1,8 +1,9 @@
 <template>
 	<footer class="footer" id="footer">
+		<div class="footer__bg" :style="{ backgroundColor: footerBg }"></div>
 		<div class="footer__wrapper">
 			<div class="footer__top">
-				<Logo class="footer__logo" />
+				<Logo class="footer__logo" is-white />
 				<div class="footer__top-left">
 					<span>Subscribe to news</span>
 					<form class="footer__form" @submit.prevent="submitForm">
@@ -181,7 +182,13 @@ const contacts = [
 ];
 const { $gsap } = useNuxtApp();
 const email = ref();
+const route = useRoute();
 
+const footerBg = computed(() => {
+	if (route.path === '/') return '#fff';
+	if (route.path === '/about') return '#F1F2F4';
+	if (route.path === '/banks') return '#F8F8F8';
+});
 const submitForm = () => {
 	console.log(email.value);
 };
@@ -483,7 +490,7 @@ onMounted(async () => {
 		gap: clamp(16px, 2vw, 30px);
 		@include section-padding-inline;
 	}
-	&::before {
+	&__bg {
 		content: '';
 		position: absolute;
 		inset: 0;

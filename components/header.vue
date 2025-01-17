@@ -14,10 +14,15 @@
 		</button>
 		<div class="header__col header__col--left">
 			<NuxtLink to="/" class="header__logo-container">
-				<Logo />
+				<Logo :is-white="route.path === '/'" />
 			</NuxtLink>
 			<nav class="header__nav">
-				<NuxtLink v-for="link in links" :key="link.to" :to="link.to" class="header__link">
+				<NuxtLink
+					v-for="link in links"
+					:key="link.to"
+					:to="link.to"
+					class="header__link"
+					active-class="header__link--active">
 					<span class="header__link-label">
 						{{ link.label }}
 					</span>
@@ -49,6 +54,7 @@
 
 <script setup>
 const { $gsap } = useNuxtApp();
+const route = useRoute();
 const links = [
 	{
 		to: '/about',
@@ -72,14 +78,17 @@ defineProps({
 	menuOpen: Boolean
 });
 onMounted(() => {
-	$gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
-		background: '#011224CC',
-		scrollTrigger: {
-			trigger: '.header',
-			start: '+=30',
-			toggleActions: 'play none none reverse'
-		}
-	});
+	// $gsap.to(
+	// 	['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'],
+	// 	{
+	// 		background: '#011224CC',
+	// 		scrollTrigger: {
+	// 			trigger: '.header',
+	// 			start: '+=30',
+	// 			toggleActions: 'play none none reverse'
+	// 		}
+	// 	}
+	// );
 });
 </script>
 
@@ -94,25 +103,26 @@ onMounted(() => {
 		opacity: 1;
 	}
 }
-@mixin bg-br {
-	border-radius: 10px;
+
+@mixin col-item-white {
+	background-color: #fff;
+	color: #323b49;
+	border: 1px solid #e9eaec;
+}
+@mixin col-item-dark {
+	background: #011224cc;
+	border: 1px solid #ffffff1a;
+	color: #ffffff;
+}
+
+@mixin item {
+	font-size: 17px;
+	background-color: #f1f2f4;
+}
+@mixin item-dark {
 	background-color: #ffffff1a;
 }
-@mixin col-style {
-	background: #ffffff0d;
-	border: 1px solid #ffffff1a;
-	backdrop-filter: blur(30px);
-	padding: 6px;
-	border-radius: 12px;
-}
-@mixin link-style {
-	font-weight: 500;
-	font-size: 17px;
-	transition: color 0.3s;
-	&:hover {
-		color: $clr-yellow;
-	}
-}
+
 .header {
 	padding-block: 20px;
 	display: flex;
@@ -122,46 +132,55 @@ onMounted(() => {
 	gap: 10px;
 	z-index: 100;
 	animation: slide-from-top 0.7s 0.3s backwards;
+
 	@include section-padding-inline;
 
 	@media only screen and (max-width: $bp-md) {
 		padding-block: 16px;
 		align-items: stretch;
 		justify-content: initial;
-		background-color: $clr-accent-dark-blue;
 	}
+
+	&--home {
+		.header__social {
+			@include social-icon;
+		}
+		.header__col > * {
+			@include col-item-dark;
+		}
+		.header__link,
+		.header__lang-inside {
+			@include item-dark;
+		}
+	}
+
 	&__hamburger {
 		border: 1px solid #ffffff1a;
 		padding: 5px;
 		border-radius: 7px;
 		aspect-ratio: 1;
+
 		@media only screen and (min-width: $bp-xxl) {
 			display: none;
 		}
-		&--open {
-			.header__hamburger-line {
-				&--3 {
-					opacity: 0;
-				}
-				&--2 {
-					transform: rotate(45deg);
-				}
-				&--1 {
-					transform: rotate(-45deg);
-					transform-origin: 91% 125%;
-				}
+
+		&--open .header__hamburger-line {
+			&--3 {
+				opacity: 0;
 			}
-		}
-		&:hover {
-			.header__hamburger-line {
-				background-color: $clr-yellow;
+			&--2 {
+				transform: rotate(45deg);
+			}
+			&--1 {
+				transform: rotate(-45deg);
+				transform-origin: 91% 125%;
 			}
 		}
 		&-wrapper {
 			padding: 8px;
-			background-color: #ffffff1a;
 			border-radius: inherit;
 		}
+
 		&-container {
 			width: 22px;
 			height: 22px;
@@ -170,6 +189,7 @@ onMounted(() => {
 			flex-direction: column;
 			justify-content: space-around;
 		}
+
 		&-line {
 			width: inherit;
 			height: 4px;
@@ -178,65 +198,79 @@ onMounted(() => {
 			transition: background-color 0.3s, opacity 0.3s, transform 0.4s;
 		}
 	}
+
 	&__lang {
-		@include col-style();
 		padding: 6px;
 		font-size: 16px;
 		border-radius: 9px;
 		transition: color 0.3s;
+
 		&:hover {
 			.header__lang-icon {
 				fill: $clr-yellow;
 			}
 			color: $clr-yellow;
 		}
+
 		&-icon {
 			width: clamp(19px, 2vw, 24px);
 			aspect-ratio: 1;
-			fill: #fff;
+			fill: currentColor;
 			transition: fill 0.3s;
 		}
+
 		&-inside {
+			@include item;
+			font-weight: 400;
 			display: flex;
 			align-items: center;
 			gap: clamp(5px, 1vw, 10px);
 			padding-block: clamp(8px, 1vw, 10px);
 			padding-inline: 12px;
-			background-color: #ffffff1a;
 			border-radius: 7px;
 		}
 	}
+
 	&__social {
-		@include social-icon;
+		@include social-icon(#f1f2f4);
 	}
+
 	&__nav {
-		@include col-style();
 		display: flex;
 		gap: 8px;
+
 		@media only screen and (max-width: $bp-xxl) {
 			display: none;
 		}
 	}
+
 	&__link {
-		@include bg-br();
-		@include link-style();
 		padding-block: 12px;
 		padding-inline: 24px;
-		&:hover {
-			.header__link-label {
-				&::after {
-					height: 4px;
-				}
+		border-radius: 10px;
+		transition: color 0.3s;
+
+		@include item;
+		&--active {
+			background: $clr-yellow;
+			color: #fafafa;
+		}
+		&:hover:not(.header__link--active) {
+			color: $clr-yellow;
+			.header__link-label::after {
+				height: 4px;
 			}
 		}
+
 		&-label {
 			position: relative;
+
 			&::after {
 				content: '';
 				position: absolute;
 				width: 100%;
 				height: 0px;
-				background-color: #fff;
+				background-color: $clr-yellow;
 				bottom: -7px;
 				left: 50%;
 				transform: translateX(-50%);
@@ -244,58 +278,68 @@ onMounted(() => {
 			}
 		}
 	}
+
 	&__button {
-		@include bg-br();
-		@include link-style();
+		border-radius: 10px;
 		background-color: $clr-yellow;
 		padding-block: 12px;
 		padding-inline: 24px;
+		color: #fff;
 		transition: color 0.3s, background-color 0.3s;
 		&:hover {
+			color: $clr-yellow;
 			background-color: #fff;
 		}
 	}
+
 	&__col {
 		display: flex;
 		align-items: center;
-		color: #fff;
+		font-weight: 500;
+
+		& > * {
+			backdrop-filter: blur(30px);
+			padding: 6px;
+			border-radius: 12px;
+
+			@include col-item-white();
+		}
 
 		&-inside {
-			@include col-style();
 			gap: 8px;
+
 			@media only screen and (max-width: $bp-xxl) {
 				display: none;
 			}
 		}
+
 		&--left {
 			gap: 24px;
+
 			@media only screen and (max-width: $bp-md) {
 				flex: 1;
 				align-self: stretch;
 			}
 		}
+
 		&--right {
 			gap: 18px;
 		}
 	}
+
 	&__logo {
 		&-container {
 			width: clamp(158px, 15vw, 248px);
 			aspect-ratio: 248/28;
 			padding-block: 14px;
 			padding-inline: 16px;
-			border: 1px solid #ffffff1a;
-			// background-color: #011224cc;
-			backdrop-filter: blur(30px);
-			border-radius: 12px;
+
 			@media only screen and (max-width: $bp-xxl) {
 				@include flex-center;
 				align-self: stretch;
 				padding-inline: 10px;
 				flex: 1;
-				background-color: transparent;
 				backdrop-filter: none;
-				background-color: #ffffff05;
 			}
 		}
 	}

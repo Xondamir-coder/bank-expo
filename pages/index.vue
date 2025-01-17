@@ -1,23 +1,30 @@
 <template>
-	<HomeHero />
-	<div class="content">
-		<HomeAbout />
-		<HomeMission />
-	</div>
-	<HomeEvents />
-	<HomeWelcome />
-	<div class="wrapper" data-no-margin>
-		<div class="wrapper__box">
-			<HomeExperts />
-			<HomeBanks />
-			<HomePartners />
+	<main class="home">
+		<HomeHero />
+		<div class="content">
+			<HomeAbout />
+			<HomeMission />
 		</div>
-	</div>
+		<HomeEvents />
+		<HomeWelcome />
+		<div class="wrapper" data-no-margin>
+			<div class="wrapper__box">
+				<HomeExperts />
+				<HomeBanks />
+				<HomePartners />
+			</div>
+		</div>
+	</main>
 </template>
 
 <script setup></script>
 
 <style lang="scss" scoped>
+.home {
+	& > *:not([data-no-margin]) {
+		@include section-margin-inline;
+	}
+}
 .wrapper {
 	position: relative;
 	&__box {

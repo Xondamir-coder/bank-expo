@@ -1,33 +1,44 @@
 <template>
-	<div class="container">
-		<Header @toggle-menu="toggleMenu" :style="headerStyle" :menu-open="isMenuOpen" />
+	<div class="layout" :style="containerStyle">
+		<Header
+			@toggle-menu="toggleMenu"
+			:style="headerStyle"
+			:menu-open="isMenuOpen"
+			:class="{ 'header--home': route.path === '/' }" />
 		<Menu :class="{ 'menu--open': isMenuOpen }" />
-		<main class="content">
-			<slot />
-		</main>
+		<slot />
 		<Footer />
 	</div>
 </template>
 
 <script setup>
 const isMenuOpen = ref(false);
+const route = useRoute();
+
 const toggleMenu = () => {
 	isMenuOpen.value = !isMenuOpen.value;
 	document.body.classList.toggle('overflow-hidden', isMenuOpen.value);
 };
-const headerStyle = computed(() => ({ backgroundColor: isMenuOpen.value ? '#000c1a' : '' }));
+const getBgColor = path => {
+	if (path === '/') return '#001833';
+	if (path === '/about') return '#F1F2F4';
+	if (path === '/banks') return '#F8F8F8';
+};
+
+const headerStyle = computed(() => ({
+	backgroundColor: isMenuOpen.value ? '#000c1a' : ''
+}));
+const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));
 </script>
 
 <style lang="scss" scoped>
-.container {
+.layout {
 	color: #fff;
-	background-color: $clr-accent-dark-blue;
 	@media only screen and (max-width: $bp-lg) {
 		overflow: hidden;
 	}
 }
 .content {
-	background-color: $clr-accent-dark-blue;
 	& > *:not([data-no-margin]) {
 		@include section-margin-inline;
 	}
