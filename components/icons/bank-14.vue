@@ -20,6 +20,6 @@
 
 <style scoped lang="scss">
 svg[data-original] path {
-	fill: $clr-primary;
+	fill: #003066;
 }
 </style>

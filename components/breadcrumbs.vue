@@ -5,7 +5,7 @@
 			v-for="breadcrumb in breadcrumbs"
 			:key="breadcrumb.to"
 			:to="breadcrumb.to">
-			<span>{{ breadcrumb.label }}</span>
+			<span class="breadcrumbs__label">{{ breadcrumb.label }}</span>
 			<span class="breadcrumbs__divider">/</span>
 		</NuxtLink>
 	</nav>
@@ -18,9 +18,30 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@keyframes slide-from-top {
+	from {
+		transform: translateY(-5px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes slide-from-bottom {
+	from {
+		transform: translateY(5px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
 .breadcrumbs {
 	display: flex;
 	gap: 4px;
+
 	&__link {
 		display: flex;
 		gap: 4px;
@@ -28,6 +49,16 @@ const props = defineProps({
 		font-family: $font-alt, sans-serif;
 		font-size: 14px;
 		color: $clr-grey;
+		animation: slide-from-top 0.5s ease-in-out backwards;
+
+		@for $index from 1 to 4 {
+			&:nth-child(#{$index}) {
+				animation-delay: 0.1s * $index;
+				@if ($index % 2 == 0) {
+					animation-name: slide-from-bottom;
+				}
+			}
+		}
 		&:last-child {
 			.breadcrumbs__divider {
 				display: none;

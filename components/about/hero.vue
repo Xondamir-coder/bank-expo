@@ -1,12 +1,12 @@
 <template>
 	<section class="hero">
 		<div class="hero__circles">
-			<div class="hero__circle" v-for="i in slidesLength"></div>
+			<div class="hero__circle" v-for="i in SLIDES_COUNT" :key="i"></div>
 		</div>
 		<div class="hero__top">
 			<div class="hero__icons">
-				<div class="hero__icon-container">
-					<IconsBank class="hero__icon" data-original />
+				<div class="hero__icon-container" v-for="icon in icons" :key="icon">
+					<component :is="icon" class="hero__icon" data-original />
 				</div>
 			</div>
 			<div class="hero__content">
@@ -25,12 +25,12 @@
 					alt="banner"
 					class="hero__image"
 					v-for="(img, i) in images"
-					:class="{ active: curSlide === i }"
+					:class="{ active: currentSlide === i }"
 					:src="img"
 					:key="i" />
 			</div>
 			<div class="hero__action">
-				<div class="hero__bar--outer" v-for="i in slidesLength">
+				<div class="hero__bar--outer" v-for="i in SLIDES_COUNT" :key="i">
 					<div class="hero__bar--inner"></div>
 				</div>
 			</div>
@@ -39,34 +39,83 @@
 </template>
 
 <script setup>
-const slidesLength = 4;
-const CHANGE_TIME = 3000;
-const curSlide = ref(0);
-const { $gsap } = useNuxtApp();
+// === Imports ===
+// Assets
 import img1 from '~/assets/images/about-hero.png';
+// Components
+import IconsBank from '~/components/icons/bank.vue';
+import IconsBank6 from '~/components/icons/bank-6.vue';
+import IconsBank10 from '~/components/icons/bank-10.vue';
+import IconsBank11 from '~/components/icons/bank-11.vue';
+import IconsBank13 from '~/components/icons/bank-13.vue';
+import IconsBank14 from '~/components/icons/bank-14.vue';
+import IconsBank17 from '~/components/icons/bank-17.vue';
+import TrastBank from '~/components/icons/trast-bank.vue';
+import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
-const images = [img1, img1, img1, img1];
-let interval;
-const animateBar = () => {
-	$gsap.to(`.hero__bar--outer:nth-child(${curSlide.value + 1}) .hero__bar--inner`, {
-		scaleX: 1, // Include unit
-		duration: CHANGE_TIME / 1000 // Convert to seconds for GSAP
+// === Constants ===
+const SLIDES_COUNT = 4; // Total number of slides
+const CHANGE_INTERVAL = 3000; // Time (ms) for each slide change
+
+// === Reactive State ===
+const currentSlide = ref(0);
+
+// === Nuxt App Context ===
+const { $gsap } = useNuxtApp();
+
+// === Data Arrays ===
+const images = Array(SLIDES_COUNT).fill(img1); // Repeated slide images
+const icons = [
+	IconsBank,
+	IconsBank6,
+	IconsBank10,
+	IconsBank11,
+	IconsBank13,
+	IconsBank14,
+	IconsBank17,
+	TrastBank,
+	ZiraatBank
+];
+
+// === Functions ===
+// Animate the progress bar for the current slide
+const animateProgressBar = () => {
+	$gsap.to(`.hero__bar--outer:nth-child(${currentSlide.value + 1}) .hero__bar--inner`, {
+		scaleX: 1, // Full progress
+		duration: CHANGE_INTERVAL / 1000 // Duration in seconds
 	});
 };
 
-onBeforeUnmount(() => {
-	clearInterval(interval);
-});
+// Reset all progress bars
+const resetProgressBars = () => {
+	$gsap.set('.hero__bar--inner', { scaleX: 0 });
+};
+
+// === Lifecycle Hooks ===
+let slideInterval;
+
 onMounted(() => {
-	animateBar();
-	interval = setInterval(() => {
-		curSlide.value++;
-		if (curSlide.value >= slidesLength) {
-			$gsap.set('.hero__bar--inner', { scaleX: 0 });
-			curSlide.value = 0;
+	// Initialize the first slide's progress bar
+	animateProgressBar();
+
+	// Start the automatic slide interval
+	slideInterval = setInterval(() => {
+		// Move to the next slide
+		currentSlide.value = (currentSlide.value + 1) % SLIDES_COUNT;
+
+		// Reset progress bars if looping back to the first slide
+		if (currentSlide.value === 0) {
+			resetProgressBars();
 		}
-		animateBar();
-	}, CHANGE_TIME);
+
+		// Animate the progress bar for the current slide
+		animateProgressBar();
+	}, CHANGE_INTERVAL);
+});
+
+onBeforeUnmount(() => {
+	// Clear the interval when the component is unmounted
+	clearInterval(slideInterval);
 });
 </script>
 
@@ -92,6 +141,16 @@ onMounted(() => {
 		opacity: 1;
 	}
 }
+@keyframes scale-up {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
 .hero {
 	background-color: #fff;
 	border-radius: clamp(16px, 3vw, 32px);
@@ -99,8 +158,25 @@ onMounted(() => {
 	position: relative;
 	overflow: hidden;
 	$duration: 1s;
+	&__circles {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		z-index: 1;
+		@media only screen and (max-width: $bp-lg) {
+			transform: scale(1);
+			inset: auto;
+			left: 50%;
+			transform: translateX(-50%);
+			width: max(766px, 150vw);
+			aspect-ratio: 1;
+		}
+		@media only screen and (max-width: $bp-sm) {
+			transform: translate(-50%, -3%) scaleX(1.2);
+		}
+	}
 	&__circle {
-		$scales: (0.85, 0.65, 0.45, 0.25);
+		$scales: (0.83, 0.65, 0.45, 0.3);
 
 		border: 1px solid #cbd5e0;
 		border-radius: 50%;
@@ -111,14 +187,24 @@ onMounted(() => {
 				transform: scale(#{list.nth($scales, $i)});
 			}
 		}
+
+		@media only screen and (max-width: $bp-sm) {
+			$scales: (0.9, 0.75, 0.6, 0.45);
+
+			@for $i from 1 through list.length($scales) {
+				&:nth-child(#{$i}) {
+					transform: scale(#{list.nth($scales, $i)});
+				}
+			}
+		}
 	}
-	&__circles {
-		position: absolute;
-		inset: 0;
+	&__top {
 		display: grid;
-		top: 3%;
-		transform: scale(1);
+		& > * {
+			grid-area: 1/1/2/2;
+		}
 	}
+
 	&__text {
 		font-size: clamp(12px, 1.5vw, 20px);
 		text-align: center;
@@ -145,7 +231,7 @@ onMounted(() => {
 		gap: clamp(16px, 2vw, 24px);
 		padding-block: clamp(30px, 9vw, 150px);
 		padding-inline: 10px;
-		z-index: 5;
+		z-index: 2;
 		position: relative;
 		@media only screen and (max-width: $bp-lg) {
 			padding-top: 190px;
@@ -159,6 +245,9 @@ onMounted(() => {
 		line-height: 1.2;
 		display: flex;
 		flex-direction: column;
+		@media only screen and (max-width: $bp-sm) {
+			line-height: 24px;
+		}
 		&--grey {
 			color: #111827;
 			display: inline-block;
@@ -209,15 +298,129 @@ onMounted(() => {
 			aspect-ratio: 328/200;
 		}
 	}
+	&__icons {
+		position: relative;
+		z-index: 3;
+	}
 	&__icon {
-		width: 40px;
+		width: 66%;
 		&-container {
+			@include flex-center;
+			position: absolute;
 			width: 60px;
 			aspect-ratio: 1;
 			background: #ffffff;
 			box-shadow: 0px 1.2px 27px 0px #0000001a;
 			border-radius: 16px;
-			@include flex-center;
+			animation-name: scale-up;
+			animation-duration: 0.4s;
+			animation-fill-mode: backwards;
+			@for $i from 1 through 9 {
+				&:nth-child(#{$i}) {
+					animation-delay: $i * 0.07s;
+				}
+			}
+			&:first-child {
+				left: 15%;
+				top: 20%;
+				@media only screen and (max-width: $bp-lg) {
+					right: 40%;
+					left: auto;
+				}
+				@media only screen and (max-width: $bp-sm) {
+					top: 22px;
+					right: 130px - 16px;
+				}
+			}
+			&:nth-child(2) {
+				right: 16%;
+				top: 27%;
+				width: clamp(60px, 5vw, 80px);
+				border-radius: clamp(18px, 2vw, 24px);
+				@media only screen and (max-width: $bp-lg) {
+					top: 61%;
+				}
+				@media only screen and (max-width: $bp-sm) {
+					right: -20px;
+					bottom: 35px;
+					top: auto;
+				}
+			}
+			&:nth-child(3) {
+				right: 11%;
+				bottom: 5%;
+				width: clamp(80px, 7vw, 100px);
+				border-radius: clamp(20px, 2vw, 32px);
+				@media only screen and (max-width: $bp-lg) {
+					display: none;
+				}
+			}
+			&:nth-child(4) {
+				right: 44.3%;
+				top: 17%;
+				@media only screen and (max-width: $bp-lg) {
+					right: auto;
+					left: 5%;
+					top: 56%;
+				}
+				@media only screen and (max-width: $bp-sm) {
+					left: 5px;
+					top: 116px;
+				}
+			}
+			&:nth-child(5) {
+				left: 35%;
+				bottom: 6%;
+				width: clamp(60px, 5vw, 80px);
+				border-radius: clamp(18px, 2vw, 24px);
+				@media only screen and (max-width: $bp-lg) {
+					display: none;
+				}
+			}
+			&:nth-child(6) {
+				left: 40%;
+				top: 7%;
+				width: 71px;
+				border-radius: 24px;
+				@media only screen and (max-width: $bp-lg) {
+					display: none;
+				}
+			}
+			&:nth-child(7) {
+				border-radius: 32px;
+				left: 20%;
+				top: 56%;
+				width: 100px;
+				@media only screen and (max-width: $bp-lg) {
+					left: 20%;
+					top: 20%;
+				}
+				@media only screen and (max-width: $bp-sm) {
+					left: -25px;
+					top: -25px;
+				}
+			}
+			&:nth-child(8) {
+				border-radius: 24px;
+				left: 7.5%;
+				bottom: 14%;
+				width: clamp(80px, 5vw, 90px);
+				@media only screen and (max-width: $bp-lg) {
+					display: none;
+				}
+			}
+			&:last-child {
+				border-radius: 24px;
+				right: 30%;
+				bottom: 12px;
+				width: 74px;
+
+				@media only screen and (max-width: $bp-sm) {
+					top: 69px;
+					bottom: auto;
+					right: -20px;
+				}
+			}
 		}
 	}
 }

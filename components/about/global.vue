@@ -6,6 +6,7 @@
 		</h2>
 		<div class="global__list">
 			<div class="global__item" v-for="(item, i) in items" :key="i">
+				<Pattern class="global__item-pattern" />
 				<div class="global__item-content">
 					<h3 class="global__item-amount">
 						{{ item.amount }}
@@ -51,6 +52,10 @@ onMounted(() => {
 	});
 	$gsap.utils.toArray(`${parentContainer}__item`).forEach((item, i) => {
 		$gsap.from(item.firstElementChild, {
+			scale: 1.5,
+			...fadeOnScrollTrigger(item)
+		});
+		$gsap.from(item.firstElementChild.nextElementSibling, {
 			x: -50,
 			stagger: 0.1,
 			...fadeOnScrollTrigger(item)
@@ -72,7 +77,7 @@ onMounted(() => {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		gap: clamp(8px, 2vw, 24px);
-		@media only screen and (max-width: $bp-md) {
+		@media only screen and (max-width: $bp-sm) {
 			grid-template-columns: initial;
 			grid-auto-flow: column;
 			grid-auto-columns: 110%;
@@ -97,8 +102,19 @@ onMounted(() => {
 		justify-content: space-between;
 		gap: clamp(16px, 7vw, 80px);
 		font-weight: 700;
+		position: relative;
 		@media only screen and (max-width: $bp-md) {
 			gap: 16px;
+		}
+		&-content {
+			z-index: 2;
+		}
+		&-pattern {
+			fill: #e9eaec;
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
 		}
 		&-amount {
 			font-size: clamp(38px, 2.4vw, 42px);
