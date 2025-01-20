@@ -9,7 +9,7 @@
 				</div>
 				<Pagination id="news-pagination" />
 			</div>
-			<NewsSidenav />
+			<NewsSidenav title="Most viewed news" :similars="similarNews" />
 		</div>
 	</main>
 </template>
@@ -17,7 +17,6 @@
 <script setup>
 import testNewsImg from '~/assets/images/test-news.jpg';
 
-//  data
 const breadcrumbs = [
 	{
 		to: '/',
@@ -28,6 +27,8 @@ const breadcrumbs = [
 		label: 'News'
 	}
 ];
+
+// test data without API
 const PROTOTYPE_NEWS_COUNT = 9;
 const PROTOTYPE_NEWS_ITEM = {
 	img: testNewsImg,
@@ -37,6 +38,10 @@ const PROTOTYPE_NEWS_ITEM = {
 	title_slug: 'some-news'
 };
 const news = Array(PROTOTYPE_NEWS_COUNT).fill(PROTOTYPE_NEWS_ITEM);
+
+// similars
+const PROTOTYPE_SIMILAR_COUNT = 4;
+const similarNews = Array(PROTOTYPE_SIMILAR_COUNT).fill(PROTOTYPE_NEWS_ITEM);
 
 //  refs
 const currentType = ref('all');
@@ -116,6 +121,7 @@ useHead({
 	@include section-margin-inline;
 
 	&__wrapper {
+		grid-area: list;
 		display: flex;
 		flex-direction: column;
 		gap: clamp(16px, 3vw, 30px);
@@ -125,7 +131,7 @@ useHead({
 		grid-template-areas:
 			'filter sidenav'
 			'list sidenav';
-		grid-template-columns: 1fr 32%;
+		grid-template-columns: 1fr max(400px, 23%);
 		row-gap: clamp(28px, 3vw, 30px);
 		column-gap: clamp(28px, 3.5vw, 32px);
 		@media only screen and (max-width: $bp-lg) {
@@ -137,7 +143,6 @@ useHead({
 		}
 	}
 	&__list {
-		grid-area: list;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
 		row-gap: clamp(16px, 2vw, 30px);

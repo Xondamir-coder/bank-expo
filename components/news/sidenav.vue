@@ -1,6 +1,8 @@
 <template>
 	<div class="sidenav" ref="sidenavRef">
-		<h3 class="sidenav__title">Most viewed news</h3>
+		<h3 class="sidenav__title">
+			{{ title }}
+		</h3>
 		<div class="sidenav__list">
 			<NuxtLink
 				class="sidenav__item"
@@ -12,8 +14,8 @@
 				</div>
 				<h4 class="sidenav__text">
 					{{
-						similar.title.length > MAX_LENGTH
-							? `${similar.title.slice(0, MAX_LENGTH)}...`
+						similar.title.length > titleMaxLength
+							? `${similar.title.slice(0, titleMaxLength)}...`
 							: similar.title
 					}}
 				</h4>
@@ -33,23 +35,18 @@
 </template>
 
 <script setup>
-import newsSimilar from '~/assets/images/test-news-similar.jpg';
-const PROTOTYPE_SIMILAR = {
-	img: newsSimilar,
-	title_slug: 'similar-news',
-	title: 'What are bay windows: can you eat them, wear them, or take them on a trip? Neither. We tell and show you in this text',
-	publishedDate: '2025-01-27T19:00:00.000Z',
-	views: 999
-};
-const PROTOTYPE_SIMILAR_COUNT = 4;
-const MAX_LENGTH = 50;
-const similars = Array(PROTOTYPE_SIMILAR_COUNT).fill(PROTOTYPE_SIMILAR);
+// Props
+const props = defineProps({
+	title: String,
+	similars: Array
+});
+
+const titleMaxLength = ref(50);
 const sidenavRef = ref();
 
 const { $gsap } = useNuxtApp();
 const animateElements = () => {
 	[...sidenavRef.value.querySelectorAll('.sidenav__item')].forEach((item, i) => {
-		console.log(item);
 		$gsap.from(item, {
 			x: -40,
 			...fadeOnScrollTrigger(item, 'bottom 95%')
@@ -57,7 +54,15 @@ const animateElements = () => {
 	});
 };
 onMounted(() => {
-	if (window.innerWidth < 768) animateElements();
+	if (window.innerWidth < 768) {
+		animateElements();
+	}
+	if (window.innerWidth <= 992) {
+		titleMaxLength.value = 500;
+	}
+	if (window.innerWidth <= 425) {
+		titleMaxLength.value = 50;
+	}
 });
 </script>
 
@@ -95,11 +100,14 @@ onMounted(() => {
 	color: #111827;
 	border-radius: clamp(16px, 3vw, 32px);
 	$duration: 0.3s;
+	@media only screen and (max-width: $bp-lg) {
+	}
 	&__item {
 		display: grid;
 		grid-template-areas:
 			'image text'
 			'image bottom';
+		grid-template-columns: 27% 1fr;
 		row-gap: clamp(12px, 1.1vw, 16px);
 		column-gap: 16px;
 		padding-block: clamp(12px, 2vw, 20px);

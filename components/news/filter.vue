@@ -84,8 +84,10 @@ const setType = type => (currentType.value = type);
 		background: #fafafa;
 		border: 1px solid #cbd5e0;
 		border-radius: 83px;
-		text-wrap: nowrap;
 		transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+		@media only screen and (max-width: $bp-md) {
+			text-wrap: nowrap;
+		}
 		&:hover,
 		&--active {
 			background: $clr-yellow;
