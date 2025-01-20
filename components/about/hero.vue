@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-// === Imports ===
+// Imports =
 // Assets
 import img1 from '~/assets/images/about-hero.png';
 // Components
@@ -53,17 +53,17 @@ import IconsBank17 from '~/components/icons/bank-17.vue';
 import TrastBank from '~/components/icons/trast-bank.vue';
 import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
-// === Constants ===
+// Constants
 const SLIDES_COUNT = 4; // Total number of slides
 const CHANGE_INTERVAL = 3000; // Time (ms) for each slide change
 
-// === Reactive State ===
+// Reactive State
 const currentSlide = ref(0);
 
-// === Nuxt App Context ===
+// Nuxt App Context
 const { $gsap } = useNuxtApp();
 
-// === Data Arrays ===
+// Data Arrays
 const images = Array(SLIDES_COUNT).fill(img1); // Repeated slide images
 const icons = [
 	IconsBank,
@@ -77,7 +77,7 @@ const icons = [
 	ZiraatBank
 ];
 
-// === Functions ===
+// Functions
 // Animate the progress bar for the current slide
 const animateProgressBar = () => {
 	$gsap.to(`.hero__bar--outer:nth-child(${currentSlide.value + 1}) .hero__bar--inner`, {
@@ -91,7 +91,7 @@ const resetProgressBars = () => {
 	$gsap.set('.hero__bar--inner', { scaleX: 0 });
 };
 
-// === Lifecycle Hooks ===
+// Lifecycle Hooks
 let slideInterval;
 
 onMounted(() => {

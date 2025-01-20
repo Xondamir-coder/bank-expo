@@ -27,14 +27,14 @@
 </template>
 
 <script setup>
-// == icons ==
+//  icons
 import IconsList from '~/components/icons/list.vue';
 import IconsCash from '~/components/icons/cash.vue';
 import IconsCashDown from '~/components/icons/cash-down.vue';
 import IconsBriefcase from '~/components/icons/briefcase.vue';
 import IconsBankBuilding from '~/components/icons/bank-building.vue';
 
-// == data ==
+//  data
 const data = {
 	catalog: 1012,
 	privateBanks: 1012,

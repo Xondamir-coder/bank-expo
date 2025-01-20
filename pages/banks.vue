@@ -8,15 +8,23 @@
 			</div>
 			<BanksSidebar class="banks__box" />
 		</div>
-		<BanksPagination />
+		<Pagination id="banks-pagination" />
 	</main>
 </template>
 
 <script setup>
-// == imports ==
+//  imports
 import IconsBank from '~/components/icons/bank.vue';
 
-// == data ==
+//  provide for pagination
+const PAGES_COUNT = 12;
+const fetchNewItems = () => {
+	console.log('hello from banks');
+};
+provide('pagesCount', PAGES_COUNT);
+provide('fetchNewItems', fetchNewItems);
+
+//  data
 const breadcrumbs = [
 	{
 		to: '/',
@@ -37,10 +45,10 @@ const banks = Array(BANKS_COUNT).fill({
 	website: 'https://google.com'
 });
 
-// == reactive state ==
+//  reactive state
 const query = ref('');
 
-// == animation ==
+//  animation
 const { $gsap } = useNuxtApp();
 const animateItems = () => {
 	const items = $gsap.utils.toArray('#banks-list .bank');
@@ -64,13 +72,14 @@ const animateItems = () => {
 		});
 	});
 };
-
-const submitQuery = () => {};
-
 onMounted(() => {
 	if (window.innerWidth < 768) animateItems();
 });
 
+//  submit query
+const submitQuery = () => {};
+
+//  seo
 useHead({
 	title: 'Explore Banks - Compare Loan & Deposit Rates | Bank Expo',
 	meta: [

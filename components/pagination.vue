@@ -1,5 +1,5 @@
 <template>
-	<div class="pagination" id="banks-pagination">
+	<div class="pagination">
 		<button
 			class="pagination__button"
 			:disabled="currentPage === 1"
@@ -8,10 +8,10 @@
 		</button>
 		<button
 			class="pagination__button pagination__button--number"
-			v-for="i in ITEMS_COUNT"
+			v-for="i in pagesCount"
 			:class="{
 				'pagination__button--active': i === currentPage,
-				'pagination__button--hidden': i >= shownButtons
+				'pagination__button--hidden': i >= shownButtonsCount
 			}"
 			:key="i"
 			@click="changePage(i)">
@@ -19,21 +19,21 @@
 		</button>
 		<button
 			class="pagination__button pagination__button--number"
-			v-if="shownButtons < ITEMS_COUNT"
+			v-if="shownButtonsCount < pagesCount"
 			@click="showAllButtons">
 			...
 		</button>
 		<button
 			class="pagination__button pagination__button--number"
 			:class="{
-				'pagination__button--active': ITEMS_COUNT === currentPage
+				'pagination__button--active': pagesCount === currentPage
 			}"
-			@click="changePage(ITEMS_COUNT)">
-			{{ ITEMS_COUNT }}
+			@click="changePage(pagesCount)">
+			{{ pagesCount }}
 		</button>
 		<button
 			class="pagination__button"
-			:disabled="currentPage === ITEMS_COUNT"
+			:disabled="currentPage === pagesCount"
 			@click="changePage(currentPage + 1)">
 			<IconsArrowLeft class="pagination__arrow pagination__arrow--reverse" />
 		</button>
@@ -41,21 +41,28 @@
 </template>
 
 <script setup>
-const ITEMS_COUNT = 12;
+//  reactive state
 const currentPage = ref(1);
-const shownButtons = ref(3);
+const shownButtonsCount = ref(3);
 
+//  injects
+const pagesCount = inject('pagesCount');
+const fetchNewItems = inject('fetchNewItems');
+
+//  methods
 const changePage = newPage => {
 	currentPage.value = newPage;
-	if (currentPage.value !== ITEMS_COUNT && currentPage.value >= shownButtons.value) {
-		shownButtons.value++;
+	if (currentPage.value !== pagesCount && currentPage.value >= shownButtonsCount.value) {
+		shownButtonsCount.value++;
 	}
 };
-const showAllButtons = () => (shownButtons.value = ITEMS_COUNT);
+const showAllButtons = () => (shownButtonsCount.value = pagesCount);
 
+//  animation
 const { $gsap } = useNuxtApp();
+const attrs = useAttrs();
 onMounted(() => {
-	const parentId = '#banks-pagination';
+	const parentId = `#${attrs.id}`;
 	const parentContainer = `${parentId} .pagination`;
 	$gsap.from(`${parentContainer}__button:first-child`, {
 		x: -20,

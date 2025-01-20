@@ -32,7 +32,7 @@
 </template>
 
 <script setup>
-// == imports ==
+//  imports
 import expert from '~/assets/images/expert.jpg';
 import expert1 from '~/assets/images/expert-1.jpg';
 import expert2 from '~/assets/images/expert-2.jpg';
@@ -40,16 +40,16 @@ import expert3 from '~/assets/images/expert-3.jpg';
 import expert4 from '~/assets/images/expert-4.jpg';
 import expert5 from '~/assets/images/expert-5.jpg';
 
-// == components ==
+//  components
 import IconsShuriken from '~/components/icons/shuriken.vue';
 import IconsLamp from '~/components/icons/lamp.vue';
 import IconsSpeaking from '~/components/icons/speaking.vue';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// == swiper ref ==
+//  swiper ref
 const sliderRef = ref();
 
-// == data ==
+//  data
 const images = [expert, expert1, expert2, expert3, expert4, expert5];
 const items = [
 	{
@@ -69,7 +69,7 @@ const items = [
 	}
 ];
 
-// == animations ==
+//  animations
 const { $gsap } = useNuxtApp();
 const initAnimations = () => {
 	const parentId = '#home-experts';
@@ -107,7 +107,7 @@ const initAnimations = () => {
 	}, 50);
 };
 
-// == init swiper ==
+//  init swiper
 useSwiper(sliderRef, {
 	grabCursor: true,
 	breakpoints: {

@@ -1,5 +1,7 @@
 <template>
-	<div>news</div>
+	<main>
+		{{ $route.params.title_slug }}
+	</main>
 </template>
 
 <script setup></script>
