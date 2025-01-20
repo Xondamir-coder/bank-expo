@@ -82,7 +82,6 @@ onMounted(() => {
 		}
 	}
 	&__bottom {
-		font-family: $font-alt, sans-serif;
 		display: flex;
 		gap: clamp(9px, 3vw, 32px);
 		@media only screen and (max-width: $bp-md) {
@@ -115,7 +114,6 @@ onMounted(() => {
 		}
 	}
 	&__time {
-		font-family: $font-alt, sans-serif;
 		font-size: 18px;
 		color: $clr-secondary;
 		background-color: #fff;

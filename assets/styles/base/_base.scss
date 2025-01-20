@@ -35,6 +35,11 @@ textarea {
 	border: none;
 	outline: none;
 }
+main {
+	margin-top: clamp(4px, 1.5vw, 20px);
+	margin-bottom: clamp(20px, 5vw, 80px);
+	color: #111827;
+}
 
 /* Lenis */
 html.lenis,

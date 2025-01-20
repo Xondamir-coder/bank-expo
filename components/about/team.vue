@@ -123,7 +123,6 @@ onMounted(() => {
 			color: #111827;
 			font-size: clamp(18px, 1.5vw, 28px);
 			font-weight: 700;
-			font-family: $font-alt, sans-serif;
 		}
 		&-job {
 			color: #323b49;

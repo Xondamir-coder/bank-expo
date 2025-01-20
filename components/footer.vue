@@ -68,7 +68,7 @@
 					</h2>
 					<button class="footer__button">
 						Get started
-						<IconsUpRightArrow />
+						<IconsUpRightArrow class="footer__arrow" />
 					</button>
 				</div>
 				<div class="footer__cols">
@@ -216,7 +216,7 @@ const submitForm = () => {
 	console.log(email.value);
 };
 
-onMounted(async () => {
+onMounted(() => {
 	const parentId = '#footer';
 	const parentContainer = `${parentId} .footer__wrapper`;
 	const travelDistance = 100;
@@ -249,6 +249,9 @@ onMounted(async () => {
 	position: relative;
 	display: flex;
 	overflow: hidden;
+	&__arrow {
+		width: clamp(20px, 2vw, 24px);
+	}
 	&__pattern {
 		height: 150%;
 		width: 100%;
@@ -518,7 +521,6 @@ onMounted(async () => {
 		border-top-right-radius: 24px;
 		background-color: $clr-accent-dark-blue;
 		z-index: 3;
-		font-family: $font-alt;
 		padding-block: clamp(16px, 3vw, 30px);
 		display: flex;
 		position: relative;

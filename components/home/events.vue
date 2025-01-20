@@ -203,7 +203,7 @@ onMounted(() => {
 			display: flex;
 			align-items: center;
 			gap: 8px;
-			font-family: $font-alt, sans-serif;
+
 			text-transform: uppercase;
 			font-size: clamp(14px, 1vw, 16px);
 		}

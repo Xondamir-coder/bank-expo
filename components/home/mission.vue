@@ -97,7 +97,6 @@ onMounted(() => {
 			font-weight: 700;
 
 			@media only screen and (min-width: $bp-md) {
-				font-family: $font-alt;
 			}
 		}
 		&-text {

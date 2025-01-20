@@ -46,7 +46,7 @@ const props = defineProps({
 		display: flex;
 		gap: 4px;
 		align-items: center;
-		font-family: $font-alt, sans-serif;
+
 		font-size: 14px;
 		color: $clr-grey;
 		animation: slide-from-top 0.5s ease-in-out backwards;

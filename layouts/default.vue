@@ -31,9 +31,4 @@ const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path)
 .layout {
 	color: #fff;
 }
-.content {
-	& > *:not([data-no-margin]) {
-		@include section-margin-inline;
-	}
-}
 </style>

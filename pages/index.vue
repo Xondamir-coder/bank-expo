@@ -21,6 +21,8 @@
 
 <style lang="scss" scoped>
 .home {
+	margin-bottom: 0;
+	color: inherit;
 	& > * {
 		overflow: hidden;
 	}

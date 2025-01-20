@@ -332,6 +332,7 @@ onMounted(() => {
 			@media only screen and (max-width: $bp-md) {
 				flex: 1;
 				align-self: stretch;
+				justify-content: center;
 			}
 		}
 
@@ -347,7 +348,7 @@ onMounted(() => {
 			padding-block: 14px;
 			padding-inline: 16px;
 
-			@media only screen and (max-width: $bp-xxl) {
+			@media only screen and (max-width: 476px) {
 				@include flex-center;
 				align-self: stretch;
 				padding-inline: 10px;

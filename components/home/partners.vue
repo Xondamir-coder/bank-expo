@@ -100,7 +100,6 @@ onMounted(async () => {
 		border-radius: clamp(20px, 3vw, 32px);
 		padding: clamp(16px, 3vw, 30px);
 		&-text {
-			font-family: $font-alt, sans-serif;
 			font-size: clamp(14px, 1vw, 17px);
 			font-weight: 600;
 			line-height: 1.5;

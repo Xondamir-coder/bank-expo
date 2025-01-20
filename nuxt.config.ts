@@ -2,11 +2,6 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2024-11-01',
 	devtools: { enabled: true },
-	googleFonts: {
-		families: {
-			Roboto: [400, 500, 600, 700, 800, 900]
-		}
-	},
 	vite: {
 		css: {
 			preprocessorOptions: {
@@ -20,7 +15,11 @@ export default defineNuxtConfig({
 	css: [
 		'~/assets/styles/main.scss' // Replace with the path to your SCSS file
 	],
-	modules: ['nuxt-swiper'],
+	modules: ['nuxt-swiper', '@nuxtjs/sitemap', '@nuxtjs/robots'],
+	robots: {
+		disallow: '', // No pages are disallowed
+		allow: '/' // All pages are allowed
+	},
 	app: {
 		head: {
 			title: 'Expo Bank',

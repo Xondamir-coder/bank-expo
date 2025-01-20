@@ -32,18 +32,24 @@
 </template>
 
 <script setup>
+// == imports ==
 import expert from '~/assets/images/expert.jpg';
 import expert1 from '~/assets/images/expert-1.jpg';
 import expert2 from '~/assets/images/expert-2.jpg';
 import expert3 from '~/assets/images/expert-3.jpg';
 import expert4 from '~/assets/images/expert-4.jpg';
 import expert5 from '~/assets/images/expert-5.jpg';
+
+// == components ==
 import IconsShuriken from '~/components/icons/shuriken.vue';
 import IconsLamp from '~/components/icons/lamp.vue';
 import IconsSpeaking from '~/components/icons/speaking.vue';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+// == swiper ref ==
 const sliderRef = ref();
+
+// == data ==
 const images = [expert, expert1, expert2, expert3, expert4, expert5];
 const items = [
 	{
@@ -62,8 +68,46 @@ const items = [
 		text: 'Ko‘plab xalqaro konferensiya va forumlarning mashhur spikerlari'
 	}
 ];
-const { $gsap } = useNuxtApp();
 
+// == animations ==
+const { $gsap } = useNuxtApp();
+const initAnimations = () => {
+	const parentId = '#home-experts';
+	const parentContainer = `${parentId} .experts`;
+	const travelDistance = 100;
+
+	$gsap.from(`${parentContainer}__title`, {
+		x: -travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__title`)
+	});
+	$gsap.from(`${parentContainer}__text`, {
+		x: travelDistance,
+		...fadeOnScrollTrigger(`${parentContainer}__text`)
+	});
+	$gsap.utils.toArray(`${parentContainer}__slide`).forEach((slide, i) => {
+		$gsap.from(slide, {
+			y: i % 2 ? travelDistance : -travelDistance,
+			...fadeOnScrollTrigger(slide.parentElement, 'bottom 90%')
+		});
+	});
+	$gsap.utils.toArray(`${parentContainer}__bottom-item`).forEach(item => {
+		$gsap.from(item.firstElementChild, {
+			x: -travelDistance / 4,
+			...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
+		});
+		$gsap.from(item.lastElementChild, {
+			x: travelDistance / 4,
+			...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
+		});
+	});
+
+	// Delay refresh to ensure Swiper DOM is ready
+	setTimeout(() => {
+		ScrollTrigger.refresh();
+	}, 50);
+};
+
+// == init swiper ==
 useSwiper(sliderRef, {
 	grabCursor: true,
 	breakpoints: {
@@ -79,42 +123,10 @@ useSwiper(sliderRef, {
 			slidesPerView: 5.5,
 			spaceBetween: 24
 		}
+	},
+	on: {
+		afterInit: initAnimations
 	}
-});
-
-onMounted(() => {
-	const parentId = '#home-experts';
-	const parentContainer = `${parentId} .experts`;
-	const travelDistance = 100;
-	const TIMEOUT_SWIPER = 500;
-
-	$gsap.from(`${parentContainer}__title`, {
-		x: -travelDistance,
-		...fadeOnScrollTrigger(`${parentContainer}__title`)
-	});
-	$gsap.from(`${parentContainer}__text`, {
-		x: travelDistance,
-		...fadeOnScrollTrigger(`${parentContainer}__text`)
-	});
-	setTimeout(() => {
-		$gsap.utils.toArray(`${parentContainer}__slide`).forEach((slide, i) => {
-			$gsap.from(slide, {
-				y: i % 2 ? travelDistance : -travelDistance,
-				...fadeOnScrollTrigger(slide.parentElement, 'bottom 90%')
-			});
-		});
-		$gsap.utils.toArray(`${parentContainer}__bottom-item`).forEach(item => {
-			$gsap.from(item.firstElementChild, {
-				x: -travelDistance / 4,
-				...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
-			});
-			$gsap.from(item.lastElementChild, {
-				x: travelDistance / 4,
-				...fadeOnScrollTrigger(item, 'bottom 90%', 'top 90%')
-			});
-		});
-		ScrollTrigger.refresh();
-	}, TIMEOUT_SWIPER);
 });
 </script>
 
@@ -170,7 +182,6 @@ onMounted(() => {
 			grid-template-columns: max-content 1fr;
 			align-items: center;
 			gap: clamp(10px, 1vw, 20px);
-			font-family: $font-alt;
 		}
 	}
 	&__divider {
