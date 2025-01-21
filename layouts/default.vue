@@ -1,5 +1,8 @@
 <template>
 	<div class="layout" :style="containerStyle">
+		<!-- preloader  -->
+		<Preloader />
+
 		<Header
 			@toggle-menu="toggleMenu"
 			:menu-open="isMenuOpen"
@@ -7,6 +10,7 @@
 		<Menu :class="{ 'menu--open': isMenuOpen }" @toggle-menu="toggleMenu" />
 		<slot />
 		<Footer />
+		<!-- contact modal from right -->
 		<Contact />
 	</div>
 </template>

@@ -75,7 +75,6 @@ const content = [
 		]
 	}
 ];
-import { useHead } from '@vueuse/head';
 
 useHead({
 	title: 'Terms and Conditions | Bank Expo',
