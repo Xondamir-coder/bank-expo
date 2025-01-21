@@ -66,7 +66,7 @@
 						Discover the future <br />
 						of banking technology in one place!
 					</h2>
-					<button class="footer__button">
+					<button to="/contact" class="footer__button">
 						Get started
 						<IconsUpRightArrow class="footer__arrow" />
 					</button>

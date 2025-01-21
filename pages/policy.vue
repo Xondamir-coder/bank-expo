@@ -1,7 +1,24 @@
 <template>
-	<div>policy</div>
+	<main class="policy">
+		<Breadcrumbs :breadcrumbs="breadcrumbs" />
+	</main>
 </template>
 
-<script setup></script>
+<script setup>
+const breadcrumbs = [
+	{
+		to: '/',
+		label: 'Home'
+	},
+	{
+		to: '/policy',
+		label: 'Privacy Policy'
+	}
+];
+</script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.policy {
+	@include section-margin-inline;
+}
+</style>

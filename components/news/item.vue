@@ -87,6 +87,7 @@ const date = computed(() => Intl.DateTimeFormat('ru-RU').format(props.news.date)
 			aspect-ratio: 312/210;
 		}
 		&-container {
+			display: flex;
 			overflow: hidden;
 			border-radius: 16px;
 		}

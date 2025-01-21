@@ -8,7 +8,11 @@
 			</div>
 			<BanksSidebar class="banks__box" />
 		</div>
-		<Pagination id="banks-pagination" />
+		<Pagination
+			id="banks-pagination"
+			:pages-count="pagesCount"
+			:current-page="currentPage"
+			@change-page="fetchItems" />
 	</main>
 </template>
 
@@ -16,13 +20,16 @@
 //  imports
 import IconsBank from '~/components/icons/bank.vue';
 
-//  provide for pagination
-const PAGES_COUNT = 12;
-const fetchNewItems = () => {
-	console.log('hello from banks');
+// refs
+const currentPage = ref(1);
+const query = ref('');
+
+// methods
+const setCurrentPage = page => (currentPage.value = page);
+const fetchItems = page => {
+	setCurrentPage(page);
+	console.log('fetching new banks ...');
 };
-provide('pagesCount', PAGES_COUNT);
-provide('fetchNewItems', fetchNewItems);
 
 //  data
 const breadcrumbs = [
@@ -35,6 +42,7 @@ const breadcrumbs = [
 		label: 'Banks'
 	}
 ];
+const pagesCount = 12;
 const BANKS_COUNT = 10;
 const banks = Array(BANKS_COUNT).fill({
 	icon: IconsBank,
@@ -44,9 +52,6 @@ const banks = Array(BANKS_COUNT).fill({
 	depositInterest: 25,
 	website: 'https://google.com'
 });
-
-//  reactive state
-const query = ref('');
 
 //  animation
 const { $gsap } = useNuxtApp();

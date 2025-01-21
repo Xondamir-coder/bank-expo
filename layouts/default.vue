@@ -7,6 +7,7 @@
 		<Menu :class="{ 'menu--open': isMenuOpen }" @toggle-menu="toggleMenu" />
 		<slot />
 		<Footer />
+		<Contact />
 	</div>
 </template>
 
@@ -22,6 +23,7 @@ const getBgColor = path => {
 	if (path === '/') return '#001833';
 	if (path === '/about') return '#F1F2F4';
 	if (path === '/banks') return '#F8F8F8';
+	if (path === '/partners') return '#F8F8F8';
 };
 
 const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));

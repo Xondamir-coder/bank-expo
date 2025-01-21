@@ -265,7 +265,6 @@ onMounted(() => {
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-		overflow: hidden;
 		animation: slide-from-bottom-heavy 0.7s;
 		img:first-child {
 			width: 100%;
@@ -310,7 +309,6 @@ onMounted(() => {
 		color: $color;
 		padding-bottom: clamp(16px, 2vw, 20px);
 		border-bottom: 1px solid #e9eaec;
-		overflow: hidden;
 		&-col {
 			display: flex;
 			align-items: center;
@@ -334,8 +332,17 @@ onMounted(() => {
 			gap: 10px;
 			animation-name: slide-from-left;
 			animation-duration: 0.5s;
+			transition: color 0.3s;
+			&:hover {
+				color: $clr-yellow;
+				svg {
+					fill: $clr-yellow;
+					transform: translateX(-5px);
+				}
+			}
 
 			svg {
+				transition: fill 0.3s, transform 0.3s;
 				fill: $color;
 				width: 20px;
 			}

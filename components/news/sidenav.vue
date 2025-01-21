@@ -100,8 +100,6 @@ onMounted(() => {
 	color: #111827;
 	border-radius: clamp(16px, 3vw, 32px);
 	$duration: 0.3s;
-	@media only screen and (max-width: $bp-lg) {
-	}
 	&__item {
 		display: grid;
 		grid-template-areas:

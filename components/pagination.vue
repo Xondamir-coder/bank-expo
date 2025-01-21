@@ -1,28 +1,35 @@
 <template>
 	<div class="pagination">
+		<!-- arrow left -->
 		<button
 			class="pagination__button"
 			:disabled="currentPage === 1"
 			@click="changePage(currentPage - 1)">
 			<IconsArrowLeft class="pagination__arrow" />
 		</button>
+
+		<!-- all buttons  -->
 		<button
 			class="pagination__button pagination__button--number"
-			v-for="i in pagesCount"
+			v-for="i in pagesCount - 1"
 			:class="{
 				'pagination__button--active': i === currentPage,
-				'pagination__button--hidden': i >= shownButtonsCount
+				'pagination__button--hidden': i > shownButtonsCount
 			}"
 			:key="i"
 			@click="changePage(i)">
 			{{ i }}
 		</button>
+
+		<!-- dots -->
 		<button
 			class="pagination__button pagination__button--number"
-			v-if="shownButtonsCount < pagesCount"
+			v-if="shownButtonsCount < pagesCount - 1"
 			@click="showAllButtons">
 			...
 		</button>
+
+		<!-- last button -->
 		<button
 			class="pagination__button pagination__button--number"
 			:class="{
@@ -31,6 +38,8 @@
 			@click="changePage(pagesCount)">
 			{{ pagesCount }}
 		</button>
+
+		<!-- right arrow -->
 		<button
 			class="pagination__button"
 			:disabled="currentPage === pagesCount"
@@ -42,21 +51,25 @@
 
 <script setup>
 //  reactive state
-const currentPage = ref(1);
 const shownButtonsCount = ref(3);
 
-//  injects
-const pagesCount = inject('pagesCount');
-const fetchNewItems = inject('fetchNewItems');
+//  props
+const props = defineProps({
+	pagesCount: Number,
+	currentPage: Number
+});
+
+// emit change page
+const emits = defineEmits(['changePage']);
 
 //  methods
 const changePage = newPage => {
-	currentPage.value = newPage;
-	if (currentPage.value !== pagesCount && currentPage.value >= shownButtonsCount.value) {
+	emits('changePage', newPage);
+	if (props.currentPage !== props.pagesCount && props.currentPage >= shownButtonsCount.value) {
 		shownButtonsCount.value++;
 	}
 };
-const showAllButtons = () => (shownButtonsCount.value = pagesCount);
+const showAllButtons = () => (shownButtonsCount.value = props.pagesCount);
 
 //  animation
 const { $gsap } = useNuxtApp();

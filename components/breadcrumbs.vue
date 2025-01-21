@@ -59,11 +59,17 @@ const props = defineProps({
 				}
 			}
 		}
+		&:hover .breadcrumbs__label {
+			color: $clr-yellow;
+		}
 		&:last-child {
 			.breadcrumbs__divider {
 				display: none;
 			}
 		}
+	}
+	&__label {
+		transition: color 0.3s;
 	}
 }
 </style>

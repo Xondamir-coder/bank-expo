@@ -2,12 +2,20 @@
 	<main class="news" id="news">
 		<Breadcrumbs :breadcrumbs="breadcrumbs" />
 		<div class="news__container">
-			<NewsFilter />
+			<Filter
+				:filters="filters"
+				:current-type="currentType"
+				@filter="filterItems"
+				title="Expo News" />
 			<div class="news__wrapper">
 				<div class="news__list">
 					<NewsItem v-for="(item, i) in news" :key="i" :news="item" />
 				</div>
-				<Pagination id="news-pagination" />
+				<Pagination
+					id="news-pagination"
+					:pages-count="pagesCount"
+					:current-page="currentPage"
+					@change-page="fetchItems" />
 			</div>
 			<NewsSidenav title="Most viewed news" :similars="similarNews" />
 		</div>
@@ -38,6 +46,29 @@ const PROTOTYPE_NEWS_ITEM = {
 	title_slug: 'some-news'
 };
 const news = Array(PROTOTYPE_NEWS_COUNT).fill(PROTOTYPE_NEWS_ITEM);
+const filters = [
+	{
+		label: 'All news',
+		type: 'all'
+	},
+	{
+		label: 'Industry news',
+		type: 'industry'
+	},
+	{
+		label: 'Expert insights',
+		type: 'expert'
+	},
+	{
+		label: 'Only banks systems',
+		type: 'only banks'
+	},
+	{
+		label: 'What’s news banks',
+		type: 'news banks'
+	}
+];
+const pagesCount = 12;
 
 // similars
 const PROTOTYPE_SIMILAR_COUNT = 4;
@@ -45,17 +76,19 @@ const similarNews = Array(PROTOTYPE_SIMILAR_COUNT).fill(PROTOTYPE_NEWS_ITEM);
 
 //  refs
 const currentType = ref('all');
+const currentPage = ref(1);
 
 //  methods
-const fetchNewItems = () => {
-	console.log('hello from news');
+const setCurrentType = type => (currentType.value = type);
+const setCurrentPage = page => (currentPage.value = page);
+const fetchItems = page => {
+	setCurrentPage(page);
+	console.log('fetching new news ...');
 };
-
-//  providers
-const PAGES_COUNT = 12;
-provide('currentType', currentType);
-provide('pagesCount', PAGES_COUNT);
-provide('fetchNewItems', fetchNewItems);
+const filterItems = type => {
+	setCurrentType(type);
+	console.log('filtering items ...');
+};
 
 // seo
 useHead({

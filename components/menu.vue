@@ -20,7 +20,7 @@
 			<a class="menu__link menu__link--email" href="mailto:Info@expobanking"
 				>Info@expobanking</a
 			>
-			<NuxtLink to="/contact" class="menu__button"> Contact Us </NuxtLink>
+			<button to="/contact" class="menu__button" :data-contact="true">Contact Us</button>
 		</div>
 	</div>
 </template>

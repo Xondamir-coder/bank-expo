@@ -1,46 +1,32 @@
 <template>
 	<div class="filter">
-		<h2 class="filter__title">Expo News</h2>
+		<h2 class="filter__title">{{ title }}</h2>
 		<div class="filter__buttons">
 			<button
 				class="filter__button"
-				v-for="button in buttons"
-				:key="button.type"
-				@click="setType(button.type)"
-				:class="{ 'filter__button--active': button.type === currentType }">
-				{{ button.label }}
+				v-for="filter in filters"
+				:key="filter.type"
+				@click="setType(filter.type)"
+				:class="{ 'filter__button--active': filter.type === currentType }">
+				{{ filter.label }}
 			</button>
 		</div>
 	</div>
 </template>
 
 <script setup>
-//  data
-const buttons = [
-	{
-		label: 'All news',
-		type: 'all'
-	},
-	{
-		label: 'Industry news',
-		type: 'industry'
-	},
-	{
-		label: 'Expert insights',
-		type: 'expert'
-	},
-	{
-		label: 'Only banks systems',
-		type: 'only banks'
-	},
-	{
-		label: 'What’s news banks',
-		type: 'news banks'
-	}
-];
-const currentType = inject('currentType');
+//  props
+const props = defineProps({
+	filters: Array,
+	currentType: String,
+	title: String
+});
 
-const setType = type => (currentType.value = type);
+// emits
+const emits = defineEmits(['filter']);
+
+// change current type
+const setType = type => emits('filter', type);
 </script>
 
 <style scoped lang="scss">

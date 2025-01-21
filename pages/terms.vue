@@ -1,7 +1,24 @@
 <template>
-	<div>terms</div>
+	<main class="terms">
+		<Breadcrumbs :breadcrumbs="breadcrumbs" />
+	</main>
 </template>
 
-<script setup></script>
+<script setup>
+const breadcrumbs = [
+	{
+		to: '/',
+		label: 'Home'
+	},
+	{
+		to: '/terms',
+		label: 'Terms and Conditions'
+	}
+];
+</script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.terms {
+	@include section-margin-inline;
+}
+</style>

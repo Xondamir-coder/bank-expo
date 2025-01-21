@@ -40,7 +40,9 @@
 				<a class="header__link" href="mailto:Info@expobanking">
 					<span class="header__link-label"> Info@expobanking </span>
 				</a>
-				<button class="header__button">Contact Us</button>
+				<button to="/contact" class="header__button" :data-contact="true">
+					Contact Us
+				</button>
 			</div>
 			<button class="header__lang">
 				<div class="header__lang-inside">
