@@ -224,8 +224,7 @@ definePageMeta({
 		font-weight: 400;
 		line-height: 1.45;
 		text-align: center;
-		opacity: 0.8;
-		color: $clr-secondary;
+		color: rgba($clr-secondary, 0.8);
 	}
 	&__title {
 		color: $clr-yellow;
