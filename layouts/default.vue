@@ -37,7 +37,6 @@ const getBgColor = path => {
 };
 const toggleLoading = () => {
 	isLoaded.value = !isLoaded.value;
-	console.log(isLoading.value);
 };
 
 const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));

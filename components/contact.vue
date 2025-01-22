@@ -59,7 +59,7 @@
 					required
 					v-model="city"
 					class="contact__input"
-					placeholder="Select your city" />
+					placeholder="Enter your city" />
 			</div>
 			<button class="contact__button" type="submit">
 				<span>Send request</span>
@@ -162,6 +162,16 @@ onMounted(() => {
 		padding-inline: clamp(16px, 2vw, 20px);
 		border: 1px solid #cbd5e0;
 		border-radius: clamp(10px, 1vw, 12px);
+		transition: border-color 0.3s;
+		&:user-invalid {
+			border-color: #ff0000;
+		}
+		&:user-valid {
+			border-color: #008b5f;
+		}
+		&:focus {
+			border-color: $clr-yellow;
+		}
 		&::placeholder {
 			opacity: 0.6;
 		}

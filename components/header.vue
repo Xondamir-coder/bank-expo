@@ -44,10 +44,22 @@
 					Contact Us
 				</button>
 			</div>
-			<button class="header__lang">
+			<button class="header__lang" @click="toggleDropdown">
 				<div class="header__lang-inside">
 					<IconsGlobe class="header__lang-icon" />
-					<span>EN</span>
+					<span>{{ currentLanguage.toUpperCase() }}</span>
+				</div>
+				<div
+					class="header__lang-dropdown"
+					:class="{ 'header__lang-dropdown--active': showLanguageDropdown }">
+					<button
+						class="header__lang-button"
+						v-for="lang in languages"
+						:key="lang"
+						:class="{ 'header__lang-button--active': lang === currentLanguage }"
+						@click="toggleLanguage(lang)">
+						{{ lang.toUpperCase() }}
+					</button>
 				</div>
 			</button>
 		</div>
@@ -55,7 +67,6 @@
 </template>
 
 <script setup>
-const { $gsap } = useNuxtApp();
 const route = useRoute();
 const links = [
 	{
@@ -75,11 +86,27 @@ const links = [
 		label: 'Partners'
 	}
 ];
+const languages = ['en', 'ru', 'uz'];
 
+const currentLanguage = ref('en');
+const showLanguageDropdown = ref(false);
+
+const toggleDropdown = () => (showLanguageDropdown.value = !showLanguageDropdown.value);
+const toggleLanguage = lang => {
+	currentLanguage.value = lang;
+	localStorage.setItem('lang', lang);
+};
 defineProps({
 	menuOpen: Boolean
 });
+const { $gsap } = useNuxtApp();
 onMounted(() => {
+	const lang = localStorage.getItem('lang');
+	if (lang) currentLanguage.value = lang;
+	document.addEventListener('click', e => {
+		if (e.target.closest('.header__lang') || !showLanguageDropdown.value) return;
+		toggleDropdown();
+	});
 	// $gsap.to(
 	// 	['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'],
 	// 	{
@@ -166,6 +193,10 @@ onMounted(() => {
 				background: #fff;
 			}
 		}
+		.header__lang-dropdown {
+			background-color: #011224;
+			border-color: rgba(255, 255, 255, 0.1);
+		}
 	}
 
 	&__hamburger {
@@ -218,13 +249,46 @@ onMounted(() => {
 		padding: 6px;
 		font-size: 16px;
 		border-radius: 9px;
-		transition: color 0.3s;
+		position: relative;
 
-		&:hover {
-			.header__lang-icon {
-				fill: $clr-yellow;
+		&-dropdown {
+			position: absolute;
+			z-index: 5;
+			width: 100%;
+			left: 0;
+			top: calc(100% + 7px);
+			display: flex;
+			flex-direction: column;
+			border: 1px solid #e9eaec;
+			box-shadow: 0px 2px 32px 0px #0000001f;
+			border-radius: 10px;
+			background-color: #ffffff;
+			transform: translateY(10px);
+			opacity: 0;
+			pointer-events: none;
+			transition: transform 0.3s, opacity 0.3s;
+			&--active {
+				transform: translateY(0);
+				opacity: 1;
+				pointer-events: all;
 			}
-			color: $clr-yellow;
+		}
+		&-button {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding-block: 14px;
+			padding-inline: 12px;
+			&::after {
+				content: url('~/assets/check.svg');
+				aspect-ratio: 1;
+				display: flex;
+				transform: scale(0);
+				transition: transform 0.3s;
+			}
+			&--active::after {
+				transform: scale(1);
+			}
 		}
 
 		&-icon {
@@ -243,6 +307,14 @@ onMounted(() => {
 			padding-block: clamp(8px, 1vw, 10px);
 			padding-inline: 12px;
 			border-radius: 7px;
+			transition: color 0.3s;
+
+			&:hover {
+				.header__lang-icon {
+					fill: $clr-yellow;
+				}
+				color: $clr-yellow;
+			}
 		}
 	}
 
