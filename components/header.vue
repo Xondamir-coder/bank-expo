@@ -99,7 +99,7 @@ const toggleLanguage = lang => {
 defineProps({
 	menuOpen: Boolean
 });
-const { $gsap } = useNuxtApp();
+// const { $gsap } = useNuxtApp();
 onMounted(() => {
 	const lang = localStorage.getItem('lang');
 	if (lang) currentLanguage.value = lang;
@@ -107,17 +107,15 @@ onMounted(() => {
 		if (e.target.closest('.header__lang') || !showLanguageDropdown.value) return;
 		toggleDropdown();
 	});
-	// $gsap.to(
-	// 	['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'],
-	// 	{
-	// 		background: '#011224CC',
-	// 		scrollTrigger: {
-	// 			trigger: '.header',
-	// 			start: '+=30',
-	// 			toggleActions: 'play none none reverse'
-	// 		}
+	// $gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
+	// 	background: '#011224CC',
+	// 	scrollTrigger: {
+	// 		trigger: '.header',
+	// 		start: '+=30',
+	// 		toggleActions: 'play none none reverse',
+	// 		markers: true
 	// 	}
-	// );
+	// });
 });
 </script>
 
@@ -195,7 +193,7 @@ onMounted(() => {
 		}
 		.header__lang-dropdown {
 			background-color: #011224;
-			border-color: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0);
 		}
 	}
 
