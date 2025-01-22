@@ -133,7 +133,7 @@ onMounted(() => {
 	top: 0;
 	gap: 10px;
 	z-index: 100;
-	animation: slide-from-top 0.7s 0.3s backwards;
+	animation: slide-from-top 0.7s 0.2s backwards;
 	transition: background-color 0.6s;
 	@include section-padding-inline;
 

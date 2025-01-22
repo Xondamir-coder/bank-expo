@@ -1,14 +1,19 @@
 <template>
 	<div class="layout" :style="containerStyle">
 		<!-- preloader  -->
-		<Preloader />
-
+		<Preloader :is-loaded="isLoaded" @loaded="toggleLoading" />
+		<!-- cookies modal -->
+		<Cookies />
+		<!-- content -->
 		<Header
+			v-if="isLoaded"
 			@toggle-menu="toggleMenu"
 			:menu-open="isMenuOpen"
 			:class="{ 'header--home': route.path === '/', 'header--open': isMenuOpen }" />
 		<Menu :class="{ 'menu--open': isMenuOpen }" @toggle-menu="toggleMenu" />
-		<slot />
+		<div v-if="isLoaded">
+			<slot />
+		</div>
 		<Footer />
 		<!-- contact modal from right -->
 		<Contact />
@@ -17,6 +22,7 @@
 
 <script setup>
 const isMenuOpen = ref(false);
+const isLoaded = ref(false);
 const route = useRoute();
 
 const toggleMenu = () => {
@@ -28,6 +34,10 @@ const getBgColor = path => {
 	if (path === '/about') return '#F1F2F4';
 	if (path === '/banks') return '#F8F8F8';
 	if (path === '/partners') return '#F8F8F8';
+};
+const toggleLoading = () => {
+	isLoaded.value = !isLoaded.value;
+	console.log(isLoading.value);
 };
 
 const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));

@@ -47,7 +47,11 @@
 const TIME_TO_LOAD = 3; // 3 seconds
 const MAX_PROGRESS = 100; // 100%
 const progress = ref(0);
-const isLoaded = ref(false);
+
+const props = defineProps({
+	isLoaded: Boolean
+});
+const emits = defineEmits(['loaded']);
 
 let interval;
 onMounted(() => {
@@ -70,7 +74,7 @@ onMounted(() => {
 		if (progress.value >= MAX_PROGRESS - 1) {
 			clearInterval(interval);
 			setTimeout(() => {
-				isLoaded.value = true;
+				emits('loaded');
 			}, 150);
 		}
 		progress.value++;

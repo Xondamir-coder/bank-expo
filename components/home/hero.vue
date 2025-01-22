@@ -146,7 +146,7 @@ onMounted(() => {
 		align-self: flex-end;
 		gap: 12px;
 		text-transform: uppercase;
-		animation: slide-from-right $duration;
+		animation: slide-from-right $duration backwards;
 		@media only screen and (max-width: $bp-md) {
 			position: absolute;
 			left: 16px;
@@ -177,7 +177,7 @@ onMounted(() => {
 		justify-content: space-between;
 		width: 100%;
 		max-width: 455px;
-		animation: slide-from-left $duration;
+		animation: slide-from-left $duration backwards;
 		&-container {
 			display: flex;
 			flex-direction: column;
@@ -205,13 +205,13 @@ onMounted(() => {
 		font-weight: 900;
 		text-transform: uppercase;
 		line-height: 1.4;
-		animation: slide-from-left $duration;
+		animation: slide-from-left $duration backwards;
 	}
 	&__text {
 		font-size: clamp(14px, 1.5vw, 20px);
 		line-height: 1.45;
 		max-width: 45ch;
-		animation: slide-from-right $duration;
+		animation: slide-from-right $duration backwards;
 	}
 	&__content {
 		display: flex;

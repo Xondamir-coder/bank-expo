@@ -93,7 +93,7 @@ const toggleIsActive = () => (isActive.value = !isActive.value);
 const { $lenis } = useNuxtApp();
 onMounted(() => {
 	document.addEventListener('click', e => {
-		if (e.target.closest('[data-contact]').dataset.contact) {
+		if (e.target.closest('[data-contact]')?.dataset.contact) {
 			toggleIsActive();
 			isActive.value ? $lenis.stop() : $lenis.start();
 		}
