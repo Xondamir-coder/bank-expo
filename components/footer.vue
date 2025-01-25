@@ -124,7 +124,9 @@
 				</div>
 			</div>
 			<div class="footer__bottom">
-				<p class="footer__copyright">&copy; 2024 Moonigate - All rights reserved</p>
+				<p class="footer__copyright">
+					&copy; {{ new Date().getFullYear() }} Moonigate - All rights reserved
+				</p>
 				<div class="footer__bottom-links">
 					<NuxtLink to="/terms" class="footer__bottom-link">
 						<span>Terms of service</span>
