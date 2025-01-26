@@ -3,7 +3,7 @@
 		<Breadcrumbs :breadcrumbs="breadcrumbs" />
 		<Legal
 			title="Privacy Policy"
-			subtitle="The Expo Bank Exhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services."
+			subtitle="The Bank Expo Exhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services."
 			:content="content" />
 	</main>
 </template>
@@ -21,15 +21,15 @@ const breadcrumbs = [
 ];
 const content = [
 	{
-		title: 'About the Expo Bank Exhibition',
+		title: 'About the Bank ExpoExhibition',
 		subtitle:
-			'The Expo Bank Exhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services.',
+			'The Bank ExpoExhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services.',
 		texts: null
 	},
 	{
-		title: 'About the Expo Bank Exhibition',
+		title: 'About the Bank ExpoExhibition',
 		subtitle:
-			'The Expo Bank Exhibition is designed to bring together banks, financial institutions, fintech companies, and industry experts to foster collaboration and exchange ideas. This event provides a unique opportunity for participants to:',
+			'The Bank ExpoExhibition is designed to bring together banks, financial institutions, fintech companies, and industry experts to foster collaboration and exchange ideas. This event provides a unique opportunity for participants to:',
 		texts: [
 			'Showcase their latest financial products and services.',
 			'Explore cutting-edge banking technologies and solutions.',
@@ -39,7 +39,7 @@ const content = [
 	},
 	{
 		title: 'Who Should Attend?',
-		subtitle: 'The Expo Bank Exhibition is open to a diverse audience, including:',
+		subtitle: 'The Bank ExpoExhibition is open to a diverse audience, including:',
 		texts: [
 			'General Public: Individuals interested in learning about modern banking solutions and financial literacy.',
 			'Fintech Innovators: Startups and tech companies revolutionizing the financial sector..',
@@ -48,7 +48,7 @@ const content = [
 	},
 	{
 		title: 'Who Should Attend?',
-		subtitle: 'The Expo Bank Exhibition is open to a diverse audience, including:',
+		subtitle: 'The Bank ExpoExhibition is open to a diverse audience, including:',
 		texts: [
 			'General Public: Individuals interested in learning about modern banking solutions and financial literacy.',
 			'Fintech Innovators: Startups and tech companies revolutionizing the financial sector..',
@@ -57,7 +57,7 @@ const content = [
 	},
 	{
 		title: 'Who Should Attend?',
-		subtitle: 'The Expo Bank Exhibition is open to a diverse audience, including:',
+		subtitle: 'The Bank ExpoExhibition is open to a diverse audience, including:',
 		texts: [
 			'General Public: Individuals interested in learning about modern banking solutions and financial literacy.',
 			'Fintech Innovators: Startups and tech companies revolutionizing the financial sector..',
@@ -66,7 +66,7 @@ const content = [
 	},
 	{
 		title: 'Who Should Attend?',
-		subtitle: 'The Expo Bank Exhibition is open to a diverse audience, including:',
+		subtitle: 'The Bank ExpoExhibition is open to a diverse audience, including:',
 		texts: [
 			'General Public: Individuals interested in learning about modern banking solutions and financial literacy.',
 			'Fintech Innovators: Startups and tech companies revolutionizing the financial sector..',

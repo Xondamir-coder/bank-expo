@@ -23,7 +23,7 @@ const content = [
 	{
 		title: 'Use of the Website',
 		subtitle:
-			'The Expo Bank Exhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services.',
+			'The Bank Expo Exhibition is a premier international event uniting banking institutions from Uzbekistan and around the globe under one roof. As a dynamic platform for collaboration, innovation, and growth, the exhibition serves as a gateway to the future of banking and financial services.',
 		texts: [
 			'You must be at least [Insert Age, e.g., 18 years] to use this website.',
 			'You agree to use the website only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit the use of this website by any third party.',

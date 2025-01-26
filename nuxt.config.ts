@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			title: 'Expo Bank',
+			title: 'Bank Expo',
 			htmlAttrs: {
 				lang: 'en'
 			},
@@ -45,12 +45,12 @@ export default defineNuxtConfig({
 				// Social Media Sharing (Open Graph)
 				{
 					property: 'og:title',
-					content: 'Expo Bank - Secure Financial Solutions'
+					content: 'Bank Expo- Secure Financial Solutions'
 				},
 				{
 					property: 'og:description',
 					content:
-						'Partner with Expo Bank for secure and seamless banking services tailored to your personal and business needs.'
+						'Partner with Bank Expofor secure and seamless banking services tailored to your personal and business needs.'
 				},
 				// {
 				// 	property: 'og:image',
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 				},
 				{
 					name: 'twitter:title',
-					content: 'Expo Bank - Secure Financial Solutions'
+					content: 'Bank Expo- Secure Financial Solutions'
 				},
 				{
 					name: 'twitter:description',

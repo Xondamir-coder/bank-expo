@@ -39,8 +39,6 @@ const toggleElements = () => {
 	main.classList.add('dis-none');
 	header.classList.add('dis-none');
 
-	console.log(header);
-
 	setTimeout(() => {
 		main.classList.remove('dis-none');
 		header.classList.remove('dis-none');
