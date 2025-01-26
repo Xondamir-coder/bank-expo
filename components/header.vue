@@ -44,24 +44,22 @@
 					Contact Us
 				</button>
 			</div>
-			<button class="header__lang" @click="toggleDropdown">
-				<div class="header__lang-inside">
+			<div class="header__lang">
+				<button class="header__lang-inside" @click="toggleDropdown">
 					<IconsGlobe class="header__lang-icon" />
 					<span>{{ currentLanguage.toUpperCase() }}</span>
-				</div>
-				<div
-					class="header__lang-dropdown"
-					:class="{ 'header__lang-dropdown--active': showLanguageDropdown }">
+				</button>
+				<div class="header__lang-dropdown" :class="{ active: showLanguageDropdown }">
 					<button
 						class="header__lang-button"
 						v-for="lang in languages"
 						:key="lang"
-						:class="{ 'header__lang-button--active': lang === currentLanguage }"
+						:class="{ active: lang === currentLanguage }"
 						@click="toggleLanguage(lang)">
 						{{ lang.toUpperCase() }}
 					</button>
 				</div>
-			</button>
+			</div>
 		</div>
 	</header>
 </template>
@@ -95,11 +93,11 @@ const toggleDropdown = () => (showLanguageDropdown.value = !showLanguageDropdown
 const toggleLanguage = lang => {
 	currentLanguage.value = lang;
 	localStorage.setItem('lang', lang);
+	toggleDropdown();
 };
 defineProps({
 	menuOpen: Boolean
 });
-// const { $gsap } = useNuxtApp();
 onMounted(() => {
 	const lang = localStorage.getItem('lang');
 	if (lang) currentLanguage.value = lang;
@@ -107,15 +105,6 @@ onMounted(() => {
 		if (e.target.closest('.header__lang') || !showLanguageDropdown.value) return;
 		toggleDropdown();
 	});
-	// $gsap.to(['.header__logo-container', '.header__nav', '.header__col-inside', '.header__lang'], {
-	// 	background: '#011224CC',
-	// 	scrollTrigger: {
-	// 		trigger: '.header',
-	// 		start: '+=30',
-	// 		toggleActions: 'play none none reverse',
-	// 		markers: true
-	// 	}
-	// });
 });
 </script>
 
@@ -265,7 +254,7 @@ onMounted(() => {
 			opacity: 0;
 			pointer-events: none;
 			transition: transform 0.3s, opacity 0.3s;
-			&--active {
+			&.active {
 				transform: translateY(0);
 				opacity: 1;
 				pointer-events: all;
@@ -284,7 +273,7 @@ onMounted(() => {
 				transform: scale(0);
 				transition: transform 0.3s;
 			}
-			&--active::after {
+			&.active::after {
 				transform: scale(1);
 			}
 		}

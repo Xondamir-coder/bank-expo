@@ -1,19 +1,16 @@
 <template>
-	<div class="layout" :style="containerStyle">
+	<div class="layout overflow-hidden" :style="containerStyle">
 		<!-- preloader  -->
 		<Preloader :is-loaded="isLoaded" @loaded="toggleLoading" />
 		<!-- cookies modal -->
 		<Cookies />
 		<!-- content -->
 		<Header
-			v-if="isLoaded"
 			@toggle-menu="toggleMenu"
 			:menu-open="isMenuOpen"
 			:class="{ 'header--home': route.path === '/', 'header--open': isMenuOpen }" />
 		<Menu :class="{ 'menu--open': isMenuOpen }" @toggle-menu="toggleMenu" />
-		<div v-if="isLoaded">
-			<slot />
-		</div>
+		<slot />
 		<Footer />
 		<!-- contact modal from right -->
 		<Contact />
@@ -35,8 +32,28 @@ const getBgColor = path => {
 	if (path === '/banks') return '#F8F8F8';
 	if (path === '/partners') return '#F8F8F8';
 };
+
+const toggleElements = () => {
+	const main = document.querySelector('main');
+	const header = document.querySelector('header');
+	main.classList.add('dis-none');
+	header.classList.add('dis-none');
+
+	console.log(header);
+
+	setTimeout(() => {
+		main.classList.remove('dis-none');
+		header.classList.remove('dis-none');
+	}, 50);
+};
+const removeOverflow = () => {
+	document.body.style.overflow = 'visible';
+	document.querySelector('.layout').classList.remove('overflow-hidden');
+};
 const toggleLoading = () => {
 	isLoaded.value = !isLoaded.value;
+	toggleElements();
+	removeOverflow();
 };
 
 const containerStyle = computed(() => ({ backgroundColor: getBgColor(route.path) }));
