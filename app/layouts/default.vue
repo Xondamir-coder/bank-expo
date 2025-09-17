@@ -7,6 +7,7 @@
     <slot />
     <AppFooter />
     <FormModal />
+    <SuccessModal />
   </div>
 </template>
 

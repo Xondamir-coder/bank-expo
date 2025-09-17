@@ -26,12 +26,21 @@ a {
 ul {
   list-style: none;
 }
+svg {
+  fill: inherit;
+  stroke: inherit;
+  transition: all 0.3s;
+}
 button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   color: inherit;
   font: inherit;
+  transition: all 0.3s;
+  &:disabled {
+    cursor: not-allowed;
+  }
 }
 input,
 textarea {

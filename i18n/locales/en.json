@@ -13,6 +13,7 @@
   "visitors": "Visitors",
   "exhibitors": "Exhibitors",
   "countries": "Countries",
+  "okay": "Okay",
 
   "contacts": {
     "name": "Contacts",
@@ -122,6 +123,11 @@
 
   "form-modal": {
     "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+  },
+
+  "success-modal": {
+    "title": "Your application has been successfully submitted!",
+    "text": "Our administrator will contact you within 24 hours. Thank you for your interest and for submitting your application!"
   },
 
   "form": {

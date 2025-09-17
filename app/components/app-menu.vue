@@ -20,7 +20,15 @@
           <IconsInstagram class="menu__social-icon" />
         </a>
         <a class="menu__link menu__link--email" href="mailto:Info@expobanking">Info@expobanking</a>
-        <button class="menu__button" @click="showFormModal = true">{{ $t('contact-us') }}</button>
+        <button
+          class="menu__button"
+          @click="
+            showFormModal = true;
+            showMenu = false;
+          "
+        >
+          {{ $t('contact-us') }}
+        </button>
       </div>
     </div>
   </Transition>

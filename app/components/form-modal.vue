@@ -53,7 +53,11 @@
               @input="row.type === 'tel' ? checkTel() : null"
             />
           </div>
-          <button class="form-modal__button" type="submit">
+          <button
+            class="form-modal__button"
+            type="submit"
+            :disabled="!name || !organization || !tel"
+          >
             <span>Send request</span>
             <IconsUpRightArrow class="form-modal__arrow" />
           </button>
@@ -76,6 +80,9 @@ const name = ref('');
 const tel = ref('');
 const organization = ref('');
 
+const showSuccessModal = useState('showSuccessModal', () => false);
+const showFormModal = useState('showFormModal', () => false);
+
 const rows = computed(() => [
   {
     label: t('form.full-name.label'),
@@ -97,8 +104,6 @@ const rows = computed(() => [
   }
 ]);
 
-const showFormModal = useState('showFormModal', () => false);
-
 watch(showFormModal, () => {
   if (showFormModal.value) $lenis.stop();
   else $lenis.start();
@@ -111,9 +116,11 @@ const checkTel = () => {
   }
 };
 const submitForm = () => {
-  console.log(name.value);
-  console.log(organization.value);
-  console.log(tel.value);
+  showSuccessModal.value = true;
+  showFormModal.value = false;
+  setTimeout(() => {
+    showSuccessModal.value = false;
+  }, 3000);
 };
 </script>
 
@@ -207,7 +214,13 @@ const submitForm = () => {
     justify-content: center;
     border-radius: max(10px, 1.2rem);
     transition: background-color 0.3s, color 0.3s;
-    &:hover {
+    fill: #fff;
+    &:disabled {
+      background-color: #e9eaec;
+      color: #a0aec0;
+      fill: #a0aec0;
+    }
+    &:not(:disabled):hover {
       background-color: #fff;
       color: $clr-yellow;
       svg {
@@ -217,8 +230,6 @@ const submitForm = () => {
   }
   &__arrow {
     width: 24px;
-    fill: #fff;
-    transition: fill 0.3s;
   }
   &__form {
     display: flex;
