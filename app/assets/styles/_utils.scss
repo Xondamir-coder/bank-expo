@@ -1,0 +1,16 @@
+@use 'abstracts/variables' as *;
+.flex {
+  display: flex;
+}
+.bg-yellow {
+  background-color: $clr-yellow;
+}
+.row-span-2 {
+  grid-row: span 2;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.dis-none {
+  display: none !important;
+}

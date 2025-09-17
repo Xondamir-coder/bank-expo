@@ -1,0 +1,66 @@
+@use '../abstracts/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-kerning: none;
+  text-rendering: optimizeSpeed;
+
+  // adaptive based on 1920px design, upscales till 2560px, downscale infinitely (specific to element)
+  font-size: min(100vw / (1920 / 10), 2560 / 1920 * 10px);
+}
+body {
+  font-family: $font-base, sans-serif;
+  font-weight: 400;
+  overflow: hidden;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  border: none;
+  outline: none;
+}
+main {
+  margin-top: clamp(4px, 1.5vw, 20px);
+  margin-bottom: clamp(20px, 5vw, 80px);
+  color: #111827;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

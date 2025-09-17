@@ -1,0 +1,143 @@
+{
+  "contact-us": "Contact Us",
+  "get-started": "Get Started",
+  "rights-reserved": "All rights reserved",
+  "links": "Links",
+  "services": "Services",
+  "days": "Days",
+  "hours": "Hours",
+  "minutes": "Minutes",
+  "seconds": "Seconds",
+  "tashkent": "Tashkent",
+  "uzbekistan": "Uzbekistan",
+  "visitors": "Visitors",
+  "exhibitors": "Exhibitors",
+  "countries": "Countries",
+
+  "contacts": {
+    "name": "Contacts",
+    "address": "Uzbekistan, Tashkent"
+  },
+
+  "footer": {
+    "title": "Discover the future of banking technology in one place!"
+  },
+
+  "nav": {
+    "about": "About",
+    "banks": "Banks",
+    "participants": "Participants",
+    "speakers": "Speakers",
+    "sponsors": "Sponsors",
+    "media": "Media",
+    "news": "News",
+    "partners": "Partners",
+    "terms-of-service": "Terms of service",
+    "privacy-policy": "Privacy policy"
+  },
+
+  "home": {
+    "hero": {
+      "titles": ["New Horizons", "of Modern Finance"],
+      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+    },
+    "about": {
+      "title": "About the Event",
+      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+    },
+    "mission": {
+      "title": "Our mission",
+      "items": [
+        {
+          "title": "Innovative Technologies",
+          "text": "Expo Banking presents innovative technologies and digital services, providing opportunities for companies to explore and develop cutting-edge technologies."
+        },
+        {
+          "title": "Global Community",
+          "text": "The global community of Expo Banking unites leaders of the world's top financial institutions, fostering innovation and collaboration in the development of modern finance."
+        },
+        {
+          "title": "Global Partners",
+          "text": "Leading global banks and financial institutions partner with Expo Banking to showcase their latest innovations and business opportunities, driving the development of modern finance."
+        }
+      ]
+    },
+    "events": {
+      "title": "Upcoming events",
+      "cards": [
+        {
+          "title": "Smart Cities and Banking Summit",
+          "text": "Smart Cities and Banking Summit is a global platform for discussing the integration of modern cities and financial institutions. The forum will bring together representatives of banks and cities to discuss the opportunities for cooperation and innovation."
+        },
+        {
+          "title": "Mobile Banking Revolution Expo",
+          "text": "Mobile Banking Revolution Expo is an exhibition exhibition platform for showcasing the latest mobile banking technologies and innovations. The event will bring together representatives of mobile banking industry to discuss the opportunities and challenges of mobile banking."
+        },
+        {
+          "title": "Payment Systems innovation Forum",
+          "text": "Payment Systems Innovation Forum is a global platform for discussing the latest innovations in payment systems. The forum will bring together representatives of payment systems industry to discuss the opportunities and challenges of payment systems."
+        },
+        {
+          "title": "Global Fintech Forum 2025",
+          "text": "Global Fintech Forum 2025 is a global platform for discussing the latest innovations in fintech industry. The forum will bring together representatives of fintech industry to discuss the opportunities and challenges of fintech industry."
+        }
+      ]
+    },
+    "welcome": {
+      "text": "Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends.Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends."
+    },
+    "experts": {
+      "title": "Experts Shaping the Future of Finance",
+      "text": "Our speakers will share insights on modern banking technologies and the development trends of international financial markets",
+      "items": [
+        {
+          "title": "Global Financial Expertise",
+          "text": "Strategic partnerships and innovations in global financial markets"
+        },
+        {
+          "title": "Innovation Platforms",
+          "text": "Leading banking technologies in the modern era"
+        },
+        {
+          "title": "International Speakers Bureau",
+          "text": "Global conferences and forums featuring prominent speakers"
+        }
+      ]
+    },
+    "banks": {
+      "title": "Participating Banks",
+      "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+    },
+    "partners": {
+      "title": "Partners & Sponsors",
+      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the",
+      "items": [
+        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
+        "Oʻzbekiston Respublikasi Milliy Gvardiyasi",
+        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
+        "Oʻzbekiston Respublikasi Adliya Vazirligi"
+      ]
+    }
+  },
+
+  "form-modal": {
+    "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+  },
+
+  "form": {
+    "organization": {
+      "placeholder": "Your organization name",
+      "label": "Organization"
+    },
+    "full-name": {
+      "placeholder": "Enter your name",
+      "label": "Full name"
+    },
+    "mobile-phone": {
+      "placeholder": "Enter your number",
+      "label": "Mobile phone"
+    },
+    "send-request": "Send request",
+    "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
+  }
+}

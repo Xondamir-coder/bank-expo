@@ -7,14 +7,18 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@nuxtjs/robots": "^5.2.1",
-    "@nuxtjs/sitemap": "^7.2.1",
+    "@nuxt/eslint": "^1.9.0",
+    "@nuxtjs/i18n": "^10.1.0",
+    "@nuxtjs/seo": "^3.1.0",
+    "eslint": "^9.35.0",
     "gsap": "^3.12.5",
     "lenis": "^1.1.19",
-    "nuxt": "^3.15.1",
+    "nuxt": "^4.1.2",
     "nuxt-swiper": "^2.0.0",
     "vue": "latest",
     "vue-router": "latest"
