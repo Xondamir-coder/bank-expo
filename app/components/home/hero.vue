@@ -35,7 +35,7 @@
       </div>
       <div class="hero__location">
         <div class="hero__location-icontainer">
-          <IconsPosition />
+          <IconsPosition class="hero__location-icon" />
         </div>
         <div class="hero__location-content">
           <span>
@@ -166,6 +166,9 @@ onMounted(() => {
       border: 1px solid #ffffff1a;
       backdrop-filter: blur(32px);
     }
+    &-icon {
+      width: 60%;
+    }
   }
   &__time {
     background-color: $clr-yellow;
@@ -173,9 +176,7 @@ onMounted(() => {
     padding-inline: max(10px, 3.2rem);
     padding-block: max(10px, 2.4rem);
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 455px;
+    gap: max(2.4rem, 5px);
     animation: slide-from-left $duration backwards;
     &-container {
       display: flex;

@@ -21,17 +21,42 @@
         <Logo :is-white="route.name.includes('index') || showMenu" />
       </NuxtLink>
       <nav class="header__nav">
-        <NuxtLink
-          v-for="(link, index) in links"
-          :key="index"
-          :to="$localePath(link.to)"
-          class="header__link"
-          active-class="header__link--active"
-        >
-          <span class="header__link-label">
-            {{ link.label }}
-          </span>
-        </NuxtLink>
+        <div v-for="(link, index) in links" :key="index" class="header__link-container">
+          <NuxtLink
+            v-if="link.to"
+            :to="$localePath(link.to)"
+            class="header__link"
+            active-class="header__link--active"
+          >
+            <span class="header__link-label">
+              {{ link.label }}
+            </span>
+          </NuxtLink>
+          <button v-else class="header__link" @click="link.showSublinks = !link.showSublinks">
+            <span class="header__link-label">
+              {{ link.label }}
+            </span>
+            <div class="dots">
+              <div class="dot" />
+              <div class="dot" />
+              <div class="dot" />
+            </div>
+          </button>
+          <div
+            v-if="link.sublinks"
+            class="header__sublink-dropdown"
+            :class="{ active: link.showSublinks }"
+          >
+            <NuxtLink
+              v-for="sublink in link.sublinks"
+              :key="sublink.to"
+              :to="$localePath(sublink.to)"
+              class="header__sublink"
+            >
+              {{ sublink.label }}
+            </NuxtLink>
+          </div>
+        </div>
       </nav>
     </div>
     <div class="header__col header__col--right">
@@ -74,11 +99,24 @@
 const route = useRoute();
 const { t, localeCodes, setLocale } = useI18n();
 
-const links = computed(() => [
+const links = ref([
   {
-    to: '/about',
     label: t('nav.about'),
-    isMulti: true
+    showSublinks: false,
+    sublinks: [
+      {
+        to: '/mission',
+        label: t('nav.mission')
+      },
+      {
+        to: '/organizer',
+        label: t('nav.organizer')
+      },
+      {
+        to: '/venue',
+        label: t('nav.venue')
+      }
+    ]
   },
   {
     to: '/participants',
@@ -97,9 +135,18 @@ const links = computed(() => [
     label: t('nav.sponsors')
   },
   {
-    to: '/media',
     label: t('nav.media'),
-    isMulti: true
+    showSublinks: false,
+    sublinks: [
+      {
+        to: '/media-library',
+        label: t('nav.media-library')
+      },
+      {
+        to: '/media-accreditation',
+        label: t('nav.media-accreditation')
+      }
+    ]
   }
 ]);
 
@@ -116,8 +163,12 @@ const changeLocale = code => {
 
 onMounted(() => {
   document.addEventListener('click', e => {
-    if (e.target.closest('.header__lang') || !showLanguageDropdown.value) return;
-    toggleDropdown();
+    if (!e.target.closest('.header__link-container')) {
+      links.value.forEach(link => (link.showSublinks = false));
+    }
+    if (!e.target.closest('.header__lang') && showLanguageDropdown.value) {
+      toggleDropdown();
+    }
   });
 });
 </script>
@@ -175,6 +226,15 @@ onMounted(() => {
   }
   &--home,
   &--open {
+    .dot {
+      background-color: #fff;
+    }
+    .header__link:has(div):hover {
+      background-color: $clr-yellow;
+    }
+    .header__link:has(+ .header__sublink-dropdown.active) {
+      background-color: $clr-yellow;
+    }
     .header__social {
       @include social-icon;
     }
@@ -184,6 +244,11 @@ onMounted(() => {
     .header__link,
     .header__lang-inside {
       @include item-dark;
+    }
+    .header__sublink-dropdown {
+      background-color: #011224;
+      border-color: #ffffff1a;
+      box-shadow: 0px 2px 32px 0px rgba(255, 255, 255, 0.1215686275);
     }
     .header__hamburger {
       background: #ffffff05;
@@ -334,24 +399,60 @@ onMounted(() => {
       display: none;
     }
   }
-
+  &__sublink {
+    font-size: max(1.7rem, 14px);
+    padding-block: max(1.4rem, 12px);
+    padding-inline: max(1.2rem, 10px);
+    &:hover {
+      color: $clr-yellow;
+    }
+    &-dropdown {
+      z-index: 5;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0px 2px 32px 0px #0000001f;
+      border: 1px solid #e9eaec;
+      border-radius: max(1rem, 10px);
+      display: flex;
+      flex-direction: column;
+      min-width: 120%;
+      width: max-content;
+      transition: transform 0.3s, opacity 0.3s;
+      &:not(.active) {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+    }
+  }
   &__link {
     padding-block: max(1rem, 8px);
     padding-inline: max(2.4rem, 18px);
     border-radius: max(1rem, 10px);
-    transition: color 0.3s;
+    gap: max(1rem, 10px);
     @include item;
     &--active {
       background: $clr-yellow;
       color: #fafafa;
     }
-    &:hover:not(.header__link--active) {
+    &:hover:not(.header__link--active):not(:has(div)) {
       color: $clr-yellow;
       .header__link-label::after {
         height: 4px;
       }
     }
-
+    &:has(div):hover {
+      background-color: #f3ebd8;
+    }
+    &:has(+ .header__sublink-dropdown.active) {
+      background-color: #f3ebd8;
+    }
+    &-container {
+      display: flex;
+      position: relative;
+    }
     &-label {
       position: relative;
 
@@ -404,7 +505,7 @@ onMounted(() => {
     }
 
     &--left {
-      gap: 24px;
+      gap: max(2.4rem, 12px);
 
       @media only screen and (max-width: $bp-md) {
         flex: 1;
@@ -414,7 +515,7 @@ onMounted(() => {
     }
 
     &--right {
-      gap: 18px;
+      gap: max(1.8rem, 10px);
     }
   }
 
@@ -430,5 +531,17 @@ onMounted(() => {
       }
     }
   }
+}
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-inline: 2px;
+}
+.dot {
+  background-color: #323b49;
+  width: max(0.4rem, 4px);
+  height: max(0.4rem, 4px);
+  border-radius: 50%;
 }
 </style>

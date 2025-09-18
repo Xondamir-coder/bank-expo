@@ -26,11 +26,16 @@
 
   "nav": {
     "about": "About",
+    "mission": "Mission",
+    "venue": "Venue",
+    "organizer": "Organizer",
     "banks": "Banks",
     "participants": "Participants",
     "speakers": "Speakers",
     "sponsors": "Sponsors",
     "media": "Media",
+    "media-library": "Media Library",
+    "media-accreditation": "Media Accreditation",
     "news": "News",
     "partners": "Partners",
     "terms-of-service": "Terms of service",
