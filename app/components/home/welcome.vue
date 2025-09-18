@@ -13,7 +13,7 @@
         </p>
       </div>
     </div>
-    <img src="~/assets/images/home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
+    <img src="~/assets/images/home-welcome.jpg" alt="uzbekistan" class="welcome__image" >
   </section>
 </template>
 

@@ -9,7 +9,7 @@
     <ClientOnly>
       <swiper-container ref="sliderRef" class="experts__slider" :init="false">
         <swiper-slide v-for="(image, id) in images" :key="id" class="experts__slide">
-          <img :src="image" alt="person" class="experts__image" />
+          <img :src="image" alt="person" class="experts__image" >
         </swiper-slide>
       </swiper-container>
     </ClientOnly>

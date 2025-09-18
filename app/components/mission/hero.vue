@@ -1,7 +1,7 @@
 <template>
   <section class="hero">
     <div class="hero__circles">
-      <div v-for="i in SLIDES_COUNT" :key="i" class="hero__circle"/>
+      <div v-for="i in SLIDES_COUNT" :key="i" class="hero__circle" />
     </div>
     <div class="hero__top">
       <div class="hero__icons">
@@ -11,11 +11,11 @@
       </div>
       <div class="hero__content">
         <p class="hero__text">
-          Expo Banking – the premier platform for banks and financial institutions
+          {{ $t('mission.hero.text') }}
         </p>
         <h1 class="hero__title">
-          <span class="hero__title--grey">Expo Banking – the premier</span>
-          <span class="hero__title--yellow">platform for banks</span>
+          <span class="hero__title--grey">{{ $rt($tm('mission.hero.titles')[0]) }}</span>
+          <span class="hero__title--yellow">{{ $rt($tm('mission.hero.titles')[1]) }}</span>
         </h1>
       </div>
     </div>
@@ -32,7 +32,7 @@
       </div>
       <div class="hero__action">
         <div v-for="i in SLIDES_COUNT" :key="i" class="hero__bar--outer">
-          <div class="hero__bar--inner"/>
+          <div class="hero__bar--inner" />
         </div>
       </div>
     </div>
@@ -154,8 +154,8 @@ onBeforeUnmount(() => {
 }
 .hero {
   background-color: #fff;
-  border-radius: clamp(16px, 3vw, 32px);
-  margin-top: clamp(20px, 3vw, 30px);
+  border-radius: max(16px, 3.2rem);
+  margin-top: max(20px, 3rem);
   position: relative;
   overflow: hidden;
   $duration: 1s;
@@ -207,14 +207,13 @@ onBeforeUnmount(() => {
   }
 
   &__text {
-    font-size: clamp(12px, 1.5vw, 20px);
+    font-size: max(12px, 2rem);
     text-align: center;
-    color: #323b49;
     animation: slide-from-left 1s;
   }
   &__bottom {
     display: grid;
-    border-radius: clamp(12px, 3vw, 32px);
+    border-radius: max(12px, 3.2rem);
     overflow: hidden;
     & > * {
       grid-area: 1/1/2/2;
@@ -229,8 +228,8 @@ onBeforeUnmount(() => {
   &__content {
     display: flex;
     flex-direction: column;
-    gap: clamp(16px, 2vw, 24px);
-    padding-block: clamp(30px, 9vw, 150px);
+    gap: max(16px, 2.4rem);
+    padding-block: max(30px, 15rem);
     padding-inline: 10px;
     z-index: 2;
     position: relative;
@@ -239,7 +238,7 @@ onBeforeUnmount(() => {
     }
   }
   &__title {
-    font-size: clamp(18px, 3vw, 54px);
+    font-size: max(18px, 5.4rem);
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
@@ -265,8 +264,8 @@ onBeforeUnmount(() => {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 8px;
-    padding: clamp(16px, 3vw, 36px);
-    gap: clamp(16px, 2vw, 24px);
+    padding: max(16px, 3.6rem);
+    gap: max(16px, 2.4rem);
     z-index: 10;
   }
   &__bar {
@@ -302,13 +301,14 @@ onBeforeUnmount(() => {
   &__icons {
     position: relative;
     z-index: 3;
+    pointer-events: none;
   }
   &__icon {
     width: 66%;
     &-container {
       @include flex-center;
       position: absolute;
-      width: 60px;
+      width: max(6rem, 60px);
       aspect-ratio: 1;
       background: #ffffff;
       box-shadow: 0px 1.2px 27px 0px #0000001a;
@@ -336,8 +336,8 @@ onBeforeUnmount(() => {
       &:nth-child(2) {
         right: 16%;
         top: 27%;
-        width: clamp(60px, 5vw, 80px);
-        border-radius: clamp(18px, 2vw, 24px);
+        width: max(60px, 8rem);
+        border-radius: max(18px, 2.4rem);
         @media only screen and (max-width: $bp-lg) {
           top: 61%;
         }
@@ -350,8 +350,8 @@ onBeforeUnmount(() => {
       &:nth-child(3) {
         right: 11%;
         bottom: 5%;
-        width: clamp(80px, 7vw, 100px);
-        border-radius: clamp(20px, 2vw, 32px);
+        width: max(80px, 1rem);
+        border-radius: max(20px, 3.2rem);
         @media only screen and (max-width: $bp-lg) {
           display: none;
         }
@@ -372,8 +372,8 @@ onBeforeUnmount(() => {
       &:nth-child(5) {
         left: 35%;
         bottom: 6%;
-        width: clamp(60px, 5vw, 80px);
-        border-radius: clamp(18px, 2vw, 24px);
+        width: max(60px, 8rem);
+        border-radius: max(18px, 2.4rem);
         @media only screen and (max-width: $bp-lg) {
           display: none;
         }
@@ -405,7 +405,7 @@ onBeforeUnmount(() => {
         border-radius: 24px;
         left: 7.5%;
         bottom: 14%;
-        width: clamp(80px, 5vw, 90px);
+        width: max(80px, 9rem);
         @media only screen and (max-width: $bp-lg) {
           display: none;
         }

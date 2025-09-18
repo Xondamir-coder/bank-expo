@@ -25,6 +25,7 @@
   },
 
   "nav": {
+    "home": "Home",
     "about": "About",
     "mission": "Mission",
     "venue": "Venue",
@@ -150,5 +151,98 @@
     },
     "send-request": "Send request",
     "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
+  },
+
+  "mission": {
+    "hero": {
+      "titles": ["Expo Banking – the premier", "platform for banks"],
+      "text": "Expo Banking – the premier platform for banks and financial institutions "
+    },
+    "global": {
+      "title": "Your Gateway to Global Connections",
+      "items": [
+        {
+          "amount": "50+",
+          "label": "Countries",
+          "text": "Expo Bank unites participants from over 50 countries, creating a truly international platform."
+        },
+        {
+          "amount": "1000+",
+          "label": "Visitors",
+          "text": "The event welcomes top bank representatives, business leaders, and general attendees, fostering valuable connections"
+        },
+        {
+          "amount": "10+",
+          "label": "Countries",
+          "text": "The exhibition offers opportunities in financial technology, lending, insurance, and various other sectors, encouraging cross-industry collaboration"
+        }
+      ]
+    },
+    "team": {
+      "title": "Our managment team",
+      "text": "Epo Bank unites participants from over",
+      "members": [
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        },
+        {
+          "name": "Ahmadjon Rahmatjonov",
+          "job": "Founder and CEO"
+        }
+      ]
+    }
+  },
+
+  "venue": {
+    "title": "Venue & Travel Information",
+    "text": "Join us at the heart of Tashkent for the Expo Bank 2025",
+    "items": [
+      {
+        "title": "Venue Details",
+        "details": ["Epo Expo Center", "Mustaqillik ko‘chasi 45, Tashkent, Uzbekistan"],
+        "text": "The Expo Bank will take place at the state-of-the-art Epo Expo Center — a modern venue equipped with world-class facilities for conferences, exhibitions, and networking"
+      },
+      {
+        "title": "Opening Hours",
+        "details": ["15–17 September 2025", "10:00 – 18:00 (daily)"]
+      },
+      {
+        "title": "How to Get There:",
+        "details": ["Taxi & Ride-hailing services available", "Metro: Expo Station (Line 2)"]
+      },
+      {
+        "title": "Accommodation",
+        "details": [
+          "Hilton Tashkent City",
+          "Hyatt Regency Tashkent",
+          "Local boutique hotels near Expo Center"
+        ]
+      }
+    ]
   }
 }

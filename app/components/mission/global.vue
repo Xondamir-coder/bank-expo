@@ -1,22 +1,21 @@
 <template>
-  <section id="about-global" class="global">
+  <section id="mission-global" class="global">
     <h2 class="global__title">
-      Your Gateway to Global <br >
-      Connections
+      {{ $t('mission.global.title') }}
     </h2>
     <div class="global__list">
-      <div v-for="(item, i) in items" :key="i" class="global__item">
+      <div v-for="(item, i) in $tm('mission.global.items')" :key="i" class="global__item">
         <Pattern class="global__item-pattern" />
         <div class="global__item-content">
           <h3 class="global__item-amount">
-            {{ item.amount }}
+            {{ $rt(item.amount) }}
           </h3>
           <h4 class="global__item-title">
-            {{ item.title }}
+            {{ $rt(item.label) }}
           </h4>
         </div>
         <p class="global__item-text">
-          {{ item.text }}
+          {{ $rt(item.text) }}
         </p>
       </div>
     </div>
@@ -24,27 +23,10 @@
 </template>
 
 <script setup>
-const items = [
-  {
-    amount: '50+',
-    title: 'Countries',
-    text: 'Epo Bank unites participants from over 50 countries, creating a truly international platform.'
-  },
-  {
-    amount: '1000+',
-    title: 'Visitors',
-    text: 'The event welcomes top bank representatives, business leaders, and general attendees, fostering valuable connections'
-  },
-  {
-    amount: '10+',
-    title: 'Industries',
-    text: 'The exhibition offers opportunities in financial technology, lending, insurance, and various other sectors, encouraging cross-industry collaboration'
-  }
-];
 const { $gsap } = useNuxtApp();
 
 onMounted(() => {
-  const parentId = '#about-global';
+  const parentId = '#mission-global';
   const parentContainer = `${parentId} .global`;
   $gsap.from(`${parentContainer}__title`, {
     x: -100,
@@ -100,9 +82,10 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: clamp(16px, 7vw, 80px);
+    gap: 16px;
     font-weight: 700;
     position: relative;
+    aspect-ratio: 524/320;
     @media only screen and (max-width: $bp-md) {
       gap: 16px;
     }
@@ -125,7 +108,6 @@ onMounted(() => {
       font-size: clamp(20px, 2vw, 36px);
     }
     &-text {
-      color: #323b49;
       font-size: clamp(14px, 1vw, 20px);
       line-height: 1.4;
       font-weight: 400;
@@ -133,6 +115,7 @@ onMounted(() => {
   }
   &__title {
     @include section-title;
+    max-width: 18ch;
   }
 }
 </style>

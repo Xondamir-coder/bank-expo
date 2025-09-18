@@ -51,7 +51,7 @@ defineProps({
     gap: 4px;
     align-items: center;
 
-    font-size: 14px;
+    font-size: max(1.4rem, 14px);
     color: $clr-grey;
     animation: slide-from-top 0.5s ease-in-out backwards;
 

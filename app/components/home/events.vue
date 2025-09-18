@@ -25,9 +25,9 @@
           class="events__item"
           :class="{ active: curId === index }"
         >
-          <img :src="item.img" alt="banner" class="events__image" />
+          <img :src="item.img" alt="banner" class="events__image" >
           <div class="events__item-time">
-            <IconsCalendar class="events__icon" />
+            <IconsCalendar class="fill-cyan events__icon" />
             <span>{{ item.date }}</span>
           </div>
         </div>

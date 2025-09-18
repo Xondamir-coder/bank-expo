@@ -10,7 +10,7 @@
           </NuxtLink>
           <div class="news__top-right">
             <div class="news__top-col">
-              <IconsCalendar class="news__icon" />
+              <IconsCalendar class="fill-cyan news__icon" />
               <div>
                 <span class="news__word">Published: </span>
                 <span>{{ date }}</span>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="news__content">
-          <img src="~/assets/images/test-news-hero.jpg" alt="banner" />
+          <img src="~/assets/images/test-news-hero.jpg" alt="banner" >
           <h3>
             What are bay windows: can you eat them, wear them, or take them on a trip? Neither. We
             tell and show you in this text

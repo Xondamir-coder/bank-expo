@@ -51,7 +51,7 @@
               class="form-modal__input"
               required
               @input="row.type === 'tel' ? checkTel() : null"
-            />
+            >
           </div>
           <button
             class="form-modal__button"
@@ -63,7 +63,7 @@
           </button>
           <div class="form-modal__bottom">
             Регистрируясь, вы подтверждаете, что прочитали и согласны с
-            <br />
+            <br >
             <NuxtLink :to="$localePath('/policy')">Политикой конфиденциальности.</NuxtLink>
           </div>
         </form>

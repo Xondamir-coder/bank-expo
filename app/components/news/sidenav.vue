@@ -11,7 +11,7 @@
         :to="$localePath(`/news/${similar.title_slug}`)"
       >
         <div class="sidenav__image-container">
-          <img :src="similar.img" alt="similar news banner" class="sidenav__image" />
+          <img :src="similar.img" alt="similar news banner" class="sidenav__image" >
         </div>
         <h4 class="sidenav__text">
           {{
@@ -22,7 +22,7 @@
         </h4>
         <div class="sidenav__bottom">
           <div class="sidenav__bottom-col">
-            <IconsCalendar class="sidenav__icon" />
+            <IconsCalendar class="fill-cyan sidenav__icon" />
             <span>{{ Intl.DateTimeFormat('ru-RU').format(similar.date) }}</span>
           </div>
           <div class="sidenav__bottom-col">

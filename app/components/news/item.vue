@@ -1,14 +1,14 @@
 <template>
   <NuxtLink class="item" :to="$localePath(`/news/${news.title_slug}`)">
     <div class="item__image-container">
-      <img :src="news.img" alt="news banner" class="item__image" />
+      <img :src="news.img" alt="news banner" class="item__image" >
     </div>
     <h4 class="item__title">
       {{ title }}
     </h4>
     <div class="item__bottom">
       <div class="item__bottom-col">
-        <IconsCalendar class="item__icon" />
+        <IconsCalendar class="fill-cyan item__icon" />
         <div><span class="item__word">Published:</span> {{ date }}</div>
       </div>
       <div class="item__bottom-col">

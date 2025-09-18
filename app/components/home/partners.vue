@@ -8,7 +8,7 @@
     </div>
     <div class="partners__list">
       <div v-for="(item, i) in items" :key="i" class="partners__item">
-        <img :src="item.image" :alt="item.text" class="partners__image" />
+        <img :src="item.image" :alt="item.text" class="partners__image" >
         <p class="partners__item-text">{{ item.text }}</p>
       </div>
     </div>

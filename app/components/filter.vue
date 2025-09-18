@@ -74,7 +74,6 @@ const setType = type => emits('filter', type);
     scroll-snap-align: start;
     font-size: clamp(14px, 1vw, 17px);
     font-weight: 500;
-    color: #323b49;
     padding-inline: clamp(20px, 2vw, 24px);
     padding-block: clamp(12.5px, 1vw, 14px);
     background: #fafafa;

@@ -32,7 +32,16 @@
               {{ link.label }}
             </span>
           </NuxtLink>
-          <button v-else class="header__link" @click="link.showSublinks = !link.showSublinks">
+          <button
+            v-else
+            class="header__link"
+            :class="{
+              'header__link--active': link.sublinks.some(sublink =>
+                sublink.to.includes($route.path)
+              )
+            }"
+            @click="link.showSublinks = !link.showSublinks"
+          >
             <span class="header__link-label">
               {{ link.label }}
             </span>
@@ -361,7 +370,7 @@ onMounted(() => {
     }
 
     &-icon {
-      width: max(19px, 2.4rem);
+      width: max(20px, 2.4rem);
       aspect-ratio: 1;
       fill: currentColor;
       transition: fill 0.3s;
@@ -436,6 +445,9 @@ onMounted(() => {
     &--active {
       background: $clr-yellow;
       color: #fafafa;
+      .dot {
+        background-color: #fff;
+      }
     }
     &:hover:not(.header__link--active):not(:has(div)) {
       color: $clr-yellow;

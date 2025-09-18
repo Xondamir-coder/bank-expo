@@ -1,17 +1,17 @@
 <template>
-  <section id="about-team" class="team">
+  <section id="mission-team" class="team">
     <div class="team__top">
-      <h2 class="team__title">Our managment team</h2>
-      <p class="team__text">Epo Bank unites participants from over the world</p>
+      <h2 class="team__title">{{ $t('mission.team.title') }}</h2>
+      <p class="team__text">{{ $t('mission.team.text') }}</p>
     </div>
     <div class="team__list">
-      <div v-for="(teammate, i) in teammates" :key="i" class="team__item">
-        <div class="team__item-image"/>
+      <div v-for="(member, i) in $tm('mission.team.members')" :key="i" class="team__item">
+        <div class="team__item-image" />
         <h3 class="team__item-name">
-          {{ teammate.name }}
+          {{ $rt(member.name) }}
         </h3>
         <p class="team__item-job">
-          {{ teammate.job }}
+          {{ $rt(member.job) }}
         </p>
       </div>
     </div>
@@ -19,44 +19,10 @@
 </template>
 
 <script setup>
-const teammates = [
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  },
-  {
-    name: 'Ahmadjon Rahmatjonov',
-    job: 'Founder and CEO'
-  }
-];
 const { $gsap } = useNuxtApp();
 
 onMounted(() => {
-  const parentId = '#about-team';
+  const parentId = '#mission-team';
   const parentContainer = `${parentId} .team`;
   $gsap.from(`${parentContainer}__top>*`, {
     x: -100,
@@ -76,7 +42,7 @@ onMounted(() => {
 .team {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 2.5vw, 30px);
+  gap: max(16px, 3rem);
   &__top {
     @include section-top;
   }
@@ -84,13 +50,12 @@ onMounted(() => {
     @include section-title;
   }
   &__text {
-    font-size: clamp(12px, 1vw, 20px);
-    color: #323b49;
+    font-size: max(12px, 2rem);
   }
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: clamp(20px, 2vw, 32px);
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: max(20px, 3.2rem);
     @media only screen and (max-width: $bp-md) {
       grid-template-columns: initial;
       grid-auto-flow: column;
@@ -108,12 +73,12 @@ onMounted(() => {
   &__item {
     display: flex;
     flex-direction: column;
-    gap: clamp(4px, 1vw, 11px);
+    gap: max(4px, 1.1rem);
     &-image {
       background-color: #d9d9d9;
-      width: clamp(56px, 10vw, 180px);
+      width: max(56px, 18rem);
       aspect-ratio: 1;
-      border-radius: clamp(10px, 1.5vw, 20px);
+      border-radius: max(10px, 2rem);
       margin-bottom: 20px - 11px;
       @media only screen and (max-width: $bp-md) {
         margin-bottom: 8px - 4px;
@@ -121,12 +86,11 @@ onMounted(() => {
     }
     &-name {
       color: #111827;
-      font-size: clamp(18px, 1.5vw, 28px);
+      font-size: max(18px, 2.8rem);
       font-weight: 700;
     }
     &-job {
-      color: #323b49;
-      font-size: clamp(12px, 1vw, 20px);
+      font-size: max(12px, 2rem);
     }
   }
 }

@@ -13,6 +13,7 @@
   "visitors": "Visitors",
   "exhibitors": "Exhibitors",
   "countries": "Countries",
+  "okay": "Okay",
 
   "contacts": {
     "name": "Contacts",
@@ -25,11 +26,16 @@
 
   "nav": {
     "about": "About",
+    "mission": "Mission",
+    "venue": "Venue",
+    "organizer": "Organizer",
     "banks": "Banks",
     "participants": "Participants",
     "speakers": "Speakers",
     "sponsors": "Sponsors",
     "media": "Media",
+    "media-library": "Media Library",
+    "media-accreditation": "Media Accreditation",
     "news": "News",
     "partners": "Partners",
     "terms-of-service": "Terms of service",
@@ -38,7 +44,7 @@
 
   "home": {
     "hero": {
-      "title": "New Horizons \nof Modern Finance",
+      "titles": ["New Horizons", "of Modern Finance"],
       "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
     },
     "about": {
@@ -118,5 +124,31 @@
         "Oʻzbekiston Respublikasi Adliya Vazirligi"
       ]
     }
+  },
+
+  "form-modal": {
+    "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+  },
+
+  "success-modal": {
+    "title": "Your application has been successfully submitted!",
+    "text": "Our administrator will contact you within 24 hours. Thank you for your interest and for submitting your application!"
+  },
+
+  "form": {
+    "organization": {
+      "placeholder": "Your organization name",
+      "label": "Organization"
+    },
+    "full-name": {
+      "placeholder": "Enter your name",
+      "label": "Full name"
+    },
+    "mobile-phone": {
+      "placeholder": "Enter your number",
+      "label": "Mobile phone"
+    },
+    "send-request": "Send request",
+    "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
   }
 }
