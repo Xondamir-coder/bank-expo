@@ -244,5 +244,29 @@
         ]
       }
     ]
+  },
+
+  "organizer": {
+    "title": "About the Organizer",
+    "text": "Expo Bank is organized by Epo Bank Association, a leading financial organization in Uzbekistan dedicated to driving innovation, collaboration, and growth in the banking and fintech sector.",
+    "items": [
+      {
+        "title": "Mission",
+        "text": "Our mission is to create a platform where banks, financial institutions, startups, educators, and government bodies come together to share knowledge, explore new technologies, and shape the future of finance."
+      },
+      {
+        "title": "Our Role",
+        "roles": [
+          "Hosting Uzbekistan’s largest international banking and fintech exhibition",
+          "Connecting global industry leaders with local partners",
+          "Supporting education, financial literacy, and youth opportunities",
+          "Showcasing the latest products, services, and digital solutions"
+        ]
+      },
+      {
+        "title": "Partners & Sponsors",
+        "text": "The Expo Bank is made possible with the support of strategic partners, sponsors, and government institutions. Together, we ensure an impactful and successful event"
+      }
+    ]
   }
 }

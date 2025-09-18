@@ -27,6 +27,7 @@ useSeoMeta({
 .home {
   margin-bottom: 0;
   color: inherit;
+  color: #fff;
   & > * {
     overflow: hidden;
   }

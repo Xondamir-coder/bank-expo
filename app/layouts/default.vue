@@ -48,9 +48,3 @@ const containerStyle = computed(() => ({
   backgroundColor: getBgColor(route.name)
 }));
 </script>
-
-<style lang="scss" scoped>
-.layout {
-  color: #fff;
-}
-</style>

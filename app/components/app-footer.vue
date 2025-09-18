@@ -207,6 +207,7 @@ onMounted(() => {
   position: relative;
   display: flex;
   overflow: hidden;
+  color: #fff;
   &__arrow {
     width: max(20px, 2.4rem);
   }

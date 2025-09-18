@@ -11,7 +11,7 @@
     </div>
     <div class="venue__container">
       <div class="venue__map">
-        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" >
+        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" />
         <YellowButton text="Google Map" class="venue__button" />
         <div class="venue__circle">
           <IconsLogoSmallBlackText class="venue__logo" />
@@ -105,6 +105,11 @@ const breadcrumbs = computed(() => [
     display: flex;
     flex-direction: column;
     gap: max(1.2rem, 12px);
+    &-title {
+      font-size: max(2.4rem, 16px);
+      color: $clr-very-dark-grey;
+      font-weight: 700;
+    }
   }
   &__detail {
     display: flex;
