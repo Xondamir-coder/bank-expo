@@ -12,7 +12,7 @@
         <div class="news__list">
           <NewsItem v-for="(item, i) in news" :key="i" :news="item" />
         </div>
-        <Pagination
+        <AppPagination
           id="news-pagination"
           :pages-count="pagesCount"
           :current-page="currentPage"

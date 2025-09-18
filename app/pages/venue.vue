@@ -18,22 +18,9 @@
           <div class="venue__thing" />
         </div>
       </div>
-      <ul class="venue__list">
-        <li v-for="(item, index) in items" :key="index" class="venue__item">
-          <h3 class="venue__item-title">{{ item.title }}</h3>
-          <ul v-for="(detail, i) in item.details" :key="i" class="venue__details">
-            <li class="venue__detail">
-              <div class="venue__detail-box">
-                <component :is="detail.icon" class="venue__detail-icon" />
-              </div>
-              <p class="venue__detail-text">{{ detail.text }}</p>
-            </li>
-          </ul>
-          <p v-if="item.text" class="venue__item-text">
-            {{ item.text }}
-          </p>
-        </li>
-      </ul>
+      <div class="venue__list">
+        <InfoCard v-for="(item, index) in items" :key="index" :info="item" />
+      </div>
     </div>
   </main>
 </template>
@@ -56,7 +43,7 @@ const icons = [
 const items = computed(() =>
   tm('venue.items').map((item, itemIndex) => ({
     title: rt(item.title),
-    details: item.details.map((detail, detailIndex) => ({
+    list: item.details.map((detail, detailIndex) => ({
       icon: icons[itemIndex][detailIndex],
       text: rt(detail)
     })),
@@ -97,43 +84,6 @@ const breadcrumbs = computed(() => [
     display: flex;
     flex-direction: column;
     gap: max(2rem, 16px);
-  }
-  &__item {
-    border-radius: max(2rem, 16px);
-    background-color: #fff;
-    padding: max(3.2rem, 16px);
-    display: flex;
-    flex-direction: column;
-    gap: max(1.2rem, 12px);
-    &-title {
-      font-size: max(2.4rem, 16px);
-      color: $clr-very-dark-grey;
-      font-weight: 700;
-    }
-  }
-  &__detail {
-    display: flex;
-    align-items: center;
-    gap: max(1.2rem, 12px);
-    &-text {
-      font-weight: 500;
-    }
-    &-box {
-      @include flex-center;
-      background-color: $clr-light-white;
-      border-radius: max(1rem, 8px);
-      width: max(4.4rem, 36px);
-      height: max(4.4rem, 36px);
-    }
-    &-icon {
-      width: 54.454545%;
-      fill: $clr-darker-grey;
-    }
-  }
-  &__details {
-    display: flex;
-    flex-direction: column;
-    gap: max(1.2rem, 12px);
   }
   &__map {
     position: relative;

@@ -104,17 +104,17 @@ const rows = [
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  gap: clamp(14px, 1.5vw, 20px);
+  gap: max(14px, 2rem);
   animation: slide-from-top 0.7s;
   &__title {
     font-weight: 700;
-    font-size: clamp(20px, 2vw, 24px);
+    font-size: max(20px, 2.4rem);
   }
   &__row {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: clamp(14px, 1.5vw, 20px);
+    padding-block: max(14px, 2rem);
     border-top: 1px solid #e9eaec;
     border-bottom: 1px solid #e9eaec;
     animation: slide-from-left 0.5s backwards;
@@ -141,33 +141,33 @@ const rows = [
     &-text {
       color: #111827;
       font-weight: 700;
-      font-size: clamp(16px, 1.5vw, 18px);
+      font-size: max(16px, 1.8rem);
     }
     &-name {
       color: #687588;
-      font-size: clamp(14px, 1vw, 16px);
+      font-size: max(14px, 1.6rem);
       font-weight: 500;
     }
     &-link {
       text-decoration: underline;
       color: $clr-primary-dark;
-      font-size: clamp(12px, 1vw, 14px);
+      font-size: max(12px, 1.4rem);
     }
     &-left {
       display: grid;
       grid-template-columns: max-content 1fr;
       align-items: center;
-      gap: clamp(10px, 1vw, 12px);
+      gap: max(10px, 1.2rem);
     }
   }
   &__icon {
-    width: clamp(16px, 1.5vw, 24px);
+    width: max(16px, 2.4rem);
     &-container {
       @include flex-center;
       border-radius: 8px;
       aspect-ratio: 1;
       background-color: #00aeb3;
-      width: clamp(28px, 2vw, 38px);
+      width: max(28px, 3.8rem);
     }
   }
 }

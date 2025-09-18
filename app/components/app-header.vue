@@ -61,6 +61,7 @@
               :key="sublink.to"
               :to="$localePath(sublink.to)"
               class="header__sublink"
+              @click="link.showSublinks = false"
             >
               {{ sublink.label }}
             </NuxtLink>

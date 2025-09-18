@@ -1,16 +1,28 @@
 <template>
   <form class="search">
-    <h2 class="search__title">Banks</h2>
+    <h2 class="search__title">{{ label }}</h2>
     <div class="search__input-container">
       <button type="submit">
         <IconsSearch class="search__icon" />
       </button>
-      <input v-model="model" type="text" class="search__input" required placeholder="Search..." >
+      <input
+        v-model="model"
+        type="text"
+        class="search__input"
+        required
+        :placeholder="`${$t('search')}...`"
+      />
     </div>
   </form>
 </template>
 
 <script setup>
+defineProps({
+  label: {
+    required: true,
+    type: String
+  }
+});
 const model = defineModel({
   type: String
 });
@@ -31,27 +43,27 @@ const model = defineModel({
   grid-area: search;
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 1.5vw, 20px);
+  gap: max(16px, 2rem);
   animation: slide-from-left 0.7s;
 
   &__title {
-    font-size: clamp(20px, 2vw, 32px);
+    font-size: max(20px, 3.2rem);
     font-weight: 700;
   }
   &__icon {
-    width: clamp(20px, 2vw, 24px);
+    width: max(20px, 2.4rem);
   }
   &__input {
     flex: 1;
-    padding-block: clamp(10px, 2vw, 20px);
+    padding-block: max(10px, 2rem);
     &-container {
       display: flex;
       align-items: center;
-      border-radius: clamp(10px, 1vw, 16px);
+      border-radius: max(10px, 1.6rem);
       gap: 12px;
       background: #ffffff0a;
       border: 1px solid #e9eaec;
-      padding-inline: clamp(16px, 2vw, 20px);
+      padding-inline: max(16px, 2rem);
       transition: border-color 0.3s;
       &:has(input:focus) {
         border-color: #111827;

@@ -1,36 +1,36 @@
 <template>
-  <div class="bank">
-    <div class="bank__left">
-      <div class="bank__icon-container">
-        <component :is="bank.icon" class="bank__icon" data-original />
+  <NuxtLink class="participant" :to="$localePath(`/participants/${participant.slug}`)">
+    <div class="participant__left">
+      <div class="participant__icon-container">
+        <component :is="participant.icon" class="participant__icon" data-original />
       </div>
-      <h3 class="bank__title">
-        {{ bank.name }}
+      <h3 class="participant__title">
+        {{ participant.name }}
       </h3>
     </div>
-    <div class="bank__details">
-      <div v-for="detail in details" :key="detail.name" class="bank__detail">
-        <h4 class="bank__detail-title">
+    <div class="participant__details">
+      <div v-for="detail in details" :key="detail.name" class="participant__detail">
+        <h4 class="participant__detail-title">
           {{ detail.name }}
         </h4>
-        <p v-if="Number.isInteger(detail.data)" class="bank__detail-text">
+        <p v-if="Number.isInteger(detail.data)" class="participant__detail-text">
           {{ detail.data }}{{ Number.isInteger(detail.data) ? '%' : '' }}
         </p>
-        <a v-else :href="`tel:${detail.data}`" class="bank__detail-text">
+        <p v-else class="participant__detail-text">
           {{ detail.data }}
-        </a>
+        </p>
       </div>
     </div>
-    <a :href="bank.website" target="_blank" class="bank__link">
+    <a :href="participant.website" target="_blank" class="participant__link">
       <span>Go to site</span>
-      <IconsUpRightArrow class="bank__arrow" />
+      <IconsUpRightArrow class="participant__arrow" />
     </a>
-  </div>
+  </NuxtLink>
 </template>
 
 <script setup>
 const props = defineProps({
-  bank: {
+  participant: {
     required: true,
     type: Object
   }
@@ -39,15 +39,15 @@ const props = defineProps({
 const details = [
   {
     name: 'Phone number',
-    data: props.bank.tel
+    data: props.participant.tel
   },
   {
     name: 'Interest on the loan',
-    data: props.bank.loanInterest
+    data: props.participant.loanInterest
   },
   {
     name: 'Interest on deposit',
-    data: props.bank.depositInterest
+    data: props.participant.depositInterest
   }
 ];
 </script>
@@ -63,16 +63,20 @@ const details = [
     opacity: 1;
   }
 }
-.bank {
+.participant {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
   border: 1px solid #e9eaec;
   backdrop-filter: blur(30px);
-  border-radius: clamp(16px, 2vw, 24px);
-  padding: 16px;
-  gap: 10px;
+  border-radius: max(16px, 2.4rem);
+  padding: max(1.6rem, 16px);
+  gap: max(1rem, 10px);
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 1.2px 27px 0px #0000001a;
+  }
   @media only screen and (min-width: $bp-lg) {
     animation: slide-from-bottom 0.7s backwards;
     @for $i from 1 through 10 {
@@ -89,11 +93,11 @@ const details = [
   &__left {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: max(1.6rem, 16px);
   }
   &__arrow {
     fill: inherit;
-    width: clamp(20px, 2vw, 24px);
+    width: max(20px, 2.4rem);
   }
   &__details {
     display: flex;
@@ -114,13 +118,13 @@ const details = [
   &__link {
     align-self: center;
     font-weight: 600;
-    font-size: 16px;
+    font-size: max(1.6rem, 16px);
     color: #0f8bfd;
     fill: #0f8bfd;
     text-decoration: underline;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: max(1rem, 10px);
   }
   &__detail {
     display: flex;
@@ -139,20 +143,20 @@ const details = [
       }
     }
     &-text {
-      font-size: 16px;
+      font-size: max(1.6rem, 16px);
       font-weight: 700;
     }
   }
   &__title {
-    font-size: 20px;
+    font-size: max(2rem, 20px);
     font-weight: 700;
   }
   &__icon-container {
-    width: 60px;
+    width: max(6rem, 60px);
     aspect-ratio: 1;
     background: #ffffff;
     border: 1px solid #e9eaec;
-    border-radius: 12px;
+    border-radius: max(1.2rem, 12px);
     @include flex-center;
   }
 }
