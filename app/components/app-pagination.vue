@@ -124,7 +124,7 @@ onMounted(() => {
     &--number {
       font-weight: 700;
       font-size: 16px;
-      color: #111827;
+      color: $clr-very-dark-grey;
       text-align: center;
       transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
@@ -138,7 +138,7 @@ onMounted(() => {
     }
   }
   &__arrow {
-    fill: #111827;
+    fill: $clr-very-dark-grey;
     width: 18px;
     transition: fill 0.3s;
     &--reverse {

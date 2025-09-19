@@ -1,6 +1,6 @@
 <template>
   <div class="filter">
-    <h2 class="filter__title">{{ title }}</h2>
+    <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
         v-for="filter in filters"
@@ -25,12 +25,13 @@ defineProps({
   currentType: {
     type: String,
     required: true
-  },
-  title: {
-    type: String,
-    required: true
   }
 });
+
+const { t } = useI18n();
+const route = useRoute();
+
+const title = computed(() => t(`nav.${route.path.slice(1)}`));
 
 // emits
 const emits = defineEmits(['filter']);
@@ -54,16 +55,16 @@ const setType = type => emits('filter', type);
   grid-area: filter;
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 2vw, 20px);
+  gap: max(12px, 2rem);
   animation: slide-from-left 0.7s;
   &__title {
-    font-size: clamp(20px, 3vw, 42px);
+    font-size: max(20px, 4.2rem);
     font-weight: 700;
-    color: #111827;
+    color: $clr-very-dark-grey;
   }
   &__buttons {
     display: flex;
-    gap: clamp(12px, 1.5vw, 16px);
+    gap: max(12px, 1.6rem);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     &::-webkit-scrollbar {
@@ -72,10 +73,10 @@ const setType = type => emits('filter', type);
   }
   &__button {
     scroll-snap-align: start;
-    font-size: clamp(14px, 1vw, 17px);
+    font-size: max(14px, 1.7rem);
     font-weight: 500;
-    padding-inline: clamp(20px, 2vw, 24px);
-    padding-block: clamp(12.5px, 1vw, 14px);
+    padding-inline: max(20px, 2.4rem);
+    padding-block: max(12px, 1.4rem);
     background: #fafafa;
     border: 1px solid #cbd5e0;
     border-radius: 83px;

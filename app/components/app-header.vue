@@ -18,7 +18,7 @@
     </button>
     <div class="header__col header__col--left">
       <NuxtLink :to="$localePath('/')" class="header__logo-container">
-        <Logo :is-white="route.name.includes('index') || showMenu" />
+        <AppLogo :is-white="route.name.includes('index') || showMenu" />
       </NuxtLink>
       <nav class="header__nav">
         <div v-for="(link, index) in links" :key="index" class="header__link-container">
@@ -36,8 +36,8 @@
             v-else
             class="header__link"
             :class="{
-              'header__link--active': link.sublinks.some(sublink =>
-                sublink.to.includes($route.path)
+              'header__link--active': link.sublinks?.some(sublink =>
+                $route.path.includes(sublink.to)
               )
             }"
             @click="link.showSublinks = !link.showSublinks"

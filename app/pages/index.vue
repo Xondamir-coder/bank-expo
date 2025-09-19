@@ -63,7 +63,7 @@ useSeoMeta({
 .content {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 10vw, 120px);
+  gap: max(16px, 12rem);
   @include content-style;
   @media only screen and (max-width: $bp-md) {
     gap: 16px;

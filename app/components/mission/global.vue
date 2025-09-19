@@ -5,7 +5,7 @@
     </h2>
     <div class="global__list">
       <div v-for="(item, i) in $tm('mission.global.items')" :key="i" class="global__item">
-        <Pattern class="global__item-pattern" />
+        <MissionPattern class="global__item-pattern" />
         <div class="global__item-content">
           <h3 class="global__item-amount">
             {{ $rt(item.amount) }}
@@ -54,11 +54,11 @@ onMounted(() => {
 .global {
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 3vw, 30px);
+  gap: max(16px, 3rem);
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: clamp(8px, 2vw, 24px);
+    gap: max(8px, 2.4rem);
     @media only screen and (max-width: $bp-sm) {
       grid-template-columns: initial;
       grid-auto-flow: column;
@@ -77,8 +77,8 @@ onMounted(() => {
     overflow: hidden;
     background: #f8f8f8;
     border: 1px solid #0000001f;
-    padding: clamp(16px, 2vw, 30px);
-    border-radius: clamp(20px, 2vw, 24px);
+    padding: max(16px, 3rem);
+    border-radius: max(20px, 2.4rem);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,15 +100,15 @@ onMounted(() => {
       height: 100%;
     }
     &-amount {
-      font-size: clamp(38px, 2.4vw, 42px);
+      font-size: max(38px, 4.2rem);
       color: $clr-yellow;
     }
     &-title {
       color: #cbd5e0;
-      font-size: clamp(20px, 2vw, 36px);
+      font-size: max(20px, 3.6rem);
     }
     &-text {
-      font-size: clamp(14px, 1vw, 20px);
+      font-size: max(14px, 2rem);
       line-height: 1.4;
       font-weight: 400;
     }

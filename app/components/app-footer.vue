@@ -99,10 +99,10 @@
           &copy; {{ new Date().getFullYear() }} Expo Career - {{ $t('rights-reserved') }}
         </p>
         <div class="footer__bottom-links">
-          <NuxtLink :to="$localePath('/terms')" class="footer__bottom-link">
+          <NuxtLink :to="$localePath('/terms-of-service')" class="footer__bottom-link">
             <span>Terms of service</span>
           </NuxtLink>
-          <NuxtLink :to="$localePath('/policy')" class="footer__bottom-link">
+          <NuxtLink :to="$localePath('/privacy-policy')" class="footer__bottom-link">
             <span>Privacy policy</span>
           </NuxtLink>
         </div>
@@ -152,12 +152,12 @@ const links = computed(() => [
 const contacts = [
   {
     icon: IconsTelephone,
-    text: '+777 123 88 71',
+    text: PHONE,
     type: 'tel'
   },
   {
     icon: IconsMail,
-    text: 'Example@gmail.com',
+    text: MAIL,
     type: 'mail'
   },
   {

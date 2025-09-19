@@ -1,6 +1,5 @@
 <template>
-  <main class="participants">
-    <NavBreadcrumbs :breadcrumbs="breadcrumbs" />
+  <BreadcrumbsLayout :breadcrumbs>
     <div class="participants__container">
       <ParticipantsSearch
         v-model="query"
@@ -23,7 +22,7 @@
       :current-page="currentPage"
       @change-page="fetchItems"
     />
-  </main>
+  </BreadcrumbsLayout>
 </template>
 
 <script setup>

@@ -85,7 +85,7 @@ onMounted(() => {
       }
     }
     &-name {
-      color: #111827;
+      color: $clr-very-dark-grey;
       font-size: max(18px, 2.8rem);
       font-weight: 700;
     }

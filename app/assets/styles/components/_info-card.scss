@@ -1,0 +1,53 @@
+@use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+.info-card {
+  border-radius: max(2rem, 16px);
+  background-color: #fff;
+  padding: max(3.2rem, 16px);
+  display: flex;
+  flex-direction: column;
+  gap: max(1.2rem, 12px);
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: max(1.2rem, 12px);
+  }
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: max(1.2rem, 12px);
+    font-weight: 500;
+    &-text {
+      font-weight: 500;
+    }
+    &-box {
+      @include flex-center;
+      background-color: $clr-light-white;
+      border-radius: max(1rem, 8px);
+      width: max(4.4rem, 36px);
+      height: max(4.4rem, 36px);
+    }
+    &-icon {
+      width: 54.454545%;
+      fill: $clr-darker-grey;
+    }
+  }
+  &__title {
+    font-size: max(2.4rem, 16px);
+    color: $clr-very-dark-grey;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+  &__detail {
+    line-height: 1.45;
+  }
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: max(1.2rem, 12px);
+    list-style-type: disc;
+    margin-left: max(3rem, 14px);
+  }
+}

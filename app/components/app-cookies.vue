@@ -41,49 +41,60 @@ onMounted(() => {
 }
 .cookies {
   position: fixed;
-  right: 15px;
-  bottom: 15px;
   background: #ffffff;
   border-radius: 12px;
   z-index: 50;
-  padding: clamp(16px, 3vw, 30px);
+  padding: max(16px, 3rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(12px, 1vw, 16px);
-  max-width: 580px;
+  gap: max(12px, 1.6rem);
+  width: max(58rem, 500px);
+  @media only screen and (min-width: $bp-md) {
+    right: 15px;
+    bottom: 15px;
+  }
   @media only screen and (max-width: $bp-md) {
-    width: calc(100% - 16px * 2);
-    left: 16px;
-    right: 16px;
+    width: calc(100% - (16px * 2));
     bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__buttons {
-    margin-top: clamp(4px, 1vw, 14px);
+    margin-top: max(4px, 1.4rem);
     display: flex;
-    gap: clamp(16px, 2vw, 20px);
+    gap: max(16px, 2rem);
   }
   &__button {
     flex: 1;
     padding-block: 12px;
-    font-size: clamp(14px, 1vw, 16px);
+    font-size: max(14px, 1.6rem);
     color: #fff;
     border-radius: 12px;
+    &:hover {
+      transform: scale(1.02);
+    }
     &:first-child {
-      background-color: #111827;
+      background-color: $clr-very-dark-grey;
+      &:hover {
+        background-color: $clr-darker-grey;
+      }
     }
     &:last-child {
       background: $clr-yellow;
+      &:hover {
+        background-color: $clr-light-yellow;
+      }
     }
   }
   &__title {
-    font-size: clamp(17px, 3vw, 32px);
-    color: #111827;
+    font-size: max(17px, 3.2rem);
+    color: $clr-very-dark-grey;
   }
   &__text {
     line-height: 1.45;
     color: rgba($clr-secondary, 0.8);
-    font-size: clamp(12px, 1vw, 16xp);
+    font-size: max(14px, 1.6rem);
   }
 }
 </style>

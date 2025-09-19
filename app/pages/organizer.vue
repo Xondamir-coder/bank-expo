@@ -1,6 +1,5 @@
 <template>
-  <main class="organizer">
-    <NavBreadcrumbs :breadcrumbs="breadcrumbs" />
+  <BreadcrumbsLayout :breadcrumbs>
     <div class="organizer__container">
       <h1 class="heading">
         {{ $t('organizer.title') }}
@@ -8,10 +7,10 @@
       <p>
         {{ $t('organizer.text') }}
       </p>
-      <img src="~/assets/images/organizer.jpg" alt="organizer banner" class="organizer__image" />
+      <img src="~/assets/images/organizer.jpg" alt="organizer banner" class="organizer__image" >
       <InfoCard v-for="(item, index) in $tm('organizer.items')" :key="index" :info="item" />
     </div>
-  </main>
+  </BreadcrumbsLayout>
 </template>
 
 <script setup>

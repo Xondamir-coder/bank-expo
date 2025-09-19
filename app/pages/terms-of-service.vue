@@ -1,7 +1,7 @@
 <template>
   <main class="terms">
-    <NavBreadcrumbs :breadcrumbs="breadcrumbs" />
-    <Legal
+    <NavBreadcrumbs :breadcrumbs />
+    <LegalBase
       title="Terms & Conditions"
       subtitle="Welcome to Bank Expo! By accessing or using this website, you agree to comply with and be bound by the following terms and conditions. If you do not agree to these terms, please refrain from using our site."
       :content="content"
@@ -16,7 +16,7 @@ const breadcrumbs = [
     label: 'Home'
   },
   {
-    to: '/terms',
+    to: '/terms-of-service',
     label: 'Terms and Conditions'
   }
 ];
@@ -76,61 +76,12 @@ const content = [
     ]
   }
 ];
-
-useHead({
-  title: 'Terms and Conditions | Bank Expo',
-  meta: [
-    {
-      name: 'description',
-      content:
-        'Review the Terms and Conditions of Bank Expo to understand the rules and guidelines for using our website and services.'
-    },
-    {
-      property: 'og:title',
-      content: 'Terms and Conditions | Bank Expo'
-    },
-    {
-      property: 'og:description',
-      content:
-        'Understand the terms of use for Bank Expo, including guidelines for accessing and using our resources and services.'
-    },
-    {
-      property: 'og:url',
-      content: 'https://bankexpo.uz/terms'
-    },
-    {
-      property: 'og:type',
-      content: 'website'
-    },
-    // {
-    // 	property: 'og:image',
-    // 	content: 'https://bankexpo.uz/images/terms-banner.jpg'
-    // },
-    {
-      name: 'twitter:card',
-      content: 'summary_large_image'
-    },
-    {
-      name: 'twitter:title',
-      content: 'Terms and Conditions | Bank Expo'
-    },
-    {
-      name: 'twitter:description',
-      content:
-        'Learn more about the terms and conditions of Bank Expo and how they govern the use of our website and services.'
-    }
-    // {
-    // 	name: 'twitter:image',
-    // 	content: 'https://bankexpo.uz/images/terms-banner.jpg'
-    // }
-  ]
-});
 </script>
 
 <style lang="scss" scoped>
 .terms {
   display: flex;
-  gap: clamp(20px, 3vw, 30px);
+  gap: max(20px, 3rem);
   flex-direction: column;
   @include section-margin-inline;
 }

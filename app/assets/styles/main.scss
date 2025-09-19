@@ -1,5 +1,9 @@
 @use 'typography/font';
 @use 'typography/headings';
+@use 'typography/texts';
+
+@use 'components/info-card';
+
 @use 'base/base';
 @use 'utils';
 @use 'animations';

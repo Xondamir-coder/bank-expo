@@ -70,6 +70,89 @@
           </clipPath>
         </defs>
       </svg>
+      <svg class="error__plug" viewBox="0 0 345 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_1_24189)">
+          <path
+            d="M320.348 2.52675C319.013 3.19419 317.964 4.95815 317.964 6.53141C317.964 7.53257 317.821 7.58024 309.526 7.77094C300.277 7.96164 300.086 8.00931 298.274 9.20117C296.987 10.0593 294.985 13.3488 295.128 14.4454C295.319 15.8279 294.937 16.114 292.649 16.3047C291.314 16.4477 290.027 16.8768 289.788 17.2105C289.55 17.5919 289.359 19.4512 289.359 21.3582C289.359 24.6477 289.407 24.8384 290.599 25.2675C291.266 25.5535 292.554 25.7442 293.459 25.7442C295.033 25.7442 295.08 25.8395 295.08 27.5082C295.128 30.3209 297.083 33.1337 299.943 34.4686C301.373 35.1361 303.09 35.2791 309.812 35.2791C317.726 35.2791 317.964 35.3268 317.964 36.2326C317.964 37.8535 319.347 40.0465 320.681 40.5709C322.302 41.1907 324.591 40.6663 325.973 39.4268L327.022 38.4733V21.6442V4.8628L325.544 3.3849C323.971 1.76396 322.35 1.52559 320.348 2.52675Z"
+            fill="#C89E45"
+          />
+          <path
+            d="M327.977 13.3488V16.686H334.651C338.56 16.686 341.754 16.4477 342.47 16.1616C344.424 15.2558 344.615 12.0139 342.803 10.6314C342.279 10.25 339.8 10.0593 335.032 10.0116H327.977V13.3488Z"
+            fill="#C89E45"
+          />
+          <path
+            d="M328.069 29.4151L328.212 32.657L335.22 32.8C341.99 32.8953 342.228 32.8953 343.229 31.8465C344.04 30.9884 344.183 30.3686 343.992 29.0814C343.563 26.4116 342.896 26.2209 335.029 26.2209H327.926L328.069 29.4151Z"
+            fill="#C89E45"
+          />
+        </g>
+        <line
+          x1="-371"
+          y1="21.3779"
+          x2="146"
+          y2="21.3779"
+          stroke="#687588"
+          stroke-width="5.24419"
+        />
+        <line x1="215" y1="21.3779" x2="290" y2="21.3779" stroke="#687588" stroke-width="5.24419" />
+        <circle cx="158.907" cy="34.3256" r="1.43023" stroke="#687588" stroke-width="0.953488" />
+        <circle cx="190.848" cy="25.7443" r="1.43023" stroke="#687588" stroke-width="0.953488" />
+        <path
+          d="M200.547 12.0616L200.582 12.1974L200.717 12.2325L201.344 12.3956L200.717 12.5587L200.582 12.5939L200.547 12.7286L200.384 13.3556L200.221 12.7286L200.186 12.5939L200.05 12.5587L199.422 12.3956L200.05 12.2325L200.186 12.1974L200.221 12.0616L200.384 11.4337L200.547 12.0616Z"
+          stroke="#687588"
+          stroke-width="0.476744"
+        />
+        <path
+          d="M170.512 21.1198L170.547 21.2555L170.682 21.2906L171.309 21.4537L170.682 21.6168L170.547 21.652L170.512 21.7867L170.349 22.4137L170.186 21.7867L170.15 21.652L170.015 21.6168L169.387 21.4537L170.015 21.2906L170.15 21.2555L170.186 21.1198L170.349 20.4918L170.512 21.1198Z"
+          stroke="#687588"
+          stroke-width="0.476744"
+        />
+        <path
+          d="M158.695 10.7003C158.695 10.5833 158.79 10.4884 158.907 10.4884C159.024 10.4884 159.119 10.5833 159.119 10.7003V11.9716C159.119 12.0886 159.024 12.1835 158.907 12.1835C158.79 12.1835 158.695 12.0886 158.695 11.9716V10.7003Z"
+          fill="#687588"
+        />
+        <path
+          d="M158.695 12.8196C158.695 12.7025 158.79 12.6077 158.907 12.6077C159.024 12.6077 159.119 12.7025 159.119 12.8196V14.0909C159.119 14.2079 159.024 14.3028 158.907 14.3028C158.79 14.3028 158.695 14.2079 158.695 14.0909V12.8196Z"
+          fill="#687588"
+        />
+        <rect x="157" y="12.1831" width="1.69509" height="0.423773" rx="0.211886" fill="#687588" />
+        <rect
+          x="159.121"
+          y="12.1831"
+          width="1.69509"
+          height="0.423773"
+          rx="0.211886"
+          fill="#687588"
+        />
+        <path
+          d="M200.172 31.677C200.172 31.56 200.267 31.4651 200.384 31.4651C200.501 31.4651 200.596 31.56 200.596 31.677V32.9484C200.596 33.0654 200.501 33.1602 200.384 33.1602C200.267 33.1602 200.172 33.0654 200.172 32.9484V31.677Z"
+          fill="#687588"
+        />
+        <path
+          d="M200.172 33.7963C200.172 33.6793 200.267 33.5844 200.384 33.5844C200.501 33.5844 200.596 33.6793 200.596 33.7963V35.0676C200.596 35.1846 200.501 35.2795 200.384 35.2795C200.267 35.2795 200.172 35.1846 200.172 35.0676V33.7963Z"
+          fill="#687588"
+        />
+        <rect
+          x="198.477"
+          y="33.1599"
+          width="1.69509"
+          height="0.423773"
+          rx="0.211886"
+          fill="#687588"
+        />
+        <rect
+          x="200.598"
+          y="33.1598"
+          width="1.69509"
+          height="0.423773"
+          rx="0.211886"
+          fill="#687588"
+        />
+        <defs>
+          <clipPath id="clip0_1_24189">
+            <rect width="56.2558" height="41" fill="white" transform="translate(287.93)" />
+          </clipPath>
+        </defs>
+      </svg>
     </div>
     <div class="error__bottom">
       <h2 class="error__bottom-title">Page Not Found</h2>
@@ -134,16 +217,26 @@ definePageMeta({
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: clamp(30px, 4vw, 60px);
+  padding-block: max(30px, 6rem);
   min-height: 100vh;
   justify-content: center;
+  gap: max(4.5rem, 32px);
   & > *:not(.error__content) {
     padding-inline: 16px;
   }
   &__plug {
     animation: plug-slide 1s 0.3s backwards;
-    @media only screen and (min-width: $bp-xl) {
-      max-width: 80%;
+    &:first-of-type {
+      width: 140rem;
+      @media screen and (max-width: $bp-md) {
+        display: none;
+      }
+    }
+    &:last-of-type {
+      width: 95%;
+      @media screen and (min-width: $bp-md) {
+        display: none;
+      }
     }
   }
   &__content {
@@ -152,7 +245,7 @@ definePageMeta({
     flex-direction: column;
   }
   &__text {
-    font-size: clamp(14px, 1vw, 17px);
+    font-size: max(14px, 1.7rem);
     max-width: 50ch;
     font-weight: 400;
     line-height: 1.45;
@@ -161,23 +254,24 @@ definePageMeta({
   }
   &__title {
     color: $clr-yellow;
-    font-size: clamp(150px, 15vw, 350px);
+    font-size: max(150px, 28rem);
     align-self: center;
     font-weight: 500;
     animation: appear-from-small 0.7s backwards 0.15s;
+    line-height: 0.8;
   }
   &__link {
     background-color: $clr-yellow;
-    padding-inline: clamp(20px, 3vw, 30px);
-    padding-block: clamp(12.5px, 1vw, 15.5px);
-    border-radius: clamp(10px, 1vw, 12px);
+    padding-inline: max(20px, 3rem);
+    padding-block: max(12.5px, 1.5rem);
+    border-radius: max(10px, 1.2rem);
     display: flex;
     align-items: center;
     color: #fff;
     transition: background-color 0.3s, color 0.3s;
-    font-size: clamp(16px, 1vw, 17px);
+    font-size: max(16px, 1.7rem);
     gap: 10px;
-    margin-top: clamp(8px, 1vw, 14px);
+    margin-top: max(8px, 1.4rem);
     &:hover {
       background-color: #fff;
       color: $clr-yellow;
@@ -195,7 +289,7 @@ definePageMeta({
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: clamp(12px, 1vw, 16px);
+    gap: max(12px, 1.6rem);
     & > * {
       animation: slide-from-bottom 0.7s backwards;
       @for $i from 1 through 3 {
@@ -205,13 +299,13 @@ definePageMeta({
       }
     }
     &-title {
-      font-size: clamp(20px, 2vw, 28px);
+      font-size: max(20px, 2.8rem);
       font-weight: 700;
-      color: #111827;
+      color: $clr-very-dark-grey;
     }
   }
   &__top {
-    width: clamp(194px, 15vw, 232px);
+    width: max(194px, 23.2rem);
     height: auto;
     animation: slide-from-top 0.7s backwards;
   }

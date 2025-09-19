@@ -36,7 +36,6 @@
 
 <script setup>
 const { t } = useI18n();
-const { $lenis } = useNuxtApp();
 
 const links = computed(() => [
   {
@@ -69,11 +68,6 @@ const links = computed(() => [
 
 const showFormModal = useState('showFormModal');
 const showMenu = useState('showMenu', () => false);
-
-watch(showMenu, () => {
-  if (showMenu.value) $lenis.stop();
-  else $lenis.start();
-});
 </script>
 
 <style lang="scss" scoped>
@@ -82,6 +76,7 @@ watch(showMenu, () => {
   position: fixed;
   inset: 0;
   top: 81.6px;
+  color: #fff;
   background-color: #000c1a;
   z-index: 99;
   padding-inline: 16px;

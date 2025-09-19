@@ -139,7 +139,7 @@ const rows = [
       gap: 5px;
     }
     &-text {
-      color: #111827;
+      color: $clr-very-dark-grey;
       font-weight: 700;
       font-size: max(16px, 1.8rem);
     }

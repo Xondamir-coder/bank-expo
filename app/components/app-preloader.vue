@@ -84,12 +84,8 @@ onMounted(() => {
 <style lang="scss" scoped>
 @keyframes scale-appear {
   from {
-    transform: scale(0.8);
+    scale: 0.8;
     opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
   }
 }
 @keyframes slide-from-bottom {
@@ -142,8 +138,9 @@ onMounted(() => {
   background-color: #001833;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
-  padding-bottom: clamp(60px, 7vw, 150px);
+  padding-bottom: max(60px, 15rem);
   overflow: hidden;
   & > *:not(.preloader__pattern) {
     z-index: 2;
@@ -152,7 +149,7 @@ onMounted(() => {
     animation: slide-from-bottom 0.3s 0.1s backwards;
     display: flex;
     flex-direction: column;
-    gap: clamp(10px, 2vw, 20px);
+    gap: max(10px, 2rem);
     width: 80%;
     @media only screen and (max-width: $bp-sm) {
       width: calc(100% - 40px);
@@ -161,7 +158,7 @@ onMounted(() => {
   &__progress {
     align-self: flex-start;
     font-weight: 900;
-    font-size: clamp(32px, 3vw, 54px);
+    font-size: max(32px, 5.4rem);
     color: $clr-yellow;
     // animation: move-number 3s forwards;
     @media only screen and (max-width: $bp-sm) {
@@ -185,14 +182,19 @@ onMounted(() => {
     }
   }
   &__big {
-    width: clamp(231px, 25vw, 531px);
-    margin-block: auto;
+    width: max(27.7%, 230px);
     animation: scale-appear 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: 5;
   }
   &__pattern {
     pointer-events: none;
     position: absolute;
     inset: 0;
+    width: 100%;
     @media only screen and (max-width: $bp-xl) {
       transform: scale(1.5);
     }

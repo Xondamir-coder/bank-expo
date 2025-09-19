@@ -60,8 +60,8 @@ textarea {
   outline: none;
 }
 main {
-  margin-top: clamp(4px, 1.5vw, 20px);
-  margin-bottom: clamp(20px, 5vw, 80px);
+  margin-top: max(4px, 2rem);
+  margin-bottom: max(20px, 8rem);
 }
 
 /* Lenis */

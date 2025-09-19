@@ -15,6 +15,13 @@
   "countries": "Countries",
   "okay": "Okay",
   "search": "Search",
+  "contact-info": "Contact information",
+  "address": "Address",
+  "phone": "Phone",
+  "mail": "Email",
+  "website": "Website",
+  "register-online": "Register Online",
+  "media-center": "Media Center",
 
   "contacts": {
     "name": "Contacts",
@@ -276,5 +283,58 @@
     "sidebar": {
       "title": "Directory of banks"
     }
+  },
+
+  "participant": {
+    "items": [
+      {
+        "title": "About company",
+        "text": "InfinBANK – O‘zbekistonning yetakchi tijorat banklaridan biri bo‘lib, mijozlarga zamonaviy moliyaviy xizmatlarni taqdim etadi. Bank nafaqat jismoniy shaxslar, balki korporativ mijozlar uchun ham keng ko‘lamli xizmatlarni yo‘lga qo‘ygan. InfinBANK mijozlarga qulaylik yaratish maqsadida raqamli bankingni rivojlantirib, mobil ilova va onlayn xizmatlarni taklif etadi"
+      },
+      {
+        "title": "Asosiy yo‘nalishlari",
+        "details": [
+          "Jismoniy shaxslar uchun kredit va depozit xizmatlari",
+          "Xalqaro pul o‘tkazmalari",
+          "Internet-banking va mobil banking xizmatlari",
+          "Plastik kartalar (Visa, MasterCard, Uzcard, Humo)"
+        ]
+      },
+      {
+        "title": "Ko‘rgazmada taqdim etiladigan xizmatlar",
+        "details": [
+          "Yangi biznes kredit dasturlari",
+          "Startap va kichik biznes uchun imtiyozli moliyalashtirish yechimlari",
+          "Internet-banking va mobil banking xizmatlari",
+          "Mobil banking ilovasining yangilangan versiyasi",
+          "Fintex bilan integratsiyalashgan xizmatlar"
+        ]
+      }
+    ]
+  },
+
+  "speakers": {
+    "title": "Speakers",
+    "text": "Epo Bank unites participants from over"
+  },
+
+  "form-section": {
+    "text": "Get your ticket in minutes. Fill out the form and secure your spot at the Expo"
+  },
+
+  "media-accreditation": {
+    "name": "Media accreditation",
+    "items": [
+      {
+        "title": "Dear Representatives of the Mass Media",
+        "text": "In accordance with the legislative requirements of the Republic of Uzbekistan, the decision on the accreditation of temporary foreign correspondents may take up to two weeks."
+      },
+      {
+        "title": "All media representatives will be notified of the accreditation decision by the Ministry of Foreign Affairs of the Republic of Uzbekistan.",
+        "text": "Representatives of the mass media, who are not accredited in Uzbekistan, must be accredited by the Ministry of Foreign Affairs of the Republic of Uzbekistan."
+      }
+    ],
+    "available": "The accreditation procedure for representatives of foreign countries in Uzbekistan is available here:",
+    "contacts": "Contacts of the Media Department:"
   }
 }

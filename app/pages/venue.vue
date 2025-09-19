@@ -1,6 +1,5 @@
 <template>
-  <main class="venue">
-    <NavBreadcrumbs :breadcrumbs="breadcrumbs" />
+  <BreadcrumbsLayout :breadcrumbs>
     <div class="venue__top">
       <h1 class="heading">
         {{ $t('venue.title') }}
@@ -11,7 +10,7 @@
     </div>
     <div class="venue__container">
       <div class="venue__map">
-        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" />
+        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" >
         <YellowButton text="Google Map" class="venue__button" />
         <div class="venue__circle">
           <IconsLogoSmallBlackText class="venue__logo" />
@@ -22,7 +21,7 @@
         <InfoCard v-for="(item, index) in items" :key="index" :info="item" />
       </div>
     </div>
-  </main>
+  </BreadcrumbsLayout>
 </template>
 
 <script setup>

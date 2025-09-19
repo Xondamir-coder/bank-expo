@@ -50,7 +50,7 @@ defineProps({
   align-self: center;
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 1.5vw, 30px);
+  gap: max(16px, 3rem);
   max-width: max(900px, 32vw);
   & > * {
     animation: slide-from-left 0.7s backwards;
@@ -62,7 +62,7 @@ defineProps({
   }
   &__subtitle,
   &__title {
-    color: #111827;
+    color: $clr-very-dark-grey;
     font-weight: 700;
   }
   &__box {
@@ -80,15 +80,15 @@ defineProps({
     }
   }
   &__subtitle {
-    font-size: clamp(20px, 2vw, 24px);
+    font-size: max(20px, 2.4rem);
   }
   &__title {
-    font-size: clamp(24px, 2.5vw, 42px);
+    font-size: max(24px, 4.2rem);
   }
   &__text {
     color: $clr-secondary;
     opacity: 0.8;
-    font-size: clamp(14px, 1vw, 17px);
+    font-size: max(14px, 1.7rem);
     line-height: 1.45;
   }
 }

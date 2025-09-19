@@ -249,7 +249,7 @@ onBeforeUnmount(() => {
       line-height: 24px;
     }
     &--grey {
-      color: #111827;
+      color: $clr-very-dark-grey;
       display: inline-block;
       animation: slide-from-right $duration;
     }

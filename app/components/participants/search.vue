@@ -11,7 +11,7 @@
         class="search__input"
         required
         :placeholder="`${$t('search')}...`"
-      />
+      >
     </div>
   </form>
 </template>
@@ -66,7 +66,7 @@ const model = defineModel({
       padding-inline: max(16px, 2rem);
       transition: border-color 0.3s;
       &:has(input:focus) {
-        border-color: #111827;
+        border-color: $clr-very-dark-grey;
       }
     }
   }

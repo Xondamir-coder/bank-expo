@@ -1,12 +1,11 @@
 <template>
-  <main class="mission">
-    <NavBreadcrumbs :breadcrumbs="breadcrumbs" />
+  <BreadcrumbsLayout :breadcrumbs>
     <MissionHero />
     <div class="mission__wrapper">
       <MissionGlobal />
       <MissionTeam />
     </div>
-  </main>
+  </BreadcrumbsLayout>
 </template>
 
 <script setup>
@@ -30,12 +29,12 @@ const breadcrumbs = [
   }
   &__wrapper {
     background-color: #fff;
-    border-radius: clamp(16px, 3vw, 32px);
-    padding: clamp(16px, 6vw, 80px);
-    margin-top: clamp(20px, 6vw, 80px);
+    border-radius: max(16px, 3.2rem);
+    padding: max(16px, 8rem);
+    margin-top: max(20px, 8rem);
     display: flex;
     flex-direction: column;
-    gap: clamp(20px, 6vw, 86px);
+    gap: max(20px, 8.6rem);
   }
 }
 </style>

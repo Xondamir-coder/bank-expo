@@ -1,5 +1,21 @@
 @use '../abstracts/mixins' as *;
+@use '../abstracts/variables' as *;
+
+%heading {
+  font-weight: 700;
+  line-height: 1.35;
+  color: $clr-very-dark-grey;
+}
 
 .heading {
-  @include section-title;
+  @extend %heading;
+  font-size: max(4.2rem, 24px);
+}
+.heading-28-18 {
+  @extend %heading;
+  font-size: max(2.8rem, 18px);
+}
+.heading-24-17 {
+  @extend %heading;
+  font-size: max(2.4rem, 17px);
 }

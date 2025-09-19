@@ -13,6 +13,7 @@
 
 <script setup>
 const route = useRoute();
+useWatchTogglers();
 
 const isLoaded = ref(false);
 
@@ -20,7 +21,7 @@ const getBgColor = routeName => {
   if (routeName.includes('index')) return '#001833';
   if (routeName.includes('about')) return '#F1F2F4';
   if (routeName.includes('banks')) return '#F8F8F8';
-  else return '#F8F8F8';
+  else return '#F1F2F4';
 };
 
 const toggleElements = () => {
