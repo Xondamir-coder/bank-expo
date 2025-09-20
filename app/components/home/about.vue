@@ -66,6 +66,7 @@ onMounted(() => {
   gap: max(16px, 3.6rem);
   &__title {
     @include section-title;
+    color: #fff;
   }
   &__text {
     font-size: max(14px, 2rem);

@@ -1,5 +1,5 @@
 <template>
-  <div class="form-section">
+  <section class="form-section">
     <div class="form-section__content">
       <div class="form-section__top">
         <h2 class="heading">
@@ -12,7 +12,7 @@
       <AppForm />
     </div>
     <div class="form-section__right">
-      <img src="~/assets/images/folder.png" alt="folder" class="form-section__image" >
+      <img src="~/assets/images/folder.png" alt="folder" class="form-section__image" />
       <svg
         class="form-section__pattern"
         viewBox="0 0 844 490"
@@ -25,7 +25,7 @@
         />
       </svg>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup></script>

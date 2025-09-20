@@ -53,7 +53,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.home')
   },
   {
-    to: '/media-library',
+    to: '/media',
     label: t('nav.media-library')
   },
   {

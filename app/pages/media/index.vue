@@ -9,7 +9,7 @@
           v-for="(item, index) in items"
           :key="index"
           class="media__item"
-          :to="$localePath(`/media-library/${item.slug}`)"
+          :to="$localePath(`/media/${item.slug}`)"
         >
           <div class="media__item-images">
             <div v-for="(image, i) in item.images" :key="i" class="media__item-image-box">
@@ -48,7 +48,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.home')
   },
   {
-    to: '/media-library',
+    to: '/media',
     label: t('nav.media-library')
   }
 ]);

@@ -10,7 +10,6 @@
   "seconds": "Seconds",
   "tashkent": "Tashkent",
   "uzbekistan": "Uzbekistan",
-  "visitors": "Visitors",
   "exhibitors": "Exhibitors",
   "countries": "Countries",
   "okay": "Okay",
@@ -45,7 +44,7 @@
     "media": "Media",
     "media-library": "Media Library",
     "media-accreditation": "Media Accreditation",
-    "news": "News",
+    "for-visitors": "For Visitors",
     "partners": "Partners",
     "terms-of-service": "Terms of service",
     "privacy-policy": "Privacy policy"
@@ -336,5 +335,85 @@
     ],
     "available": "The accreditation procedure for representatives of foreign countries in Uzbekistan is available here:",
     "contacts": "Contacts of the Media Department:"
+  },
+
+  "visitors": {
+    "name": "Visitors",
+    "text": "Discover, learn and connect with global innovators.",
+    "title-1": "Plan Your Visit to Epo",
+    "title-2": "Bank Expo",
+    "attend": {
+      "title": "Why Attend?",
+      "items": [
+        {
+          "title": "For Students ",
+          "text": "Explore career paths, internships and the future of banking & fintech."
+        },
+        {
+          "title": "For Parents  ",
+          "text": "Explore career paths, internships and the future of banking & fintech."
+        },
+        {
+          "title": "For Educators ",
+          "text": "Connect with industry leaders and bring new knowledge to classrooms."
+        }
+      ]
+    },
+    "highlight": {
+      "title": "Highlights of the Expo",
+      "text": "Experience one of the largest international banking and fintech gatherings in the region",
+      "items": [
+        "100+ international speakers",
+        "50+ exhibitors from different countries",
+        "10,000+ visitors expected",
+        "Special sessions for students and educators"
+      ]
+    },
+    "plan": {
+      "title": "Plan Your Visit",
+      "items": [
+        {
+          "title": "Opening Hours:",
+          "details": ["10:00 – 18:00 (15–17 September, 2025)"]
+        },
+        {
+          "title": "How to Get There:",
+          "details": ["Metro: Expo Station (Line 2)", "Taxi & Ride-hailing services available"]
+        },
+        {
+          "title": "Accommodation Suggestions:",
+          "details": [
+            "Hilton Tashkent City",
+            "Hyatt Regency Tashkent",
+            "Local boutique hotels near Expo Center"
+          ]
+        }
+      ]
+    }
+  },
+  "faq": {
+    "title": "FAQ (Visitors)",
+    "items": [
+      {
+        "question": "Do I need to register online?",
+        "answer": "Yes, online registration is required to access the Expo"
+      },
+      {
+        "question": "Is entry free for students?",
+        "answer": "answer"
+      },
+      {
+        "question": "Where do I get my badge?",
+        "answer": "answer"
+      },
+      {
+        "question": "Can families attend together?",
+        "answer": "answer"
+      },
+      {
+        "question": "Can families attend together?",
+        "answer": "answer"
+      }
+    ]
   }
 }

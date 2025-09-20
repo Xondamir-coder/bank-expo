@@ -19,3 +19,7 @@
   @extend %heading;
   font-size: max(2.4rem, 17px);
 }
+.heading-32-20 {
+  @extend %heading;
+  font-size: max(3.2rem, 20px);
+}

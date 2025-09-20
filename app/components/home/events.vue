@@ -146,6 +146,7 @@ onMounted(() => {
   }
   &__title {
     @include section-title;
+    color: #fff;
   }
   &__image {
     width: 100%;

@@ -149,7 +149,7 @@ const links = ref([
     showSublinks: false,
     sublinks: [
       {
-        to: '/media-library',
+        to: '/media',
         label: t('nav.media-library')
       },
       {

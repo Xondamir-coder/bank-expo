@@ -1,6 +1,6 @@
 <template>
   <div class="legal">
-    <h1 class="legal__title">
+    <h1 class="heading">
       {{ title }}
     </h1>
     <p class="legal__text">
@@ -81,9 +81,6 @@ defineProps({
   }
   &__subtitle {
     font-size: max(20px, 2.4rem);
-  }
-  &__title {
-    font-size: max(24px, 4.2rem);
   }
   &__text {
     color: $clr-secondary;

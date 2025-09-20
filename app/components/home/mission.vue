@@ -113,6 +113,7 @@ onMounted(() => {
   }
   &__title {
     @include section-title;
+    color: #fff;
   }
 }
 </style>

@@ -1,0 +1,118 @@
+@use '../abstracts/variables' as *;
+
+// Text color utilities
+.text-primary {
+  color: $clr-primary;
+}
+.text-primary-dark {
+  color: $clr-primary-dark;
+}
+.text-accent-dark-blue {
+  color: $clr-accent-dark-blue;
+}
+.text-accent-medium-blue {
+  color: $clr-accent-medium-blue;
+}
+.text-secondary {
+  color: $clr-secondary;
+}
+.text-cyan {
+  color: $clr-cyan;
+}
+.text-yellow {
+  color: $clr-yellow;
+}
+.text-light-yellow {
+  color: $clr-light-yellow;
+}
+.text-grey {
+  color: $clr-grey;
+}
+.text-darker-grey {
+  color: $clr-darker-grey;
+}
+.text-very-dark-grey {
+  color: $clr-very-dark-grey;
+}
+.text-light-white {
+  color: $clr-light-white;
+}
+
+// Background color utilities
+.bg-primary {
+  background-color: $clr-primary;
+}
+.bg-primary-dark {
+  background-color: $clr-primary-dark;
+}
+.bg-accent-dark-blue {
+  background-color: $clr-accent-dark-blue;
+}
+.bg-accent-medium-blue {
+  background-color: $clr-accent-medium-blue;
+}
+.bg-secondary {
+  background-color: $clr-secondary;
+}
+.bg-cyan {
+  background-color: $clr-cyan;
+}
+.bg-yellow {
+  background-color: $clr-yellow;
+}
+.bg-light-yellow {
+  background-color: $clr-light-yellow;
+}
+.bg-grey {
+  background-color: $clr-grey;
+}
+.bg-darker-grey {
+  background-color: $clr-darker-grey;
+}
+.bg-very-dark-grey {
+  background-color: $clr-very-dark-grey;
+}
+.bg-light-white {
+  background-color: $clr-light-white;
+}
+
+// Fill utilities (for SVGs)
+.fill-primary {
+  fill: $clr-primary;
+}
+.fill-primary-dark {
+  fill: $clr-primary-dark;
+}
+.fill-accent-dark-blue {
+  fill: $clr-accent-dark-blue;
+}
+.fill-accent-medium-blue {
+  fill: $clr-accent-medium-blue;
+}
+.fill-secondary {
+  fill: $clr-secondary;
+}
+.fill-cyan {
+  fill: $clr-cyan;
+}
+.fill-yellow {
+  fill: $clr-yellow;
+}
+.fill-light-yellow {
+  fill: $clr-light-yellow;
+}
+.fill-grey {
+  fill: $clr-grey;
+}
+.fill-darker-grey {
+  fill: $clr-darker-grey;
+}
+.fill-very-dark-grey {
+  fill: $clr-very-dark-grey;
+}
+.fill-light-white {
+  fill: $clr-light-white;
+}
+.fill-white {
+  fill: #fff;
+}

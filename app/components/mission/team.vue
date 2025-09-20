@@ -7,7 +7,7 @@
     <div class="team__list">
       <div v-for="(member, i) in $tm('mission.team.members')" :key="i" class="team__item">
         <div class="team__item-image" />
-        <h3 class="team__item-name">
+        <h3 class="heading-28-18">
           {{ $rt(member.name) }}
         </h3>
         <p class="team__item-job">
@@ -83,11 +83,6 @@ onMounted(() => {
       @media only screen and (max-width: $bp-md) {
         margin-bottom: 8px - 4px;
       }
-    }
-    &-name {
-      color: $clr-very-dark-grey;
-      font-size: max(18px, 2.8rem);
-      font-weight: 700;
     }
     &-job {
       font-size: max(12px, 2rem);
