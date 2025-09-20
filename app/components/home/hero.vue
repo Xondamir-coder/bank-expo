@@ -11,37 +11,27 @@
         {{ $t('home.hero.text') }}
       </p>
     </div>
+
     <div class="hero__bottom">
+      <!-- countdown -->
       <div class="hero__time">
-        <div class="hero__time-container">
-          <span class="hero__time-out">{{ days }}</span>
-          <span class="hero__time-label">{{ $t('days') }}</span>
-        </div>
-        <span class="hero__time-divider">:</span>
-        <div class="hero__time-container">
-          <span class="hero__time-out">{{ hours }}</span>
-          <span class="hero__time-label">{{ $t('hours') }}</span>
-        </div>
-        <span class="hero__time-divider">:</span>
-        <div class="hero__time-container">
-          <span class="hero__time-out">{{ minutes }}</span>
-          <span class="hero__time-label">{{ $t('minutes') }}</span>
-        </div>
-        <span class="hero__time-divider">:</span>
-        <div class="hero__time-container">
-          <span class="hero__time-out">{{ seconds }}</span>
-          <span class="hero__time-label">{{ $t('seconds') }}</span>
-        </div>
+        <template v-for="(unit, index) in units" :key="unit.key">
+          <div class="hero__time-container">
+            <span class="hero__time-out">{{ time[unit.key] }}</span>
+            <span class="hero__time-label">{{ $t(unit.label) }}</span>
+          </div>
+          <span v-if="index < units.length - 1" class="hero__time-divider">:</span>
+        </template>
       </div>
+
+      <!-- location -->
       <div class="hero__location">
         <div class="hero__location-icontainer">
           <IconsPosition class="hero__location-icon" />
         </div>
         <div class="hero__location-content">
           <span>
-            <strong class="hero__location-out">
-              {{ calculatedDeadline }}
-            </strong>
+            <strong class="hero__location-out">{{ calculatedDeadline }}</strong>
           </span>
           <span>{{ place }}</span>
         </div>
@@ -51,42 +41,42 @@
 </template>
 
 <script setup>
-const days = ref(0);
-const hours = ref(0);
-const minutes = ref(0);
-const seconds = ref(0);
+const { t, tm, rt } = useI18n();
+
+const time = reactive({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+const units = [
+  { key: 'days', label: 'days' },
+  { key: 'hours', label: 'hours' },
+  { key: 'minutes', label: 'minutes' },
+  { key: 'seconds', label: 'seconds' }
+];
 
 const fakeDeadline = new Date('2025-03-16T00:00:00.000Z');
-const place = 'Tashkent';
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December'
-];
-const calculatedDeadline = ` ${fakeDeadline.getDate()} ${months[fakeDeadline.getMonth()]}
-${fakeDeadline.getFullYear()}`;
+const place = computed(() => t('tashkent'));
+const months = computed(() => tm('months').map(month => rt(month)));
+
+const calculatedDeadline = `${fakeDeadline.getDate()} ${
+  months.value[fakeDeadline.getMonth()]
+} ${fakeDeadline.getFullYear()}`;
 
 const countdown = () => {
-  const now = new Date().getTime();
-  const distance = fakeDeadline - now;
-  days.value = Math.floor(distance / (1000 * 60 * 60 * 24));
-  hours.value = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  minutes.value = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  seconds.value = Math.floor((distance % (1000 * 60)) / 1000);
+  const diff = fakeDeadline.getTime() - Date.now();
+  const unitsMs = {
+    days: 1000 * 60 * 60 * 24,
+    hours: 1000 * 60 * 60,
+    minutes: 1000 * 60,
+    seconds: 1000
+  };
+
+  let remaining = diff;
+  for (const key in unitsMs) {
+    time[key] = Math.floor(remaining / unitsMs[key]);
+    remaining %= unitsMs[key];
+  }
 };
+
+onMounted(() => setInterval(countdown, 1000));
 countdown();
-onMounted(() => {
-  setInterval(countdown, 1000);
-});
 </script>
 
 <style lang="scss" scoped>
@@ -176,8 +166,12 @@ onMounted(() => {
     padding-inline: max(10px, 3.2rem);
     padding-block: max(10px, 2.4rem);
     display: flex;
-    gap: max(2.4rem, 5px);
+    gap: max(2.4rem, 10px);
     animation: slide-from-left $duration backwards;
+    @media screen and (max-width: 450px) {
+      flex: 1;
+      justify-content: space-between;
+    }
     &-container {
       display: flex;
       flex-direction: column;

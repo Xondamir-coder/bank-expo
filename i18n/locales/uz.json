@@ -522,5 +522,26 @@
         ]
       }
     ]
-  }
+  },
+
+  "error": {
+    "title": "Sahifa topilmadi",
+    "text": "Afsuski, siz izlayotgan sahifani mavjud yoki yoki mavjud emas. Iltimos, bosh sahifaga qaytib boringiz",
+    "go-back": "Bosh sahifa"
+  },
+
+  "months": [
+    "Yanvar",
+    "Fevral",
+    "Mart",
+    "Aprel",
+    "May",
+    "Iyun",
+    "Iyul",
+    "Avgust",
+    "Sentabr",
+    "Oktabr",
+    "Noyabr",
+    "Dekabr"
+  ]
 }

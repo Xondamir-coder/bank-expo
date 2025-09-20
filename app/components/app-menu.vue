@@ -1,6 +1,6 @@
 <template>
   <Transition name="fade">
-    <div v-if="showMenu" class="menu">
+    <div v-if="showMenu" class="menu" :data-lenis-prevent="true">
       <nav class="menu__links">
         <NuxtLink
           v-for="link in links"
@@ -73,6 +73,8 @@ const showMenu = useState('showMenu', () => false);
 <style lang="scss" scoped>
 .menu {
   $duration: 0.6s;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
   position: fixed;
   inset: 0;
   top: 81.6px;
@@ -82,6 +84,7 @@ const showMenu = useState('showMenu', () => false);
   padding-inline: 16px;
   padding-top: 30px - 16px;
   padding-bottom: 30px;
+  gap: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

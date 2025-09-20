@@ -155,13 +155,12 @@
       </svg>
     </div>
     <div class="error__bottom">
-      <h2 class="error__bottom-title">Page Not Found</h2>
+      <h2 class="error__bottom-title">{{ $t('error.title') }}</h2>
       <p class="error__text">
-        Sorry, the page you’re looking for does not exist or has been moved please go back to the
-        Home page
+        {{ $t('error.text') }}
       </p>
       <NuxtLink :to="$localePath('/')" class="error__link">
-        <span>Go back home</span>
+        <span>{{ $t('error.go-back') }}</span>
         <IconsUpRightArrow class="error__arrow" />
       </NuxtLink>
     </div>

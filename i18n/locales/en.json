@@ -522,5 +522,26 @@
         ]
       }
     ]
-  }
+  },
+
+  "error": {
+    "title": "Page Not Found",
+    "text": "Sorry, the page you’re looking for does not exist or has been moved please go back to the Home page",
+    "go-back": "Go back home"
+  },
+
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
 }
