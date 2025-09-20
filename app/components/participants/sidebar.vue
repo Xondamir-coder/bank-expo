@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <h3 class="sidebar__title">Directory of banks</h3>
+    <h3 class="sidebar__title">{{ $t('participants.sidebar.title') }}</h3>
     <div class="sidebar__content">
       <div v-for="(row, i) in rows" :key="i" class="sidebar__row">
         <div class="sidebar__row-left">
@@ -11,10 +11,12 @@
             {{ row.name }}
           </h4>
         </div>
-        <p v-if="Number.isInteger(row.data)" class="sidebar__row-text">{{ row.data }} banks</p>
+        <p v-if="Number.isInteger(row.data)" class="sidebar__row-text">
+          {{ row.data }} {{ $t('nav.banks') }}
+        </p>
         <div v-else class="sidebar__row-cta">
           <p class="sidebar__row-text">{{ row.data.percent }}%</p>
-          in
+          {{ $t('in') }}
           <a :href="row.data.website" target="_blank" class="sidebar__row-link">
             {{ row.data.bank }}
           </a>
@@ -48,33 +50,36 @@ const data = {
     website: 'https://ziraatbank.uz'
   }
 };
-const rows = [
+
+const { t } = useI18n();
+
+const rows = computed(() => [
   {
     icon: IconsList,
-    name: 'In the catalog',
+    name: t('participants.sidebar.in-catalog'),
     data: data.catalog
   },
   {
     icon: IconsCash,
-    name: 'Private banks',
+    name: t('participants.sidebar.private-banks'),
     data: data.privateBanks
   },
   {
     icon: IconsCashDown,
-    name: 'State banks',
+    name: t('participants.sidebar.state-banks'),
     data: data.stateBanks
   },
   {
     icon: IconsBriefcase,
-    name: 'Best interest rate on loan',
+    name: t('participants.sidebar.loan-interest'),
     data: data.bestLoanInterest
   },
   {
     icon: IconsBankBuilding,
-    name: 'The best interest rate on deposits',
+    name: t('participants.sidebar.deposit-interest'),
     data: data.bestDepositInterest
   }
-];
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -142,6 +147,7 @@ const rows = [
       color: $clr-very-dark-grey;
       font-weight: 700;
       font-size: max(16px, 1.8rem);
+      text-transform: lowercase;
     }
     &-name {
       color: #687588;

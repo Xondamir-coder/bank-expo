@@ -41,16 +41,17 @@ const fetchItems = page => {
 };
 
 //  data
-const breadcrumbs = [
+const { t } = useI18n();
+const breadcrumbs = computed(() => [
   {
     to: '/',
-    label: 'Home'
+    label: t('nav.home')
   },
   {
     to: '/participants',
-    label: 'Participants'
+    label: t('nav.participants')
   }
-];
+]);
 const pagesCount = 12;
 const PARTICIPANTS_COUNT = 10;
 const participants = Array(PARTICIPANTS_COUNT).fill({

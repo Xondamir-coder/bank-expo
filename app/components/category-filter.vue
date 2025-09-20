@@ -3,13 +3,13 @@
     <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
-        v-for="filter in filters"
-        :key="filter.type"
+        v-for="(filter, index) in filters"
+        :key="index"
         class="filter__button"
-        :class="{ 'filter__button--active': filter.type === currentType }"
-        @click="setType(filter.type)"
+        :class="{ 'filter__button--active': index === currentFilter }"
+        @click="currentFilter = index"
       >
-        {{ filter.label }}
+        {{ filter }}
       </button>
     </div>
   </div>
@@ -21,23 +21,15 @@ defineProps({
   filters: {
     type: Array,
     required: true
-  },
-  currentType: {
-    type: String,
-    required: true
   }
 });
 
 const { t } = useI18n();
 const route = useRoute();
 
-const title = computed(() => t(`nav.${route.path.slice(1)}`));
+const currentFilter = ref(0);
 
-// emits
-const emits = defineEmits(['filter']);
-
-// change current type
-const setType = type => emits('filter', type);
+const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
 </script>
 
 <style scoped lang="scss">

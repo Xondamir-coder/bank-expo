@@ -1,7 +1,7 @@
 <template>
   <Transition name="fade">
     <div v-if="showMenu" class="menu">
-      <div class="menu__links">
+      <nav class="menu__links">
         <NuxtLink
           v-for="link in links"
           :key="link.to"
@@ -11,7 +11,7 @@
         >
           {{ link.label }}
         </NuxtLink>
-      </div>
+      </nav>
       <div class="menu__bottom">
         <a class="menu__social" target="_blank" href="#">
           <IconsTelegram class="menu__social-icon" />

@@ -9,16 +9,16 @@
         class="form__input"
         required
         @input="row.type === 'tel' ? validatePhoneNumber() : null"
-      >
+      />
     </div>
     <div class="form__bottom">
       <button class="form__button" type="submit" :disabled="!name || !organization || !tel">
-        <span>Send request</span>
+        <span>{{ t('form.send-request') }}</span>
         <IconsUpRightArrow class="form__arrow" />
       </button>
       <div class="form__policy">
-        <span>Регистрируясь, вы подтверждаете, что прочитали и согласны с</span>
-        <NuxtLink :to="$localePath('/privacy-policy')"> Политикой конфиденциальности. </NuxtLink>
+        <span>{{ t('form.approval') }} &ThinSpace;</span>
+        <NuxtLink :to="$localePath('/privacy-policy')"> {{ t('form.policy') }} </NuxtLink>
       </div>
     </div>
   </form>

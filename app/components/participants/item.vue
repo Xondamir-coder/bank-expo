@@ -22,7 +22,7 @@
       </div>
     </div>
     <a :href="participant.website" target="_blank" class="participant__link">
-      <span>Go to site</span>
+      <span>{{ t('participant.go-to-site') }}</span>
       <IconsUpRightArrow class="participant__arrow" />
     </a>
   </NuxtLink>
@@ -36,20 +36,21 @@ const props = defineProps({
   }
 });
 
-const details = [
+const { t } = useI18n();
+const details = computed(() => [
   {
-    name: 'Phone number',
+    name: t('participant.phone-number'),
     data: props.participant.tel
   },
   {
-    name: 'Interest on the loan',
+    name: t('participant.loan-interest'),
     data: props.participant.loanInterest
   },
   {
-    name: 'Interest on deposit',
+    name: t('participant.deposit-interest'),
     data: props.participant.depositInterest
   }
-];
+]);
 </script>
 
 <style lang="scss" scoped>

@@ -193,19 +193,14 @@ onMounted(() => {
   &__pattern {
     pointer-events: none;
     position: absolute;
-    inset: 0;
     width: 100%;
-    @media only screen and (max-width: $bp-xl) {
-      transform: scale(1.5);
-    }
-    @media only screen and (max-width: $bp-lg) {
-      transform: scale(2) translateY(10%);
-    }
-    @media only screen and (max-width: $bp-md) {
-      transform: scale(3) translateY(30%);
-    }
-    @media only screen and (max-width: $bp-sm) {
-      transform: scale(4) translateY(35%);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    @media screen and (max-width: $bp-xl) {
+      width: auto;
+      height: 100%;
     }
   }
 }

@@ -63,6 +63,7 @@
         <ClientOnly>
           <swiper-container
             class="participant__card participant__swiper"
+            :grab-cursor="true"
             :breakpoints="{
               1024: {
                 slidesPerView: 2.5,
@@ -79,7 +80,7 @@
             }"
           >
             <swiper-slide v-for="(image, i) in images" :key="i" class="participant__slide">
-              <img :src="image" alt="banner" class="participant__image" >
+              <img :src="image" alt="banner" class="participant__image" />
             </swiper-slide>
           </swiper-container>
         </ClientOnly>

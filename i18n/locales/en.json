@@ -21,6 +21,7 @@
   "website": "Website",
   "register-online": "Register Online",
   "media-center": "Media Center",
+  "in": "in",
 
   "contacts": {
     "name": "Contacts",
@@ -98,6 +99,8 @@
       ]
     },
     "welcome": {
+      "title": "Uzbekistan",
+      "subtitle": "Welcome to",
       "text": "Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends.Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends."
     },
     "experts": {
@@ -126,10 +129,10 @@
       "title": "Partners & Sponsors",
       "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the",
       "items": [
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Milliy Gvardiyasi",
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Adliya Vazirligi"
+        "Ministry of Digital Technologies of the Republic of Uzbekistan",
+        "National Guard of the Republic of Uzbekistan",
+        "Ministry of Digital Technologies of the Republic of Uzbekistan",
+        "Ministry of Justice of the Republic of Uzbekistan"
       ]
     }
   },
@@ -157,7 +160,8 @@
       "label": "Mobile phone"
     },
     "send-request": "Send request",
-    "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
+    "approval": "By registering, you confirm that you have read and agree with",
+    "policy": "Privacy policy"
   },
 
   "mission": {
@@ -186,37 +190,9 @@
       ]
     },
     "team": {
-      "title": "Our managment team",
+      "title": "Our management team",
       "text": "Epo Bank unites participants from over",
       "members": [
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
         {
           "name": "Ahmadjon Rahmatjonov",
           "job": "Founder and CEO"
@@ -231,7 +207,7 @@
     "items": [
       {
         "title": "Venue Details",
-        "details": ["Epo Expo Center", "Mustaqillik ko‘chasi 45, Tashkent, Uzbekistan"],
+        "details": ["Epo Expo Center", "Mustaqillik street 45, Tashkent, Uzbekistan"],
         "text": "The Expo Bank will take place at the state-of-the-art Epo Expo Center — a modern venue equipped with world-class facilities for conferences, exhibitions, and networking"
       },
       {
@@ -280,36 +256,49 @@
   "participants": {
     "name": "Participants",
     "sidebar": {
-      "title": "Directory of banks"
+      "title": "Directory of banks",
+      "private-banks": "Private banks",
+      "state-banks": "State banks",
+      "in-catalog": "In the catalog",
+      "loan-interest": "Best interest rate on loan",
+      "deposit-interest": "The best interest rate on deposits"
     }
   },
 
   "participant": {
+    "phone-number": "Phone number",
+    "loan-interest": "Interest on the loan",
+    "deposit-interest": "Interest on deposit",
+    "go-to-site": "Go to site",
     "items": [
       {
         "title": "About company",
-        "text": "InfinBANK – O‘zbekistonning yetakchi tijorat banklaridan biri bo‘lib, mijozlarga zamonaviy moliyaviy xizmatlarni taqdim etadi. Bank nafaqat jismoniy shaxslar, balki korporativ mijozlar uchun ham keng ko‘lamli xizmatlarni yo‘lga qo‘ygan. InfinBANK mijozlarga qulaylik yaratish maqsadida raqamli bankingni rivojlantirib, mobil ilova va onlayn xizmatlarni taklif etadi"
+        "text": "InfinBANK – one of the leading commercial banks in Uzbekistan, provides modern financial services to clients. The bank has introduced a wide range of services not only for individuals but also for corporate clients. InfinBANK develops digital banking to create convenience for clients by offering mobile apps and online services"
       },
       {
-        "title": "Asosiy yo‘nalishlari",
+        "title": "Main directions",
         "details": [
-          "Jismoniy shaxslar uchun kredit va depozit xizmatlari",
-          "Xalqaro pul o‘tkazmalari",
-          "Internet-banking va mobil banking xizmatlari",
-          "Plastik kartalar (Visa, MasterCard, Uzcard, Humo)"
+          "Credit and deposit services for individuals",
+          "International money transfers",
+          "Internet banking and mobile banking services",
+          "Plastic cards (Visa, MasterCard, Uzcard, Humo)"
         ]
       },
       {
-        "title": "Ko‘rgazmada taqdim etiladigan xizmatlar",
+        "title": "Services presented at the exhibition",
         "details": [
-          "Yangi biznes kredit dasturlari",
-          "Startap va kichik biznes uchun imtiyozli moliyalashtirish yechimlari",
-          "Internet-banking va mobil banking xizmatlari",
-          "Mobil banking ilovasining yangilangan versiyasi",
-          "Fintex bilan integratsiyalashgan xizmatlar"
+          "New business credit programs",
+          "Preferential financing solutions for startups and small businesses",
+          "Internet banking and mobile banking services",
+          "Updated version of the mobile banking app",
+          "Services integrated with fintech"
         ]
       }
     ]
+  },
+
+  "category-filter": {
+    "items": ["All base", "Banks", "Factories", "Universities", "Others"]
   },
 
   "speakers": {
@@ -391,28 +380,146 @@
       ]
     }
   },
+
   "faq": {
     "title": "FAQ (Visitors)",
     "items": [
       {
         "question": "Do I need to register online?",
-        "answer": "Yes, online registration is required to access the Expo"
+        "answer": "Yes, all visitors are required to register online before attending the Expo."
       },
       {
         "question": "Is entry free for students?",
-        "answer": "answer"
+        "answer": "Yes, students can enter for free by presenting a valid student ID at registration."
       },
       {
         "question": "Where do I get my badge?",
-        "answer": "answer"
+        "answer": "You can collect your badge at the registration desk upon arrival by showing your confirmation email or QR code."
       },
       {
         "question": "Can families attend together?",
-        "answer": "answer"
+        "answer": "Yes, families are welcome. Each member must complete individual registration."
       },
       {
-        "question": "Can families attend together?",
-        "answer": "answer"
+        "question": "What are the exhibition opening hours?",
+        "answer": "The exhibition is open daily from 10:00 AM to 6:00 PM during event dates."
+      },
+      {
+        "question": "Is there parking available at the venue?",
+        "answer": "Yes, free parking is available for registered visitors on a first-come, first-served basis."
+      },
+      {
+        "question": "Will there be translation services?",
+        "answer": "Yes, simultaneous translation will be provided for major sessions in English, Russian, and Uzbek."
+      },
+      {
+        "question": "Can I attend specific sessions without visiting the exhibition floor?",
+        "answer": "Yes, session-only passes are available, but registration is still required."
+      }
+    ]
+  },
+
+  "terms-of-service": {
+    "subtitle": "Welcome to Bank Expo! By accessing or using this website, you agree to comply with and be bound by the following terms and conditions. If you do not agree, please refrain from using the site.",
+    "content": [
+      {
+        "title": "Use of the Website",
+        "subtitle": null,
+        "texts": [
+          "You must be at least 18 years old to use this website.",
+          "You agree to use the website only for lawful purposes and in a way that does not infringe the rights of third parties or restrict their use of the website.",
+          "Unauthorized use of this website may give rise to a claim for damages or constitute a criminal offense."
+        ]
+      },
+      {
+        "title": "Intellectual Property Rights",
+        "subtitle": null,
+        "texts": [
+          "All content on this website, including text, images, logos, and code, is owned by or licensed to Bank Expo.",
+          "You may not reproduce, distribute, or otherwise exploit website content without prior written consent."
+        ]
+      },
+      {
+        "title": "User Account",
+        "subtitle": null,
+        "texts": [
+          "If you create an account, you are responsible for keeping your login details secure.",
+          "You must notify us immediately of any unauthorized access to your account.",
+          "We reserve the right to suspend or terminate accounts that violate these terms."
+        ]
+      },
+      {
+        "title": "Limitation of Liability",
+        "subtitle": null,
+        "texts": [
+          "The website is provided on an 'as is' basis without warranties of any kind.",
+          "Bank Expo is not liable for any indirect, incidental, or consequential damages resulting from the use of this site."
+        ]
+      },
+      {
+        "title": "Governing Law",
+        "subtitle": null,
+        "texts": [
+          "These terms are governed by the laws of the Republic of Uzbekistan.",
+          "Any disputes shall be subject to the exclusive jurisdiction of the courts of Uzbekistan."
+        ]
+      }
+    ]
+  },
+
+  "privacy-policy": {
+    "subtitle": "At Bank Expo, we value your privacy and are committed to safeguarding your personal information. This policy explains how we collect, use, and protect your data.",
+    "content": [
+      {
+        "title": "Information We Collect",
+        "subtitle": null,
+        "texts": [
+          "Personal details you provide, such as name, email, phone number, and company information.",
+          "Technical information like IP address, browser type, and device data collected automatically.",
+          "Cookies and tracking technologies used to improve your browsing experience."
+        ]
+      },
+      {
+        "title": "How We Use Your Information",
+        "subtitle": null,
+        "texts": [
+          "To provide, operate, and improve our services and website.",
+          "To send you event updates, service announcements, and promotional offers.",
+          "To comply with legal obligations and prevent fraudulent activities."
+        ]
+      },
+      {
+        "title": "Data Sharing & Third Parties",
+        "subtitle": null,
+        "texts": [
+          "We do not sell or rent your personal data.",
+          "We may share information with trusted service providers (e.g., IT, payment processing) when necessary.",
+          "Third-party websites linked on our site are subject to their own privacy practices."
+        ]
+      },
+      {
+        "title": "Data Security",
+        "subtitle": null,
+        "texts": [
+          "We use industry-standard security measures to protect your data.",
+          "However, no method of internet transmission is 100% secure, and absolute protection cannot be guaranteed."
+        ]
+      },
+      {
+        "title": "Your Rights",
+        "subtitle": null,
+        "texts": [
+          "You may request access, correction, or deletion of your personal data.",
+          "You can opt out of promotional communications at any time."
+        ]
+      },
+      {
+        "title": "Changes to This Policy",
+        "subtitle": null,
+        "texts": [
+          "We may update this Privacy Policy from time to time.",
+          "Any changes will be posted on this page with an updated revision date."
+        ]
       }
     ]
   }

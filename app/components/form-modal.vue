@@ -15,8 +15,7 @@
             </IconButton>
           </div>
           <p class="form-modal__text">
-            Discover the leading banks and financial institutions in the industry. Their logos
-            showcase innovation and excellence
+            {{ $t('form-modal.text') }}
           </p>
         </div>
         <AppForm class="form--modal" />

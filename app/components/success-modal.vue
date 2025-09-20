@@ -6,9 +6,9 @@
       @click.self="showSuccessModal = false"
     >
       <div class="success-modal">
-        <button class="success-modal__close" @click="showSuccessModal = false">
-          <IconsCloseX class="success-modal__close-icon" />
-        </button>
+        <IconButton @click="showSuccessModal = false" class="success-modal__close">
+          <IconsCloseX />
+        </IconButton>
         <div class="success-modal__content">
           <IconsCheck class="success-modal__check" />
           <h2 class="success-modal__title">
@@ -76,16 +76,7 @@ const showSuccessModal = useState('showSuccessModal');
     width: max(8rem, 56px);
   }
   &__close {
-    @include flex-center;
     align-self: flex-end;
-    width: max(5rem, 36px);
-    height: max(5rem, 36px);
-    border-radius: max(1.2rem, 4px);
-    border: 1px solid #cbd5e0;
-    background: #fafafa;
-    &-icon {
-      width: 50%;
-    }
   }
   &__content {
     display: flex;

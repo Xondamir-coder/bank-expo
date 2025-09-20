@@ -9,16 +9,17 @@
 </template>
 
 <script setup>
-const breadcrumbs = [
+const { t } = useI18n();
+const breadcrumbs = computed(() => [
   {
     to: '/',
-    label: 'Home'
+    label: t('nav.home')
   },
   {
     to: '/mission',
-    label: 'Mission'
+    label: t('nav.mission')
   }
-];
+]);
 </script>
 
 <style lang="scss" scoped>

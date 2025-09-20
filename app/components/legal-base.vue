@@ -7,11 +7,11 @@
       {{ subtitle }}
     </p>
     <div v-for="(row, i) in content" :key="i" class="legal__box">
-      <h2 class="legal__subtitle">{{ row.title }}</h2>
-      <p v-if="row.subtitle" class="legal__text">{{ row.subtitle }}</p>
+      <h2 class="legal__subtitle">{{ $rt(row.title) }}</h2>
+      <p v-if="row.subtitle" class="legal__text">{{ $rt(row.subtitle) }}</p>
       <ul v-if="row.texts" class="legal__list">
         <li v-for="text in row.texts" :key="text" class="legal__text">
-          {{ text }}
+          {{ $rt(text) }}
         </li>
       </ul>
     </div>

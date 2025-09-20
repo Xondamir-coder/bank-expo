@@ -1,302 +1,286 @@
 {
-  "contact-us": "Contact Us",
-  "get-started": "Get Started",
-  "rights-reserved": "All rights reserved",
-  "links": "Links",
-  "services": "Services",
-  "days": "Days",
-  "hours": "Hours",
-  "minutes": "Minutes",
-  "seconds": "Seconds",
-  "tashkent": "Tashkent",
-  "uzbekistan": "Uzbekistan",
-  "visitors": "Visitors",
-  "exhibitors": "Exhibitors",
-  "countries": "Countries",
-  "okay": "Okay",
-  "search": "Search",
-  "contact-info": "Contact information",
-  "address": "Address",
-  "phone": "Phone",
-  "mail": "Email",
-  "website": "Website",
-  "register-online": "Register Online",
-  "media-center": "Media Center",
+  "contact-us": "Biz bilan bog‘lanish",
+  "get-started": "Boshlash",
+  "rights-reserved": "Barcha huquqlar himoyalangan",
+  "links": "Havolalar",
+  "services": "Xizmatlar",
+  "days": "Kunlar",
+  "hours": "Soatlar",
+  "minutes": "Daqiqalar",
+  "seconds": "Soniyalar",
+  "tashkent": "Toshkent",
+  "uzbekistan": "O‘zbekiston",
+  "exhibitors": "Ishtirokchilar",
+  "countries": "Davlatlar",
+  "okay": "Tushunarli",
+  "search": "Qidirish",
+  "contact-info": "Aloqa ma’lumotlari",
+  "address": "Manzil",
+  "phone": "Telefon",
+  "mail": "Elektron pochta",
+  "website": "Veb-sayt",
+  "register-online": "Onlayn ro‘yxatdan o‘tish",
+  "media-center": "Matbuot markazi",
+  "in": "da",
 
   "contacts": {
-    "name": "Contacts",
-    "address": "Uzbekistan, Tashkent"
+    "name": "Aloqalar",
+    "address": "O‘zbekiston, Toshkent"
   },
 
   "footer": {
-    "title": "Discover the future of banking technology in one place!"
+    "title": "Bank texnologiyalarining kelajagini bir joyda kashf eting!"
   },
 
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "mission": "Mission",
-    "venue": "Venue",
-    "organizer": "Organizer",
-    "banks": "Banks",
-    "participants": "Participants",
-    "speakers": "Speakers",
-    "sponsors": "Sponsors",
-    "media": "Media",
-    "media-library": "Media Library",
-    "media-accreditation": "Media Accreditation",
-    "news": "News",
-    "partners": "Partners",
-    "terms-of-service": "Terms of service",
-    "privacy-policy": "Privacy policy"
+    "home": "Bosh sahifa",
+    "about": "Biz haqimizda",
+    "mission": "Missiya",
+    "venue": "Manzil",
+    "organizer": "Tashkilotchi",
+    "banks": "Banklar",
+    "participants": "Ishtirokchilar",
+    "speakers": "Ma’ruzachilar",
+    "sponsors": "Homiylar",
+    "media": "OAV",
+    "media-library": "Media kutubxonasi",
+    "media-accreditation": "OAV akkreditatsiyasi",
+    "for-visitors": "Tashrif buyuruvchilar uchun",
+    "partners": "Hamkorlar",
+    "terms-of-service": "Xizmat ko‘rsatish shartlari",
+    "privacy-policy": "Maxfiylik siyosati"
   },
 
   "home": {
     "hero": {
-      "titles": ["New Horizons", "of Modern Finance"],
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+      "titles": ["Yangi Ufqlar", "Zamonaviy Moliya"],
+      "text": "Expo Banking – banklar va moliyaviy institutlar uchun eng so‘nggi texnologiyalar, xizmatlar va biznes imkoniyatlarini namoyish etadigan asosiy platforma. Zamonaviy moliya markazini biz bilan kashf eting"
     },
     "about": {
-      "title": "About the Event",
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+      "title": "Tadbir haqida",
+      "text": "Expo Banking – banklar va moliyaviy institutlar uchun eng so‘nggi texnologiyalar, xizmatlar va biznes imkoniyatlarini namoyish etadigan asosiy platforma. Zamonaviy moliya markazini biz bilan kashf eting"
     },
     "mission": {
-      "title": "Our mission",
+      "title": "Bizning missiyamiz",
       "items": [
         {
-          "title": "Innovative Technologies",
-          "text": "Expo Banking presents innovative technologies and digital services, providing opportunities for companies to explore and develop cutting-edge technologies."
+          "title": "Innovatsion Texnologiyalar",
+          "text": "Expo Banking innovatsion texnologiyalar va raqamli xizmatlarni taqdim etadi, kompaniyalarga ilg‘or texnologiyalarni o‘rganish va rivojlantirish imkoniyatlarini yaratadi."
         },
         {
-          "title": "Global Community",
-          "text": "The global community of Expo Banking unites leaders of the world's top financial institutions, fostering innovation and collaboration in the development of modern finance."
+          "title": "Global Hamjamiyat",
+          "text": "Expo Banking global hamjamiyati dunyoning yetakchi moliya institutlari rahbarlarini birlashtiradi va zamonaviy moliyani rivojlantirishda innovatsiya va hamkorlikni qo‘llab-quvvatlaydi."
         },
         {
-          "title": "Global Partners",
-          "text": "Leading global banks and financial institutions partner with Expo Banking to showcase their latest innovations and business opportunities, driving the development of modern finance."
+          "title": "Xalqaro Hamkorlar",
+          "text": "Dunyoning yetakchi banklari va moliya institutlari Expo Banking bilan hamkorlik qilib, eng yangi innovatsiyalar va biznes imkoniyatlarini namoyish etadi, zamonaviy moliyani rivojlantiradi."
         }
       ]
     },
     "events": {
-      "title": "Upcoming events",
+      "title": "Yaqinlashayotgan tadbirlar",
       "cards": [
         {
-          "title": "Smart Cities and Banking Summit",
-          "text": "Smart Cities and Banking Summit is a global platform for discussing the integration of modern cities and financial institutions. The forum will bring together representatives of banks and cities to discuss the opportunities for cooperation and innovation."
+          "title": "Aqlli Shaharlar va Banklar Sammiti",
+          "text": "Aqlli Shaharlar va Banklar Sammiti zamonaviy shaharlar va moliya institutlari integratsiyasini muhokama qilish uchun global platforma hisoblanadi. Forumda banklar va shahar vakillari hamkorlik va innovatsiyalar imkoniyatlarini muhokama qilishadi."
         },
         {
-          "title": "Mobile Banking Revolution Expo",
-          "text": "Mobile Banking Revolution Expo is an exhibition exhibition platform for showcasing the latest mobile banking technologies and innovations. The event will bring together representatives of mobile banking industry to discuss the opportunities and challenges of mobile banking."
+          "title": "Mobil Bank Revolyutsiyasi Ko‘rgazmasi",
+          "text": "Mobil Bank Revolyutsiyasi Ko‘rgazmasi mobil bank texnologiyalari va innovatsiyalarini namoyish etadigan platforma hisoblanadi. Tadbirda mobil bank sanoati vakillari imkoniyatlar va muammolarni muhokama qilish uchun yig‘iladi."
         },
         {
-          "title": "Payment Systems innovation Forum",
-          "text": "Payment Systems Innovation Forum is a global platform for discussing the latest innovations in payment systems. The forum will bring together representatives of payment systems industry to discuss the opportunities and challenges of payment systems."
+          "title": "To‘lov Tizimlari Innovatsiyasi Forumi",
+          "text": "To‘lov Tizimlari Innovatsiyasi Forumi to‘lov tizimlaridagi eng so‘nggi innovatsiyalarni muhokama qilish uchun global platforma hisoblanadi. Forumda to‘lov tizimlari sohasi vakillari imkoniyatlar va muammolarni muhokama qilishadi."
         },
         {
-          "title": "Global Fintech Forum 2025",
-          "text": "Global Fintech Forum 2025 is a global platform for discussing the latest innovations in fintech industry. The forum will bring together representatives of fintech industry to discuss the opportunities and challenges of fintech industry."
+          "title": "Global Fintech Forumi 2025",
+          "text": "Global Fintech Forumi 2025 fintech sohasidagi eng so‘nggi innovatsiyalarni muhokama qilish uchun global platforma hisoblanadi. Forumda fintech sohasi vakillari imkoniyatlar va muammolarni muhokama qilishadi."
         }
       ]
     },
     "welcome": {
-      "text": "Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends.Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends."
+      "title": "O'zbekiston",
+      "subtitle": "Xush kelibsiz",
+      "text": "Ma’lumotlaringizni chuqurroq tahlil qiling, maxsus hisobotlar tuzing, ma’lumotlarni vizual tarzda kuzating va tendensiyalarni aniqlang."
     },
     "experts": {
-      "title": "Experts Shaping the Future of Finance",
-      "text": "Our speakers will share insights on modern banking technologies and the development trends of international financial markets",
+      "title": "Moliyaning Kelajagini Shakllantirayotgan Mutaxassislar",
+      "text": "Bizning ma’ruzachilarimiz zamonaviy bank texnologiyalari va xalqaro moliya bozorlaridagi rivojlanish tendensiyalari haqida o‘z tajribalarini ulashishadi",
       "items": [
         {
-          "title": "Global Financial Expertise",
-          "text": "Strategic partnerships and innovations in global financial markets"
+          "title": "Xalqaro Moliyaviy Tajriba",
+          "text": "Global moliya bozorlarida strategik hamkorlik va innovatsiyalar"
         },
         {
-          "title": "Innovation Platforms",
-          "text": "Leading banking technologies in the modern era"
+          "title": "Innovatsion Platformalar",
+          "text": "Zamonaviy davrning yetakchi bank texnologiyalari"
         },
         {
-          "title": "International Speakers Bureau",
-          "text": "Global conferences and forums featuring prominent speakers"
+          "title": "Xalqaro Ma’ruzachilar Byurosi",
+          "text": "Mashhur ma’ruzachilar ishtirokidagi global konferensiyalar va forumlar"
         }
       ]
     },
     "banks": {
-      "title": "Participating Banks",
-      "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+      "title": "Ishtirokchi Banklar",
+      "text": "Soha yetakchi banklari va moliya institutlarini kashf eting. Ularning logotiplari innovatsiya va mukammallikni aks ettiradi"
     },
     "partners": {
-      "title": "Partners & Sponsors",
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the",
+      "title": "Hamkorlar va Homiylar",
+      "text": "Expo Banking – banklar va moliyaviy institutlar uchun eng so‘nggi texnologiyalar, xizmatlar va biznes imkoniyatlarini namoyish etadigan asosiy platforma. Biz bilan birga kashf eting",
       "items": [
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Milliy Gvardiyasi",
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Adliya Vazirligi"
+        "O‘zbekiston Respublikasi Raqamli texnologiyalar vazirligi",
+        "O‘zbekiston Respublikasi Milliy Gvardiyasi",
+        "O‘zbekiston Respublikasi Raqamli texnologiyalar vazirligi",
+        "O‘zbekiston Respublikasi Adliya vazirligi"
       ]
     }
   },
 
   "form-modal": {
-    "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+    "text": "Soha yetakchi banklari va moliya institutlarini kashf eting. Ularning logotiplari innovatsiya va mukammallikni aks ettiradi"
   },
 
   "success-modal": {
-    "title": "Your application has been successfully submitted!",
-    "text": "Our administrator will contact you within 24 hours. Thank you for your interest and for submitting your application!"
+    "title": "Arizangiz muvaffaqiyatli yuborildi!",
+    "text": "Administratorimiz 24 soat ichida siz bilan bog‘lanadi. Qiziqishingiz va ariza topshirganingiz uchun rahmat!"
   },
 
   "form": {
     "organization": {
-      "placeholder": "Your organization name",
-      "label": "Organization"
+      "placeholder": "Tashkilot nomingiz",
+      "label": "Tashkilot"
     },
     "full-name": {
-      "placeholder": "Enter your name",
-      "label": "Full name"
+      "placeholder": "Ismingizni kiriting",
+      "label": "To‘liq ism"
     },
     "mobile-phone": {
-      "placeholder": "Enter your number",
-      "label": "Mobile phone"
+      "placeholder": "Telefon raqamingizni kiriting",
+      "label": "Mobil telefon"
     },
-    "send-request": "Send request",
-    "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
+    "send-request": "So‘rov yuborish",
+    "approval": "Ro‘yxatdan o‘tish orqali siz o‘qib chiqqan va rozi ekanligingizni tasdiqlaysiz",
+    "policy": "Maxfiylik siyosati"
   },
 
   "mission": {
     "hero": {
-      "titles": ["Expo Banking – the premier", "platform for banks"],
-      "text": "Expo Banking – the premier platform for banks and financial institutions "
+      "titles": ["Expo Banking – yetakchi", "banklar uchun platforma"],
+      "text": "Expo Banking – banklar va moliya institutlari uchun asosiy platforma"
     },
     "global": {
-      "title": "Your Gateway to Global Connections",
+      "title": "Global Aloqalarga Yo‘l",
       "items": [
         {
           "amount": "50+",
-          "label": "Countries",
-          "text": "Expo Bank unites participants from over 50 countries, creating a truly international platform."
+          "label": "Davlatlar",
+          "text": "Expo Bank 50 dan ortiq davlatlardan ishtirokchilarni birlashtirib, haqiqiy xalqaro platforma yaratadi."
         },
         {
           "amount": "1000+",
-          "label": "Visitors",
-          "text": "The event welcomes top bank representatives, business leaders, and general attendees, fostering valuable connections"
+          "label": "Tashrif buyuruvchilar",
+          "text": "Tadbir bank rahbarlari, biznes yetakchilari va keng jamoatchilikni birlashtiradi, qimmatli aloqalarni yaratadi"
         },
         {
           "amount": "10+",
-          "label": "Countries",
-          "text": "The exhibition offers opportunities in financial technology, lending, insurance, and various other sectors, encouraging cross-industry collaboration"
+          "label": "Davlatlar",
+          "text": "Ko‘rgazma moliyaviy texnologiyalar, kreditlash, sug‘urta va boshqa sohalarda imkoniyatlar taqdim etadi, sohalararo hamkorlikni rivojlantiradi"
         }
       ]
     },
     "team": {
-      "title": "Our managment team",
-      "text": "Epo Bank unites participants from over",
+      "title": "Boshqaruv jamoamiz",
+      "text": "Epo Bank ishtirokchilarni birlashtiradi",
       "members": [
         {
           "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
+          "job": "Asoschi va Bosh direktor"
         }
       ]
     }
   },
 
   "venue": {
-    "title": "Venue & Travel Information",
-    "text": "Join us at the heart of Tashkent for the Expo Bank 2025",
+    "title": "Manzil va Safar Ma’lumotlari",
+    "text": "Expo Bank 2025 Toshkent markazida bo‘lib o‘tadi",
     "items": [
       {
-        "title": "Venue Details",
-        "details": ["Epo Expo Center", "Mustaqillik ko‘chasi 45, Tashkent, Uzbekistan"],
-        "text": "The Expo Bank will take place at the state-of-the-art Epo Expo Center — a modern venue equipped with world-class facilities for conferences, exhibitions, and networking"
+        "title": "Manzil Tafsilotlari",
+        "details": ["Epo Expo Markazi", "Mustaqillik ko‘chasi 45, Toshkent, O‘zbekiston"],
+        "text": "Expo Bank zamonaviy Epo Expo Markazida bo‘lib o‘tadi — konferensiyalar, ko‘rgazmalar va tarmoqlanish uchun jahon darajasidagi sharoitlarga ega"
       },
       {
-        "title": "Opening Hours",
-        "details": ["15–17 September 2025", "10:00 – 18:00 (daily)"]
+        "title": "Ish vaqtlari",
+        "details": ["15–17 Sentabr 2025", "10:00 – 18:00 (har kuni)"]
       },
       {
-        "title": "How to Get There:",
-        "details": ["Taxi & Ride-hailing services available", "Metro: Expo Station (Line 2)"]
+        "title": "Qanday yetib borish mumkin:",
+        "details": ["Taksi va buyurtma xizmatlari mavjud", "Metro: Expo stansiyasi (2-liniya)"]
       },
       {
-        "title": "Accommodation",
+        "title": "Mehmonxonalar",
         "details": [
-          "Hilton Tashkent City",
-          "Hyatt Regency Tashkent",
-          "Local boutique hotels near Expo Center"
+          "Hilton Toshkent City",
+          "Hyatt Regency Toshkent",
+          "Expo markazi yaqinidagi mahalliy mehmonxonalar"
         ]
       }
     ]
   },
 
   "organizer": {
-    "title": "About the Organizer",
-    "text": "Expo Bank is organized by Epo Bank Association, a leading financial organization in Uzbekistan dedicated to driving innovation, collaboration, and growth in the banking and fintech sector.",
+    "title": "Tashkilotchi haqida",
+    "text": "Expo Bankni O‘zbekistondagi Epo Bank Assotsiatsiyasi tashkil qiladi. Bu tashkilot bank va fintech sohasida innovatsiya, hamkorlik va o‘sishni rivojlantirishga bag‘ishlangan.",
     "items": [
       {
-        "title": "Mission",
-        "text": "Our mission is to create a platform where banks, financial institutions, startups, educators, and government bodies come together to share knowledge, explore new technologies, and shape the future of finance."
+        "title": "Missiya",
+        "text": "Bizning missiyamiz – banklar, moliya institutlari, startaplar, o‘qituvchilar va davlat tashkilotlari bir joyga yig‘ilib bilim almashadigan, yangi texnologiyalarni o‘rganadigan va moliyaning kelajagini shakllantiradigan platforma yaratish."
       },
       {
-        "title": "Our Role",
+        "title": "Bizning Rolimiz",
         "details": [
-          "Hosting Uzbekistan’s largest international banking and fintech exhibition",
-          "Connecting global industry leaders with local partners",
-          "Supporting education, financial literacy, and youth opportunities",
-          "Showcasing the latest products, services, and digital solutions"
+          "O‘zbekistondagi eng katta xalqaro bank va fintech ko‘rgazmasini tashkil etish",
+          "Global sanoat yetakchilarini mahalliy hamkorlar bilan bog‘lash",
+          "Ta’lim, moliyaviy savodxonlik va yoshlar imkoniyatlarini qo‘llab-quvvatlash",
+          "Eng so‘nggi mahsulotlar, xizmatlar va raqamli yechimlarni namoyish etish"
         ]
       },
       {
-        "title": "Partners & Sponsors",
-        "text": "The Expo Bank is made possible with the support of strategic partners, sponsors, and government institutions. Together, we ensure an impactful and successful event"
+        "title": "Hamkorlar va Homiylar",
+        "text": "Expo Bank strategik hamkorlar, homiylar va davlat muassasalari yordamida o‘tkaziladi. Birgalikda biz samarali va muvaffaqiyatli tadbirni ta’minlaymiz"
       }
     ]
   },
 
   "participants": {
-    "name": "Participants",
+    "name": "Ishtirokchilar",
     "sidebar": {
-      "title": "Directory of banks"
+      "title": "Banklar katalogi",
+      "private-banks": "Xususiy banklar",
+      "state-banks": "Davlat banklari",
+      "in-catalog": "Katalogda",
+      "loan-interest": "Kreditga eng foizli stavka",
+      "deposit-interest": "Depozitga eng foizli stavka"
     }
   },
 
   "participant": {
+    "phone-number": "Telefon raqamingiz",
+    "loan-interest": "Kreditga foiz",
+    "deposit-interest": "Depozitga foiz",
+    "go-to-site": "Saytga o'tish",
     "items": [
       {
-        "title": "About company",
-        "text": "InfinBANK – O‘zbekistonning yetakchi tijorat banklaridan biri bo‘lib, mijozlarga zamonaviy moliyaviy xizmatlarni taqdim etadi. Bank nafaqat jismoniy shaxslar, balki korporativ mijozlar uchun ham keng ko‘lamli xizmatlarni yo‘lga qo‘ygan. InfinBANK mijozlarga qulaylik yaratish maqsadida raqamli bankingni rivojlantirib, mobil ilova va onlayn xizmatlarni taklif etadi"
+        "title": "Kompaniya haqida",
+        "text": "InfinBANK – O‘zbekistondagi yetakchi tijorat banklaridan biri bo‘lib, mijozlarga zamonaviy moliyaviy xizmatlarni taqdim etadi. Bank nafaqat jismoniy shaxslarga, balki korporativ mijozlarga ham keng ko‘lamli xizmatlarni taklif etadi. InfinBANK mijozlarga qulaylik yaratish uchun mobil ilovalar va onlayn xizmatlar orqali raqamli bank xizmatlarini rivojlantirmoqda"
       },
       {
-        "title": "Asosiy yo‘nalishlari",
+        "title": "Asosiy yo‘nalishlar",
         "details": [
-          "Jismoniy shaxslar uchun kredit va depozit xizmatlari",
+          "Jismoniy shaxslar uchun kredit va omonat xizmatlari",
           "Xalqaro pul o‘tkazmalari",
-          "Internet-banking va mobil banking xizmatlari",
+          "Internet banking va mobil banking xizmatlari",
           "Plastik kartalar (Visa, MasterCard, Uzcard, Humo)"
         ]
       },
@@ -304,21 +288,239 @@
         "title": "Ko‘rgazmada taqdim etiladigan xizmatlar",
         "details": [
           "Yangi biznes kredit dasturlari",
-          "Startap va kichik biznes uchun imtiyozli moliyalashtirish yechimlari",
-          "Internet-banking va mobil banking xizmatlari",
+          "Startaplar va kichik biznes uchun imtiyozli moliyalashtirish yechimlari",
+          "Internet banking va mobil banking xizmatlari",
           "Mobil banking ilovasining yangilangan versiyasi",
-          "Fintex bilan integratsiyalashgan xizmatlar"
+          "Fintech bilan integratsiyalashgan xizmatlar"
         ]
       }
     ]
   },
 
+  "category-filter": {
+    "items": ["Barcha bazalar", "Banklar", "Fabrikalar", "Universitetlar", "Boshqalar"]
+  },
+
   "speakers": {
-    "title": "Speakers",
-    "text": "Epo Bank unites participants from over"
+    "title": "Ma’ruzachilar",
+    "text": "Epo Bank ishtirokchilarni birlashtiradi"
   },
 
   "form-section": {
-    "text": "Get your ticket in minutes. Fill out the form and secure your spot at the Expo"
+    "text": "Chiptangizni bir necha daqiqada oling. Formani to‘ldiring va Expo’da o‘rningizni band qiling"
+  },
+
+  "media-accreditation": {
+    "name": "OAV akkreditatsiyasi",
+    "items": [
+      {
+        "title": "Hurmatli OAV vakillari",
+        "text": "O‘zbekiston Respublikasi qonunchiligiga muvofiq, vaqtinchalik xorijiy muxbirlarni akkreditatsiya qilish qarori ikki haftagacha vaqt olishi mumkin."
+      },
+      {
+        "title": "Barcha OAV vakillari O‘zbekiston Respublikasi Tashqi ishlar vazirligi tomonidan akkreditatsiya qarori haqida xabardor qilinadi.",
+        "text": "O‘zbekistonda akkreditatsiyadan o‘tmagan OAV vakillari Tashqi ishlar vazirligi tomonidan akkreditatsiyadan o‘tishi shart."
+      }
+    ],
+    "available": "O‘zbekistondagi xorijiy davlat vakillari uchun akkreditatsiya tartibi shu yerda mavjud:",
+    "contacts": "OAV bo‘limining aloqalari:"
+  },
+
+  "visitors": {
+    "name": "Tashrif buyuruvchilar",
+    "text": "Global innovatorlar bilan tanishing, o‘rganing va bog‘laning.",
+    "title-1": "Epo ga tashrifingizni rejalashtiring",
+    "title-2": "Bank Expo",
+    "attend": {
+      "title": "Nega ishtirok etishingiz kerak?",
+      "items": [
+        {
+          "title": "Talabalar uchun",
+          "text": "Karyera yo‘llari, amaliyot va bank hamda fintech kelajagini o‘rganing."
+        },
+        {
+          "title": "Ota-onalar uchun",
+          "text": "Karyera yo‘llari, amaliyot va bank hamda fintech kelajagini o‘rganing."
+        },
+        {
+          "title": "O‘qituvchilar uchun",
+          "text": "Sanoat yetakchilari bilan bog‘laning va sinfga yangi bilim olib boring."
+        }
+      ]
+    },
+    "highlight": {
+      "title": "Expo asosiy voqealari",
+      "text": "Hududdagi eng yirik xalqaro bank va fintech yig‘ilishlaridan birini his eting",
+      "items": [
+        "100+ xalqaro ma’ruzachi",
+        "50+ turli davlatlardan ishtirokchi",
+        "10 000+ tashrif buyuruvchilar kutilmoqda",
+        "Talabalar va o‘qituvchilar uchun maxsus sessiyalar"
+      ]
+    },
+    "plan": {
+      "title": "Tashrifingizni rejalashtiring",
+      "items": [
+        {
+          "title": "Ish vaqti:",
+          "details": ["10:00 – 18:00 (15–17 Sentabr, 2025)"]
+        },
+        {
+          "title": "Qanday yetib borish mumkin:",
+          "details": ["Metro: Expo stansiyasi (2-liniya)", "Taksi va buyurtma xizmatlari mavjud"]
+        },
+        {
+          "title": "Mehmonxonalar bo‘yicha tavsiyalar:",
+          "details": [
+            "Hilton Toshkent City",
+            "Hyatt Regency Toshkent",
+            "Expo markazi yaqinidagi mahalliy mehmonxonalar"
+          ]
+        }
+      ]
+    }
+  },
+
+  "faq": {
+    "title": "Tez-tez so‘raladigan savollar (Tashrif buyuruvchilar)",
+    "items": [
+      {
+        "question": "Onlayn ro‘yxatdan o‘tishim kerakmi?",
+        "answer": "Ha, barcha tashrif buyuruvchilar Expo ga kelishdan oldin onlayn ro‘yxatdan o‘tishi kerak."
+      },
+      {
+        "question": "Talabalar uchun kirish bepulmi?",
+        "answer": "Ha, talabalar haqiqiy talabalik guvohnomasini taqdim etish orqali bepul kirishlari mumkin."
+      },
+      {
+        "question": "Nishonimni qayerdan olaman?",
+        "answer": "Tasdiqlash xatingiz yoki QR kodingizni ko‘rsatib, kelganingizda ro‘yxatdan o‘tish stolida nishoningizni olishingiz mumkin."
+      },
+      {
+        "question": "Oilaviy tashrif mumkinmi?",
+        "answer": "Ha, oilalar xush kelibsiz. Har bir a’zo alohida ro‘yxatdan o‘tishi shart."
+      },
+      {
+        "question": "Ko‘rgazma ish vaqti qanday?",
+        "answer": "Ko‘rgazma tadbir kunlarida har kuni 10:00 dan 18:00 gacha ochiq bo‘ladi."
+      },
+      {
+        "question": "Manzilda avtoturargoh mavjudmi?",
+        "answer": "Ha, ro‘yxatdan o‘tgan tashrif buyuruvchilar uchun birinchi kelganlarga bepul avtoturargoh mavjud."
+      },
+      {
+        "question": "Tarjima xizmatlari bo‘ladimi?",
+        "answer": "Ha, asosiy sessiyalar uchun ingliz, rus va o‘zbek tillarida sinxron tarjima taqdim etiladi."
+      },
+      {
+        "question": "Ko‘rgazma zaliga kirmasdan faqat sessiyalarda qatnashsam bo‘ladimi?",
+        "answer": "Ha, faqat sessiya uchun maxsus kartalar mavjud, ammo ro‘yxatdan o‘tish baribir talab qilinadi."
+      }
+    ]
+  },
+
+  "terms-of-service": {
+    "subtitle": "Bank Expo ga xush kelibsiz! Ushbu veb-saytdan foydalanish orqali siz quyidagi shartlarga rioya qilishga va ularga bo‘ysunishga rozi bo‘lasiz. Agar rozi bo‘lmasangiz, saytdan foydalanmang.",
+    "content": [
+      {
+        "title": "Veb-saytdan foydalanish",
+        "subtitle": null,
+        "texts": [
+          "Ushbu veb-saytdan foydalanish uchun kamida 18 yoshda bo‘lishingiz kerak.",
+          "Veb-saytdan faqat qonuniy maqsadlarda foydalanishingiz va uchinchi tomon huquqlarini buzmasligingiz yoki boshqalarning foydalanishiga to‘sqinlik qilmasligingiz kerak.",
+          "Ushbu veb-saytdan ruxsatsiz foydalanish zarar da’volariga yoki jinoyat hisoblanishiga olib kelishi mumkin."
+        ]
+      },
+      {
+        "title": "Intellektual Mulk Huquqlari",
+        "subtitle": null,
+        "texts": [
+          "Ushbu veb-saytdagi barcha kontent, jumladan matn, rasmlar, logotiplar va kodlar Bank Expo ga tegishli yoki litsenziyalangan.",
+          "Siz veb-sayt kontentini yozma ruxsatsiz ko‘paytirish, tarqatish yoki boshqa maqsadlarda foydalanishingiz mumkin emas."
+        ]
+      },
+      {
+        "title": "Foydalanuvchi Hisobi",
+        "subtitle": null,
+        "texts": [
+          "Agar hisob yaratsangiz, kirish ma’lumotlaringizni xavfsiz saqlash uchun javobgarsiz.",
+          "Hisobingizga ruxsatsiz kirish bo‘lsa, darhol bizni xabardor qilishingiz kerak.",
+          "Biz ushbu shartlarni buzgan hisoblarni to‘xtatish yoki bekor qilish huquqini saqlab qolamiz."
+        ]
+      },
+      {
+        "title": "Mas’uliyatni Cheklash",
+        "subtitle": null,
+        "texts": [
+          "Veb-sayt hech qanday kafolatlarsiz 'bor holatda' taqdim etiladi.",
+          "Bank Expo ushbu saytdan foydalanish natijasida yuzaga keladigan bilvosita, tasodifiy yoki oqibatli zararlarga javobgar emas."
+        ]
+      },
+      {
+        "title": "Amaldagi Qonun",
+        "subtitle": null,
+        "texts": [
+          "Ushbu shartlar O‘zbekiston Respublikasi qonunlariga bo‘ysunadi.",
+          "Barcha nizolar O‘zbekiston sudlarida hal qilinadi."
+        ]
+      }
+    ]
+  },
+
+  "privacy-policy": {
+    "subtitle": "Bank Expo da biz sizning maxfiyligingizni qadrlaymiz va shaxsiy ma’lumotlaringizni himoya qilishga intilamiz. Ushbu siyosatda biz sizning ma’lumotlaringizni qanday yig‘ishimiz, ishlatishimiz va himoya qilishimiz tushuntirilgan.",
+    "content": [
+      {
+        "title": "Biz yig‘adigan ma’lumotlar",
+        "subtitle": null,
+        "texts": [
+          "Siz taqdim etadigan shaxsiy ma’lumotlar, masalan ism, elektron pochta, telefon raqami va kompaniya ma’lumotlari.",
+          "Avtomatik tarzda yig‘iladigan texnik ma’lumotlar, masalan IP manzil, brauzer turi va qurilma ma’lumotlari.",
+          "Kukilar va kuzatuv texnologiyalari sizning saytdagi tajribangizni yaxshilash uchun ishlatiladi."
+        ]
+      },
+      {
+        "title": "Ma’lumotlaringizni qanday ishlatamiz",
+        "subtitle": null,
+        "texts": [
+          "Xizmatlarimiz va veb-saytni taqdim etish, ishlatish va yaxshilash uchun.",
+          "Sizga tadbir yangiliklari, xizmat e’lonlari va reklama takliflarini yuborish uchun.",
+          "Qonuniy majburiyatlarga rioya qilish va firibgarliklarning oldini olish uchun."
+        ]
+      },
+      {
+        "title": "Ma’lumotlarni bo‘lishish va uchinchi tomonlar",
+        "subtitle": null,
+        "texts": [
+          "Biz sizning shaxsiy ma’lumotlaringizni sotmaymiz yoki ijaraga bermaymiz.",
+          "Zarurat bo‘lsa, ishonchli xizmat ko‘rsatuvchilar (masalan IT, to‘lov tizimi) bilan ma’lumot ulashishimiz mumkin.",
+          "Bizning saytda joylashgan uchinchi tomon saytlarining maxfiylik siyosati ularning o‘zlariga tegishli."
+        ]
+      },
+      {
+        "title": "Ma’lumotlar xavfsizligi",
+        "subtitle": null,
+        "texts": [
+          "Biz sizning ma’lumotlaringizni himoya qilish uchun sanoat standartlariga mos xavfsizlik choralaridan foydalanamiz.",
+          "Ammo internet orqali uzatish 100% xavfsiz emas va mutlaq himoya kafolatlanmaydi."
+        ]
+      },
+      {
+        "title": "Sizning huquqlaringiz",
+        "subtitle": null,
+        "texts": [
+          "Siz shaxsiy ma’lumotlaringizga kirish, tuzatish yoki o‘chirishni talab qilishingiz mumkin.",
+          "Reklama xabarlarini istalgan vaqtda rad etishingiz mumkin."
+        ]
+      },
+      {
+        "title": "Ushbu siyosatdagi o‘zgarishlar",
+        "subtitle": null,
+        "texts": [
+          "Biz vaqti-vaqti bilan ushbu Maxfiylik siyosatini yangilashimiz mumkin.",
+          "O‘zgarishlar ushbu sahifada yangilangan sana bilan e’lon qilinadi."
+        ]
+      }
+    ]
   }
 }

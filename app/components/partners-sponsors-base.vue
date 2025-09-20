@@ -1,7 +1,7 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
     <div class="base">
-      <CategoryFilter :filters="filters" :current-type="currentType" @filter="filterBase" />
+      <CategoryFilter :filters="filters" @filter="filterBase" />
       <div class="base__list">
         <div v-for="item in items" :key="item" class="base__item">
           <component :is="item" class="base__icon" data-original />
@@ -28,28 +28,8 @@ import IconsBank20 from '~/components/icons/visa.vue';
 import IconsBank21 from '~/components/icons/mastercard.vue';
 
 // data
-const filters = [
-  {
-    type: 'all',
-    label: 'All base'
-  },
-  {
-    type: 'banks',
-    label: 'Banks'
-  },
-  {
-    type: 'factories',
-    label: 'Factories'
-  },
-  {
-    type: 'universities',
-    label: 'Universities'
-  },
-  {
-    type: 'others',
-    label: 'Others'
-  }
-];
+const { tm, rt } = useI18n();
+const filters = computed(() => tm('category-filter.items').map(item => rt(item)));
 const items = [
   IconsBank,
   IconsBank3,
@@ -79,13 +59,7 @@ const items = [
   IconsBank21
 ];
 
-// refs
-const currentType = ref('all');
-
-// methods
-const setCurrentType = type => (currentType.value = type);
-const filterBase = type => {
-  setCurrentType(type);
+const filterBase = () => {
   console.log('filtering base ...');
 };
 

@@ -1,324 +1,526 @@
 {
-  "contact-us": "Contact Us",
-  "get-started": "Get Started",
-  "rights-reserved": "All rights reserved",
-  "links": "Links",
-  "services": "Services",
-  "days": "Days",
-  "hours": "Hours",
-  "minutes": "Minutes",
-  "seconds": "Seconds",
-  "tashkent": "Tashkent",
-  "uzbekistan": "Uzbekistan",
-  "visitors": "Visitors",
-  "exhibitors": "Exhibitors",
-  "countries": "Countries",
-  "okay": "Okay",
-  "search": "Search",
-  "contact-info": "Contact information",
-  "address": "Address",
-  "phone": "Phone",
-  "mail": "Email",
-  "website": "Website",
-  "register-online": "Register Online",
-  "media-center": "Media Center",
+  "contact-us": "Свяжитесь с нами",
+  "get-started": "Начать",
+  "rights-reserved": "Все права защищены",
+  "links": "Ссылки",
+  "services": "Услуги",
+  "days": "Дни",
+  "hours": "Часы",
+  "minutes": "Минуты",
+  "seconds": "Секунды",
+  "tashkent": "Ташкент",
+  "uzbekistan": "Узбекистан",
+  "exhibitors": "Экспоненты",
+  "countries": "Страны",
+  "okay": "Ок",
+  "search": "Поиск",
+  "contact-info": "Контактная информация",
+  "address": "Адрес",
+  "phone": "Телефон",
+  "mail": "Эл. почта",
+  "website": "Веб-сайт",
+  "register-online": "Регистрация онлайн",
+  "media-center": "Медиа-центр",
+  "in": "в",
 
   "contacts": {
-    "name": "Contacts",
-    "address": "Uzbekistan, Tashkent"
+    "name": "Контакты",
+    "address": "Узбекистан, Ташкент"
   },
 
   "footer": {
-    "title": "Discover the future of banking technology in one place!"
+    "title": "Откройте будущее банковских технологий в одном месте!"
   },
 
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "mission": "Mission",
-    "venue": "Venue",
-    "organizer": "Organizer",
-    "banks": "Banks",
-    "participants": "Participants",
-    "speakers": "Speakers",
-    "sponsors": "Sponsors",
-    "media": "Media",
-    "media-library": "Media Library",
-    "media-accreditation": "Media Accreditation",
-    "news": "News",
-    "partners": "Partners",
-    "terms-of-service": "Terms of service",
-    "privacy-policy": "Privacy policy"
+    "home": "Главная",
+    "about": "О событии",
+    "mission": "Миссия",
+    "venue": "Место проведения",
+    "organizer": "Организатор",
+    "banks": "Банки",
+    "participants": "Участники",
+    "speakers": "Спикеры",
+    "sponsors": "Спонсоры",
+    "media": "Медиа",
+    "media-library": "Медиатека",
+    "media-accreditation": "Аккредитация СМИ",
+    "for-visitors": "Для посетителей",
+    "partners": "Партнёры",
+    "terms-of-service": "Условия использования",
+    "privacy-policy": "Политика конфиденциальности"
   },
 
   "home": {
     "hero": {
-      "titles": ["New Horizons", "of Modern Finance"],
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+      "titles": ["Новые горизонты", "современных финансов"],
+      "text": "Expo Banking — ведущая платформа для банков и финансовых институтов, где представляются последние технологии, услуги и бизнес-возможности. Присоединяйтесь, чтобы открыть сердце современной финансовой индустрии"
     },
     "about": {
-      "title": "About the Event",
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the heart of modern finance"
+      "title": "О событии",
+      "text": "Expo Banking — ведущая платформа для банков и финансовых институтов, где представляются последние технологии, услуги и бизнес-возможности. Присоединяйтесь, чтобы открыть сердце современной финансовой индустрии"
     },
     "mission": {
-      "title": "Our mission",
+      "title": "Наша миссия",
       "items": [
         {
-          "title": "Innovative Technologies",
-          "text": "Expo Banking presents innovative technologies and digital services, providing opportunities for companies to explore and develop cutting-edge technologies."
+          "title": "Инновационные технологии",
+          "text": "Expo Banking представляет инновационные технологии и цифровые сервисы, предоставляя компаниям возможности для изучения и развития передовых решений."
         },
         {
-          "title": "Global Community",
-          "text": "The global community of Expo Banking unites leaders of the world's top financial institutions, fostering innovation and collaboration in the development of modern finance."
+          "title": "Глобальное сообщество",
+          "text": "Глобальное сообщество Expo Banking объединяет лидеров крупнейших мировых финансовых институтов, способствуя инновациям и сотрудничеству в развитии современных финансов."
         },
         {
-          "title": "Global Partners",
-          "text": "Leading global banks and financial institutions partner with Expo Banking to showcase their latest innovations and business opportunities, driving the development of modern finance."
+          "title": "Международные партнёры",
+          "text": "Ведущие мировые банки и финансовые институты сотрудничают с Expo Banking, чтобы представить свои последние инновации и бизнес-возможности, стимулируя развитие современной финансовой системы."
         }
       ]
     },
     "events": {
-      "title": "Upcoming events",
+      "title": "Предстоящие мероприятия",
       "cards": [
         {
-          "title": "Smart Cities and Banking Summit",
-          "text": "Smart Cities and Banking Summit is a global platform for discussing the integration of modern cities and financial institutions. The forum will bring together representatives of banks and cities to discuss the opportunities for cooperation and innovation."
+          "title": "Саммит «Умные города и банки»",
+          "text": "Саммит «Умные города и банки» — глобальная платформа для обсуждения интеграции современных городов и финансовых институтов. Форум объединит представителей банков и муниципалитетов для обсуждения возможностей сотрудничества и инноваций."
         },
         {
-          "title": "Mobile Banking Revolution Expo",
-          "text": "Mobile Banking Revolution Expo is an exhibition exhibition platform for showcasing the latest mobile banking technologies and innovations. The event will bring together representatives of mobile banking industry to discuss the opportunities and challenges of mobile banking."
+          "title": "Выставка «Революция мобильного банкинга»",
+          "text": "Выставка «Революция мобильного банкинга» — выставочная площадка для демонстрации новейших технологий и инноваций в области мобильного банкинга. На мероприятии соберутся представители индустрии мобильного банкинга для обсуждения возможностей и вызовов."
         },
         {
-          "title": "Payment Systems innovation Forum",
-          "text": "Payment Systems Innovation Forum is a global platform for discussing the latest innovations in payment systems. The forum will bring together representatives of payment systems industry to discuss the opportunities and challenges of payment systems."
+          "title": "Форум инноваций в платёжных системах",
+          "text": "Форум инноваций в платёжных системах — глобальная платформа для обсуждения новейших достижений в области платёжных решений. Форум объединит представителей индустрии для обмена опытом и поиска возможностей."
         },
         {
-          "title": "Global Fintech Forum 2025",
-          "text": "Global Fintech Forum 2025 is a global platform for discussing the latest innovations in fintech industry. The forum will bring together representatives of fintech industry to discuss the opportunities and challenges of fintech industry."
+          "title": "Международный форум Fintech 2025",
+          "text": "Международный форум Fintech 2025 — мировая площадка для обсуждения новейших инноваций в сфере финтеха. Форум объединит представителей отрасли для обсуждения возможностей и вызовов финтеха."
         }
       ]
     },
     "welcome": {
-      "text": "Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends.Get detailed insights into your data with our advanced reporting tools, which allow you to create custom reports, visualize data, and spot trends."
+      "title": "Узбекистан",
+      "subtitle": "Добро пожаловать в ",
+      "text": "Получите детализированное представление о ваших данных с помощью наших продвинутых инструментов аналитики, которые позволяют создавать отчёты, визуализировать данные и отслеживать тенденции."
     },
     "experts": {
-      "title": "Experts Shaping the Future of Finance",
-      "text": "Our speakers will share insights on modern banking technologies and the development trends of international financial markets",
+      "title": "Эксперты, формирующие будущее финансов",
+      "text": "Наши спикеры поделятся знаниями о современных банковских технологиях и тенденциях развития международных финансовых рынков",
       "items": [
         {
-          "title": "Global Financial Expertise",
-          "text": "Strategic partnerships and innovations in global financial markets"
+          "title": "Международная финансовая экспертиза",
+          "text": "Стратегические партнёрства и инновации на мировых финансовых рынках"
         },
         {
-          "title": "Innovation Platforms",
-          "text": "Leading banking technologies in the modern era"
+          "title": "Инновационные платформы",
+          "text": "Ведущие банковские технологии современности"
         },
         {
-          "title": "International Speakers Bureau",
-          "text": "Global conferences and forums featuring prominent speakers"
+          "title": "Международное бюро спикеров",
+          "text": "Глобальные конференции и форумы с участием ведущих экспертов"
         }
       ]
     },
     "banks": {
-      "title": "Participating Banks",
-      "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+      "title": "Участвующие банки",
+      "text": "Откройте для себя ведущие банки и финансовые институты отрасли. Их логотипы демонстрируют инновации и качество"
     },
     "partners": {
-      "title": "Partners & Sponsors",
-      "text": "Expo Banking – the premier platform for banks and financial institutions to showcase the latest technologies, services, and business opportunities. Join us to explore the",
+      "title": "Партнёры и спонсоры",
+      "text": "Expo Banking — ведущая платформа для банков и финансовых институтов, где представляются последние технологии, услуги и бизнес-возможности. Присоединяйтесь, чтобы исследовать",
       "items": [
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Milliy Gvardiyasi",
-        "Oʻzbekiston Respublikasi Raqamli Texnologiyalar Vazirligi",
-        "Oʻzbekiston Respublikasi Adliya Vazirligi"
+        "Министерство цифровых технологий Республики Узбекистан",
+        "Национальная гвардия Республики Узбекистан",
+        "Министерство цифровых технологий Республики Узбекистан",
+        "Министерство юстиции Республики Узбекистан"
       ]
     }
   },
 
   "form-modal": {
-    "text": "Discover the leading banks and financial institutions in the industry. Their logos showcase innovation and excellence"
+    "text": "Откройте для себя ведущие банки и финансовые институты отрасли. Их логотипы демонстрируют инновации и качество"
   },
 
   "success-modal": {
-    "title": "Your application has been successfully submitted!",
-    "text": "Our administrator will contact you within 24 hours. Thank you for your interest and for submitting your application!"
+    "title": "Ваша заявка успешно отправлена!",
+    "text": "Наш администратор свяжется с вами в течение 24 часов. Спасибо за интерес и за поданную заявку!"
   },
 
   "form": {
     "organization": {
-      "placeholder": "Your organization name",
-      "label": "Organization"
+      "placeholder": "Название вашей организации",
+      "label": "Организация"
     },
     "full-name": {
-      "placeholder": "Enter your name",
-      "label": "Full name"
+      "placeholder": "Введите ваше имя",
+      "label": "Полное имя"
     },
     "mobile-phone": {
-      "placeholder": "Enter your number",
-      "label": "Mobile phone"
+      "placeholder": "Введите ваш номер",
+      "label": "Мобильный телефон"
     },
-    "send-request": "Send request",
-    "approval": "Регистрируясь, вы подтверждаете, что прочитали и согласны c"
+    "send-request": "Отправить заявку",
+    "approval": "Регистрируясь, вы подтверждаете, что ознакомлены и согласны с",
+    "policy": "Политикой конфиденциальности"
   },
 
   "mission": {
     "hero": {
-      "titles": ["Expo Banking – the premier", "platform for banks"],
-      "text": "Expo Banking – the premier platform for banks and financial institutions "
+      "titles": ["Expo Banking — ведущая", "платформа для банков"],
+      "text": "Expo Banking — ведущая платформа для банков и финансовых институтов"
     },
     "global": {
-      "title": "Your Gateway to Global Connections",
+      "title": "Ваш путь к глобальным связям",
       "items": [
         {
           "amount": "50+",
-          "label": "Countries",
-          "text": "Expo Bank unites participants from over 50 countries, creating a truly international platform."
+          "label": "Страны",
+          "text": "Expo Bank объединяет участников из более чем 50 стран, создавая по-настоящему международную платформу."
         },
         {
           "amount": "1000+",
-          "label": "Visitors",
-          "text": "The event welcomes top bank representatives, business leaders, and general attendees, fostering valuable connections"
+          "label": "Посетители",
+          "text": "Мероприятие собирает представителей ведущих банков, бизнес-лидеров и гостей, способствуя ценным контактам."
         },
         {
           "amount": "10+",
-          "label": "Countries",
-          "text": "The exhibition offers opportunities in financial technology, lending, insurance, and various other sectors, encouraging cross-industry collaboration"
+          "label": "Страны",
+          "text": "Выставка открывает возможности в сфере финтеха, кредитования, страхования и других отраслей, стимулируя межотраслевое сотрудничество."
         }
       ]
     },
     "team": {
-      "title": "Our managment team",
-      "text": "Epo Bank unites participants from over",
+      "title": "Наша управленческая команда",
+      "text": "Expo Bank объединяет участников из более",
       "members": [
         {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
-        },
-        {
-          "name": "Ahmadjon Rahmatjonov",
-          "job": "Founder and CEO"
+          "name": "Ахмаджон Рахматжонов",
+          "job": "Основатель и генеральный директор"
         }
       ]
     }
   },
 
   "venue": {
-    "title": "Venue & Travel Information",
-    "text": "Join us at the heart of Tashkent for the Expo Bank 2025",
+    "title": "Место проведения и информация для путешественников",
+    "text": "Присоединяйтесь к нам в центре Ташкента на Expo Bank 2025",
     "items": [
       {
-        "title": "Venue Details",
-        "details": ["Epo Expo Center", "Mustaqillik ko‘chasi 45, Tashkent, Uzbekistan"],
-        "text": "The Expo Bank will take place at the state-of-the-art Epo Expo Center — a modern venue equipped with world-class facilities for conferences, exhibitions, and networking"
+        "title": "Детали места проведения",
+        "details": ["Epo Expo Center", "ул. Мустакиллик, 45, Ташкент, Узбекистан"],
+        "text": "Expo Bank пройдет в современном центре Epo Expo Center — это современная площадка с мировыми условиями для конференций, выставок и нетворкинга."
       },
       {
-        "title": "Opening Hours",
-        "details": ["15–17 September 2025", "10:00 – 18:00 (daily)"]
+        "title": "Часы работы",
+        "details": ["15–17 сентября 2025", "10:00 – 18:00 (ежедневно)"]
       },
       {
-        "title": "How to Get There:",
-        "details": ["Taxi & Ride-hailing services available", "Metro: Expo Station (Line 2)"]
+        "title": "Как добраться:",
+        "details": ["Такси и сервисы заказа поездок доступны", "Метро: станция Expo (Линия 2)"]
       },
       {
-        "title": "Accommodation",
+        "title": "Проживание",
         "details": [
           "Hilton Tashkent City",
           "Hyatt Regency Tashkent",
-          "Local boutique hotels near Expo Center"
+          "Местные бутик-отели рядом с Expo Center"
         ]
       }
     ]
   },
 
   "organizer": {
-    "title": "About the Organizer",
-    "text": "Expo Bank is organized by Epo Bank Association, a leading financial organization in Uzbekistan dedicated to driving innovation, collaboration, and growth in the banking and fintech sector.",
+    "title": "Об организаторе",
+    "text": "Expo Bank организован Ассоциацией Expo Bank, ведущей финансовой организацией Узбекистана, направленной на развитие инноваций, сотрудничества и роста в банковской и финтех сфере.",
     "items": [
       {
-        "title": "Mission",
-        "text": "Our mission is to create a platform where banks, financial institutions, startups, educators, and government bodies come together to share knowledge, explore new technologies, and shape the future of finance."
+        "title": "Миссия",
+        "text": "Наша миссия — создать платформу, где банки, финансовые институты, стартапы, образовательные учреждения и государственные органы смогут обмениваться знаниями, изучать новые технологии и формировать будущее финансов."
       },
       {
-        "title": "Our Role",
+        "title": "Наша роль",
         "details": [
-          "Hosting Uzbekistan’s largest international banking and fintech exhibition",
-          "Connecting global industry leaders with local partners",
-          "Supporting education, financial literacy, and youth opportunities",
-          "Showcasing the latest products, services, and digital solutions"
+          "Проведение крупнейшей международной выставки банков и финтеха в Узбекистане",
+          "Соединение мировых лидеров отрасли с локальными партнёрами",
+          "Поддержка образования, финансовой грамотности и молодёжных инициатив",
+          "Демонстрация новейших продуктов, услуг и цифровых решений"
         ]
       },
       {
-        "title": "Partners & Sponsors",
-        "text": "The Expo Bank is made possible with the support of strategic partners, sponsors, and government institutions. Together, we ensure an impactful and successful event"
+        "title": "Партнёры и спонсоры",
+        "text": "Expo Bank реализуется при поддержке стратегических партнёров, спонсоров и государственных структур. Вместе мы обеспечиваем успешное проведение мероприятия."
       }
     ]
   },
 
   "participants": {
-    "name": "Participants",
+    "name": "Участники",
     "sidebar": {
-      "title": "Directory of banks"
+      "title": "Каталог банков",
+      "private-banks": "Частные банки",
+      "state-banks": "Государственные банки",
+      "in-catalog": "В каталоге",
+      "loan-interest": "Лучшая процентная ставка по кредиту",
+      "deposit-interest": "Лучшая процентная ставка по депозиту"
     }
   },
 
   "participant": {
+    "phone-number": "Номер телефона",
+    "loan-interest": "Процент по кредиту",
+    "deposit-interest": "Процент по депозиту",
+    "go-to-site": "на сайт",
     "items": [
       {
-        "title": "About company",
-        "text": "InfinBANK – O‘zbekistonning yetakchi tijorat banklaridan biri bo‘lib, mijozlarga zamonaviy moliyaviy xizmatlarni taqdim etadi. Bank nafaqat jismoniy shaxslar, balki korporativ mijozlar uchun ham keng ko‘lamli xizmatlarni yo‘lga qo‘ygan. InfinBANK mijozlarga qulaylik yaratish maqsadida raqamli bankingni rivojlantirib, mobil ilova va onlayn xizmatlarni taklif etadi"
+        "title": "О компании",
+        "text": "InfinBANK — один из ведущих коммерческих банков Узбекистана, предоставляющий современные финансовые услуги. Банк внедрил широкий спектр услуг как для физических, так и для корпоративных клиентов. InfinBANK развивает цифровой банкинг, предлагая мобильные приложения и онлайн-сервисы для удобства клиентов."
       },
       {
-        "title": "Asosiy yo‘nalishlari",
+        "title": "Основные направления",
         "details": [
-          "Jismoniy shaxslar uchun kredit va depozit xizmatlari",
-          "Xalqaro pul o‘tkazmalari",
-          "Internet-banking va mobil banking xizmatlari",
-          "Plastik kartalar (Visa, MasterCard, Uzcard, Humo)"
+          "Кредитные и депозитные услуги для физических лиц",
+          "Международные денежные переводы",
+          "Интернет-банкинг и мобильный банкинг",
+          "Пластиковые карты (Visa, MasterCard, Uzcard, Humo)"
         ]
       },
       {
-        "title": "Ko‘rgazmada taqdim etiladigan xizmatlar",
+        "title": "Услуги, представленные на выставке",
         "details": [
-          "Yangi biznes kredit dasturlari",
-          "Startap va kichik biznes uchun imtiyozli moliyalashtirish yechimlari",
-          "Internet-banking va mobil banking xizmatlari",
-          "Mobil banking ilovasining yangilangan versiyasi",
-          "Fintex bilan integratsiyalashgan xizmatlar"
+          "Новые кредитные программы для бизнеса",
+          "Льготные решения по финансированию стартапов и малого бизнеса",
+          "Интернет-банкинг и мобильный банкинг",
+          "Обновлённая версия мобильного банковского приложения",
+          "Услуги, интегрированные с финтехом"
         ]
       }
     ]
   },
 
+  "category-filter": {
+    "items": ["Все базы", "Банки", "Фабрики", "Университеты", "Другие"]
+  },
+
   "speakers": {
-    "title": "Speakers",
-    "text": "Epo Bank unites participants from over"
+    "title": "Спикеры",
+    "text": "Expo Bank объединяет участников из более"
   },
 
   "form-section": {
-    "text": "Get your ticket in minutes. Fill out the form and secure your spot at the Expo"
+    "text": "Получите билет за несколько минут. Заполните форму и забронируйте своё место на Expo"
+  },
+
+  "media-accreditation": {
+    "name": "Аккредитация СМИ",
+    "items": [
+      {
+        "title": "Уважаемые представители средств массовой информации",
+        "text": "В соответствии с законодательными требованиями Республики Узбекистан, решение об аккредитации временных иностранных корреспондентов может занять до двух недель."
+      },
+      {
+        "title": "Все представители СМИ будут уведомлены о решении по аккредитации Министерством иностранных дел Республики Узбекистан.",
+        "text": "Представители СМИ, не аккредитованные в Узбекистане, должны пройти аккредитацию в Министерстве иностранных дел Республики Узбекистан."
+      }
+    ],
+    "available": "Процедура аккредитации для представителей иностранных стран в Узбекистане доступна здесь:",
+    "contacts": "Контакты Департамента СМИ:"
+  },
+
+  "visitors": {
+    "name": "Посетители",
+    "text": "Откройте, изучите и свяжитесь с мировыми новаторами.",
+    "title-1": "Спланируйте своё посещение",
+    "title-2": "Bank Expo",
+    "attend": {
+      "title": "Зачем посетить?",
+      "items": [
+        {
+          "title": "Для студентов",
+          "text": "Изучите карьерные пути, стажировки и будущее банковской и финтех-сферы."
+        },
+        {
+          "title": "Для родителей",
+          "text": "Узнайте о карьерных возможностях и будущем банков и финтеха для ваших детей."
+        },
+        {
+          "title": "Для преподавателей",
+          "text": "Свяжитесь с лидерами индустрии и принесите новые знания в аудиторию."
+        }
+      ]
+    },
+    "highlight": {
+      "title": "Основные моменты выставки",
+      "text": "Примите участие в одном из крупнейших международных банковских и финтех-событий региона",
+      "items": [
+        "100+ международных спикеров",
+        "50+ экспонентов из разных стран",
+        "Ожидается более 10 000 посетителей",
+        "Специальные сессии для студентов и преподавателей"
+      ]
+    },
+    "plan": {
+      "title": "Планируйте своё посещение",
+      "items": [
+        {
+          "title": "Часы работы:",
+          "details": ["10:00 – 18:00 (15–17 сентября 2025)"]
+        },
+        {
+          "title": "Как добраться:",
+          "details": ["Метро: станция Expo (Линия 2)", "Такси и сервисы заказа поездок доступны"]
+        },
+        {
+          "title": "Рекомендации по проживанию:",
+          "details": [
+            "Hilton Tashkent City",
+            "Hyatt Regency Tashkent",
+            "Местные бутик-отели рядом с Expo Center"
+          ]
+        }
+      ]
+    }
+  },
+
+  "faq": {
+    "title": "Часто задаваемые вопросы (для посетителей)",
+    "items": [
+      {
+        "question": "Нужно ли регистрироваться онлайн?",
+        "answer": "Да, все посетители должны зарегистрироваться онлайн перед посещением выставки."
+      },
+      {
+        "question": "Вход бесплатный для студентов?",
+        "answer": "Да, студенты могут войти бесплатно, предъявив действующий студенческий билет при регистрации."
+      },
+      {
+        "question": "Где я получу свой бейдж?",
+        "answer": "Вы можете получить бейдж на стойке регистрации, предъявив подтверждение по электронной почте или QR-код."
+      },
+      {
+        "question": "Могут ли семьи посещать вместе?",
+        "answer": "Да, семьи приветствуются. Каждый член должен пройти индивидуальную регистрацию."
+      },
+      {
+        "question": "Каковы часы работы выставки?",
+        "answer": "Выставка открыта ежедневно с 10:00 до 18:00 в дни проведения мероприятия."
+      },
+      {
+        "question": "Есть ли парковка на месте проведения?",
+        "answer": "Да, для зарегистрированных посетителей доступна бесплатная парковка по принципу «кто раньше пришёл»."
+      },
+      {
+        "question": "Будут ли услуги перевода?",
+        "answer": "Да, синхронный перевод будет предоставляться для основных сессий на английский, русский и узбекский языки."
+      },
+      {
+        "question": "Можно ли посетить отдельные сессии без посещения выставочного зала?",
+        "answer": "Да, доступны билеты только для сессий, но регистрация всё равно обязательна."
+      }
+    ]
+  },
+
+  "terms-of-service": {
+    "subtitle": "Добро пожаловать на Bank Expo! Получая доступ или используя данный веб-сайт, вы соглашаетесь соблюдать следующие условия. Если вы не согласны, пожалуйста, воздержитесь от использования сайта.",
+    "content": [
+      {
+        "title": "Использование веб-сайта",
+        "subtitle": null,
+        "texts": [
+          "Вам должно быть не менее 18 лет для использования этого веб-сайта.",
+          "Вы соглашаетесь использовать веб-сайт только в законных целях и таким образом, чтобы не нарушать права третьих лиц и не ограничивать их использование сайта.",
+          "Несанкционированное использование веб-сайта может привести к предъявлению иска о возмещении убытков или рассматриваться как уголовное преступление."
+        ]
+      },
+      {
+        "title": "Права на интеллектуальную собственность",
+        "subtitle": null,
+        "texts": [
+          "Всё содержимое этого веб-сайта, включая тексты, изображения, логотипы и код, принадлежит Bank Expo или используется на основании лицензии.",
+          "Вы не можете воспроизводить, распространять или иным образом использовать материалы сайта без предварительного письменного разрешения."
+        ]
+      },
+      {
+        "title": "Учётная запись пользователя",
+        "subtitle": null,
+        "texts": [
+          "Если вы создаёте учётную запись, вы несёте ответственность за сохранение конфиденциальности своих данных для входа.",
+          "Вы обязаны немедленно уведомить нас о любом несанкционированном доступе к вашей учётной записи.",
+          "Мы оставляем за собой право приостановить или удалить учётные записи, нарушающие данные условия."
+        ]
+      },
+      {
+        "title": "Ограничение ответственности",
+        "subtitle": null,
+        "texts": [
+          "Сайт предоставляется «как есть» без каких-либо гарантий.",
+          "Bank Expo не несёт ответственности за косвенные, случайные или последующие убытки, возникшие в результате использования сайта."
+        ]
+      },
+      {
+        "title": "Применимое право",
+        "subtitle": null,
+        "texts": [
+          "Данные условия регулируются законодательством Республики Узбекистан.",
+          "Все споры подлежат рассмотрению исключительно в судах Узбекистана."
+        ]
+      }
+    ]
+  },
+
+  "privacy-policy": {
+    "subtitle": "В Bank Expo мы ценим вашу конфиденциальность и обязуемся защищать вашу личную информацию. Эта политика объясняет, как мы собираем, используем и защищаем ваши данные.",
+    "content": [
+      {
+        "title": "Какие данные мы собираем",
+        "subtitle": null,
+        "texts": [
+          "Личные данные, которые вы предоставляете: имя, адрес электронной почты, номер телефона и информацию о компании.",
+          "Технические данные, такие как IP-адрес, тип браузера и информация об устройстве, собираемые автоматически.",
+          "Cookies и технологии отслеживания, используемые для улучшения вашего опыта работы с сайтом."
+        ]
+      },
+      {
+        "title": "Как мы используем вашу информацию",
+        "subtitle": null,
+        "texts": [
+          "Для предоставления, работы и улучшения наших услуг и веб-сайта.",
+          "Для отправки вам обновлений о мероприятиях, уведомлений и рекламных предложений.",
+          "Для соблюдения правовых обязательств и предотвращения мошенничества."
+        ]
+      },
+      {
+        "title": "Передача данных третьим лицам",
+        "subtitle": null,
+        "texts": [
+          "Мы не продаём и не сдаём в аренду ваши персональные данные.",
+          "Мы можем делиться информацией с надёжными поставщиками услуг (например, IT, платёжная обработка), если это необходимо.",
+          "Сторонние сайты, ссылки на которые есть на нашем ресурсе, имеют собственные политики конфиденциальности."
+        ]
+      },
+      {
+        "title": "Безопасность данных",
+        "subtitle": null,
+        "texts": [
+          "Мы используем современные меры безопасности для защиты ваших данных.",
+          "Однако никакой метод передачи данных через интернет не является на 100% безопасным, поэтому абсолютная защита не гарантируется."
+        ]
+      },
+      {
+        "title": "Ваши права",
+        "subtitle": null,
+        "texts": [
+          "Вы можете запросить доступ, исправление или удаление своих персональных данных.",
+          "Вы можете отказаться от рекламных рассылок в любой момент."
+        ]
+      },
+      {
+        "title": "Изменения в политике",
+        "subtitle": null,
+        "texts": [
+          "Мы можем время от времени обновлять данную Политику конфиденциальности.",
+          "Все изменения будут опубликованы на этой странице с обновлённой датой редакции."
+        ]
+      }
+    ]
   }
 }

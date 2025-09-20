@@ -40,7 +40,7 @@
                 $route.path.includes(sublink.to)
               )
             }"
-            @click="link.showSublinks = !link.showSublinks"
+            @click="showSublinks = index"
           >
             <span class="header__link-label">
               {{ link.label }}
@@ -54,14 +54,14 @@
           <div
             v-if="link.sublinks"
             class="header__sublink-dropdown"
-            :class="{ active: link.showSublinks }"
+            :class="{ active: showSublinks === index }"
           >
             <NuxtLink
               v-for="sublink in link.sublinks"
               :key="sublink.to"
               :to="$localePath(sublink.to)"
               class="header__sublink"
-              @click="link.showSublinks = false"
+              @click="showSublinks = false"
             >
               {{ sublink.label }}
             </NuxtLink>
@@ -109,10 +109,9 @@
 const route = useRoute();
 const { t, localeCodes, setLocale } = useI18n();
 
-const links = ref([
+const links = computed(() => [
   {
     label: t('nav.about'),
-    showSublinks: false,
     sublinks: [
       {
         to: '/mission',
@@ -146,7 +145,6 @@ const links = ref([
   },
   {
     label: t('nav.media'),
-    showSublinks: false,
     sublinks: [
       {
         to: '/media',
@@ -160,6 +158,7 @@ const links = ref([
   }
 ]);
 
+const showSublinks = ref(false);
 const showLanguageDropdown = ref(false);
 
 const showFormModal = useState('showFormModal');
@@ -174,7 +173,7 @@ const changeLocale = code => {
 onMounted(() => {
   document.addEventListener('click', e => {
     if (!e.target.closest('.header__link-container')) {
-      links.value.forEach(link => (link.showSublinks = false));
+      showSublinks.value = false;
     }
     if (!e.target.closest('.header__lang') && showLanguageDropdown.value) {
       toggleDropdown();

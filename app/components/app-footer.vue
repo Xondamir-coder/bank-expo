@@ -30,15 +30,13 @@
       </div>
       <div class="footer__top">
         <LogoSmall class="footer__logo" />
-        <div class="footer__top-left">
-          <div class="footer__social">
-            <a class="footer__social-item" href="#" target="_blank">
-              <IconsInstagram class="footer__social-icon" />
-            </a>
-            <a class="footer__social-item" href="#" target="_blank">
-              <IconsTelegram class="footer__social-icon" />
-            </a>
-          </div>
+        <div class="footer__social">
+          <a class="footer__social-item" href="#" target="_blank">
+            <IconsInstagram class="footer__social-icon" />
+          </a>
+          <a class="footer__social-item" href="#" target="_blank">
+            <IconsTelegram class="footer__social-icon" />
+          </a>
         </div>
       </div>
       <div class="footer__middle">
@@ -47,23 +45,23 @@
             {{ $t('footer.title') }}
           </h2>
           <button to="/contact" class="footer__button">
-            Get started
+            {{ $t('get-started') }}
             <IconsUpRightArrow class="footer__arrow" />
           </button>
         </div>
         <div class="footer__cols">
-          <div class="footer__col">
-            <h4 class="footer__col-label">{{ $t('links') }}</h4>
-            <div class="footer__links">
+          <div v-for="(item, index) in items" :key="index" class="footer__col">
+            <h4 class="footer__col-label">{{ item.label }}</h4>
+            <nav class="footer__links">
               <NuxtLink
-                v-for="link in links"
-                :key="link.to"
+                v-for="(link, i) in item.links"
+                :key="i"
                 class="footer__link"
                 :to="$localePath(link.to)"
               >
                 {{ link.label }}
               </NuxtLink>
-            </div>
+            </nav>
           </div>
           <div class="footer__col">
             <h4 class="footer__col-label">{{ $t('contacts.name') }}</h4>
@@ -98,14 +96,14 @@
         <p class="footer__copyright">
           &copy; {{ new Date().getFullYear() }} Expo Career - {{ $t('rights-reserved') }}
         </p>
-        <div class="footer__bottom-links">
+        <nav class="footer__bottom-links">
           <NuxtLink :to="$localePath('/terms-of-service')" class="footer__bottom-link">
-            <span>Terms of service</span>
+            <span>{{ $t('nav.terms-of-service') }}</span>
           </NuxtLink>
           <NuxtLink :to="$localePath('/privacy-policy')" class="footer__bottom-link">
-            <span>Privacy policy</span>
+            <span>{{ $t('nav.privacy-policy') }}</span>
           </NuxtLink>
-        </div>
+        </nav>
       </div>
     </div>
   </footer>
@@ -121,32 +119,57 @@ const { t } = useI18n();
 const { $gsap } = useNuxtApp();
 const route = useRoute();
 
-const links = computed(() => [
+const items = computed(() => [
   {
-    to: '/about',
+    label: t('links'),
+    links: [
+      {
+        to: '/participants',
+        label: t('nav.participants')
+      },
+      {
+        to: '/speakers',
+        label: t('nav.speakers')
+      },
+      {
+        to: '/partners',
+        label: t('nav.partners')
+      },
+      {
+        to: '/sponsors',
+        label: t('nav.sponsors')
+      }
+    ]
+  },
+  {
     label: t('nav.about'),
-    isMulti: true
+    links: [
+      {
+        to: '/mission',
+        label: t('nav.mission')
+      },
+      {
+        to: '/organizer',
+        label: t('nav.organizer')
+      },
+      {
+        to: '/venue',
+        label: t('nav.venue')
+      }
+    ]
   },
   {
-    to: '/participants',
-    label: t('nav.participants')
-  },
-  {
-    to: '/speakers',
-    label: t('nav.speakers')
-  },
-  {
-    to: '/partners',
-    label: t('nav.partners')
-  },
-  {
-    to: '/sponsors',
-    label: t('nav.sponsors')
-  },
-  {
-    to: '/media',
     label: t('nav.media'),
-    isMulti: true
+    links: [
+      {
+        to: '/media',
+        label: t('nav.media-library')
+      },
+      {
+        to: '/media-accreditation',
+        label: t('nav.media-accreditation')
+      }
+    ]
   }
 ]);
 const contacts = [
@@ -294,14 +317,11 @@ onMounted(() => {
   &__cols {
     flex: 1;
     display: flex;
-    gap: 15%;
     flex-wrap: wrap;
-    @media only screen and (max-width: $bp-xxl) {
-      gap: 7%;
-    }
+    gap: 10rem;
     @media only screen and (max-width: $bp-lg) {
-      column-gap: 20px;
-      row-gap: 16px;
+      column-gap: max(2rem, 20px);
+      row-gap: max(3rem, 16px);
       justify-content: space-between;
       padding-right: 10px;
     }
@@ -349,15 +369,11 @@ onMounted(() => {
     padding-block: max(16px, 6rem);
     border-top: 1px solid #ffffff1f;
     border-bottom: 1px solid #ffffff1f;
-    display: flex;
-    gap: 10%;
-    @media only screen and (max-width: $bp-xxl) {
-      gap: 3%;
-    }
-    @media only screen and (max-width: $bp-lg) {
-      flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    @media only screen and (max-width: $bp-md) {
+      grid-template-columns: 1fr;
       gap: 16px;
-      flex-wrap: wrap;
     }
     &-cta {
       display: flex;
@@ -373,6 +389,9 @@ onMounted(() => {
   &__social {
     display: flex;
     gap: 12px;
+    @media only screen and (max-width: $bp-sm) {
+      align-self: flex-start;
+    }
     &-item {
       @include social-icon;
       aspect-ratio: 1;
@@ -448,26 +467,8 @@ onMounted(() => {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 16px;
-
-    &-left {
-      display: flex;
-      align-items: center;
-      gap: max(10px, 4rem);
-      font-size: max(14px, 1.6rem);
-      font-weight: 700;
-      flex-wrap: wrap;
-      @media only screen and (max-width: $bp-sm) {
-        flex-direction: column;
-        flex: 1;
-        align-items: stretch;
-        & > *.footer__social {
-          display: none;
-        }
-      }
-
-      span {
-        text-transform: uppercase;
-      }
+    @media screen and (max-width: $bp-sm) {
+      flex-direction: column;
     }
   }
   &__logo {

@@ -3,17 +3,14 @@
     <div class="welcome__container">
       <HomePattern class="welcome__pattern" />
       <div class="welcome__content">
-        <h3 class="welcome__subtitle">Welcome to</h3>
-        <h2 class="welcome__title">UZBEKISTAN</h2>
+        <h3 class="welcome__subtitle">{{ $t('home.welcome.subtitle') }}</h3>
+        <h2 class="welcome__title">{{ $t('home.welcome.title') }}</h2>
         <p class="welcome__text">
-          Get detailed insights into your data with our advanced reporting tools, which allow you to
-          create custom reports, visualize data, and spot trends.Get detailed insights into your
-          data with our advanced reporting tools, which allow you to create custom reports,
-          visualize data, and spot trends.
+          {{ $t('home.welcome.text') }}
         </p>
       </div>
     </div>
-    <img src="~/assets/images/home-welcome.jpg" alt="uzbekistan" class="welcome__image" >
+    <img src="~/assets/images/home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
   </section>
 </template>
 
@@ -89,6 +86,7 @@ onMounted(() => {
     border-radius: 0;
   }
   &__title {
+    text-transform: uppercase;
     font-size: max(40px, 10rem);
     font-weight: 900;
     letter-spacing: 10px;
