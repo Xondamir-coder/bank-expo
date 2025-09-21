@@ -8,6 +8,7 @@ pages:
     - cp -r -u * /var/www/bankexpo.uz
     - cd /var/www/bankexpo.uz
     - ls -la
+    
     # - pm2 restart bankexpo
     # - pm2 delete bankexpo
     - NODE_OPTIONS="--max-old-space-size=1024" npm run build
