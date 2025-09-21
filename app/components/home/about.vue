@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="about__video">
-      <img src="~/assets/images/home-about.jpg" alt="banking people" class="about__img" >
+      <img src="~/assets/images/home-about.jpg" alt="banking people" class="about__img" />
       <button class="about__play">
         <IconsPlay class="about__play-icon" />
       </button>
@@ -16,7 +16,7 @@
     <div class="about__bottom">
       <div class="about__bottom-item">
         <IconsVisitors class="about__bottom-icon" />
-        <span class="about__bottom-label">{{ $t('visitors') }}: 20k+</span>
+        <span class="about__bottom-label">{{ $t('visitors.name') }}: 20k+</span>
       </div>
       <div class="about__bottom-divider" />
       <div class="about__bottom-item">

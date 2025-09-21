@@ -517,7 +517,7 @@ onMounted(() => {
     }
 
     &--left {
-      gap: max(2.4rem, 12px);
+      gap: max(1.4rem, 12px);
 
       @media only screen and (max-width: $bp-md) {
         flex: 1;
@@ -527,7 +527,7 @@ onMounted(() => {
     }
 
     &--right {
-      gap: max(1.8rem, 10px);
+      gap: max(1.2rem, 10px);
     }
   }
 

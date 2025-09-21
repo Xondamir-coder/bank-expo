@@ -26,6 +26,11 @@ export default defineNuxtConfig({
       publisher: 'Spacelabs'
     }
   },
+  nitro: {
+    output: {
+      dir: 'dist'
+    }
+  },
   i18n: {
     defaultLocale: 'en',
     strategy: 'prefix_except_default',

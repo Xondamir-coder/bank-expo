@@ -1,6 +1,6 @@
 <template>
   <section id="home-events" class="events">
-    <h2 class="events__title">Upcoming events</h2>
+    <h2 class="events__title">{{ $t('home.events.title') }}</h2>
     <div class="events__container">
       <div class="events__cards">
         <button
@@ -25,7 +25,7 @@
           class="events__item"
           :class="{ active: curId === index }"
         >
-          <img :src="item.img" alt="banner" class="events__image" >
+          <img :src="item.img" alt="banner" class="events__image" />
           <div class="events__item-time">
             <IconsCalendar class="fill-cyan events__icon" />
             <span>{{ item.date }}</span>

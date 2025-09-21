@@ -14,15 +14,17 @@
 
     <div class="hero__bottom">
       <!-- countdown -->
-      <div class="hero__time">
-        <template v-for="(unit, index) in units" :key="unit.key">
-          <div class="hero__time-container">
-            <span class="hero__time-out">{{ time[unit.key] }}</span>
-            <span class="hero__time-label">{{ $t(unit.label) }}</span>
-          </div>
-          <span v-if="index < units.length - 1" class="hero__time-divider">:</span>
-        </template>
-      </div>
+      <ClientOnly>
+        <div class="hero__time">
+          <template v-for="(unit, index) in units" :key="unit.key">
+            <div class="hero__time-container">
+              <span class="hero__time-out">{{ time[unit.key] }}</span>
+              <span class="hero__time-label">{{ $t(unit.label) }}</span>
+            </div>
+            <span v-if="index < units.length - 1" class="hero__time-divider">:</span>
+          </template>
+        </div>
+      </ClientOnly>
 
       <!-- location -->
       <div class="hero__location">
