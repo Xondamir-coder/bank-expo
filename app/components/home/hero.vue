@@ -53,7 +53,7 @@ const units = [
   { key: 'seconds', label: 'seconds' }
 ];
 
-const fakeDeadline = new Date('2025-03-16T00:00:00.000Z');
+const fakeDeadline = new Date('2025-11-04T00:00:00.000Z');
 const place = computed(() => t('tashkent'));
 const months = computed(() => tm('months').map(month => rt(month)));
 
