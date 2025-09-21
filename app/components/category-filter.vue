@@ -1,5 +1,5 @@
 <template>
-  <div class="filter">
+  <div class="filter hidden">
     <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
@@ -33,6 +33,10 @@ const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
 </script>
 
 <style scoped lang="scss">
+@include hide-children('.filter') {
+  opacity: 0;
+  transform: translateX(-35px);
+}
 @keyframes slide-from-left {
   from {
     transform: translateX(-35px);
@@ -48,7 +52,7 @@ const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
   display: flex;
   flex-direction: column;
   gap: max(12px, 2rem);
-  animation: slide-from-left 0.7s;
+  transition: opacity 0.7s, transform 0.7s;
   &__title {
     font-size: max(20px, 4.2rem);
     font-weight: 700;

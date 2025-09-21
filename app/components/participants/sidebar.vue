@@ -83,24 +83,14 @@ const rows = computed(() => [
 </script>
 
 <style lang="scss" scoped>
-@keyframes slide-from-top {
-  from {
-    transform: translateY(-35px);
+@include hide-children('.participants__container') {
+  .sidebar {
+    transform: translateY(35px);
     opacity: 0;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-from-left {
-  from {
+  .sidebar__row {
     transform: translateX(-10px);
     opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
 
@@ -110,7 +100,7 @@ const rows = computed(() => [
   display: flex;
   flex-direction: column;
   gap: max(14px, 2rem);
-  animation: slide-from-top 0.7s;
+  transition: opacity 0.7s, transform 0.7s;
   &__title {
     font-weight: 700;
     font-size: max(20px, 2.4rem);
@@ -122,10 +112,10 @@ const rows = computed(() => [
     padding-block: max(14px, 2rem);
     border-top: 1px solid #e9eaec;
     border-bottom: 1px solid #e9eaec;
-    animation: slide-from-left 0.5s backwards;
+    transition: opacity 0.5s, transform 0.5s;
     @for $i from 1 through 5 {
       &:nth-child(#{$i}) {
-        animation-delay: $i * 0.1s;
+        transition-delay: $i * 0.1s;
       }
     }
     &:first-child {

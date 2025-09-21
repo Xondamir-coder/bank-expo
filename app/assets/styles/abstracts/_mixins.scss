@@ -91,3 +91,10 @@
     transition: fill 0.3s, transform 0.3s;
   }
 }
+
+@mixin hide-children($parent) {
+  body.hidden,
+  #{$parent}.hidden {
+    @content;
+  }
+}

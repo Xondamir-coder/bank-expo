@@ -1,6 +1,6 @@
 <template>
-  <div class="layout overflow-hidden" :style="containerStyle">
-    <AppPreloader :is-loaded="isLoaded" @loaded="toggleLoading" />
+  <div class="layout" :class="{ home: $route.name.includes('index') }">
+    <AppPreloader />
     <AppCookies />
     <AppHeader />
     <AppMenu />
@@ -12,40 +12,29 @@
 </template>
 
 <script setup>
-const route = useRoute();
+const router = useRouter();
 useWatchTogglers();
 
-const isLoaded = ref(false);
+if (import.meta.client) {
+  router.afterEach(() => {
+    nextTick(() => {
+      const els = document.querySelectorAll('.hidden');
+      console.log(els);
+      els?.forEach(el => el.classList.remove('hidden'));
+    });
+  });
+}
 
-const getBgColor = routeName => {
-  if (routeName?.includes('index')) return '#001833';
-  if (routeName?.includes('about')) return '#F1F2F4';
-  if (routeName?.includes('banks')) return '#F8F8F8';
-  else return '#F1F2F4';
-};
-
-const toggleElements = () => {
-  const main = document.querySelector('main');
-  const header = document.querySelector('header');
-  main.classList.add('dis-none');
-  header.classList.add('dis-none');
-
-  setTimeout(() => {
-    main.classList.remove('dis-none');
-    header.classList.remove('dis-none');
-  }, 50);
-};
-const removeOverflow = () => {
-  document.body.style.overflow = 'visible';
-  document.querySelector('.layout').classList.remove('overflow-hidden');
-};
-const toggleLoading = () => {
-  isLoaded.value = !isLoaded.value;
-  toggleElements();
-  removeOverflow();
-};
-
-const containerStyle = computed(() => ({
-  backgroundColor: getBgColor(route.name)
-}));
+onMounted(() => {
+  document.body.classList.add('hidden');
+});
 </script>
+
+<style scoped lang="scss">
+.layout {
+  background-color: #f1f2f4;
+  &.home {
+    background-color: $clr-accent-dark-blue;
+  }
+}
+</style>

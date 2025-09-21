@@ -21,10 +21,10 @@
         </p>
       </div>
     </div>
-    <a :href="participant.website" target="_blank" class="participant__link">
+    <button target="_blank" class="participant__link">
       <span>{{ t('participant.go-to-site') }}</span>
       <IconsUpRightArrow class="participant__arrow" />
-    </a>
+    </button>
   </NuxtLink>
 </template>
 
@@ -54,14 +54,10 @@ const details = computed(() => [
 </script>
 
 <style lang="scss" scoped>
-@keyframes slide-from-bottom {
-  from {
+@include hide-children('.participants__container') {
+  .participant {
     transform: translateY(35px);
     opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 .participant {
@@ -79,10 +75,10 @@ const details = computed(() => [
     box-shadow: 0px 1.2px 27px 0px #0000001a;
   }
   @media only screen and (min-width: $bp-lg) {
-    animation: slide-from-bottom 0.7s backwards;
-    @for $i from 1 through 10 {
+    transition: opacity 0.7s, transform 0.7s;
+    @for $i from 1 through 20 {
       &:nth-child(#{$i}) {
-        animation-delay: $i * 0.07s;
+        transition-delay: $i * 0.07s;
       }
     }
   }

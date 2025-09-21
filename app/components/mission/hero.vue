@@ -1,7 +1,7 @@
 <template>
-  <section class="hero">
+  <section class="hero hidden">
     <div class="hero__circles">
-      <div v-for="i in SLIDES_COUNT" :key="i" class="hero__circle" />
+      <div v-for="i in 4" :key="i" class="hero__circle" />
     </div>
     <div class="hero__top">
       <div class="hero__icons">
@@ -19,31 +19,14 @@
         </h1>
       </div>
     </div>
-    <div class="hero__bottom">
-      <div class="hero__images">
-        <img
-          v-for="(img, i) in images"
-          :key="i"
-          alt="banner"
-          class="hero__image"
-          :class="{ active: currentSlide === i }"
-          :src="img"
-        >
-      </div>
-      <div class="hero__action">
-        <div v-for="i in SLIDES_COUNT" :key="i" class="hero__bar--outer">
-          <div class="hero__bar--inner" />
-        </div>
-      </div>
-    </div>
+    <ImageCarousel :images="carouselImages" class="hero__carousel" />
   </section>
 </template>
 
 <script setup>
-// Imports =
-// Assets
 import img1 from '~/assets/images/about-hero.png';
-// Components
+import img2 from '~/assets/images/home-about.jpg';
+
 import IconsBank from '~/components/icons/bank.vue';
 import IconsBank6 from '~/components/icons/bank-6.vue';
 import IconsBank10 from '~/components/icons/bank-10.vue';
@@ -54,18 +37,8 @@ import IconsBank17 from '~/components/icons/bank-17.vue';
 import TrastBank from '~/components/icons/trast-bank.vue';
 import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
-// Constants
-const SLIDES_COUNT = 4; // Total number of slides
-const CHANGE_INTERVAL = 3000; // Time (ms) for each slide change
+const carouselImages = [img1, img2, img1, img2];
 
-// Reactive State
-const currentSlide = ref(0);
-
-// Nuxt App Context
-const { $gsap } = useNuxtApp();
-
-// Data Arrays
-const images = Array(SLIDES_COUNT).fill(img1); // Repeated slide images
 const icons = [
   IconsBank,
   IconsBank6,
@@ -77,79 +50,23 @@ const icons = [
   TrastBank,
   ZiraatBank
 ];
-
-// Functions
-// Animate the progress bar for the current slide
-const animateProgressBar = () => {
-  $gsap.to(`.hero__bar--outer:nth-child(${currentSlide.value + 1}) .hero__bar--inner`, {
-    scaleX: 1, // Full progress
-    duration: CHANGE_INTERVAL / 1000 // Duration in seconds
-  });
-};
-
-// Reset all progress bars
-const resetProgressBars = () => {
-  $gsap.set('.hero__bar--inner', { scaleX: 0 });
-};
-
-// Lifecycle Hooks
-let slideInterval;
-
-onMounted(() => {
-  // Initialize the first slide's progress bar
-  animateProgressBar();
-
-  // Start the automatic slide interval
-  slideInterval = setInterval(() => {
-    // Move to the next slide
-    currentSlide.value = (currentSlide.value + 1) % SLIDES_COUNT;
-
-    // Reset progress bars if looping back to the first slide
-    if (currentSlide.value === 0) {
-      resetProgressBars();
-    }
-
-    // Animate the progress bar for the current slide
-    animateProgressBar();
-  }, CHANGE_INTERVAL);
-});
-
-onBeforeUnmount(() => {
-  // Clear the interval when the component is unmounted
-  clearInterval(slideInterval);
-});
 </script>
 
 <style lang="scss" scoped>
 @use 'sass:list';
-@keyframes slide-from-right {
-  from {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-from-left {
-  from {
+@include hide-children('.hero') {
+  .hero__text,
+  .hero__title--yellow {
     transform: translateX(-100px);
     opacity: 0;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes scale-up {
-  from {
-    transform: scale(0);
+  .hero__title--grey {
+    transform: translateX(100px);
     opacity: 0;
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+  .hero__icon-container {
+    transform: scale(0);
+    opacity: 0;
   }
 }
 .hero {
@@ -159,6 +76,15 @@ onBeforeUnmount(() => {
   position: relative;
   overflow: hidden;
   $duration: 1s;
+  &__carousel {
+    z-index: 2;
+    & > *:not(:last-child) {
+      aspect-ratio: 1780/800;
+      @media screen and (max-width: $bp-lg) {
+        aspect-ratio: 328/200;
+      }
+    }
+  }
   &__circles {
     position: absolute;
     inset: 0;
@@ -209,7 +135,7 @@ onBeforeUnmount(() => {
   &__text {
     font-size: max(12px, 2rem);
     text-align: center;
-    animation: slide-from-left 1s;
+    transition: opacity 1s, transform 1s;
   }
   &__bottom {
     display: grid;
@@ -251,11 +177,11 @@ onBeforeUnmount(() => {
     &--grey {
       color: $clr-very-dark-grey;
       display: inline-block;
-      animation: slide-from-right $duration;
+      transition: opacity $duration, transform $duration;
     }
     &--yellow {
       display: inline-block;
-      animation: slide-from-left $duration;
+      transition: opacity $duration, transform $duration;
       color: $clr-yellow;
     }
   }
@@ -313,12 +239,11 @@ onBeforeUnmount(() => {
       background: #ffffff;
       box-shadow: 0px 1.2px 27px 0px #0000001a;
       border-radius: 16px;
-      animation-name: scale-up;
-      animation-duration: 0.4s;
-      animation-fill-mode: backwards;
+      transition-property: transform, opacity;
+      transition-duration: 0.4s;
       @for $i from 1 through 9 {
         &:nth-child(#{$i}) {
-          animation-delay: $i * 0.07s;
+          transition-delay: $i * 0.07s;
         }
       }
       &:first-child {

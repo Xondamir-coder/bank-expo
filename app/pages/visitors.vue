@@ -29,7 +29,7 @@
           </ul>
         </div>
         <div class="visitors__attend-container">
-          <ImageCarousel :images="carouselImages" :auto-play="true" />
+          <ImageCarousel :images="carouselImages" class="visitors__attend-carousel" />
           <div class="visitors__attend-content">
             <div class="visitors__attend-content-top">
               <h3 class="heading-32-20 text-secondary">
@@ -126,6 +126,14 @@ const plans = computed(() =>
     display: flex;
     flex-direction: column;
     gap: max(8rem, 32px);
+    &-carousel {
+      & > *:not(:last-child) {
+        aspect-ratio: 765/480;
+        @media screen and (max-width: $bp-md) {
+          aspect-ratio: 296/200;
+        }
+      }
+    }
     &-container {
       display: grid;
       grid-template-columns: 0.87fr 1fr;

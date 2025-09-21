@@ -189,14 +189,11 @@ const list = [
     transform: translateX(-50%);
   }
 }
-@keyframes appear {
-  from {
+
+@include hide-children('.hero') {
+  .icons {
     opacity: 0;
     clip-path: circle(25%);
-  }
-  to {
-    opacity: 0.5;
-    clip-path: circle(100%);
   }
 }
 .icons {
@@ -207,7 +204,9 @@ const list = [
   position: absolute;
   inset: 0;
   opacity: 0.5;
-  animation: appear 2s 0.2s backwards;
+  clip-path: circle(100%);
+  transition-property: opacity, clip-path;
+  transition-duration: 2s;
   @media only screen and (max-width: $bp-lg) {
     transform: rotate(-10deg) translateY(0%);
   }

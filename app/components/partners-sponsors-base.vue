@@ -1,6 +1,6 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="base">
+    <div class="base hidden">
       <CategoryFilter :filters="filters" @filter="filterBase" />
       <div class="base__list">
         <div v-for="item in items" :key="item" class="base__item">
@@ -82,6 +82,13 @@ defineProps({
     opacity: 1;
   }
 }
+@include hide-children('.base') {
+  .base__item {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
 .base {
   display: flex;
   flex-direction: column;
@@ -95,16 +102,16 @@ defineProps({
     }
   }
   &__item {
+    transition: opacity 0.4s, transform 0.4s;
     background: #f8f8f8;
     border: 1px solid #cbd5e0;
     border-radius: max(16px, 3.2rem);
     aspect-ratio: 1;
     @include flex-center;
 
-    animation: scale-up 0.4s backwards;
     @for $i from 1 through 100 {
       &:nth-child(#{$i}) {
-        animation-delay: $i * 0.025s;
+        transition-delay: $i * 0.025s;
       }
     }
   }

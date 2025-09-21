@@ -11,7 +11,7 @@
         class="search__input"
         required
         :placeholder="`${$t('search')}...`"
-      >
+      />
     </div>
   </form>
 </template>
@@ -29,14 +29,10 @@ const model = defineModel({
 </script>
 
 <style lang="scss" scoped>
-@keyframes slide-from-left {
-  from {
+@include hide-children('.participants__container') {
+  .search {
     transform: translateX(-35px);
     opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
 .search {
@@ -44,7 +40,7 @@ const model = defineModel({
   display: flex;
   flex-direction: column;
   gap: max(16px, 2rem);
-  animation: slide-from-left 0.7s;
+  transition: transform 0.7s, opacity 0.7s;
 
   &__title {
     font-size: max(20px, 3.2rem);

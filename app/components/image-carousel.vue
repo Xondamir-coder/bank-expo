@@ -30,18 +30,24 @@ const props = defineProps({
     default: 5000
   },
   autoPlay: {
-    default: false,
+    default: true,
     type: Boolean
   }
 });
+
+let myInterval;
 const activeImage = ref(0);
 
 onMounted(() => {
   if (props.autoPlay) {
-    setInterval(() => {
+    myInterval = setInterval(() => {
       activeImage.value = (activeImage.value + 1) % props.images.length;
     }, props.interval);
   }
+});
+
+onUnmounted(() => {
+  clearInterval(myInterval);
 });
 </script>
 
@@ -51,12 +57,7 @@ onMounted(() => {
   display: grid;
   overflow: hidden;
   border-radius: max(2.4rem, 12px);
-  &__image {
-    aspect-ratio: 765/480;
-    @media screen and (max-width: $bp-md) {
-      aspect-ratio: 296/200;
-    }
-  }
+
   &__bars {
     align-self: flex-end;
     display: grid;

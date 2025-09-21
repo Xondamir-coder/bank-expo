@@ -1,6 +1,6 @@
 <template>
   <footer id="footer" class="footer">
-    <div class="footer__bg" :style="{ backgroundColor: footerBg }" />
+    <div class="footer__bg" />
     <div class="footer__wrapper">
       <div class="footer__pattern-container">
         <svg
@@ -117,7 +117,6 @@ import LogoSmall from './icons/logo-small.vue';
 
 const { t } = useI18n();
 const { $gsap } = useNuxtApp();
-const route = useRoute();
 
 const items = computed(() => [
   {
@@ -189,13 +188,6 @@ const contacts = [
     type: 'location'
   }
 ];
-
-const footerBg = computed(() => {
-  if (route.path?.includes('/')) return '#fff';
-  if (route.path?.includes('/about')) return '#F1F2F4';
-  if (route.path?.includes('/banks')) return '#F8F8F8';
-  else return '#F1F2F4';
-});
 
 onMounted(() => {
   const parentId = '#footer';
@@ -497,7 +489,7 @@ onMounted(() => {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: #fff;
+    background-color: #f1f2f4;
     z-index: 2;
   }
 }

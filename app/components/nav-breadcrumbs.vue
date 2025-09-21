@@ -1,5 +1,5 @@
 <template>
-  <nav class="breadcrumbs">
+  <nav class="breadcrumbs hidden">
     <NuxtLink
       v-for="breadcrumb in breadcrumbs"
       :key="breadcrumb.to"
@@ -22,24 +22,10 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-@keyframes slide-from-top {
-  from {
-    transform: translateY(-5px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-from-bottom {
-  from {
+@include hide-children('.breadcrumbs') {
+  .breadcrumbs__link {
     transform: translateY(5px);
     opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 .breadcrumbs {
@@ -50,17 +36,14 @@ defineProps({
     display: flex;
     gap: 4px;
     align-items: center;
-
     font-size: max(1.4rem, 14px);
     color: $clr-grey;
-    animation: slide-from-top 0.5s ease-in-out backwards;
+    transition: opacity opacity 0.5s, transform 0.5s;
+    transition-timing-function: ease-in-out;
 
-    @for $index from 1 to 4 {
+    @for $index from 1 to 5 {
       &:nth-child(#{$index}) {
-        animation-delay: 0.1s * $index;
-        @if ($index % 2 == 0) {
-          animation-name: slide-from-bottom;
-        }
+        transition-delay: 0.1s * $index;
       }
     }
     &:hover .breadcrumbs__label {

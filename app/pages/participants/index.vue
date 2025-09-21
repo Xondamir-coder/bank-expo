@@ -1,6 +1,6 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="participants__container">
+    <div class="participants__container hidden">
       <ParticipantsSearch
         v-model="query"
         :label="$t('participants.name')"
@@ -97,20 +97,18 @@ const submitQuery = () => {};
 </script>
 
 <style lang="scss" scoped>
-@keyframes slide-from-bottom {
-  from {
+@include hide-children('.participants__container') {
+  .participants__list {
     transform: translateY(20px);
     opacity: 0;
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
+
 .participants {
   display: flex;
   flex-direction: column;
   gap: max(20px, 3rem);
+
   &__container {
     display: grid;
     column-gap: max(20px, 3.2rem);
@@ -135,7 +133,9 @@ const submitQuery = () => {};
     gap: max(1.2rem, 12px);
     @media only screen and (max-width: $bp-md) {
       gap: 16px;
-      animation: slide-from-bottom 0.7s backwards 0.5s;
+      transition-property: transform, opacity;
+      transition-duration: 0.7s;
+      transition-delay: 0.3s;
     }
   }
   &__box {

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero">
+  <section class="hero hidden">
     <HomeHeroBg />
     <div class="hero__content">
       <h1 class="hero__title">
@@ -87,21 +87,27 @@ countdown();
     transform: translateX(-70px);
     opacity: 0;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 @keyframes slide-from-right {
   from {
     transform: translateX(70px);
     opacity: 0;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+}
+
+@include hide-children('.hero') {
+  .hero__location,
+  .hero__text {
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  .hero__time,
+  .hero__title {
+    transform: translateX(-70px);
+    opacity: 0;
   }
 }
+
 .hero {
   $duration: 1s;
   background: linear-gradient(104.19deg, #042d52 0%, #044988 55.94%, #042d52 92.59%);
@@ -137,7 +143,7 @@ countdown();
     align-self: flex-end;
     gap: 12px;
     text-transform: uppercase;
-    animation: slide-from-right $duration backwards;
+    transition: transform $duration, opacity $duration;
     @media only screen and (max-width: $bp-md) {
       position: absolute;
       left: 16px;
@@ -169,7 +175,7 @@ countdown();
     padding-block: max(10px, 2.4rem);
     display: flex;
     gap: max(2.4rem, 10px);
-    animation: slide-from-left $duration backwards;
+    transition: transform $duration, opacity $duration;
     @media screen and (max-width: 450px) {
       flex: 1;
       justify-content: space-between;
@@ -201,16 +207,16 @@ countdown();
     font-weight: 900;
     text-transform: uppercase;
     line-height: 1.4;
-    animation: slide-from-left $duration backwards;
     display: flex;
     flex-direction: column;
     align-self: flex-start;
+    transition: transform $duration, opacity $duration;
   }
   &__text {
     font-size: max(14px, 2rem);
     line-height: 1.45;
     max-width: 45ch;
-    animation: slide-from-right $duration backwards;
+    transition: transform $duration, opacity $duration;
   }
   &__content {
     display: flex;
