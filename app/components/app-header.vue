@@ -1,7 +1,7 @@
 <template>
   <header
     class="header"
-    :class="{ 'header--open': showMenu, 'header--home': $route.name.includes('index') }"
+    :class="{ 'header--open': showMenu, 'header--home': $route.name?.includes('index') }"
   >
     <button
       class="header__hamburger"
@@ -18,7 +18,7 @@
     </button>
     <div class="header__col header__col--left">
       <NuxtLink :to="$localePath('/')" class="header__logo-container">
-        <AppLogo :is-white="route.name.includes('index') || showMenu" />
+        <AppLogo :is-white="$route.name?.includes('index') || showMenu" />
       </NuxtLink>
       <nav class="header__nav">
         <div v-for="(link, index) in links" :key="index" class="header__link-container">
@@ -106,7 +106,6 @@
 </template>
 
 <script setup>
-const route = useRoute();
 const { t, localeCodes, setLocale } = useI18n();
 
 const links = computed(() => [
