@@ -71,7 +71,7 @@
     </div>
     <div class="header__col header__col--right">
       <div class="flex header__col-inside">
-        <a class="header__social" target="_blank" href="#">
+        <!-- <a class="header__social" target="_blank" href="#">
           <IconsTelegram class="header__social-icon" />
         </a>
         <a class="header__social" target="_blank" href="#">
@@ -79,7 +79,7 @@
         </a>
         <a class="header__link" href="mailto:Info@expobanking">
           <span class="header__link-label"> Info@expobanking </span>
-        </a>
+        </a> -->
         <button class="header__button" @click="showFormModal = true">
           {{ $t('contact-us') }}
         </button>
@@ -280,7 +280,7 @@ onMounted(() => {
     aspect-ratio: 1;
     background-color: #fff;
 
-    @media only screen and (min-width: $bp-xxl) {
+    @media only screen and (min-width: 1200px) {
       display: none;
     }
 
@@ -404,7 +404,7 @@ onMounted(() => {
     display: flex;
     gap: 8px;
 
-    @media only screen and (max-width: $bp-xxl) {
+    @media only screen and (max-width: 1200px) {
       display: none;
     }
   }
@@ -511,7 +511,7 @@ onMounted(() => {
     &-inside {
       gap: 8px;
 
-      @media only screen and (max-width: $bp-xxl) {
+      @media only screen and (max-width: 1200px) {
         display: none;
       }
     }
