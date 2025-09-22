@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import img1 from '~/assets/images/about-hero.png';
+import img1 from '~/assets/images/about-hero.jpeg';
 import img2 from '~/assets/images/home-about.jpg';
 
 import IconsBank from '~/components/icons/bank.vue';

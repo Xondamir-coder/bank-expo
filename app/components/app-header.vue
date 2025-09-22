@@ -17,9 +17,11 @@
       </div>
     </button>
     <div class="header__col header__col--left">
-      <NuxtLink :to="$localePath('/')" class="header__logo-container">
-        <AppLogo :is-white="$route.name?.includes('index') || showMenu" />
-      </NuxtLink>
+      <div class="header__logo-wrapper">
+        <NuxtLink :to="$localePath('/')" class="header__logo-container">
+          <AppLogo :is-white="$route.name?.includes('index') || showMenu" />
+        </NuxtLink>
+      </div>
       <nav class="header__nav">
         <div v-for="(link, index) in links" :key="index" class="header__link-container">
           <NuxtLink
@@ -168,6 +170,9 @@ const changeLocale = code => {
   setLocale(code);
   toggleDropdown();
 };
+
+useAnimation({ selector: '.header__col--left>*', base: { y: 15 } });
+useAnimation({ selector: '.header__col--right>*', base: { y: 15 }, initialDelay: 0.3 });
 
 onMounted(() => {
   document.addEventListener('click', e => {
@@ -531,6 +536,9 @@ onMounted(() => {
   }
 
   &__logo {
+    &-wrapper {
+      display: flex;
+    }
     &-container {
       width: max(22.1rem, 157px);
       aspect-ratio: 248/28;

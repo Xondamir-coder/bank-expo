@@ -56,7 +56,7 @@
       </div>
       <FormSection />
       <div class="visitors__block visitors__plan">
-        <img src="~/assets/images/visitors-plan.png" alt="banner" class="visitors__plan-image" />
+        <img src="~/assets/images/visitors-plan.jpg" alt="banner" class="visitors__plan-image" />
         <h2 class="heading text-secondary">
           {{ $t('visitors.plan.title') }}
         </h2>
