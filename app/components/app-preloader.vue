@@ -17,18 +17,12 @@
 const TIME_TO_LOAD = 3_000; // ms
 const MAX_PROGRESS = 101;
 
+const showPreloader = useState('showPreloader', () => true);
+
 const progress = ref(0);
-const showPreloader = ref(true);
 
 const barEl = ref(null);
 const progressEl = ref(null);
-
-const toggleHidden = () => {
-  document.body.classList.remove('hidden');
-  document.querySelectorAll('.hidden')?.forEach(el => {
-    el.classList.remove('hidden');
-  });
-};
 
 onMounted(() => {
   const xVal = window.innerWidth > 576 ? 'calc(80vw - 117px)' : 'calc(100vw - 40px - 90px)';
@@ -50,7 +44,6 @@ onMounted(() => {
     if (progress.value >= MAX_PROGRESS) {
       clearInterval(interval);
       showPreloader.value = false;
-      setTimeout(toggleHidden, 100);
     }
   }, step);
 });

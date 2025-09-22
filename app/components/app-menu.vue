@@ -39,9 +39,16 @@ const { t } = useI18n();
 
 const links = computed(() => [
   {
-    to: '/about',
-    label: t('nav.about'),
-    isMulti: true
+    to: '/mission',
+    label: t('nav.mission')
+  },
+  {
+    to: '/organizer',
+    label: t('nav.organizer')
+  },
+  {
+    to: '/venue',
+    label: t('nav.venue')
   },
   {
     to: '/participants',
@@ -61,8 +68,11 @@ const links = computed(() => [
   },
   {
     to: '/media',
-    label: t('nav.media'),
-    isMulti: true
+    label: t('nav.media-library')
+  },
+  {
+    to: '/media-accreditation',
+    label: t('nav.media-accreditation')
   }
 ]);
 

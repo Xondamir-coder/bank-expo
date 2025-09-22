@@ -1,13 +1,13 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="organizer__container">
+    <div class="organizer">
       <h1 class="heading">
         {{ $t('organizer.title') }}
       </h1>
       <p>
         {{ $t('organizer.text') }}
       </p>
-      <img src="~/assets/images/organizer.jpg" alt="organizer banner" class="organizer__image" >
+      <img src="~/assets/images/organizer.jpg" alt="organizer banner" class="organizer__image" />
       <InfoCard v-for="(item, index) in $tm('organizer.items')" :key="index" :info="item" />
     </div>
   </BreadcrumbsLayout>
@@ -25,23 +25,19 @@ const breadcrumbs = computed(() => [
     label: t('nav.organizer')
   }
 ]);
+useAnimation({ selector: '.organizer>*', base: { y: 25 } });
 </script>
 
 <style lang="scss" scoped>
 .organizer {
-  @include section-padding-inline;
+  align-self: center;
+  max-width: max(61.25%, 600px);
   display: flex;
   flex-direction: column;
-  gap: max(3rem, 20px);
+  gap: max(2rem, 16px);
+
   &__image {
     border-radius: max(2rem, 16px);
-  }
-  &__container {
-    align-self: center;
-    max-width: max(61.25%, 600px);
-    display: flex;
-    flex-direction: column;
-    gap: max(2rem, 16px);
   }
 }
 </style>

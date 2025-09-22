@@ -1,5 +1,5 @@
 <template>
-  <section class="hero hidden">
+  <section class="hero">
     <div class="hero__circles">
       <div v-for="i in 4" :key="i" class="hero__circle" />
     </div>
@@ -39,6 +39,10 @@ import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
 const carouselImages = [img1, img2, img1, img2];
 
+useAnimation({ selector: '.hero', base: { y: 50 } });
+useAnimation({ selector: '.hero__icon-container', base: { scale: 0 }, staggerStep: 0.05 });
+useAnimation({ selector: '.hero__content>*', base: { y: 20 }, staggerStep: 0.15 });
+
 const icons = [
   IconsBank,
   IconsBank6,
@@ -54,21 +58,7 @@ const icons = [
 
 <style lang="scss" scoped>
 @use 'sass:list';
-@include hide-children('.hero') {
-  .hero__text,
-  .hero__title--yellow {
-    transform: translateX(-100px);
-    opacity: 0;
-  }
-  .hero__title--grey {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  .hero__icon-container {
-    transform: scale(0);
-    opacity: 0;
-  }
-}
+
 .hero {
   background-color: #fff;
   border-radius: max(16px, 3.2rem);
@@ -135,7 +125,6 @@ const icons = [
   &__text {
     font-size: max(12px, 2rem);
     text-align: center;
-    transition: opacity 1s, transform 1s;
   }
   &__bottom {
     display: grid;
@@ -177,11 +166,9 @@ const icons = [
     &--grey {
       color: $clr-very-dark-grey;
       display: inline-block;
-      transition: opacity $duration, transform $duration;
     }
     &--yellow {
       display: inline-block;
-      transition: opacity $duration, transform $duration;
       color: $clr-yellow;
     }
   }
@@ -239,13 +226,7 @@ const icons = [
       background: #ffffff;
       box-shadow: 0px 1.2px 27px 0px #0000001a;
       border-radius: 16px;
-      transition-property: transform, opacity;
-      transition-duration: 0.4s;
-      @for $i from 1 through 9 {
-        &:nth-child(#{$i}) {
-          transition-delay: $i * 0.07s;
-        }
-      }
+
       &:first-child {
         left: 15%;
         top: 20%;

@@ -1,6 +1,6 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="base hidden">
+    <div class="base">
       <CategoryFilter :filters="filters" @filter="filterBase" />
       <div class="base__list">
         <div v-for="item in items" :key="item" class="base__item">
@@ -63,6 +63,13 @@ const filterBase = () => {
   console.log('filtering base ...');
 };
 
+useAnimation({
+  selector: '.base__item',
+  base: { scale: 0.8 },
+  staggerStep: 0.05,
+  initialDelay: 0.3
+});
+
 defineProps({
   breadcrumbs: {
     type: Array,
@@ -82,12 +89,6 @@ defineProps({
     opacity: 1;
   }
 }
-@include hide-children('.base') {
-  .base__item {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-}
 
 .base {
   display: flex;
@@ -102,18 +103,11 @@ defineProps({
     }
   }
   &__item {
-    transition: opacity 0.4s, transform 0.4s;
     background: #f8f8f8;
     border: 1px solid #cbd5e0;
     border-radius: max(16px, 3.2rem);
     aspect-ratio: 1;
     @include flex-center;
-
-    @for $i from 1 through 100 {
-      &:nth-child(#{$i}) {
-        transition-delay: $i * 0.025s;
-      }
-    }
   }
 
   &__icon {

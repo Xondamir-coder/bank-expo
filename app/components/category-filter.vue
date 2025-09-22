@@ -1,5 +1,5 @@
 <template>
-  <div class="filter hidden">
+  <div class="filter">
     <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
@@ -16,43 +16,27 @@
 </template>
 
 <script setup>
-//  props
 defineProps({
   filters: {
     type: Array,
     required: true
   }
 });
-
 const { t } = useI18n();
 const route = useRoute();
-
 const currentFilter = ref(0);
-
 const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
+
+useAnimation({ selector: '.filter h2', base: { x: -20 }, initialDelay: 0.1 });
+useAnimation({ selector: '.filter__button', base: { y: 10, duration: 0.5 }, initialDelay: 0.2 });
 </script>
 
 <style scoped lang="scss">
-@include hide-children('.filter') {
-  opacity: 0;
-  transform: translateX(-35px);
-}
-@keyframes slide-from-left {
-  from {
-    transform: translateX(-35px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
 .filter {
   grid-area: filter;
   display: flex;
   flex-direction: column;
   gap: max(12px, 2rem);
-  transition: opacity 0.7s, transform 0.7s;
   &__title {
     font-size: max(20px, 4.2rem);
     font-weight: 700;

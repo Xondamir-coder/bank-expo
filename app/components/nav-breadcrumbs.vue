@@ -1,18 +1,16 @@
 <template>
-  <nav class="breadcrumbs hidden">
-    <NuxtLink
-      v-for="breadcrumb in breadcrumbs"
-      :key="breadcrumb.to"
-      class="breadcrumbs__link"
-      :to="$localePath(breadcrumb.to)"
-    >
-      <span class="breadcrumbs__label">{{ breadcrumb.label }}</span>
-      <span class="breadcrumbs__divider">/</span>
-    </NuxtLink>
+  <nav class="breadcrumbs">
+    <div v-for="breadcrumb in breadcrumbs" :key="breadcrumb.to" class="breadcrumbs__link-box">
+      <NuxtLink class="breadcrumbs__link" :to="$localePath(breadcrumb.to)">
+        <span class="breadcrumbs__label">{{ breadcrumb.label }}</span>
+        <span class="breadcrumbs__divider">/</span>
+      </NuxtLink>
+    </div>
   </nav>
 </template>
 
 <script setup>
+useAnimation({ selector: '.breadcrumbs__link-box', base: { y: 10 } });
 defineProps({
   breadcrumbs: {
     required: true,
@@ -22,12 +20,6 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-@include hide-children('.breadcrumbs') {
-  .breadcrumbs__link {
-    transform: translateY(5px);
-    opacity: 0;
-  }
-}
 .breadcrumbs {
   display: flex;
   gap: 4px;
@@ -38,25 +30,16 @@ defineProps({
     align-items: center;
     font-size: max(1.4rem, 14px);
     color: $clr-grey;
-    transition: opacity opacity 0.5s, transform 0.5s;
-    transition-timing-function: ease-in-out;
-
-    @for $index from 1 to 5 {
-      &:nth-child(#{$index}) {
-        transition-delay: 0.1s * $index;
-      }
-    }
-    &:hover .breadcrumbs__label {
+    &:hover {
       color: $clr-yellow;
     }
-    &:last-child {
-      .breadcrumbs__divider {
-        display: none;
+    &-box {
+      &:last-child {
+        .breadcrumbs__divider {
+          display: none;
+        }
       }
     }
-  }
-  &__label {
-    transition: color 0.3s;
   }
 }
 </style>

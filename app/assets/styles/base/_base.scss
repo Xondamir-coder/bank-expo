@@ -64,6 +64,9 @@ main {
   margin-top: max(4px, 2rem);
   margin-bottom: max(20px, 8rem);
 }
+[data-animate] {
+  opacity: 0;
+}
 
 /* Lenis */
 html.lenis,

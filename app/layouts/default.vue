@@ -12,22 +12,17 @@
 </template>
 
 <script setup>
-const router = useRouter();
 useWatchTogglers();
+const router = useRouter();
+const { $lenis } = useNuxtApp();
 
 if (import.meta.client) {
   router.afterEach(() => {
-    nextTick(() => {
-      const els = document.querySelectorAll('.hidden');
-      console.log(els);
-      els?.forEach(el => el.classList.remove('hidden'));
+    $lenis.scrollTo(0, {
+      immediate: true
     });
   });
 }
-
-onMounted(() => {
-  document.body.classList.add('hidden');
-});
 </script>
 
 <style scoped lang="scss">

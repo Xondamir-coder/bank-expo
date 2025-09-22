@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+useAnimation({ selector: '.search', base: { x: -35 } });
 defineProps({
   label: {
     required: true,
@@ -29,18 +30,11 @@ const model = defineModel({
 </script>
 
 <style lang="scss" scoped>
-@include hide-children('.participants__container') {
-  .search {
-    transform: translateX(-35px);
-    opacity: 0;
-  }
-}
 .search {
   grid-area: search;
   display: flex;
   flex-direction: column;
   gap: max(16px, 2rem);
-  transition: transform 0.7s, opacity 0.7s;
 
   &__title {
     font-size: max(20px, 3.2rem);

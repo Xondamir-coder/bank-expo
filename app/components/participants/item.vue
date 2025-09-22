@@ -54,12 +54,6 @@ const details = computed(() => [
 </script>
 
 <style lang="scss" scoped>
-@include hide-children('.participants__container') {
-  .participant {
-    transform: translateY(35px);
-    opacity: 0;
-  }
-}
 .participant {
   display: flex;
   justify-content: space-between;
@@ -74,14 +68,14 @@ const details = computed(() => [
     transform: scale(1.02);
     box-shadow: 0px 1.2px 27px 0px #0000001a;
   }
-  @media only screen and (min-width: $bp-lg) {
-    transition: opacity 0.7s, transform 0.7s;
-    @for $i from 1 through 20 {
-      &:nth-child(#{$i}) {
-        transition-delay: $i * 0.07s;
-      }
-    }
-  }
+  // @media only screen and (min-width: $bp-lg) {
+  //   transition: opacity 0.7s, transform 0.7s;
+  //   @for $i from 1 through 20 {
+  //     &:nth-child(#{$i}) {
+  //       transition-delay: $i * 0.07s;
+  //     }
+  //   }
+  // }
   @media only screen and (max-width: $bp-md) {
     gap: 16px;
     flex-direction: column;

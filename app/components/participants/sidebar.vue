@@ -34,6 +34,10 @@ import IconsCashDown from '~/components/icons/cash-down.vue';
 import IconsBriefcase from '~/components/icons/briefcase.vue';
 import IconsBankBuilding from '~/components/icons/bank-building.vue';
 
+const { t } = useI18n();
+useAnimation({ selector: '.sidebar', base: { y: 35 } });
+useAnimation({ selector: '.sidebar__row', base: { x: -10 } });
+
 //  data
 const data = {
   catalog: 1012,
@@ -50,8 +54,6 @@ const data = {
     website: 'https://ziraatbank.uz'
   }
 };
-
-const { t } = useI18n();
 
 const rows = computed(() => [
   {
@@ -83,24 +85,12 @@ const rows = computed(() => [
 </script>
 
 <style lang="scss" scoped>
-@include hide-children('.participants__container') {
-  .sidebar {
-    transform: translateY(35px);
-    opacity: 0;
-  }
-  .sidebar__row {
-    transform: translateX(-10px);
-    opacity: 0;
-  }
-}
-
 .sidebar {
   grid-area: sidebar;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
   gap: max(14px, 2rem);
-  transition: opacity 0.7s, transform 0.7s;
   &__title {
     font-weight: 700;
     font-size: max(20px, 2.4rem);
@@ -112,12 +102,6 @@ const rows = computed(() => [
     padding-block: max(14px, 2rem);
     border-top: 1px solid #e9eaec;
     border-bottom: 1px solid #e9eaec;
-    transition: opacity 0.5s, transform 0.5s;
-    @for $i from 1 through 5 {
-      &:nth-child(#{$i}) {
-        transition-delay: $i * 0.1s;
-      }
-    }
     &:first-child {
       border-top: none;
       padding-top: 0;

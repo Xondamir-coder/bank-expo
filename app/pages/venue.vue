@@ -10,7 +10,7 @@
     </div>
     <div class="venue__container">
       <div class="venue__map">
-        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" >
+        <img src="~/assets/images/google-map.jpg" alt="googe map" class="venue__image" />
         <YellowButton text="Google Map" class="venue__button" />
         <div class="venue__circle">
           <IconsLogoSmallBlackText class="venue__logo" />
@@ -60,14 +60,21 @@ const breadcrumbs = computed(() => [
     label: t('nav.venue')
   }
 ]);
+
+useAnimation({ selector: '.venue__top>*', base: { x: -25 } });
+useAnimation({ selector: '.venue__map', base: { scale: 0.95 }, initialDelay: 0.2 });
+useAnimation({
+  selector: '.info-card',
+  base: {
+    x: -25
+  },
+  initialDelay: 0.3,
+  stagger: 0.15
+});
 </script>
 
 <style lang="scss" scoped>
 .venue {
-  @include section-padding-inline;
-  display: flex;
-  flex-direction: column;
-  gap: max(3rem, 20px);
   &__top {
     display: flex;
     flex-direction: column;
@@ -83,6 +90,12 @@ const breadcrumbs = computed(() => [
     display: flex;
     flex-direction: column;
     gap: max(2rem, 16px);
+    & > *:nth-child(odd) {
+      background-color: red;
+    }
+    & > *:nth-child(even) {
+      background-color: blue;
+    }
   }
   &__map {
     position: relative;

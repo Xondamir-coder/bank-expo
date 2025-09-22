@@ -1,19 +1,17 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="participants__container hidden">
+    <div class="participants__container">
       <ParticipantsSearch
         v-model="query"
         :label="$t('participants.name')"
         class="participants__box"
         @submit.prevent="submitQuery"
       />
-      <div id="participants-list" class="participants__list">
-        <ParticipantsItem
-          v-for="(participant, i) in participants"
-          :key="i"
-          :participant="participant"
-        />
-      </div>
+      <ul id="participants-list" class="participants__list">
+        <li v-for="(participant, i) in participants" :key="i" class="participants__item">
+          <ParticipantsItem :participant="participant" />
+        </li>
+      </ul>
       <ParticipantsSidebar class="participants__box" />
     </div>
     <AppPagination
@@ -26,22 +24,14 @@
 </template>
 
 <script setup>
-//  imports
 import IconsBank from '~/components/icons/bank.vue';
 
-// refs
+const { t } = useI18n();
+useAnimation({ selector: '.participants__item', base: { y: 25 } });
+
 const currentPage = ref(1);
 const query = ref('');
 
-// methods
-const setCurrentPage = page => (currentPage.value = page);
-const fetchItems = page => {
-  setCurrentPage(page);
-  console.log('fetching new participants ...');
-};
-
-//  data
-const { t } = useI18n();
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -52,9 +42,16 @@ const breadcrumbs = computed(() => [
     label: t('nav.participants')
   }
 ]);
+
+const setCurrentPage = page => (currentPage.value = page);
+const fetchItems = page => {
+  setCurrentPage(page);
+  console.log('fetching new participants ...');
+};
+const submitQuery = () => {};
+
 const pagesCount = 12;
-const PARTICIPANTS_COUNT = 10;
-const participants = Array(PARTICIPANTS_COUNT).fill({
+const participants = Array(10).fill({
   icon: IconsBank,
   slug: 'infin-bank',
   name: 'Infin Bank',
@@ -63,47 +60,9 @@ const participants = Array(PARTICIPANTS_COUNT).fill({
   depositInterest: 25,
   website: 'https://google.com'
 });
-
-//  animation
-const { $gsap } = useNuxtApp();
-const animateItems = () => {
-  const items = $gsap.utils.toArray('#participants-list .participant');
-  items.forEach(item => {
-    const iconContainer = item.querySelector('.participant__icon-container');
-    const title = item.querySelector('.participant__title');
-    const details = item.querySelectorAll('.participant__detail');
-
-    $gsap.from(iconContainer, {
-      x: -25,
-      ...fadeOnScrollTrigger(iconContainer, 'bottom 90%')
-    });
-    $gsap.from(title, {
-      x: 25,
-      ...fadeOnScrollTrigger(title, 'bottom 90%')
-    });
-    $gsap.from(details, {
-      y: 15,
-      stagger: 0.1,
-      ...fadeOnScrollTrigger(details, 'bottom 90%')
-    });
-  });
-};
-onMounted(() => {
-  if (window.innerWidth < 768) animateItems();
-});
-
-//  submit query
-const submitQuery = () => {};
 </script>
 
 <style lang="scss" scoped>
-@include hide-children('.participants__container') {
-  .participants__list {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-}
-
 .participants {
   display: flex;
   flex-direction: column;
