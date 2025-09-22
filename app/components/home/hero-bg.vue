@@ -170,6 +170,8 @@ const list = [
     IconsBank4
   ]
 ];
+
+useAnimation({ selector: '.icons', base: { clipPath: 'circle(25%)', duration: 2 } });
 </script>
 
 <style lang="scss" scoped>
@@ -189,13 +191,6 @@ const list = [
     transform: translateX(-50%);
   }
 }
-
-@include hide-children('.hero') {
-  .icons {
-    opacity: 0;
-    clip-path: circle(25%);
-  }
-}
 .icons {
   display: flex;
   flex-direction: column;
@@ -205,8 +200,6 @@ const list = [
   inset: 0;
   opacity: 0.5;
   clip-path: circle(100%);
-  transition-property: opacity, clip-path;
-  transition-duration: 2s;
   @media only screen and (max-width: $bp-lg) {
     transform: rotate(-10deg) translateY(0%);
   }

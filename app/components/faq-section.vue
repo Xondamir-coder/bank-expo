@@ -60,6 +60,7 @@ function toggle(index) {
     border-radius: max(1.2rem, 12px);
     display: flex;
     flex-direction: column;
+    transition: none;
 
     &.active {
       .faq__item-answer {

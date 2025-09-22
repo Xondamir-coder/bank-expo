@@ -13,7 +13,7 @@
             fill="#034EA2"
           />
         </svg>
-        <img src="~/assets/images/person.png" alt="speaker banner" class="speaker__person-image" >
+        <img src="~/assets/images/person.png" alt="speaker banner" class="speaker__person-image" />
       </div>
       <ul class="speaker__list">
         <li class="info-card speaker__item">
@@ -21,7 +21,7 @@
             <h2 class="speaker__item-title">Ahmadjon Rahmatjonov</h2>
             <p>Founder and CEO at Samsung</p>
           </div>
-          <img src="~/assets/images/samsung.png" alt="sasung" class="speaker__item-image" >
+          <img src="~/assets/images/samsung.png" alt="sasung" class="speaker__item-image" />
         </li>
         <InfoCard v-for="(card, index) in cards" :key="index" :info="card" />
       </ul>
@@ -82,6 +82,13 @@ const cards = [
     text: 'Bizning maqsadimiz — texnologiyani inson hayotini yanada qulay va samarali qilishga xizmat qildirish." Ahmadjon Rahmatjonov, CEO Samsung Uzbekistan'
   }
 ];
+
+useAnimation({ selector: '.speaker__list>*', base: { x: 50 }, initialDelay: 0.3 });
+useAnimation({ selector: '.speaker__person-image', base: { y: 30, scale: 1.1 } });
+useAnimation({
+  selector: '.speaker__person-pattern',
+  base: { clipPath: 'circle(0%)', duration: 2, opacity: 1 }
+});
 </script>
 
 <style lang="scss" scoped>
@@ -111,6 +118,8 @@ const cards = [
     }
     &-pattern {
       width: 100%;
+      clip-path: circle(100%);
+      transition: none;
     }
   }
   &__list {

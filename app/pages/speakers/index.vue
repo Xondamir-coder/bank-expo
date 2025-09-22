@@ -6,22 +6,19 @@
         <p>{{ $t('speakers.text') }}</p>
       </div>
       <nav class="speakers__list">
-        <NuxtLink
-          v-for="(speaker, index) in speakers"
-          :key="index"
-          :to="$localePath(`/speakers/${index + 1}`)"
-          class="speakers__item"
-        >
-          <div class="speakers__item-image-container">
-            <img :src="speaker.image" :alt="speaker.name" class="speakers__item-image" >
-          </div>
-          <div class="speakers__item-content">
-            <h3 class="heading-28-18">
-              {{ speaker.name }}
-            </h3>
-            <p>{{ speaker.job }}</p>
-          </div>
-        </NuxtLink>
+        <li v-for="(speaker, index) in speakers" :key="index" class="speakers__item-container">
+          <NuxtLink :to="$localePath(`/speakers/${index + 1}`)" class="speakers__item">
+            <div class="speakers__item-image-container">
+              <img :src="speaker.image" :alt="speaker.name" class="speakers__item-image" />
+            </div>
+            <div class="speakers__item-content">
+              <h3 class="heading-28-18">
+                {{ speaker.name }}
+              </h3>
+              <p>{{ speaker.job }}</p>
+            </div>
+          </NuxtLink>
+        </li>
       </nav>
     </div>
   </BreadcrumbsLayout>
@@ -34,6 +31,8 @@ import image3 from '~/assets/images/speaker-3.jpg';
 import image4 from '~/assets/images/speaker-4.jpg';
 
 const { t } = useI18n();
+useAnimation({ selector: '.speakers__top>*', base: { x: -25 } });
+useAnimation({ selector: '.speakers__item-container', base: { y: 20, rotateY: -35 } });
 
 const speakers = [
   // Row 1
@@ -104,6 +103,7 @@ const breadcrumbs = computed(() => [
     }
   }
   &__list {
+    list-style: none;
     display: grid;
     gap: max(3rem, 20px);
     grid-template-columns: repeat(auto-fit, minmax(max(40rem, 250px), 1fr));

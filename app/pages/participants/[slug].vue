@@ -104,6 +104,7 @@ import image3 from '~/assets/images/participant-3.jpg';
 const { t } = useI18n();
 const route = useRoute();
 
+const images = [image1, image2, image3];
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -144,7 +145,10 @@ const details = computed(() => [
     text: 'www.infinbank.com'
   }
 ]);
-const images = [image1, image2, image3];
+
+useAnimation({ selector: '.participant__wrapper>*', base: { y: 50 } });
+useAnimation({ selector: '.participant__swiper', base: { y: 50 }, initialDelay: 0.2 });
+useAnimation({ selector: '.participant__cards>*', base: { x: -50 }, initialDelay: 0.2 });
 </script>
 
 <style lang="scss" scoped>

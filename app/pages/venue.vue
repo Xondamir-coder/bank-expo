@@ -66,7 +66,7 @@ useAnimation({ selector: '.venue__map', base: { scale: 0.95 }, initialDelay: 0.2
 useAnimation({
   selector: '.info-card',
   base: {
-    x: -25
+    x: 25
   },
   initialDelay: 0.3,
   stagger: 0.15
@@ -90,12 +90,6 @@ useAnimation({
     display: flex;
     flex-direction: column;
     gap: max(2rem, 16px);
-    & > *:nth-child(odd) {
-      background-color: red;
-    }
-    & > *:nth-child(even) {
-      background-color: blue;
-    }
   }
   &__map {
     position: relative;

@@ -61,6 +61,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.media-accreditation')
   }
 ]);
+useAnimation({ selector: '.media-accreditation>*', base: { x: -50 } });
 </script>
 
 <style lang="scss" scoped>

@@ -22,7 +22,7 @@ export default (options = {}) => {
     base = {},
     staggerStep = 0.1,
     initialDelay = 0,
-    scrollStart = '85% bottom'
+    scrollStart = '15% bottom'
   } = options;
 
   let ctx;
@@ -37,7 +37,9 @@ export default (options = {}) => {
           const isInView = el.getBoundingClientRect().top < window.innerHeight;
 
           const opts = isInView
-            ? { delay: (showPreloader.value ? 3 : 0) + i * staggerStep + initialDelay }
+            ? {
+                delay: (showPreloader.value ? 3 : 0) + i * staggerStep + initialDelay
+              }
             : { scrollTrigger: { trigger: el, start: scrollStart } };
 
           const defaults = { opacity: 0, duration: 0.5 };

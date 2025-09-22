@@ -5,31 +5,28 @@
         {{ $t('media-center') }}
       </h2>
       <nav class="media__list">
-        <NuxtLink
-          v-for="(item, index) in items"
-          :key="index"
-          class="media__item"
-          :to="$localePath(`/media/${item.slug}`)"
-        >
-          <div class="media__item-images">
-            <div v-for="(image, i) in item.images" :key="i" class="media__item-image-box">
-              <img :src="image" alt="banner" class="media__item-image" >
+        <div v-for="(item, index) in items" :key="index" class="media__item-box">
+          <NuxtLink class="media__item" :to="$localePath(`/media/${item.slug}`)">
+            <div class="media__item-images">
+              <div v-for="(image, i) in item.images" :key="i" class="media__item-image-box">
+                <img :src="image" alt="banner" class="media__item-image" />
+              </div>
             </div>
-          </div>
-          <div class="media__item-content">
-            <div class="media__item-top">
-              <h3 class="heading-24-17">
-                {{ item.title }}
-              </h3>
-              <p class="text-18-14">
-                {{ item.text }}
-              </p>
+            <div class="media__item-content">
+              <div class="media__item-top">
+                <h3 class="heading-24-17">
+                  {{ item.title }}
+                </h3>
+                <p class="text-18-14">
+                  {{ item.text }}
+                </p>
+              </div>
+              <div class="media__item-bottom">
+                <CalendarDate :date="item.date" />
+              </div>
             </div>
-            <div class="media__item-bottom">
-              <CalendarDate :date="item.date" />
-            </div>
-          </div>
-        </NuxtLink>
+          </NuxtLink>
+        </div>
       </nav>
     </div>
   </BreadcrumbsLayout>
@@ -52,13 +49,16 @@ const breadcrumbs = computed(() => [
     label: t('nav.media-library')
   }
 ]);
-const items = Array(5).fill({
+const items = Array(20).fill({
   title: 'Bank va moliya tashkilotlarining Expo doirasida namoyish etgan xizmatlari',
   text: 'Innovatsion yechimlar va raqamli xizmatlar taqdimoti',
   images: [image1, image2, image3],
   slug: 'moliya-asd',
   date: '14.01.2025'
 });
+
+useAnimation({ selector: '.media__item-box', base: { y: 50 } });
+useAnimation({ selector: '.media .heading', base: { x: -30 } });
 </script>
 
 <style lang="scss" scoped>
@@ -72,6 +72,7 @@ const items = Array(5).fill({
     gap: max(3rem, 16px);
   }
   &__item {
+    overflow: hidden;
     padding: max(1.6rem, 8px);
     background-color: #fff;
     border-radius: max(2rem, 20px);
@@ -94,6 +95,9 @@ const items = Array(5).fill({
       .media__item-image-box:last-child > * {
         translate: -#{$hover-val} $hover-val;
       }
+    }
+    &-box {
+      display: flex;
     }
     &-images {
       display: grid;
