@@ -146,9 +146,9 @@ const details = computed(() => [
   }
 ]);
 
-useAnimation({ selector: '.participant__wrapper>*', base: { y: 50 } });
-useAnimation({ selector: '.participant__swiper', base: { y: 50 }, initialDelay: 0.2 });
-useAnimation({ selector: '.participant__cards>*', base: { x: -50 }, initialDelay: 0.2 });
+useGSAPAnimate({ selector: '.participant__wrapper>*', base: { y: 50 } });
+useGSAPAnimate({ selector: '.participant__swiper', base: { y: 50 }, initialDelay: 0.2 });
+useGSAPAnimate({ selector: '.participant__cards>*', base: { x: -50 }, initialDelay: 0.2 });
 </script>
 
 <style lang="scss" scoped>

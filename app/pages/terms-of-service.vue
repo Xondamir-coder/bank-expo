@@ -10,6 +10,7 @@
 
 <script setup>
 const { t } = useI18n();
+useMySEO('terms-of-service');
 const breadcrumbs = computed(() => [
   {
     to: '/',

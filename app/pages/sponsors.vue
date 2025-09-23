@@ -4,6 +4,7 @@
 
 <script setup>
 const { t } = useI18n();
+useMySEO('sponsors');
 const breadcrumbs = computed(() => [
   {
     to: '/',

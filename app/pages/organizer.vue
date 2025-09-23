@@ -25,7 +25,8 @@ const breadcrumbs = computed(() => [
     label: t('nav.organizer')
   }
 ]);
-useAnimation({ selector: '.organizer>*', base: { y: 25 } });
+useGSAPAnimate({ selector: '.organizer>*', base: { y: 25 } });
+useMySEO('organizer');
 </script>
 
 <style lang="scss" scoped>

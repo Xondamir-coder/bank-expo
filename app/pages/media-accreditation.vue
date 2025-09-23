@@ -47,6 +47,7 @@
 
 <script setup>
 const { t } = useI18n();
+useMySEO('media-accreditation');
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -61,7 +62,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.media-accreditation')
   }
 ]);
-useAnimation({ selector: '.media-accreditation>*', base: { x: -50 } });
+useGSAPAnimate({ selector: '.media-accreditation>*', base: { x: -50 } });
 </script>
 
 <style lang="scss" scoped>

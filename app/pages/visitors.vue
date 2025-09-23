@@ -88,6 +88,7 @@ import IconsTrain from '~/components/icons/train.vue';
 import IconsLocation from '~/components/icons/location.vue';
 
 const { t, tm, rt } = useI18n();
+useMySEO('visitors');
 
 const carouselImages = [image1, image2, image1, image2];
 const planIcons = [
@@ -116,15 +117,15 @@ const plans = computed(() =>
   }))
 );
 
-useAnimation({ selector: '.visitors__top>*', base: { y: 20 } });
-useAnimation({ selector: '.visitors__banner', base: { scale: 0.95, duration: 1 } });
-useAnimation({ selector: '.visitors__attend-item', base: { y: 50 } });
-useAnimation({ selector: '.visitors__attend-content-top>*', base: { x: -30 } });
-useAnimation({ selector: '.visitors__attend-content-list>*', base: { x: -30 } });
-useAnimation({ selector: '.visitors__attend-carousel', base: { scale: 1.05, duration: 1 } });
-useAnimation({ selector: '.visitors__plan-image', base: { scale: 0.95, duration: 1 } });
-useAnimation({ selector: '.visitors__plan-item', base: { x: 50 } });
-useAnimation({ selector: '.faq__item', base: { y: 20 } });
+useGSAPAnimate({ selector: '.visitors__top>*', base: { y: 20 } });
+useGSAPAnimate({ selector: '.visitors__banner', base: { scale: 0.95, duration: 1 } });
+useGSAPAnimate({ selector: '.visitors__attend-item', base: { y: 50 } });
+useGSAPAnimate({ selector: '.visitors__attend-content-top>*', base: { x: -30 } });
+useGSAPAnimate({ selector: '.visitors__attend-content-list>*', base: { x: -30 } });
+useGSAPAnimate({ selector: '.visitors__attend-carousel', base: { scale: 1.05, duration: 1 } });
+useGSAPAnimate({ selector: '.visitors__plan-image', base: { scale: 0.95, duration: 1 } });
+useGSAPAnimate({ selector: '.visitors__plan-item', base: { x: 50 } });
+useGSAPAnimate({ selector: '.faq__item', base: { y: 20 } });
 </script>
 
 <style lang="scss" scoped>

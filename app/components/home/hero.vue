@@ -79,8 +79,13 @@ const countdown = () => {
 
 onMounted(() => setInterval(countdown, 1000));
 countdown();
-useAnimation({ selector: '.hero__content>*', base: { y: 20 } });
-useAnimation({ selector: '.hero__time>*', base: { y: 15 }, staggerStep: 0.05, initialDelay: 0.2 });
+useGSAPAnimate({ selector: '.hero__content>*', base: { y: 20 } });
+useGSAPAnimate({
+  selector: '.hero__time>*',
+  base: { y: 15 },
+  staggerStep: 0.05,
+  initialDelay: 0.2
+});
 </script>
 
 <style lang="scss" scoped>

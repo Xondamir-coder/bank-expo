@@ -22,6 +22,8 @@
   "register-online": "Onlayn ro‘yxatdan o‘tish",
   "media-center": "Matbuot markazi",
   "in": "da",
+  "reject": "Rad etish",
+  "accept": "Qabul qilish",
 
   "contacts": {
     "name": "Aloqalar",
@@ -543,5 +545,10 @@
     "Oktabr",
     "Noyabr",
     "Dekabr"
-  ]
+  ],
+
+  "cookies": {
+    "title": "Kukiylarga maslahati",
+    "text": "Kukiylar kichik fayllar bo'lib, siz veb-saytga tashrif qilgandaqiziladi. Ularning ko'rsatuvchilar, imkoniyatlarini yo'g'arish va veb-saytning ishlash uchun foydalanadi."
+  }
 }

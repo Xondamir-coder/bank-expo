@@ -17,7 +17,22 @@ export default defineNuxtConfig({
   modules: ['nuxt-swiper', '@nuxt/eslint', '@nuxtjs/seo', '@nuxtjs/i18n'],
   app: {
     head: {
-      titleTemplate: '%s | Bank Expo'
+      titleTemplate: '%s | Bank Expo',
+      script: [
+        {
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-HLF0C8Y8ZT',
+          async: true
+        },
+        {
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-HLF0C8Y8ZT');
+          `,
+          type: 'text/javascript'
+        }
+      ]
     }
   },
   seo: {

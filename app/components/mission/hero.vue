@@ -39,9 +39,9 @@ import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
 const carouselImages = [img1, img2, img1, img2];
 
-useAnimation({ selector: '.hero', base: { y: 50 } });
-useAnimation({ selector: '.hero__icon-container', base: { scale: 0 }, staggerStep: 0.05 });
-useAnimation({ selector: '.hero__content>*', base: { y: 20 }, staggerStep: 0.15 });
+useGSAPAnimate({ selector: '.hero', base: { y: 50 } });
+useGSAPAnimate({ selector: '.hero__icon-container', base: { scale: 0 }, staggerStep: 0.05 });
+useGSAPAnimate({ selector: '.hero__content>*', base: { y: 20 }, staggerStep: 0.15 });
 
 const icons = [
   IconsBank,

@@ -61,9 +61,11 @@ const breadcrumbs = computed(() => [
   }
 ]);
 
-useAnimation({ selector: '.venue__top>*', base: { x: -25 } });
-useAnimation({ selector: '.venue__map', base: { scale: 0.95 }, initialDelay: 0.2 });
-useAnimation({
+useMySEO('venue');
+
+useGSAPAnimate({ selector: '.venue__top>*', base: { x: -25 } });
+useGSAPAnimate({ selector: '.venue__map', base: { scale: 0.95 }, initialDelay: 0.2 });
+useGSAPAnimate({
   selector: '.info-card',
   base: {
     x: 25

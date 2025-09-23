@@ -27,8 +27,8 @@ const route = useRoute();
 const currentFilter = ref(0);
 const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
 
-useAnimation({ selector: '.filter h2', base: { x: -20 }, initialDelay: 0.1 });
-useAnimation({ selector: '.filter__button', base: { y: 10, duration: 0.5 }, initialDelay: 0.2 });
+useGSAPAnimate({ selector: '.filter h2', base: { x: -20 }, initialDelay: 0.1 });
+useGSAPAnimate({ selector: '.filter__button', base: { y: 10, duration: 0.5 }, initialDelay: 0.2 });
 </script>
 
 <style scoped lang="scss">

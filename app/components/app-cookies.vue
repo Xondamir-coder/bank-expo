@@ -1,15 +1,17 @@
 <template>
   <Transition name="slide">
     <div v-if="!isClosed" class="cookies">
-      <h2 class="cookies__title">Cookies advice</h2>
+      <h2 class="cookies__title">{{ $t('cookies.title') }}</h2>
       <p class="cookies__text">
-        Cookies are small text files stored on your device when you visit a website. They are widely
-        used to enhance user experience by remembering your preferences, enabling functionalities,
-        and providing insights into website performance.
+        {{ $t('cookies.text') }}
       </p>
       <div class="cookies__buttons">
-        <button class="cookies__button" @click="toggleIsClosed('reject')">Reject</button>
-        <button class="cookies__button" @click="toggleIsClosed('accept')">Accept</button>
+        <button class="cookies__button" @click="toggleIsClosed('reject')">
+          {{ $t('reject') }}
+        </button>
+        <button class="cookies__button" @click="toggleIsClosed('accept')">
+          {{ $t('accept') }}
+        </button>
       </div>
     </div>
   </Transition>

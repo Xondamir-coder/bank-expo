@@ -1,0 +1,54 @@
+{
+  "home": {
+    "title": "Global Bank Innovatsiyalari va Raqamli Moliya",
+    "description": "Expo Banking – banklar va fintech yetakchilari raqamli xizmatlar, yangi texnologiyalar va zamonaviy moliyani namoyish etadigan global maydon."
+  },
+  "mission": {
+    "title": "Missiya & Global Moliya va Hamkorlik",
+    "description": "50+ mamlakatni birlashtirgan Expo Banking banklar, yetakchilar va innovatorlarni fintech, kredit, sug'urta va boshqa sohalarni o‘rganishga chorlaydi."
+  },
+  "organizer": {
+    "title": "Tashkilotchi & Yetakchi Bank va Fintech Ko‘rgazmasi",
+    "description": "Epo Bank Assotsiatsiyasi Expo Banking’ni tashkil etadi – O‘zbekistonning eng yirik bank va fintech tadbiri, global yetakchilarni bog‘laydi va innovatsiyalarni ko‘rsatadi."
+  },
+  "venue": {
+    "title": "Manzil & Epo Expo Markazi, Toshkent, O‘zbekiston",
+    "description": "Expo Banking Toshkentdagi Epo Expo Markazida bo‘lib o‘tadi, konferensiyalar, ko‘rgazmalar va global banking uchun eng yaxshi sharoitlarni taqdim etadi."
+  },
+  "participants": {
+    "title": "Ishtirokchilar & Global Banklar va Moliyaviy Katalog",
+    "description": "Butun dunyo bo‘ylab xususiy va davlat banklarini qidiring va bog‘laning. Kredit va depozit stavkalarini solishtiring hamda yetakchi moliya institutlarini toping."
+  },
+  "speakers": {
+    "title": "Ma’ruzachilar & Global Bank va Fintech Mutaxassislari",
+    "description": "Bank Expo ma’ruzachilari bilan tanishing. Global banking yetakchilari, fintech innovatorlari va sanoat mutaxassislarining profillari va fikrlari."
+  },
+  "partners": {
+    "title": "Hamkorlar & Global Bank va Fintech Homiylari",
+    "description": "Bank Expo hamkorlarini ko‘ring. Banklar, fintech kompaniyalari va moliyada innovatsiya va hamkorlikni qo‘llab-quvvatlaydigan tashkilotlar."
+  },
+  "sponsors": {
+    "title": "Homiylar & Bank va Fintech Qo‘llab-quvvatlovchilari",
+    "description": "Bank Expo homiylari bilan tanishing. Innovatsiya va o‘sishni qo‘llab-quvvatlovchi global banklar, fintech kompaniyalari va tashkilotlar logotiplari."
+  },
+  "media": {
+    "title": "OAV & Yangiliklar va Yangilanishlar",
+    "description": "Bank Expo yangiliklari bilan tanishib boring. Suratlar, maqolalar va sanalar bilan banking va fintech innovatsiyalarini yorituvchi yangiliklarni o‘qing."
+  },
+  "media-accreditation": {
+    "title": "OAV Akkreditatsiyasi & Jurnalistlar Uchun Qo‘llanma",
+    "description": "Bank Expo OAV akkreditatsiyasi haqida ma’lumot oling. Talablar, muddatlar va O‘zbekistondagi xorijiy va mahalliy jurnalistlar uchun aloqa tafsilotlari."
+  },
+  "terms-of-service": {
+    "title": "Xizmat Ko‘rsatish Shartlari & Bank Expo Sayti",
+    "description": "Bank Expo xizmat shartlarini o‘qing: sayt foydalanish qoidalari, intellektual mulk, foydalanuvchi hisoblari, javobgarlik va O‘zbekiston qonunchiligi."
+  },
+  "privacy-policy": {
+    "title": "Maxfiylik Siyosati & Bank Expo Ma’lumotlarni Himoya Qilish",
+    "description": "Bank Expo shaxsiy ma’lumotlaringizni qanday yig‘ishi, ishlatishi va himoya qilishi haqida o‘qing. Ma’lumot ulashish, xavfsizlik va foydalanuvchi huquqlari."
+  },
+  "visitors": {
+    "title": "Tashrifchilar & Nega Bank Expo’ga Qatnashish Kerak",
+    "description": "Bank Expo’da fintechni kashf eting, global yetakchilar bilan uchrashing, talaba va o‘qituvchilar sessiyalarida qatnashing va banklar bilan bog‘laning."
+  }
+}

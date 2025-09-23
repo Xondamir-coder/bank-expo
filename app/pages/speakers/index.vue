@@ -31,8 +31,9 @@ import image3 from '/images/avif/speaker-3.avif';
 import image4 from '/images/avif/speaker-4.avif';
 
 const { t } = useI18n();
-useAnimation({ selector: '.speakers__top>*', base: { x: -25 } });
-useAnimation({ selector: '.speakers__item-container', base: { y: 20, rotateY: -35 } });
+useGSAPAnimate({ selector: '.speakers__top>*', base: { x: -25 } });
+useGSAPAnimate({ selector: '.speakers__item-container', base: { y: 20, rotateY: -35 } });
+useMySEO('speakers');
 
 const speakers = [
   // Row 1

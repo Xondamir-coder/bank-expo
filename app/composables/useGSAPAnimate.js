@@ -9,7 +9,7 @@
  * @param {string} [options.initialDelay=0] - initial delay
  *
  * @example
- * useAnimation({
+ * useGSAPAnimate({
  *   selector: '.fade-in',
  *   base: { y: 40, opacity: 0, duration: 0.8 },
  *   staggerStep: 0.2,
@@ -22,7 +22,7 @@ export default (options = {}) => {
     base = {},
     staggerStep = 0.1,
     initialDelay = 0,
-    scrollStart = '15% bottom'
+    scrollStart = '25% bottom'
   } = options;
 
   let ctx;

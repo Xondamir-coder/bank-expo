@@ -10,6 +10,7 @@
 
 <script setup>
 const { t } = useI18n();
+useMySEO('privacy-policy');
 const breadcrumbs = computed(() => [
   {
     to: '/',

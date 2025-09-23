@@ -18,9 +18,7 @@
 </template>
 
 <script setup>
-useSeoMeta({
-  title: 'Home'
-});
+useMySEO('home');
 </script>
 
 <style lang="scss" scoped>

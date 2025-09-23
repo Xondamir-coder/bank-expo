@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-useAnimation({ selector: '.breadcrumbs__link-box', base: { y: 10 } });
+useGSAPAnimate({ selector: '.breadcrumbs__link-box', base: { y: 10 } });
 defineProps({
   breadcrumbs: {
     required: true,

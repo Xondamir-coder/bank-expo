@@ -63,7 +63,7 @@ const filterBase = () => {
   console.log('filtering base ...');
 };
 
-useAnimation({
+useGSAPAnimate({
   selector: '.base__item',
   base: { scale: 0.8 },
   staggerStep: 0.05,

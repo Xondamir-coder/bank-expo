@@ -57,8 +57,8 @@ const items = Array(20).fill({
   date: '14.01.2025'
 });
 
-useAnimation({ selector: '.media__item-box', base: { y: 50 } });
-useAnimation({ selector: '.media .heading', base: { x: -30 } });
+useGSAPAnimate({ selector: '.media__item-box', base: { y: 50 } });
+useGSAPAnimate({ selector: '.media .heading', base: { x: -30 } });
 </script>
 
 <style lang="scss" scoped>

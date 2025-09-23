@@ -171,7 +171,7 @@ const list = [
   ]
 ];
 
-useAnimation({ selector: '.icons', base: { clipPath: 'circle(25%)', duration: 2 } });
+useGSAPAnimate({ selector: '.icons', base: { clipPath: 'circle(25%)', duration: 2 } });
 </script>
 
 <style lang="scss" scoped>

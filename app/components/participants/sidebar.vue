@@ -35,8 +35,8 @@ import IconsBriefcase from '~/components/icons/briefcase.vue';
 import IconsBankBuilding from '~/components/icons/bank-building.vue';
 
 const { t } = useI18n();
-useAnimation({ selector: '.sidebar', base: { y: 35 } });
-useAnimation({ selector: '.sidebar__row', base: { x: -10 } });
+useGSAPAnimate({ selector: '.sidebar', base: { y: 35 } });
+useGSAPAnimate({ selector: '.sidebar__row', base: { x: -10 } });
 
 //  data
 const data = {

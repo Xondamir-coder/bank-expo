@@ -20,6 +20,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.mission')
   }
 ]);
+useMySEO('mission');
 </script>
 
 <style lang="scss" scoped>

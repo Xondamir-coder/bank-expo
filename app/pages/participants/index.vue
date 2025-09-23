@@ -27,7 +27,9 @@
 import IconsBank from '~/components/icons/bank.vue';
 
 const { t } = useI18n();
-useAnimation({ selector: '.participants__item', base: { y: 25 } });
+
+useGSAPAnimate({ selector: '.participants__item', base: { y: 25 } });
+useMySEO('participants');
 
 const currentPage = ref(1);
 const query = ref('');

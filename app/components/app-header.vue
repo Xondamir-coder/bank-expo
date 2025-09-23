@@ -172,8 +172,8 @@ const changeLocale = code => {
   toggleDropdown();
 };
 
-useAnimation({ selector: '.header__col--left>*', base: { y: 15 } });
-useAnimation({ selector: '.header__col--right>*', base: { y: 15 }, initialDelay: 0.3 });
+useGSAPAnimate({ selector: '.header__col--left>*', base: { y: 15 } });
+useGSAPAnimate({ selector: '.header__col--right>*', base: { y: 15 }, initialDelay: 0.3 });
 
 onMounted(() => {
   document.addEventListener('click', e => {

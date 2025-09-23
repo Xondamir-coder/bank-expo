@@ -83,9 +83,9 @@ const cards = [
   }
 ];
 
-useAnimation({ selector: '.speaker__list>*', base: { x: 50 }, initialDelay: 0.3 });
-useAnimation({ selector: '.speaker__person-image', base: { y: 30, scale: 1.1 } });
-useAnimation({
+useGSAPAnimate({ selector: '.speaker__list>*', base: { x: 50 }, initialDelay: 0.3 });
+useGSAPAnimate({ selector: '.speaker__person-image', base: { y: 30, scale: 1.1 } });
+useGSAPAnimate({
   selector: '.speaker__person-pattern',
   base: { clipPath: 'circle(0%)', duration: 2, opacity: 1 }
 });

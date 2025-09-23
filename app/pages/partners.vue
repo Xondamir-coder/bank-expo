@@ -3,6 +3,7 @@
 </template>
 
 <script setup>
+useMySEO('partners');
 const { t } = useI18n();
 const breadcrumbs = computed(() => [
   {

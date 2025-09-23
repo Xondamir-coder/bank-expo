@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-useAnimation({ selector: '.search', base: { x: -35 } });
+useGSAPAnimate({ selector: '.search', base: { x: -35 } });
 defineProps({
   label: {
     required: true,

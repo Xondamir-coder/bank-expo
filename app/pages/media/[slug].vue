@@ -77,9 +77,9 @@ const images = [
   image1
 ];
 
-useAnimation({ selector: '.media__content-top>*', base: { y: 25 } });
-useAnimation({ selector: '.media__content-bottom', base: { y: 25 }, initialDelay: 0.2 });
-useAnimation({
+useGSAPAnimate({ selector: '.media__content-top>*', base: { y: 25 } });
+useGSAPAnimate({ selector: '.media__content-bottom', base: { y: 25 }, initialDelay: 0.2 });
+useGSAPAnimate({
   selector: '.media__banner',
   base: { clipPath: 'inset(0 100% 0 100%)', duration: 1.5, ease: 'power3.out' }
 });

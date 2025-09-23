@@ -44,7 +44,7 @@
           <h2 class="footer__title">
             {{ $t('footer.title') }}
           </h2>
-          <button to="/contact" class="footer__button">
+          <button to="/contact" class="footer__button" @click="showFormModal = true">
             {{ $t('get-started') }}
             <IconsUpRightArrow class="footer__arrow" />
           </button>
@@ -119,6 +119,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const { t } = useI18n();
 const route = useRoute();
 const { $gsap } = useNuxtApp();
+
+const showFormModal = useState('showFormModal');
 
 const items = computed(() => [
   {

@@ -22,6 +22,8 @@
   "register-online": "Register Online",
   "media-center": "Media Center",
   "in": "in",
+  "reject": "Reject",
+  "accept": "Accept",
 
   "contacts": {
     "name": "Contacts",
@@ -543,5 +545,10 @@
     "October",
     "November",
     "December"
-  ]
+  ],
+
+  "cookies": {
+    "title": "Cookies advice",
+    "text": "Cookies are small text files stored on your device when you visit a website. They are widely used to enhance user experience by remembering your preferences, enabling functionalities, and providing insights into website performance."
+  }
 }
