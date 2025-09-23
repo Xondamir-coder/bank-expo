@@ -12,7 +12,7 @@
       <AppForm />
     </div>
     <div class="form-section__right">
-      <img src="~/assets/images/folder.png" alt="folder" class="form-section__image" />
+      <MyPicture path="folder.png" alt="folder" class="form-section__image" />
       <svg
         class="form-section__pattern"
         viewBox="0 0 844 490"

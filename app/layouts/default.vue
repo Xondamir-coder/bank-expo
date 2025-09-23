@@ -1,5 +1,5 @@
 <template>
-  <div class="layout" :class="{ home: $route.name.includes('index') }">
+  <div class="layout" :class="{ home: $route.name?.includes('index') }">
     <AppPreloader />
     <AppCookies />
     <AppHeader />

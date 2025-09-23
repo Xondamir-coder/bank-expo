@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <img src="~/assets/images/home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
+    <MyPicture path="home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
   </section>
 </template>
 
@@ -33,10 +33,6 @@ onMounted(() => {
   $gsap.from(`${parentContainer}__text`, {
     x: -travelDistance,
     ...fadeOnScrollTrigger(`${parentContainer}__text`)
-  });
-  $gsap.from(`${parentContainer}__image`, {
-    scale: 1.1,
-    ...fadeOnScrollTrigger(`${parentContainer}__image`)
   });
   $gsap.utils.toArray(`${parentContainer}__pattern path`).forEach(path => {
     const color = path.getAttribute('fill');

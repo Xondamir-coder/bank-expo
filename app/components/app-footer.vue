@@ -114,8 +114,10 @@ import IconsTelephone from '~/components/icons/telephone.vue';
 import IconsMail from '~/components/icons/mail.vue';
 import IconsLocation from '~/components/icons/location.vue';
 import LogoSmall from './icons/logo-small.vue';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const { t } = useI18n();
+const route = useRoute();
 const { $gsap } = useNuxtApp();
 
 const items = computed(() => [
@@ -189,16 +191,31 @@ const contacts = [
   }
 ];
 
-onMounted(() => {
+const initFooterAnimations = () => {
   const parentId = '#footer';
   const parentContainer = `${parentId} .footer__wrapper`;
   const travelDistance = 100;
+
+  // kill old triggers tied to footer
+  ScrollTrigger.getAll()
+    .filter(t => t.trigger && t.trigger.closest(parentId))
+    .forEach(t => t.kill());
+
+  // recreate
   $gsap.utils.toArray(`${parentContainer}>*`).forEach((child, i) => {
     $gsap.from(child, {
       x: i % 2 === 0 ? travelDistance : -travelDistance,
-      ...fadeOnScrollTrigger(child, null, null, false)
+      ...fadeOnScrollTrigger(child)
     });
   });
+};
+
+onMounted(() => {
+  initFooterAnimations();
+});
+
+watch(route, () => {
+  ScrollTrigger.refresh();
 });
 </script>
 

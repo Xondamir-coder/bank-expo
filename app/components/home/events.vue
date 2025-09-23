@@ -37,8 +37,8 @@
 </template>
 
 <script setup>
-import img1 from '~/assets/images/home-events-1.jpg';
-import img2 from '~/assets/images/home-about.jpg';
+import img1 from '/images/avif/home-events-1.avif';
+import img2 from '/images/avif/home-about.avif';
 
 const curId = ref(0);
 
@@ -149,10 +149,8 @@ onMounted(() => {
     color: #fff;
   }
   &__image {
-    width: 100%;
     height: 100%;
     border-radius: max(12px, 2.4rem);
-    object-fit: cover;
   }
   &__items {
     // display: flex;

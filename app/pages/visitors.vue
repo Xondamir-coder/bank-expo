@@ -8,7 +8,7 @@
           <span>{{ $t('visitors.title-2') }}</span>
         </h1>
       </div>
-      <img src="~/assets/images/visitors-banner.jpg" alt="banner" class="visitors__banner" />
+      <MyPicture path="visitors-banner.jpg" alt="banner" class="visitors__banner" />
       <div class="visitors__block visitors__attend">
         <div class="visitors__attend-top">
           <h2 class="heading text-secondary">
@@ -56,7 +56,7 @@
       </div>
       <FormSection />
       <div class="visitors__block visitors__plan">
-        <img src="~/assets/images/visitors-plan.jpg" alt="banner" class="visitors__plan-image" />
+        <MyPicture path="visitors-plan.jpg" alt="banner" class="visitors__plan-image" />
         <h2 class="heading text-secondary">
           {{ $t('visitors.plan.title') }}
         </h2>
@@ -80,8 +80,8 @@
 </template>
 
 <script setup>
-import image1 from '~/assets/images/visitors-attend-1.jpg';
-import image2 from '~/assets/images/visitors-banner.jpg';
+import image1 from '/images/avif/visitors-attend-1.avif';
+import image2 from '/images/avif/visitors-banner.avif';
 import IconsTime from '~/components/icons/time.vue';
 import IconsTaxi from '~/components/icons/taxi.vue';
 import IconsTrain from '~/components/icons/train.vue';

@@ -16,7 +16,7 @@
         </div>
       </div>
       <Transition name="fade">
-        <img :key="currentImage" :src="images[currentImage]" alt="banner" class="media__banner" >
+        <img :key="currentImage" :src="images[currentImage]" alt="banner" class="media__banner" />
       </Transition>
       <div class="media__images">
         <button
@@ -26,7 +26,7 @@
           :class="{ active: index === currentImage }"
           @click="currentImage = index"
         >
-          <img :src="image" alt="banner" class="media__image" >
+          <img :src="image" alt="banner" class="media__image" />
         </button>
       </div>
     </div>
@@ -34,14 +34,17 @@
 </template>
 
 <script setup>
-import image1 from '~/assets/images/media-1.jpg';
-import image2 from '~/assets/images/media-2.jpg';
-import image3 from '~/assets/images/media-3.jpg';
-import imageBanner from '~/assets/images/media-banner.jpg';
+import image1 from '/images/avif/media-1.avif';
+import image2 from '/images/avif/media-2.avif';
+import image3 from '/images/avif/media-3.avif';
+import imageBanner from '/images/avif/media-banner.avif';
 
 const { t } = useI18n();
 const route = useRoute();
+const { $gsap } = useNuxtApp();
 
+const currentImage = ref(0);
+const showPreloader = useState('showPreloader');
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -74,7 +77,24 @@ const images = [
   image1
 ];
 
-const currentImage = ref(0);
+useAnimation({ selector: '.media__content-top>*', base: { y: 25 } });
+useAnimation({ selector: '.media__content-bottom', base: { y: 25 }, initialDelay: 0.2 });
+useAnimation({
+  selector: '.media__banner',
+  base: { clipPath: 'inset(0 100% 0 100%)', duration: 1.5, ease: 'power3.out' }
+});
+
+onMounted(() => {
+  $gsap.from('.media__image-button', {
+    scale: 1.15,
+    opacity: 0,
+    delay: showPreloader.value ? 3.1 : 0.1,
+    stagger: {
+      from: 'random',
+      each: 0.025
+    }
+  });
+});
 </script>
 
 <style lang="scss" scoped>
@@ -102,6 +122,7 @@ const currentImage = ref(0);
   &__banner {
     grid-area: banner;
     aspect-ratio: 874/737;
+    clip-path: inset(0 0 0 0);
   }
   &__image {
     transition: transform 0.2s;
@@ -110,6 +131,7 @@ const currentImage = ref(0);
       display: flex;
       overflow: hidden;
       position: relative;
+      transition: none;
       @media screen and (max-width: $bp-md) {
         aspect-ratio: 1.25;
       }

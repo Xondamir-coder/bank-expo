@@ -9,7 +9,7 @@
     <ClientOnly>
       <swiper-container ref="sliderRef" class="experts__slider" :init="false">
         <swiper-slide v-for="(image, id) in images" :key="id" class="experts__slide">
-          <img :src="image" alt="person" class="experts__image" >
+          <img :src="image" alt="person" class="experts__image" />
         </swiper-slide>
       </swiper-container>
     </ClientOnly>
@@ -32,12 +32,12 @@
 
 <script setup>
 //  imports
-import expert from '~/assets/images/expert.jpg';
-import expert1 from '~/assets/images/expert-1.jpg';
-import expert2 from '~/assets/images/expert-2.jpg';
-import expert3 from '~/assets/images/expert-3.jpg';
-import expert4 from '~/assets/images/expert-4.jpg';
-import expert5 from '~/assets/images/expert-5.jpg';
+import expert from '/images/avif/expert.avif';
+import expert1 from '/images/avif/expert-1.avif';
+import expert2 from '/images/avif/expert-2.avif';
+import expert3 from '/images/avif/expert-3.avif';
+import expert4 from '/images/avif/expert-4.avif';
+import expert5 from '/images/avif/expert-5.avif';
 
 //  components
 import IconsShuriken from '~/components/icons/shuriken.vue';

@@ -33,9 +33,9 @@
 </template>
 
 <script setup>
-import image1 from '~/assets/images/media-1.jpg';
-import image2 from '~/assets/images/media-2.jpg';
-import image3 from '~/assets/images/media-3.jpg';
+import image1 from '/images/avif/media-1.avif';
+import image2 from '/images/avif/media-2.avif';
+import image3 from '/images/avif/media-3.avif';
 
 const { t } = useI18n();
 

@@ -97,9 +97,9 @@ import IconsLocation from '~/components/icons/location.vue';
 import IconsTelephone from '~/components/icons/telephone.vue';
 import IconsMail from '~/components/icons/mail.vue';
 import IconsGlobe from '~/components/icons/globe.vue';
-import image1 from '~/assets/images/participant-1.jpg';
-import image2 from '~/assets/images/participant-2.jpg';
-import image3 from '~/assets/images/participant-3.jpg';
+import image1 from '/images/avif/participant-1.avif';
+import image2 from '/images/avif/participant-2.avif';
+import image3 from '/images/avif/participant-3.avif';
 
 const { t } = useI18n();
 const route = useRoute();

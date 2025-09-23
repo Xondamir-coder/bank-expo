@@ -7,7 +7,7 @@
       <p>
         {{ $t('organizer.text') }}
       </p>
-      <img src="~/assets/images/organizer.jpg" alt="organizer banner" class="organizer__image" />
+      <MyPicture path="organizer.jpg" alt="organizer banner" class="organizer__image" />
       <InfoCard v-for="(item, index) in $tm('organizer.items')" :key="index" :info="item" />
     </div>
   </BreadcrumbsLayout>

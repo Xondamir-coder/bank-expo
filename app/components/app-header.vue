@@ -29,6 +29,7 @@
             :to="$localePath(link.to)"
             class="header__link"
             active-class="header__link--active"
+            :class="{ 'header__link--active': $route.path?.includes(link.to) }"
           >
             <span class="header__link-label">
               {{ link.label }}
@@ -39,7 +40,7 @@
             class="header__link"
             :class="{
               'header__link--active': link.sublinks?.some(sublink =>
-                $route.path.includes(sublink.to)
+                $route.path?.includes(sublink.to)
               )
             }"
             @click="showSublinks = index"

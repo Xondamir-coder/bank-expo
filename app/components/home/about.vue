@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="about__video">
-      <img src="~/assets/images/home-about.jpg" alt="banking people" class="about__img" />
+      <MyPicture path="home-about.jpg" alt="banking people" class="about__img" />
       <button class="about__play">
         <IconsPlay class="about__play-icon" />
       </button>
@@ -129,6 +129,7 @@ onMounted(() => {
   &__img {
     width: 100%;
     object-fit: cover;
+    aspect-ratio: 1620/560;
     @media only screen and (max-width: $bp-md) {
       aspect-ratio: 372/248;
     }

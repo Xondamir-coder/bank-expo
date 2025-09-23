@@ -25,10 +25,10 @@
 </template>
 
 <script setup>
-import image1 from '~/assets/images/speaker-1.jpg';
-import image2 from '~/assets/images/speaker-2.jpg';
-import image3 from '~/assets/images/speaker-3.jpg';
-import image4 from '~/assets/images/speaker-4.jpg';
+import image1 from '/images/avif/speaker-1.avif';
+import image2 from '/images/avif/speaker-2.avif';
+import image3 from '/images/avif/speaker-3.avif';
+import image4 from '/images/avif/speaker-4.avif';
 
 const { t } = useI18n();
 useAnimation({ selector: '.speakers__top>*', base: { x: -25 } });

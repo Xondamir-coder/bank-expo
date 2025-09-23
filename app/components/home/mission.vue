@@ -8,7 +8,7 @@
         class="mission__card"
         :data-y-spanned="index === 2 ? true : false"
       >
-        <img v-if="index === 2" src="~/assets/images/globe.png" alt="globe" class="mission__img" >
+        <MyPicture v-if="index === 2" path="globe.png" alt="globe" class="mission__img" />
         <h4 class="mission__card-title">{{ $rt(item.title) }}</h4>
         <p class="mission__card-text">
           {{ $rt(item.text) }}
