@@ -9,7 +9,7 @@
           <NuxtLink class="media__item" :to="$localePath(`/media/${item.slug}`)">
             <div class="media__item-images">
               <div v-for="(image, i) in item.images" :key="i" class="media__item-image-box">
-                <img :src="image" alt="banner" class="media__item-image" />
+                <MyPicture :src="image" alt="banner" class="media__item-image" />
               </div>
             </div>
             <div class="media__item-content">
@@ -33,10 +33,6 @@
 </template>
 
 <script setup>
-import image1 from '/images/avif/media-1.avif';
-import image2 from '/images/avif/media-2.avif';
-import image3 from '/images/avif/media-3.avif';
-
 const { t } = useI18n();
 
 const breadcrumbs = computed(() => [
@@ -52,7 +48,7 @@ const breadcrumbs = computed(() => [
 const items = Array(20).fill({
   title: 'Bank va moliya tashkilotlarining Expo doirasida namoyish etgan xizmatlari',
   text: 'Innovatsion yechimlar va raqamli xizmatlar taqdimoti',
-  images: [image1, image2, image3],
+  images: ['media-1.jpg', 'media-2.jpg', 'media-3.jpg'],
   slug: 'moliya-asd',
   date: '14.01.2025'
 });

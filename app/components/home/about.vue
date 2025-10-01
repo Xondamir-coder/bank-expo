@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="about__video">
-      <MyPicture path="home-about.jpg" alt="banking people" class="about__img" />
+      <MyPicture src="home-about.jpg" alt="banking people" class="about__img" />
       <button class="about__play">
         <IconsPlay class="about__play-icon" />
       </button>

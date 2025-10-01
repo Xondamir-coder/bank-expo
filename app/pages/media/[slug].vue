@@ -16,7 +16,12 @@
         </div>
       </div>
       <Transition name="fade">
-        <img :key="currentImage" :src="images[currentImage]" alt="banner" class="media__banner" />
+        <MyPicture
+          :key="currentImage"
+          :src="images[currentImage]"
+          alt="banner"
+          class="media__banner"
+        />
       </Transition>
       <div class="media__images">
         <button
@@ -26,7 +31,7 @@
           :class="{ active: index === currentImage }"
           @click="currentImage = index"
         >
-          <img :src="image" alt="banner" class="media__image" />
+          <MyPicture :src="image" alt="banner" class="media__image" />
         </button>
       </div>
     </div>
@@ -34,10 +39,10 @@
 </template>
 
 <script setup>
-import image1 from '/images/avif/media-1.avif';
-import image2 from '/images/avif/media-2.avif';
-import image3 from '/images/avif/media-3.avif';
-import imageBanner from '/images/avif/media-banner.avif';
+const image1 = 'media-1.jpg';
+const image2 = 'media-2.jpg';
+const image3 = 'media-3.jpg';
+const imageBanner = 'media-banner.jpg';
 
 const { t } = useI18n();
 const route = useRoute();
@@ -126,6 +131,7 @@ onMounted(() => {
   }
   &__image {
     transition: transform 0.2s;
+    flex: 1;
     &-button {
       aspect-ratio: 1;
       display: flex;

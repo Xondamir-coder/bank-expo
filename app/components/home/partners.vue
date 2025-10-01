@@ -8,7 +8,7 @@
     </div>
     <div class="partners__list">
       <div v-for="(item, i) in items" :key="i" class="partners__item">
-        <img :src="item.image" :alt="item.text" class="partners__image" />
+        <MyPicture :src="item.image" :alt="item.text" class="partners__image" />
         <p class="partners__item-text">{{ item.text }}</p>
       </div>
     </div>
@@ -16,14 +16,10 @@
 </template>
 
 <script setup>
-import partners1 from '/images/avif/partners-1.avif';
-import partners2 from '/images/avif/partners-2.avif';
-import partners3 from '/images/avif/partners-3.avif';
-
 const { $gsap } = useNuxtApp();
 const { tm, rt } = useI18n();
 
-const images = [partners1, partners2, partners1, partners3];
+const images = ['partners-1.png', 'partners-2.png', 'partners-1.png', 'partners-3.png'];
 
 const items = computed(() =>
   images.map((image, i) => ({

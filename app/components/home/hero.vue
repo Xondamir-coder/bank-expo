@@ -92,7 +92,7 @@ useGSAPAnimate({
 .hero {
   background: linear-gradient(104.19deg, #042d52 0%, #044988 55.94%, #042d52 92.59%);
   position: relative;
-  min-height: calc(100vh - 110px);
+  min-height: calc(100vh - max(4px, 2rem) - 15rem);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -154,7 +154,7 @@ useGSAPAnimate({
     padding-inline: max(10px, 3.2rem);
     padding-block: max(10px, 2.4rem);
     display: flex;
-    gap: max(2.4rem, 10px);
+    gap: max(2.4rem, 16px);
 
     @media screen and (max-width: 450px) {
       flex: 1;

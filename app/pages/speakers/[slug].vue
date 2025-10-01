@@ -13,7 +13,7 @@
             fill="#034EA2"
           />
         </svg>
-        <MyPicture path="person.png" alt="speaker person" class="speaker__person-image" />
+        <MyPicture src="person.png" alt="speaker person" class="speaker__person-image" />
       </div>
       <ul class="speaker__list">
         <li class="info-card speaker__item">
@@ -21,7 +21,7 @@
             <h2 class="speaker__item-title">Ahmadjon Rahmatjonov</h2>
             <p>Founder and CEO at Samsung</p>
           </div>
-          <MyPicture path="samsung.png" alt="samsung" class="speaker__item-image" />
+          <MyPicture src="samsung.png" alt="samsung" class="speaker__item-image" />
         </li>
         <InfoCard v-for="(card, index) in cards" :key="index" :info="card" />
       </ul>

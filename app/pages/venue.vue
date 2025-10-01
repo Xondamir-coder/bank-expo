@@ -10,7 +10,7 @@
     </div>
     <div class="venue__container">
       <div class="venue__map">
-        <MyPicture path="google-map.jpg" alt="googe map" class="venue__image" />
+        <MyPicture src="google-map.jpg" alt="googe map" class="venue__image" />
         <YellowButton text="Google Map" class="venue__button" />
         <div class="venue__circle">
           <IconsLogoSmallBlackText class="venue__logo" />

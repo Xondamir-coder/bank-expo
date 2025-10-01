@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <MyPicture path="home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
+    <MyPicture src="home-welcome.jpg" alt="uzbekistan" class="welcome__image" />
   </section>
 </template>
 

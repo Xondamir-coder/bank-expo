@@ -112,9 +112,8 @@ const rows = computed(() => [
     }
     &-cta {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       flex-wrap: wrap;
-      justify-content: flex-end;
       gap: 5px;
     }
     &-text {

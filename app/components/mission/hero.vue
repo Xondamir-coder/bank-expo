@@ -24,9 +24,6 @@
 </template>
 
 <script setup>
-import img1 from '/images/avif/about-hero.avif';
-import img2 from '/images/avif/home-about.avif';
-
 import IconsBank from '~/components/icons/bank.vue';
 import IconsBank6 from '~/components/icons/bank-6.vue';
 import IconsBank10 from '~/components/icons/bank-10.vue';
@@ -37,7 +34,7 @@ import IconsBank17 from '~/components/icons/bank-17.vue';
 import TrastBank from '~/components/icons/trast-bank.vue';
 import ZiraatBank from '~/components/icons/ziraat-bank.vue';
 
-const carouselImages = [img1, img2, img1, img2];
+const carouselImages = ['about-hero.jpeg', 'home-about.jpg', 'about-hero.jpeg', 'home-about.jpg'];
 
 useGSAPAnimate({ selector: '.hero', base: { y: 50 } });
 useGSAPAnimate({ selector: '.hero__icon-container', base: { scale: 0 }, staggerStep: 0.05 });

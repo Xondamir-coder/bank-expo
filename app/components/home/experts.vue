@@ -9,7 +9,7 @@
     <ClientOnly>
       <swiper-container ref="sliderRef" class="experts__slider" :init="false">
         <swiper-slide v-for="(image, id) in images" :key="id" class="experts__slide">
-          <img :src="image" alt="person" class="experts__image" />
+          <MyPicture :src="image" alt="person" class="experts__image" />
         </swiper-slide>
       </swiper-container>
     </ClientOnly>
@@ -31,14 +31,6 @@
 </template>
 
 <script setup>
-//  imports
-import expert from '/images/avif/expert.avif';
-import expert1 from '/images/avif/expert-1.avif';
-import expert2 from '/images/avif/expert-2.avif';
-import expert3 from '/images/avif/expert-3.avif';
-import expert4 from '/images/avif/expert-4.avif';
-import expert5 from '/images/avif/expert-5.avif';
-
 //  components
 import IconsShuriken from '~/components/icons/shuriken.vue';
 import IconsLamp from '~/components/icons/lamp.vue';
@@ -51,7 +43,14 @@ const sliderRef = ref();
 const { rt, tm } = useI18n();
 
 //  data
-const images = [expert, expert1, expert2, expert3, expert4, expert5];
+const images = [
+  'expert.jpg',
+  'expert-1.jpg',
+  'expert-2.jpg',
+  'expert-3.jpg',
+  'expert-4.jpg',
+  'expert-5.jpg'
+];
 const icons = [IconsShuriken, IconsLamp, IconsSpeaking];
 const items = computed(() =>
   icons.map((icon, i) => ({

@@ -7,7 +7,7 @@
       <p>
         {{ $t('organizer.text') }}
       </p>
-      <MyPicture path="organizer.jpg" alt="organizer banner" class="organizer__image" />
+      <MyPicture src="organizer.jpg" alt="organizer banner" class="organizer__image" />
       <InfoCard v-for="(item, index) in $tm('organizer.items')" :key="index" :info="item" />
     </div>
   </BreadcrumbsLayout>
@@ -39,6 +39,10 @@ useMySEO('organizer');
 
   &__image {
     border-radius: max(2rem, 16px);
+    aspect-ratio: 1176/640;
+    @media screen and (max-width: $bp-md) {
+      aspect-ratio: 328/200;
+    }
   }
 }
 </style>

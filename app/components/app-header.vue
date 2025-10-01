@@ -349,6 +349,10 @@ onMounted(() => {
       opacity: 0;
       pointer-events: none;
       transition: transform 0.3s, opacity 0.3s;
+      @media screen and (max-width: $bp-sm) {
+        left: auto;
+        right: 0;
+      }
       &.active {
         transform: translateY(0);
         opacity: 1;

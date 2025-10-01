@@ -12,7 +12,7 @@
       <AppForm />
     </div>
     <div class="form-section__right">
-      <MyPicture path="folder.png" alt="folder" class="form-section__image" />
+      <MyPicture src="folder.png" alt="folder" class="form-section__image" />
       <svg
         class="form-section__pattern"
         viewBox="0 0 844 490"
@@ -39,12 +39,13 @@ useGSAPAnimate({ selector: '.form-section__image', base: { scale: 0.9 } });
 .form-section {
   margin-top: max(3rem, 30px);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 8rem;
   background-color: #fff;
   padding: max(6rem, 16px);
   border-radius: max(3.2rem, 16px);
   @media screen and (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
     margin-top: 0;
   }
   &__content {

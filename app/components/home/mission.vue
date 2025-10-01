@@ -8,7 +8,7 @@
         class="mission__card"
         :data-y-spanned="index === 2 ? true : false"
       >
-        <MyPicture v-if="index === 2" path="globe.png" alt="globe" class="mission__img" />
+        <MyPicture v-if="index === 2" src="globe.png" alt="globe" class="mission__img" />
         <h4 class="mission__card-title">{{ $rt(item.title) }}</h4>
         <p class="mission__card-text">
           {{ $rt(item.text) }}
@@ -65,7 +65,7 @@ onMounted(() => {
     display: grid;
     gap: max(16px, 3.2rem);
     @media only screen and (min-width: $bp-md) {
-      grid-template-columns: 1.25fr 1fr;
+      grid-template-columns: 1.163fr 1fr;
     }
   }
   &__card {
@@ -73,13 +73,26 @@ onMounted(() => {
     border-radius: max(16px, 2.4rem);
     padding: max(16px, 3rem);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    gap: 24px;
-    @media only screen and (min-width: $bp-md) {
-      gap: 5vw;
-      padding-bottom: 4px;
+    &:not(:last-child) {
+      justify-content: space-between;
+      gap: max(6.2rem, 24px);
     }
+    &:last-child {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      & > *:nth-child(2) {
+        margin-top: max(2.4rem, 24px);
+        margin-bottom: max(1.6rem, 16px);
+      }
+
+      @media only screen and (min-width: $bp-md) {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 2;
+      }
+    }
+
     &-title {
       font-size: max(22px, 2.8rem);
       font-weight: 700;
@@ -94,21 +107,6 @@ onMounted(() => {
       @media only screen and (max-width: $bp-md) {
         font-weight: 300;
       }
-    }
-    &:last-child {
-      align-items: center;
-      text-align: center;
-      gap: 16px;
-      @media only screen and (max-width: $bp-md) {
-        gap: 24px;
-      }
-      @media only screen and (min-width: $bp-md) {
-        grid-column: 2 / span 1;
-        grid-row: 1 / span 2;
-      }
-    }
-    &:not(:last-child) {
-      justify-content: space-between;
     }
   }
   &__title {

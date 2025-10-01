@@ -2,7 +2,7 @@
   <main class="home">
     <HomeHero />
     <div class="content">
-      <HomeAbout />
+      <!-- <HomeAbout /> -->
       <HomeMission />
     </div>
     <HomeEvents />

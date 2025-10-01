@@ -3,9 +3,14 @@
     <div class="base">
       <CategoryFilter :filters="filters" @filter="filterBase" />
       <div class="base__list">
-        <div v-for="item in items" :key="item" class="base__item">
+        <NuxtLink
+          v-for="(item, index) in items"
+          :key="index"
+          class="base__item"
+          :to="$localePath(`/${$route.name.split('___')[0]}/${index}`)"
+        >
           <component :is="item" class="base__icon" data-original />
-        </div>
+        </NuxtLink>
       </div>
       <FormSection />
     </div>
@@ -79,17 +84,6 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-@keyframes scale-up {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 .base {
   display: flex;
   flex-direction: column;
@@ -107,6 +101,7 @@ defineProps({
     border: 1px solid #cbd5e0;
     border-radius: max(16px, 3.2rem);
     aspect-ratio: 1;
+    transition: none;
     @include flex-center;
   }
 

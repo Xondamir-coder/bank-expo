@@ -25,7 +25,7 @@
           class="events__item"
           :class="{ active: curId === index }"
         >
-          <img :src="item.img" alt="banner" class="events__image" />
+          <MyPicture :src="item.img" alt="banner" class="events__image" />
           <div class="events__item-time">
             <IconsCalendar class="fill-cyan events__icon" />
             <span>{{ item.date }}</span>
@@ -37,27 +37,24 @@
 </template>
 
 <script setup>
-import img1 from '/images/avif/home-events-1.avif';
-import img2 from '/images/avif/home-about.avif';
-
 const curId = ref(0);
 
 const items = [
   {
     date: '12-16 March 03:36',
-    img: img1
+    img: 'home-events-1.jpg'
   },
   {
     date: '10-20 September 11:20',
-    img: img2
+    img: 'home-about.jpg'
   },
   {
     date: '5-9 December 12:50',
-    img: img1
+    img: 'home-events-1.jpg'
   },
   {
     date: '20-31 October 19:20',
-    img: img1
+    img: 'home-about.jpg'
   }
 ];
 const { $gsap } = useNuxtApp();

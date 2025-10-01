@@ -80,7 +80,7 @@
             }"
           >
             <swiper-slide v-for="(image, i) in images" :key="i" class="participant__slide">
-              <img :src="image" alt="banner" class="participant__image" />
+              <MyPicture :src="image" alt="banner" class="participant__image" />
             </swiper-slide>
           </swiper-container>
         </ClientOnly>
@@ -97,9 +97,10 @@ import IconsLocation from '~/components/icons/location.vue';
 import IconsTelephone from '~/components/icons/telephone.vue';
 import IconsMail from '~/components/icons/mail.vue';
 import IconsGlobe from '~/components/icons/globe.vue';
-import image1 from '/images/avif/participant-1.avif';
-import image2 from '/images/avif/participant-2.avif';
-import image3 from '/images/avif/participant-3.avif';
+
+const image1 = 'participant-1.jpg';
+const image2 = 'participant-2.jpg';
+const image3 = 'participant-3.jpg';
 
 const { t } = useI18n();
 const route = useRoute();

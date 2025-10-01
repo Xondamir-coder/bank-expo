@@ -1,7 +1,7 @@
 <template>
   <div class="image-carousel">
     <Transition name="fade">
-      <img
+      <MyPicture
         :key="images[activeImage]"
         :src="images[activeImage]"
         alt="carousel"

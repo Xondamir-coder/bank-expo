@@ -44,10 +44,10 @@
           <h2 class="footer__title">
             {{ $t('footer.title') }}
           </h2>
-          <button to="/contact" class="footer__button" @click="showFormModal = true">
+          <!-- <button to="/contact" class="footer__button" @click="showFormModal = true">
             {{ $t('get-started') }}
             <IconsUpRightArrow class="footer__arrow" />
-          </button>
+          </button> -->
         </div>
         <div class="footer__cols">
           <div v-for="(item, index) in items" :key="index" class="footer__col">
@@ -120,7 +120,7 @@ const { t } = useI18n();
 const route = useRoute();
 const { $gsap } = useNuxtApp();
 
-const showFormModal = useState('showFormModal');
+// const showFormModal = useState('showFormModal');
 
 const items = computed(() => [
   {
