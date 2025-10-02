@@ -13,7 +13,7 @@ pages:
     # - pm2 delete bankexpo
     # - NODE_OPTIONS="--max-old-space-size=1024" npm run i
 
-    - NODE_OPTIONS="--max-old-space-size=1024" npm run build
+    # - NODE_OPTIONS="--max-old-space-size=1024" npm run build
     # - pm2 restart bankexpo
     - PORT=3002 pm2 start dist/server/index.mjs --name bankexpo
   artifacts:
