@@ -3,6 +3,7 @@ pages:
   stage: deploy
   before_script:
     - npm -v
+    - pm2 kill
     - pm2 status
   script:
     - cp -r -u * /var/www/bankexpo.uz
@@ -10,12 +11,12 @@ pages:
     - ls -la
     
     # - pm2 restart bankexpo
-    # - pm2 delete bankexpo
+    - pm2 delete bankexpo
     # - NODE_OPTIONS="--max-old-space-size=1024" npm run i
 
-    - NODE_OPTIONS="--max-old-space-size=4096" npm run build
-    - pm2 restart bankexpo
-    # - PORT=3002 pm2 start dist/server/index.mjs --name bankexpo
+    # - NODE_OPTIONS="--max-old-space-size=4096" npm run build
+    # - pm2 restart bankexpo
+    - PORT=3002 pm2 start dist/server/index.mjs --name bankexpo
   artifacts:
     paths:
       - ./*
