@@ -9,6 +9,8 @@
 </template>
 
 <script setup>
+import banner from '/images/1024/about-hero.avif';
+
 const { t } = useI18n();
 const breadcrumbs = computed(() => [
   {
@@ -20,7 +22,10 @@ const breadcrumbs = computed(() => [
     label: t('nav.mission')
   }
 ]);
-useMySEO('mission');
+
+useMySEO('mission', {
+  ogImage: banner
+});
 </script>
 
 <style lang="scss" scoped>

@@ -14,7 +14,10 @@
 </template>
 
 <script setup>
+import banner from '/images/1024/organizer.avif';
+
 const { t } = useI18n();
+
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -25,8 +28,11 @@ const breadcrumbs = computed(() => [
     label: t('nav.organizer')
   }
 ]);
+
 useGSAPAnimate({ selector: '.organizer>*', base: { y: 25 } });
-useMySEO('organizer');
+useMySEO('organizer', {
+  ogImage: banner
+});
 </script>
 
 <style lang="scss" scoped>
