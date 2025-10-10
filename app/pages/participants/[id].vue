@@ -116,7 +116,7 @@ const breadcrumbs = computed(() => [
     label: t('nav.participants')
   },
   {
-    to: `/participants/${route.params.slug}`,
+    to: `/participants/${route.params.id}`,
     label: 'InfinBANK'
   }
 ]);

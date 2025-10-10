@@ -1,5 +1,5 @@
 <template>
-  <form class="search">
+  <form class="search" @submit.prevent>
     <h2 class="search__title">{{ label }}</h2>
     <div class="search__input-container">
       <button type="submit">

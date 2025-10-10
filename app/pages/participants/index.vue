@@ -2,65 +2,97 @@
   <BreadcrumbsLayout :breadcrumbs>
     <div class="participants__container">
       <ParticipantsSearch
-        v-model="query"
+        v-model="search"
         :label="$t('participants.name')"
         class="participants__box"
-        @submit.prevent="submitQuery"
       />
-      <ul id="participants-list" class="participants__list">
-        <li v-for="(participant, i) in participants" :key="i" class="participants__item">
-          <ParticipantsItem :participant="participant" />
+      <ul v-if="banks.length" class="participants__list">
+        <li v-for="bank in banks" :key="bank.id" class="participants__item">
+          <ParticipantsItem :participant="bank" />
         </li>
       </ul>
+      <h3 v-else>
+        {{ $t('no-results') }}
+      </h3>
       <ParticipantsSidebar class="participants__box" />
     </div>
     <AppPagination
+      v-if="pagesCount > 1"
       id="participants-pagination"
       :pages-count="pagesCount"
       :current-page="currentPage"
-      @change-page="fetchItems"
+      @change-page="changePage"
     />
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-import IconsBank from '~/components/icons/bank.vue';
-
-const { t } = useI18n();
-
-useGSAPAnimate({ selector: '.participants__item', base: { y: 25 } });
-useMySEO('participants');
+import gsap from 'gsap';
 
 const currentPage = ref(1);
-const query = ref('');
+const search = ref('');
+const pagesCount = ref();
+const banks = ref([]);
+let controller;
+let debounceTimer;
 
-const breadcrumbs = computed(() => [
-  {
-    to: '/',
-    label: t('nav.home')
-  },
-  {
-    to: '/participants',
-    label: t('nav.participants')
+const fetchBanks = async (isInit = false) => {
+  const url = `${API_URL}/banks`;
+  const query = { page: currentPage.value, search: search.value };
+
+  if (controller) controller.abort();
+  controller = new AbortController();
+
+  try {
+    let result;
+    if (isInit) {
+      const { data } = await useFetch(url, { query, signal: controller.signal });
+      result = data.value;
+    } else {
+      result = await $fetch(url, { query, signal: controller.signal });
+    }
+
+    pagesCount.value = result.last_page;
+    banks.value = result?.data ?? [];
+  } catch (error) {
+    if (error.name !== 'AbortError') console.error(error);
   }
+};
+
+// initial SSR fetch
+await fetchBanks(true);
+
+// debounce search watcher
+watch(search, newVal => {
+  clearTimeout(debounceTimer);
+  if (newVal === null) return;
+  debounceTimer = setTimeout(() => {
+    fetchBanks();
+  }, 300);
+});
+
+// animate new search results
+watch(banks, async () => {
+  if (!banks.value.length) return;
+  await nextTick();
+  gsap.from('.participants__item', {
+    y: 25,
+    opacity: 0,
+    duration: 0.75,
+    stagger: 0.2
+  });
+});
+
+const { t } = useI18n();
+const breadcrumbs = computed(() => [
+  { to: '/', label: t('nav.home') },
+  { to: '/participants', label: t('nav.participants') }
 ]);
 
-const setCurrentPage = page => (currentPage.value = page);
-const fetchItems = page => {
-  setCurrentPage(page);
-  console.log('fetching new participants ...');
-};
-const submitQuery = () => {};
-
-const pagesCount = 12;
-const participants = Array(10).fill({
-  icon: IconsBank,
-  slug: 'infin-bank',
-  name: 'Infin Bank',
-  tel: '+998 78 111 001',
-  loanInterest: 29,
-  depositInterest: 25,
-  website: 'https://google.com'
+useMySEO('participants');
+useGSAPAnimate({
+  selector: '.participants__item',
+  base: { y: 25, opacity: 0 }
 });
 </script>
 
@@ -79,6 +111,7 @@ const participants = Array(10).fill({
       'participants sidebar';
     @media only screen and (min-width: $bp-lg) {
       grid-template-columns: 2fr 1fr;
+      grid-auto-rows: auto 1fr;
     }
     @media only screen and (max-width: $bp-lg) {
       grid-template-areas:

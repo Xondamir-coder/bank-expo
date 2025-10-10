@@ -25,6 +25,7 @@
   "in": "in",
   "reject": "Reject",
   "accept": "Accept",
+  "no-results": "No results",
 
   "contacts": {
     "name": "Contacts",
