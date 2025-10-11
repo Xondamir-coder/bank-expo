@@ -1,7 +1,7 @@
 <template>
   <div class="date">
     <IconsCalendar class="date__icon" />
-    <span>{{ date }}</span>
+    <span>{{ Intl.DateTimeFormat($i18n.locale).format(new Date(date)) }}</span>
   </div>
 </template>
 

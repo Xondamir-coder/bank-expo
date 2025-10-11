@@ -3,11 +3,11 @@
     <h1 class="heading-42-20">{{ $t('nav.partners') }}</h1>
     <div class="slug">
       <div class="slug__icon-container">
-        <IconsBank class="slug__icon" data-original />
+        <img :src="`${DOMAIN_URL}/${partner?.logo}`" class="slug__icon" />
       </div>
       <div class="slug__container">
         <div class="info-card">
-          <h2 class="heading-38-16">Ziraat Bank</h2>
+          <h2 class="heading-38-16">{{ partner?.[`name_${$i18n.locale}`] }}</h2>
           <p>Leading bank in Uzbekistan</p>
         </div>
         <div class="info-card">
@@ -56,17 +56,23 @@
 import IconsTelephone from '~/components/icons/telephone.vue';
 import IconsMail from '~/components/icons/mail.vue';
 
-const { t } = useI18n();
-const breadcrumbs = computed(() => [
-  {
-    to: '/',
-    label: t('nav.home')
-  },
-  {
-    to: '/partners',
-    label: t('nav.partners')
+const route = useRoute();
+const { t, locale } = useI18n();
+
+const partners = useState('partners');
+
+const fetchPartners = async () => {
+  try {
+    const { data, status } = await useFetch(`${API_URL}/partners`);
+    if (status.value === 'error') throw new Error('error fetching partners');
+    partners.value = data.value;
+  } catch (error) {
+    console.error(error);
   }
-]);
+};
+if (!partners.value) await fetchPartners();
+
+const partner = computed(() => partners.value?.find(i => +i.id === +route.params.id));
 const texts = [
   'Ziraat Bank Uzbekistan JSC is a lending institution established in accordance with the applicable legislation of the Republic of Uzbekistan and registered with the Central Bank of the Republic of Uzbekistan.',
   'In accordance with the Charter, the full official name of the Bank in Russian is: Акционерное общество «Ziraat Bank Uzbekistan».',
@@ -84,6 +90,21 @@ const details = computed(() => [
     href: 'mailto:info@ziraatbank.uz',
     label: t('mail'),
     text: 'info@ziraatbank.uz'
+  }
+]);
+
+const breadcrumbs = computed(() => [
+  {
+    to: '/',
+    label: t('nav.home')
+  },
+  {
+    to: '/partners',
+    label: t('nav.partners')
+  },
+  {
+    to: `/partners/${route.params.id}`,
+    label: partner.value?.[`name_${locale.value}`]
   }
 ]);
 

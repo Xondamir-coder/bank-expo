@@ -8,17 +8,17 @@
             <component :is="row.icon" class="sidebar__icon" />
           </div>
           <h4 class="sidebar__row-name">
-            {{ row.name }}
+            {{ row.label }}
           </h4>
         </div>
-        <p v-if="Number.isInteger(row.data)" class="sidebar__row-text">
-          {{ row.data }} {{ $t('nav.banks') }}
+        <p v-if="!row.info" class="sidebar__row-text">
+          {{ row.data }} {{ row.data > 1 ? $t('banks') : $t('bank') }}
         </p>
         <div v-else class="sidebar__row-cta">
-          <p class="sidebar__row-text">{{ row.data.percent }}%</p>
+          <p class="sidebar__row-text">{{ row.data }}%</p>
           {{ $t('in') }}
-          <a :href="row.data.website" target="_blank" class="sidebar__row-link">
-            {{ row.data.bank }}
+          <a :href="row.info.url" target="_blank" class="sidebar__row-link">
+            {{ row.info.name }}
           </a>
         </div>
       </div>
@@ -34,54 +34,59 @@ import IconsCashDown from '~/components/icons/cash-down.vue';
 import IconsBriefcase from '~/components/icons/briefcase.vue';
 import IconsBankBuilding from '~/components/icons/bank-building.vue';
 
-const { t } = useI18n();
-useGSAPAnimate({ selector: '.sidebar', base: { y: 35 } });
-useGSAPAnimate({ selector: '.sidebar__row', base: { x: -10 } });
+const { t, locale } = useI18n();
 
-//  data
-const data = {
-  catalog: 1012,
-  privateBanks: 1012,
-  stateBanks: 1012,
-  bestLoanInterest: {
-    percent: 27,
-    bank: 'Sanoat Qurilish bank',
-    website: 'https://sqb.uz'
-  },
-  bestDepositInterest: {
-    percent: 33,
-    bank: 'Ziraat Bank',
-    website: 'https://ziraatbank.uz'
-  }
-};
-
+const stats = ref();
 const rows = computed(() => [
   {
     icon: IconsList,
-    name: t('participants.sidebar.in-catalog'),
-    data: data.catalog
+    label: t('participants.sidebar.in-catalog'),
+    data: stats.value?.all
   },
   {
     icon: IconsCash,
-    name: t('participants.sidebar.private-banks'),
-    data: data.privateBanks
+    label: t('participants.sidebar.private-banks'),
+    data: stats.value?.private
   },
   {
     icon: IconsCashDown,
-    name: t('participants.sidebar.state-banks'),
-    data: data.stateBanks
+    label: t('participants.sidebar.state-banks'),
+    data: stats.value?.state
   },
   {
     icon: IconsBriefcase,
-    name: t('participants.sidebar.loan-interest'),
-    data: data.bestLoanInterest
+    label: t('participants.sidebar.loan-interest'),
+    data: stats.value?.loan.loan,
+    info: {
+      name: stats.value?.loan[`name_${locale.value}`],
+      url: stats.value?.loan.url
+    }
   },
   {
     icon: IconsBankBuilding,
-    name: t('participants.sidebar.deposit-interest'),
-    data: data.bestDepositInterest
+    label: t('participants.sidebar.deposit-interest'),
+    data: stats.value?.deposit.deposit,
+    info: {
+      name: stats.value?.deposit[`name_${locale.value}`],
+      url: stats.value?.deposit.url
+    }
   }
 ]);
+
+const fetchStats = async () => {
+  const url = `${API_URL}/banks-statistics`;
+  try {
+    const { data, status } = await useFetch(url);
+    if (status.value === 'error') throw new Error('Error fetching bank banks statistics');
+    stats.value = data.value;
+  } catch (error) {
+    console.error(error);
+  }
+};
+await fetchStats();
+
+useGSAPAnimate({ selector: '.sidebar', base: { y: 35 } });
+useGSAPAnimate({ selector: '.sidebar__row', base: { x: -10 } });
 </script>
 
 <style lang="scss" scoped>
@@ -112,7 +117,7 @@ const rows = computed(() => [
     }
     &-cta {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       flex-wrap: wrap;
       gap: 5px;
     }

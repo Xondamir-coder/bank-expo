@@ -5,24 +5,28 @@
         {{ $t('media-center') }}
       </h2>
       <nav class="media__list">
-        <div v-for="(item, index) in items" :key="index" class="media__item-box">
-          <NuxtLink class="media__item" :to="$localePath(`/media/${item.slug}`)">
+        <div v-for="item in media" :key="item?.id" class="media__item-box">
+          <NuxtLink class="media__item" :to="$localePath(`/media/${item?.id}`)">
             <div class="media__item-images">
-              <div v-for="(image, i) in item.images" :key="i" class="media__item-image-box">
-                <MyPicture :src="image" alt="banner" class="media__item-image" />
+              <div
+                v-for="(image, i) in JSON.parse(item?.gallery)?.slice(0, 3)"
+                :key="i"
+                class="media__item-image-box"
+              >
+                <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="media__item-image" />
               </div>
             </div>
             <div class="media__item-content">
               <div class="media__item-top">
                 <h3 class="heading-24-17">
-                  {{ item.title }}
+                  {{ item?.[`title_${$i18n.locale}`] }}
                 </h3>
                 <p class="text-18-14">
-                  {{ item.text }}
+                  {{ item?.[`body_${$i18n.locale}`] }}
                 </p>
               </div>
               <div class="media__item-bottom">
-                <CalendarDate :date="item.date" />
+                <CalendarDate :date="item?.date" />
               </div>
             </div>
           </NuxtLink>
@@ -33,8 +37,20 @@
 </template>
 
 <script setup>
-const { t } = useI18n();
+const media = useState('media', () => []);
 
+const fetchMedia = async () => {
+  try {
+    const { data, status } = await useFetch(`${API_URL}/media-center`);
+    if (status.value === 'error') throw new Error('error fetching media');
+    media.value = data.value?.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+await fetchMedia();
+
+const { t } = useI18n();
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -45,13 +61,6 @@ const breadcrumbs = computed(() => [
     label: t('nav.media-library')
   }
 ]);
-const items = Array(20).fill({
-  title: 'Bank va moliya tashkilotlarining Expo doirasida namoyish etgan xizmatlari',
-  text: 'Innovatsion yechimlar va raqamli xizmatlar taqdimoti',
-  images: ['media-1.jpg', 'media-2.jpg', 'media-3.jpg'],
-  slug: 'moliya-asd',
-  date: '14.01.2025'
-});
 
 useGSAPAnimate({ selector: '.media__item-box', base: { y: 50 } });
 useGSAPAnimate({ selector: '.media .heading', base: { x: -30 } });
@@ -64,7 +73,7 @@ useGSAPAnimate({ selector: '.media .heading', base: { x: -30 } });
   gap: max(3rem, 20px);
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(max(50rem, 300px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(max(50rem, 300px), 1fr));
     gap: max(3rem, 16px);
   }
   &__item {

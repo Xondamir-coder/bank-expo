@@ -26,6 +26,8 @@
   "accept": "Qabul qilish",
   "info": "Ma’lumot",
   "no-results": "Natija mavjud emas",
+  "bank": "Bank",
+  "banks": "Banklar",
 
   "contacts": {
     "name": "Aloqalar",
@@ -265,7 +267,8 @@
       "state-banks": "Davlat banklari",
       "in-catalog": "Katalogda",
       "loan-interest": "Kreditga eng foizli stavka",
-      "deposit-interest": "Depozitga eng foizli stavka"
+      "deposit-interest": "Depozitga eng foizli stavka",
+      "in": "{bank}da {percent}%"
     }
   },
 
@@ -308,6 +311,13 @@
   "speakers": {
     "title": "Ma’ruzachilar",
     "text": "Epo Bank ishtirokchilarni birlashtiradi"
+  },
+
+  "speaker": {
+    "about": "Ko‘rgazma haqida",
+    "highlights": "Ko‘rgazma yo‘nalishlari / Asosiy jihatlar",
+    "agenda": "Ishtirok dasturi",
+    "quote": "Iqtibos"
   },
 
   "form-section": {

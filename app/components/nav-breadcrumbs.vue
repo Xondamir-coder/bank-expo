@@ -35,6 +35,10 @@ defineProps({
     }
     &-box {
       &:last-child {
+        & > * {
+          opacity: 0.75;
+          pointer-events: none;
+        }
         .breadcrumbs__divider {
           display: none;
         }

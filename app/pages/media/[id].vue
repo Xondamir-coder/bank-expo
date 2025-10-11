@@ -7,31 +7,33 @@
       <div class="media__content">
         <div class="media__content-top">
           <h1 class="heading-28-18">
-            Bank va moliya tashkilotlarining Expo doirasida namoyish etgan xizmatlari
+            {{ item?.[`title_${$i18n.locale}`] }}
           </h1>
-          <p class="text-18-14">Innovatsion yechimlar va raqamli xizmatlar taqdimoti</p>
+          <p class="text-18-14">
+            {{ item?.[`body_${$i18n.locale}`] }}
+          </p>
         </div>
         <div class="media__content-bottom">
-          <CalendarDate date="14.01.2025" />
+          <CalendarDate :date="item?.date" />
         </div>
       </div>
       <Transition name="fade">
-        <MyPicture
-          :key="currentImage"
-          :src="images[currentImage]"
+        <img
+          :key="currentIndex"
+          :src="`${DOMAIN_URL}/${activeImage}`"
           alt="banner"
           class="media__banner"
         />
       </Transition>
       <div class="media__images">
         <button
-          v-for="(image, index) in images"
+          v-for="(image, index) in gallery"
           :key="index"
           class="media__image-button"
-          :class="{ active: index === currentImage }"
-          @click="currentImage = index"
+          :class="{ active: index === currentIndex }"
+          @click="currentIndex = index"
         >
-          <MyPicture :src="image" alt="banner" class="media__image" />
+          <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="media__image" />
         </button>
       </div>
     </div>
@@ -39,17 +41,28 @@
 </template>
 
 <script setup>
-const image1 = 'media-1.jpg';
-const image2 = 'media-2.jpg';
-const image3 = 'media-3.jpg';
-const imageBanner = 'media-banner.jpg';
-
-const { t } = useI18n();
+const { t, locale } = useI18n();
 const route = useRoute();
-const { $gsap } = useNuxtApp();
 
-const currentImage = ref(0);
-const showPreloader = useState('showPreloader');
+const currentIndex = ref(0);
+
+const media = useState('media');
+
+const fetchMedia = async () => {
+  try {
+    const { data, status } = await useFetch(`${API_URL}/media-center`);
+    if (status.value === 'error') throw new Error('error fetching media');
+    media.value = data.value?.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+if (!media.value) await fetchMedia();
+
+const item = computed(() => media.value?.find(m => +m.id === +route.params.id));
+const gallery = computed(() => JSON.parse(item.value?.gallery));
+const activeImage = computed(() => gallery.value[currentIndex.value]);
+
 const breadcrumbs = computed(() => [
   {
     to: '/',
@@ -60,27 +73,10 @@ const breadcrumbs = computed(() => [
     label: t('nav.media-library')
   },
   {
-    to: `/media/${route.params.slug}`,
-    label: route.params.slug
+    to: `/media/${route.params.id}`,
+    label: `${item.value?.[`title_${locale.value}`].slice(0, 30)}...`
   }
 ]);
-
-const images = [
-  imageBanner,
-  image1,
-  image2,
-  image3,
-  imageBanner,
-  image1,
-  image2,
-  image3,
-  imageBanner,
-  image1,
-  image2,
-  image3,
-  imageBanner,
-  image1
-];
 
 useGSAPAnimate({ selector: '.media__content-top>*', base: { y: 25 } });
 useGSAPAnimate({ selector: '.media__content-bottom', base: { y: 25 }, initialDelay: 0.2 });
@@ -88,17 +84,14 @@ useGSAPAnimate({
   selector: '.media__banner',
   base: { clipPath: 'inset(0 100% 0 100%)', duration: 1.5, ease: 'power3.out' }
 });
-
-onMounted(() => {
-  $gsap.from('.media__image-button', {
+useGSAPAnimate('.media__image-button', {
+  base: {
     scale: 1.15,
-    opacity: 0,
-    delay: showPreloader.value ? 3.1 : 0.1,
     stagger: {
       from: 'random',
       each: 0.025
     }
-  });
+  }
 });
 </script>
 

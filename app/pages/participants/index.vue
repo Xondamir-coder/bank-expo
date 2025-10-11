@@ -11,7 +11,7 @@
           <ParticipantsItem :participant="bank" />
         </li>
       </ul>
-      <h3 v-else>
+      <h3 v-else class="participants__error">
         {{ $t('no-results') }}
       </h3>
       <ParticipantsSidebar class="participants__box" />
@@ -32,7 +32,7 @@ import gsap from 'gsap';
 const currentPage = ref(1);
 const search = ref('');
 const pagesCount = ref();
-const banks = ref([]);
+const banks = useState('banks', () => []);
 let controller;
 let debounceTimer;
 
@@ -98,10 +98,9 @@ useGSAPAnimate({
 
 <style lang="scss" scoped>
 .participants {
-  display: flex;
-  flex-direction: column;
-  gap: max(20px, 3rem);
-
+  &__error {
+    animation: slide-from-bottom-10 0.6s;
+  }
   &__container {
     display: grid;
     column-gap: max(20px, 3.2rem);

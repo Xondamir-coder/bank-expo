@@ -19,6 +19,9 @@
     align-items: center;
     gap: max(1.2rem, 12px);
     font-weight: 500;
+    &.hidden {
+      display: none;
+    }
     &-text {
       font-weight: 500;
     }
@@ -32,6 +35,9 @@
     &-icon {
       width: 54.454545%;
       fill: $clr-darker-grey;
+    }
+    a:hover {
+      color: $clr-yellow;
     }
   }
   &__title {

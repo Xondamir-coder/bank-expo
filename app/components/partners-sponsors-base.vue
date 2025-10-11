@@ -1,72 +1,67 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
     <div class="base">
-      <CategoryFilter :filters="filters" @filter="filterBase" />
-      <div class="base__list">
+      <CategoryFilter :filters @filter="filterBase" />
+      <div v-if="partners?.length" class="base__list">
         <NuxtLink
-          v-for="(item, index) in items"
-          :key="index"
+          v-for="partner in partners"
+          :key="partner?.id"
           class="base__item"
-          :to="$localePath(`/${$route.name.split('___')[0]}/${index}`)"
+          :to="$localePath(`/${$route.name.split('___')[0]}/${partner?.id}`)"
         >
-          <component :is="item" class="base__icon" data-original />
+          <img :src="`${DOMAIN_URL}/${partner?.logo}`" class="base__logo" />
         </NuxtLink>
       </div>
+      <h3 v-else>
+        {{ $t('no-results') }}
+      </h3>
       <FormSection />
     </div>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-import IconsBank from '~/components/icons/bank.vue';
-import IconsBank3 from '~/components/icons/bank-3.vue';
-import IconsBank6 from '~/components/icons/bank-6.vue';
-import IconsBank9 from '~/components/icons/bank-9.vue';
-import IconsBank10 from '~/components/icons/bank-10.vue';
-import IconsBank11 from '~/components/icons/bank-11.vue';
-import IconsBank13 from '~/components/icons/bank-13.vue';
-import IconsBank14 from '~/components/icons/bank-14.vue';
-import IconsBank17 from '~/components/icons/bank-17.vue';
-import IconsBank18 from '~/components/icons/trast-bank.vue';
-import IconsBank19 from '~/components/icons/ziraat-bank.vue';
-import IconsBank20 from '~/components/icons/visa.vue';
-import IconsBank21 from '~/components/icons/mastercard.vue';
+import gsap from 'gsap';
 
-// data
-const { tm, rt } = useI18n();
-const filters = computed(() => tm('category-filter.items').map(item => rt(item)));
-const items = [
-  IconsBank,
-  IconsBank3,
-  IconsBank6,
-  IconsBank9,
-  IconsBank10,
-  IconsBank11,
-  IconsBank13,
-  IconsBank14,
-  IconsBank17,
-  IconsBank18,
-  IconsBank19,
-  IconsBank20,
-  IconsBank21,
-  IconsBank,
-  IconsBank3,
-  IconsBank6,
-  IconsBank9,
-  IconsBank10,
-  IconsBank11,
-  IconsBank13,
-  IconsBank14,
-  IconsBank17,
-  IconsBank18,
-  IconsBank19,
-  IconsBank20,
-  IconsBank21
-];
+const partners = useState('partners', () => []);
+const filters = ref([]);
 
-const filterBase = () => {
-  console.log('filtering base ...');
+const fetchPartners = async catID => {
+  try {
+    const res = await $fetch(`${API_URL}/partners`, { query: { category_id: catID } });
+    partners.value = res;
+  } catch (error) {
+    console.error(error);
+  }
 };
+const filterBase = filter => {
+  fetchPartners(filter.id);
+};
+const fetchData = async () => {
+  try {
+    const [{ data: partnersData }, { data: filtersData }] = await Promise.all([
+      useFetch(`${API_URL}/partners`),
+      useFetch(`${API_URL}/partners-categories`)
+    ]);
+
+    partners.value = partnersData.value;
+    filters.value = filtersData.value;
+  } catch (error) {
+    console.error(error);
+  }
+};
+await fetchData();
+
+watch(partners, async () => {
+  if (!partners.value?.length) return;
+  await nextTick();
+  gsap.from('.base__item', {
+    opacity: 0,
+    duration: 0.6,
+    stagger: 0.1,
+    y: 50
+  });
+});
 
 useGSAPAnimate({
   selector: '.base__item',
@@ -88,12 +83,15 @@ defineProps({
   display: flex;
   flex-direction: column;
   gap: max(20px, 3rem);
+  h3 {
+    animation: slide-from-bottom-10 0.5s;
+  }
   &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     gap: max(8px, 3.2rem);
     @media only screen and (max-width: $bp-lg) {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
   }
   &__item {
@@ -105,7 +103,8 @@ defineProps({
     @include flex-center;
   }
 
-  &__icon {
+  &__logo {
+    mix-blend-mode: darken;
     width: 62.5%;
   }
 }

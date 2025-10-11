@@ -3,29 +3,38 @@
     <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
-        v-for="(filter, index) in filters"
-        :key="index"
+        v-for="filter in filters"
+        :key="filter?.id"
         class="filter__button"
-        :class="{ 'filter__button--active': index === currentFilter }"
-        @click="currentFilter = index"
+        :class="{ 'filter__button--active': filter?.id === currentFilter?.id }"
+        @click="changeFilter(filter)"
       >
-        {{ filter }}
+        {{ filter?.[`name_${$i18n.locale}`] }}
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
-defineProps({
+const { t } = useI18n();
+const route = useRoute();
+
+const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
+
+const props = defineProps({
   filters: {
     type: Array,
     required: true
   }
 });
-const { t } = useI18n();
-const route = useRoute();
-const currentFilter = ref(0);
-const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
+const emit = defineEmits(['filter']);
+
+const currentFilter = ref(props.filters[0]);
+
+const changeFilter = newFilter => {
+  currentFilter.value = newFilter;
+  emit('filter', currentFilter.value);
+};
 
 useGSAPAnimate({ selector: '.filter h2', base: { x: -20 }, initialDelay: 0.1 });
 useGSAPAnimate({ selector: '.filter__button', base: { y: 10, duration: 0.5 }, initialDelay: 0.2 });

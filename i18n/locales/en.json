@@ -26,6 +26,8 @@
   "reject": "Reject",
   "accept": "Accept",
   "no-results": "No results",
+  "bank": "Bank",
+  "banks": "Banks",
 
   "contacts": {
     "name": "Contacts",
@@ -42,7 +44,7 @@
     "mission": "Mission",
     "venue": "Venue",
     "organizer": "Organizer",
-    "banks": "Bank",
+    "banks": "Banks",
     "participants": "Participants",
     "speakers": "Speakers",
     "sponsors": "Sponsors",
@@ -265,7 +267,8 @@
       "state-banks": "State banks",
       "in-catalog": "In the catalog",
       "loan-interest": "Best interest rate on loan",
-      "deposit-interest": "The best interest rate on deposits"
+      "deposit-interest": "Best interest rate on deposits",
+      "in": "{percent}% in {bank}"
     }
   },
 
@@ -308,6 +311,13 @@
   "speakers": {
     "title": "Speakers",
     "text": "Epo Bank unites participants from over"
+  },
+
+  "speaker": {
+    "about": "About",
+    "highlights": "Exhibition Focus / Highlights",
+    "agenda": "Agenda Participation",
+    "quote": "Quote"
   },
 
   "form-section": {

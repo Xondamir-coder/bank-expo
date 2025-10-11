@@ -6,16 +6,20 @@
         <p>{{ $t('speakers.text') }}</p>
       </div>
       <nav class="speakers__list">
-        <li v-for="(speaker, index) in speakers" :key="index" class="speakers__item-container">
-          <NuxtLink :to="$localePath(`/speakers/${index + 1}`)" class="speakers__item">
+        <li v-for="speaker in speakers" :key="speaker?.id" class="speakers__item-container">
+          <NuxtLink :to="$localePath(`/speakers/${speaker?.id}`)" class="speakers__item">
             <div class="speakers__item-image-container">
-              <MyPicture :src="speaker.image" :alt="speaker.name" class="speakers__item-image" />
+              <img
+                :src="`${DOMAIN_URL}/${speaker?.image}`"
+                :alt="speaker?.[`name_${$i18n.locale}`]"
+                class="speakers__item-image"
+              />
             </div>
             <div class="speakers__item-content">
               <h3 class="heading-28-18">
-                {{ speaker.name }}
+                {{ speaker?.[`name_${$i18n.locale}`] }}
               </h3>
-              <p>{{ speaker.job }}</p>
+              <p>{{ speaker?.[`role_${$i18n.locale}`] }}</p>
             </div>
           </NuxtLink>
         </li>
@@ -25,30 +29,21 @@
 </template>
 
 <script setup>
+const speakers = useState('speakers', () => []);
+
+const fetchSpeakers = async () => {
+  const url = `${API_URL}/speakers`;
+  try {
+    const { data, status } = await useFetch(url);
+    if (status.value === 'error') throw new Error('Error fetching speakers');
+    speakers.value = data.value;
+  } catch (error) {
+    console.error(error);
+  }
+};
+await fetchSpeakers();
+
 const { t } = useI18n();
-useGSAPAnimate({ selector: '.speakers__top>*', base: { x: -25 } });
-useGSAPAnimate({ selector: '.speakers__item-container', base: { y: 20, rotateY: -35 } });
-useMySEO('speakers');
-
-const speakers = [
-  // Row 1
-  { image: 'speaker-1.jpg', name: 'Ahmadjon Rahmatjonov', job: 'Founder and CEO' },
-  { image: 'speaker-2.jpg', name: 'Dilshod Karimov', job: 'CTO' },
-  { image: 'speaker-3.jpg', name: 'Saida Nurmatova', job: 'COO' },
-  { image: 'speaker-4.jpg', name: 'Javlonbek Usmonov', job: 'Head of Marketing' },
-
-  // Row 2 (shift images so columns differ)
-  { image: 'speaker-2.jpg', name: 'Nigora Yuldasheva', job: 'Project Manager' },
-  { image: 'speaker-3.jpg', name: 'Sherzod Tursunov', job: 'Lead Designer' },
-  { image: 'speaker-4.jpg', name: 'Malika Akhmedova', job: 'HR Director' },
-  { image: 'speaker-1.jpg', name: 'Rustam Abdukarimov', job: 'Finance Manager' },
-
-  // Row 3 (shift again)
-  { image: 'speaker-3.jpg', name: 'Umida Rasulova', job: 'Business Analyst' },
-  { image: 'speaker-4.jpg', name: 'Azizbek Toirov', job: 'Software Engineer' },
-  { image: 'speaker-1.jpg', name: 'Shahnoza Qodirova', job: 'Legal Counsel' },
-  { image: 'speaker-2.jpg', name: 'Bekzod Ergashev', job: 'Data Scientist' }
-];
 const breadcrumbs = computed(() => [
   {
     label: t('nav.home'),
@@ -59,6 +54,10 @@ const breadcrumbs = computed(() => [
     to: '/speakers'
   }
 ]);
+
+useGSAPAnimate({ selector: '.speakers__top>*', base: { x: -25 } });
+useGSAPAnimate({ selector: '.speakers__item-container', base: { y: 20, rotateY: -35 } });
+useMySEO('speakers');
 </script>
 
 <style lang="scss" scoped>
@@ -111,7 +110,7 @@ const breadcrumbs = computed(() => [
     list-style: none;
     display: grid;
     gap: max(3rem, 20px);
-    grid-template-columns: repeat(auto-fit, minmax(max(40rem, 250px), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(max(40rem, 250px), 1fr));
   }
 }
 </style>
