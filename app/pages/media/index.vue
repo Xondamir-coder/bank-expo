@@ -4,7 +4,8 @@
       <h2 class="heading">
         {{ $t('media-center') }}
       </h2>
-      <nav class="media__list">
+      <SpinnerLoader v-if="!media" />
+      <nav v-else-if="media.length" class="media__list">
         <div v-for="item in media" :key="item?.id" class="media__item-box">
           <NuxtLink class="media__item" :to="$localePath(`/media/${item?.id}`)">
             <div class="media__item-images">
@@ -32,23 +33,51 @@
           </NuxtLink>
         </div>
       </nav>
+      <h3 v-else>{{ $t('no-results') }}</h3>
     </div>
+    <AppPagination
+      v-if="pagesCount"
+      v-model="currentPage"
+      :pages-count="pagesCount"
+      page-name="media"
+      @change-page="fetchMedia"
+    />
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-const media = useState('media', () => []);
+const { query } = useRoute();
 
-const fetchMedia = async () => {
+const media = useState('media', () => null);
+
+const currentPage = ref(+query.page || 1);
+const pagesCount = ref();
+
+const fetchMedia = async (isInit = false) => {
+  let result;
+  const params = {
+    query: {
+      page: currentPage.value,
+      take: 10
+    }
+  };
+
   try {
-    const { data, status } = await useFetch(`${API_URL}/media-center`);
-    if (status.value === 'error') throw new Error('error fetching media');
-    media.value = data.value?.data;
+    if (isInit) {
+      const { data, status } = await useFetch(`${API_URL}/media-center`, params);
+      if (status.value === 'error') throw new Error('error fetching media');
+      result = data.value;
+    } else {
+      result = await $fetch(`${API_URL}/media-center`, params);
+    }
+
+    pagesCount.value = result.last_page;
+    media.value = result?.data ?? [];
   } catch (error) {
     console.error(error);
   }
 };
-await fetchMedia();
+fetchMedia(true);
 
 const { t } = useI18n();
 const breadcrumbs = computed(() => [

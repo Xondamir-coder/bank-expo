@@ -46,12 +46,6 @@ const fetchSpeakers = async () => {
     console.error(error);
   }
 };
-const extractItemsFromList = str => {
-  if (!import.meta.client) return;
-  const temp = document.createElement('div');
-  temp.innerHTML = str;
-  return Array.from(temp.querySelectorAll('li')).map(li => li.textContent.trim());
-};
 
 if (!speakers.value) await fetchSpeakers();
 
@@ -103,6 +97,36 @@ useGSAPAnimate({ selector: '.speaker__person-image', base: { y: 30, scale: 1.1 }
 useGSAPAnimate({
   selector: '.speaker__person-pattern',
   base: { clipPath: 'circle(0%)', duration: 2, opacity: 1 }
+});
+
+const getSeoData = () => {
+  const speakerName = speaker.value?.[`name_${locale.value}`];
+  const speakerRole = speaker.value?.[`role_${locale.value}`];
+
+  const en = {
+    title: `${speakerName} - ${speakerRole}`,
+    description: `${speakerName}, ${speakerRole}. Learn more about the speaker, their background, and participation in the event program.`
+  };
+
+  const ru = {
+    title: `${speakerName} – ${speakerRole}`,
+    description: `${speakerName}, ${speakerRole}. Узнайте больше о спикере, его опыте и участии в программе мероприятия.`
+  };
+
+  const uz = {
+    title: `${speakerName} – ${speakerRole}`,
+    description: `${speakerName}, ${speakerRole}. Spiker haqida, uning tajribasi va tadbir dasturidagi ishtiroki haqida ko‘proq bilib oling.`
+  };
+
+  const data = { en, ru, uz };
+
+  return data[locale.value];
+};
+
+useSeoMeta({
+  ...getSeoData(),
+  ogSiteName: 'Bank Expo',
+  ogImage: '/og-banner.jpg'
 });
 </script>
 

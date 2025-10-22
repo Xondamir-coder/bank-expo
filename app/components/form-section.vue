@@ -32,7 +32,7 @@
 useGSAPAnimate({ selector: '.form-section__top>*', base: { y: 25 } });
 useGSAPAnimate({ selector: '.form__row', base: { y: 25 } });
 useGSAPAnimate({ selector: '.form__bottom', base: { y: 25 } });
-useGSAPAnimate({ selector: '.form-section__image', base: { scale: 0.9 } });
+useGSAPAnimate({ selector: '.form-section__right', base: { y: -50 } });
 </script>
 
 <style lang="scss" scoped>

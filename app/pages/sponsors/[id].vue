@@ -1,14 +1,14 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <h1 class="heading-42-20">{{ $t('nav.partners') }}</h1>
+    <h1 class="heading-42-20">{{ $t('nav.sponsors') }}</h1>
     <div class="slug">
       <div class="slug__icon-container">
-        <img :src="`${DOMAIN_URL}/${partner?.logo}`" class="slug__icon" />
+        <img :src="`${DOMAIN_URL}/${sponsor?.logo}`" class="slug__icon" />
       </div>
       <div class="slug__container">
         <div class="info-card">
-          <h2 class="heading-38-16">{{ partner?.[`name_${$i18n.locale}`] }}</h2>
-          <p>{{ partner?.[`short_info_${$i18n.locale}`] }}</p>
+          <h2 class="heading-38-16">{{ sponsor?.[`name_${$i18n.locale}`] }}</h2>
+          <p>{{ sponsor?.[`short_info_${$i18n.locale}`] }}</p>
         </div>
         <div class="info-card">
           <h3 class="info-card__title">{{ $t('nav.about') }}</h3>
@@ -52,34 +52,34 @@ import IconsMail from '~/components/icons/mail.vue';
 const route = useRoute();
 const { t, locale } = useI18n();
 
-const partners = useState('partners');
+const sponsors = useState('sponsors');
 
 const fetchPartners = async () => {
   try {
     const { data, status } = await useFetch(`${API_URL}/partners`);
     if (status.value === 'error') throw new Error('error fetching partners');
-    partners.value = data.value;
+    sponsors.value = data.value;
   } catch (error) {
     console.error(error);
   }
 };
-if (!partners.value) await fetchPartners();
+if (!sponsors.value) await fetchPartners();
 
-const partner = computed(() => partners.value?.find(i => +i.id === +route.params.id));
-const aboutTexts = computed(() => extractItemsFromList(partner.value?.[`about_${locale.value}`]));
-const infoTexts = computed(() => extractItemsFromList(partner.value?.[`info_${locale.value}`]));
+const sponsor = computed(() => sponsors.value?.find(i => +i.id === +route.params.id));
+const aboutTexts = computed(() => extractItemsFromList(sponsor.value?.[`about_${locale.value}`]));
+const infoTexts = computed(() => extractItemsFromList(sponsor.value?.[`info_${locale.value}`]));
 const details = computed(() => [
   {
     icon: IconsTelephone,
-    href: `tel:${partner.value?.phoneNumber}`,
+    href: `tel:${sponsor.value?.phoneNumber}`,
     label: t('phone'),
-    text: partner.value?.phoneNumber
+    text: sponsor.value?.phoneNumber
   },
   {
     icon: IconsMail,
-    href: `mailto:${partner.value?.email}`,
+    href: `mailto:${sponsor.value?.email}`,
     label: t('mail'),
-    text: partner.value?.email
+    text: sponsor.value?.email
   }
 ]);
 const breadcrumbs = computed(() => [
@@ -88,12 +88,12 @@ const breadcrumbs = computed(() => [
     label: t('nav.home')
   },
   {
-    to: '/partners',
-    label: t('nav.partners')
+    to: '/sponsors',
+    label: t('nav.sponsors')
   },
   {
-    to: `/partners/${route.params.id}`,
-    label: partner.value?.[`name_${locale.value}`]
+    to: `/sponsors/${route.params.id}`,
+    label: sponsor.value?.[`name_${locale.value}`]
   }
 ]);
 
@@ -111,20 +111,21 @@ useGSAPAnimate({
 });
 
 const getSeoData = () => {
-  const partnerName = partner.value?.[`name_${locale.value}`];
+  const sponsorName = sponsor.value?.[`name_${locale.value}`];
+
   const en = {
-    title: `${partnerName} - Company Info and Contact`,
-    description: `Learn about ${partnerName}: overview, key details, and contact information. Get in touch through the form below.`
+    title: `${sponsorName} - Company Info and Contact`,
+    description: `Learn about ${sponsorName}: overview, key details, and contact information. Get in touch through the form below.`
   };
 
   const ru = {
-    title: `${partnerName} – Информация о компании и Контакты`,
-    description: `Узнайте о ${partnerName}: краткая информация, основные сведения и контакты. Свяжитесь через форму ниже.`
+    title: `${sponsorName} – Информация о компании и Контакты`,
+    description: `Узнайте о ${sponsorName}: краткая информация, основные сведения и контакты. Свяжитесь через форму ниже.`
   };
 
   const uz = {
-    title: `${partnerName} – Kompaniya ma’lumotlari va Aloqa`,
-    description: `${partnerName} haqida bilib oling: qisqacha ma’lumot, asosiy tafsilotlar va aloqa ma’lumotlari. Quyidagi forma orqali bog‘laning.`
+    title: `${sponsorName} – Kompaniya ma’lumotlari va Aloqa`,
+    description: `${sponsorName} haqida bilib oling: qisqacha ma’lumot, asosiy tafsilotlar va aloqa ma’lumotlari. Quyidagi forma orqali bog‘laning.`
   };
 
   const data = { en, ru, uz };

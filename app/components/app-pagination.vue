@@ -1,5 +1,5 @@
 <template>
-  <div class="pagination">
+  <div v-if="pagesCount > 1" ref="containerRef" class="pagination">
     <!-- arrow left -->
     <button
       class="pagination__button"
@@ -15,8 +15,8 @@
       :key="i"
       class="pagination__button pagination__button--number"
       :class="{
-        'pagination__button--active': i === currentPage,
-        'pagination__button--hidden': i > shownButtonsCount
+        active: i === currentPage,
+        hidden: i > shownButtonsCount
       }"
       @click="changePage(i)"
     >
@@ -36,7 +36,7 @@
     <button
       class="pagination__button pagination__button--number"
       :class="{
-        'pagination__button--active': pagesCount === currentPage
+        active: pagesCount === currentPage
       }"
       @click="changePage(pagesCount)"
     >
@@ -55,8 +55,16 @@
 </template>
 
 <script setup>
+const currentPage = defineModel({
+  type: Number
+});
+
+const router = useRouter();
+const localePath = useLocalePath();
+
 //  reactive state
 const shownButtonsCount = ref(3);
+const containerRef = ref();
 
 //  props
 const props = defineProps({
@@ -64,8 +72,8 @@ const props = defineProps({
     type: Number,
     required: true
   },
-  currentPage: {
-    type: Number,
+  pageName: {
+    type: String,
     required: true
   }
 });
@@ -75,32 +83,23 @@ const emits = defineEmits(['changePage']);
 
 //  methods
 const changePage = newPage => {
-  emits('changePage', newPage);
-  if (props.currentPage !== props.pagesCount && props.currentPage >= shownButtonsCount.value) {
+  // Update current page
+  currentPage.value = newPage;
+
+  // Show more buttons if needed
+  if (currentPage.value !== props.pagesCount && currentPage.value >= shownButtonsCount.value) {
     shownButtonsCount.value++;
   }
+  // Update query
+  router.replace({
+    path: localePath(`/${props.pageName}`),
+    query: { page: newPage }
+  });
+
+  // Emit for data fetching
+  emits('changePage');
 };
 const showAllButtons = () => (shownButtonsCount.value = props.pagesCount);
-
-//  animation
-const { $gsap } = useNuxtApp();
-const attrs = useAttrs();
-onMounted(() => {
-  const parentId = `#${attrs.id}`;
-  const parentContainer = `${parentId} .pagination`;
-  $gsap.from(`${parentContainer}__button:first-child`, {
-    x: -20,
-    ...fadeOnScrollTrigger(`${parentContainer}__button:first-child`, 'bottom bottom')
-  });
-  $gsap.from(`${parentContainer}__button:last-child`, {
-    x: 20,
-    ...fadeOnScrollTrigger(`${parentContainer}__button:last-child`, 'bottom bottom')
-  });
-  $gsap.from(`${parentContainer}__button.pagination__button--number`, {
-    y: 20,
-    ...fadeOnScrollTrigger(`${parentContainer}__button.pagination__button--number`, '90% bottom')
-  });
-});
 </script>
 
 <style lang="scss" scoped>
@@ -108,6 +107,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  animation: slide-from-bottom-10 0.6s;
   @media only screen and (max-width: $bp-sm) {
     justify-content: center;
   }
@@ -118,6 +118,9 @@ onMounted(() => {
     border: 1px solid #cbd5e0;
     background: #ffffff;
     aspect-ratio: 1;
+    &:not(:disabled):not(.active):hover {
+      background-color: #cbd5e0;
+    }
     &:disabled .pagination__arrow {
       fill: #687588;
     }
@@ -128,12 +131,12 @@ onMounted(() => {
       text-align: center;
       transition: background-color 0.3s, border-color 0.3s, color 0.3s;
     }
-    &--active {
+    &.active {
       background-color: #c89e45;
       border-color: #c89e45;
       color: #fafafa;
     }
-    &--hidden {
+    &.hidden {
       display: none;
     }
   }

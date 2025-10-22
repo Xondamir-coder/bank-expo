@@ -1,8 +1,11 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
     <div class="base">
-      <CategoryFilter :filters @filter="filterBase" />
-      <div v-if="partners?.length" class="base__list">
+      <ClientOnly>
+        <CategoryFilter v-if="filters" :filters @filter="filterBase" />
+      </ClientOnly>
+      <SpinnerLoader v-if="!partners" />
+      <div v-else-if="partners.length" class="base__list">
         <NuxtLink
           v-for="partner in partners"
           :key="partner?.id"
@@ -21,10 +24,8 @@
 </template>
 
 <script setup>
-import gsap from 'gsap';
-
-const partners = useState('partners', () => []);
-const filters = ref([]);
+const partners = useState('partners', () => null);
+const filters = ref();
 
 const fetchPartners = async catID => {
   try {
@@ -50,18 +51,7 @@ const fetchData = async () => {
     console.error(error);
   }
 };
-await fetchData();
-
-watch(partners, async () => {
-  if (!partners.value?.length) return;
-  await nextTick();
-  gsap.from('.base__item', {
-    opacity: 0,
-    duration: 0.6,
-    stagger: 0.1,
-    y: 50
-  });
-});
+fetchData();
 
 useGSAPAnimate({
   selector: '.base__item',

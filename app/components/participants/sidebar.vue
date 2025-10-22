@@ -105,10 +105,8 @@ useGSAPAnimate({ selector: '.sidebar__row', base: { x: -10 } });
     align-items: center;
     justify-content: space-between;
     padding-block: max(14px, 2rem);
-    border-top: 1px solid #e9eaec;
     border-bottom: 1px solid #e9eaec;
     &:first-child {
-      border-top: none;
       padding-top: 0;
     }
     &:last-child {

@@ -38,7 +38,7 @@
       <div class="participant__container">
         <ClientOnly>
           <swiper-container
-            v-if="bank.gallery?.length"
+            v-if="images?.length"
             class="participant__card participant__swiper"
             :grab-cursor="true"
             :breakpoints="{
@@ -56,13 +56,13 @@
               }
             }"
           >
-            <swiper-slide v-for="(image, i) in bank?.gallery" :key="i" class="participant__slide">
+            <swiper-slide v-for="(image, i) in images" :key="i" class="participant__slide">
               <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="participant__image" />
             </swiper-slide>
           </swiper-container>
         </ClientOnly>
         <div class="participant__cards">
-          <InfoCard v-for="(item, index) in $tm('participant.items')" :key="index" :info="item" />
+          <InfoCard v-for="(card, index) in cards" :key="index" :info="card" />
         </div>
       </div>
     </div>
@@ -92,6 +92,7 @@ const fetchBanks = async () => {
 if (!banks.value) await fetchBanks();
 
 const bank = computed(() => banks.value?.find(bank => +bank.id === +route.params.id));
+const images = computed(() => JSON.parse(bank.value?.gallery) || []);
 const details = computed(() => [
   {
     icon: IconsLocation,
@@ -101,7 +102,7 @@ const details = computed(() => [
   },
   {
     icon: IconsTelephone,
-    href: bank.value?.phoneNumber,
+    href: `tel:${bank.value?.phoneNumber}`,
     label: t('phone'),
     text: bank.value?.phoneNumber
   },
@@ -116,6 +117,20 @@ const details = computed(() => [
     href: bank.value?.url,
     label: t('website'),
     text: bank.value?.url.split('//')[1]
+  }
+]);
+const cards = computed(() => [
+  {
+    title: t('participant.about-company'),
+    text: bank.value?.[`about_${locale.value}`]
+  },
+  {
+    title: t('participant.directions'),
+    details: extractItemsFromList(bank.value?.[`directions_${locale.value}`])
+  },
+  {
+    title: t('participant.services'),
+    details: extractItemsFromList(bank.value?.[`services_${locale.value}`])
   }
 ]);
 const breadcrumbs = computed(() => [
@@ -136,6 +151,30 @@ const breadcrumbs = computed(() => [
 useGSAPAnimate({ selector: '.participant__wrapper>*', base: { y: 50 } });
 useGSAPAnimate({ selector: '.participant__swiper', base: { y: 50 }, initialDelay: 0.2 });
 useGSAPAnimate({ selector: '.participant__cards>*', base: { x: -50 }, initialDelay: 0.2 });
+
+const getSeoData = () => {
+  const bankName = bank.value?.[`name_${locale.value}`];
+  const en = {
+    title: `${bankName} - Overview and Details`,
+    description: `Discover ${bankName}’s services, contact information, and branch directions. See photos and explore what they offer.`
+  };
+  const ru = {
+    title: `${bankName} – Услуги и Контакты`,
+    description: `Изучите профиль ${bankName}: общая информация, контакты, предлагаемые банковские услуги, направления филиалов и фотогалерея.`
+  };
+  const uz = {
+    title: `${bankName} – Xizmatlar va Ma'lumotlar`,
+    description: `${bankName} profili bilan tanishing — umumiy ma’lumot, aloqa tafsilotlari, taklif etiladigan bank xizmatlari, filial manzillari va galereya.`
+  };
+  const data = { en, ru, uz };
+  return data[locale.value];
+};
+
+useSeoMeta({
+  ...getSeoData(),
+  ogSiteName: 'Bank Expo',
+  ogImage: '/og-banner.jpg'
+});
 </script>
 
 <style lang="scss" scoped>

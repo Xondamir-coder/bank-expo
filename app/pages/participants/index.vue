@@ -1,66 +1,87 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="participants__container">
-      <ParticipantsSearch
-        v-model="search"
-        :label="$t('participants.name')"
-        class="participants__box"
+    <ClientOnly>
+      <div class="participants__container">
+        <ParticipantsSearch
+          v-model="search"
+          :label="$t('participants.name')"
+          class="participants__box"
+        />
+        <SpinnerLoader v-if="!banks" />
+        <ul v-else-if="banks.length" class="participants__list">
+          <li v-for="bank in banks" :key="bank.id" class="participants__item">
+            <ParticipantsItem :participant="bank" />
+          </li>
+        </ul>
+        <h3 v-else class="participants__error">
+          {{ $t('no-results') }}
+        </h3>
+        <ParticipantsSidebar class="participants__box" />
+      </div>
+      <AppPagination
+        v-model="currentPage"
+        :pages-count="pagesCount"
+        page-name="participants"
+        @change-page="fetchBanks"
       />
-      <ul v-if="banks.length" class="participants__list">
-        <li v-for="bank in banks" :key="bank.id" class="participants__item">
-          <ParticipantsItem :participant="bank" />
-        </li>
-      </ul>
-      <h3 v-else class="participants__error">
-        {{ $t('no-results') }}
-      </h3>
-      <ParticipantsSidebar class="participants__box" />
-    </div>
-    <AppPagination
-      v-if="pagesCount > 1"
-      id="participants-pagination"
-      :pages-count="pagesCount"
-      :current-page="currentPage"
-      @change-page="changePage"
-    />
+    </ClientOnly>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
 import gsap from 'gsap';
 
-const currentPage = ref(1);
+const { query } = useRoute();
+
+const banks = useState('banks', () => null);
+
 const search = ref('');
-const pagesCount = ref();
-const banks = useState('banks', () => []);
+const currentPage = ref(+query.page || 1);
+const pagesCount = ref(0);
+
 let controller;
 let debounceTimer;
 
 const fetchBanks = async (isInit = false) => {
-  const url = `${API_URL}/banks`;
-  const query = { page: currentPage.value, search: search.value };
-
   if (controller) controller.abort();
   controller = new AbortController();
+  const params = {
+    query: {
+      page: currentPage.value,
+      search: search.value,
+      take: 2
+    },
+    signal: controller.signal
+  };
 
+  let result;
   try {
-    let result;
     if (isInit) {
-      const { data } = await useFetch(url, { query, signal: controller.signal });
+      const { data } = await useFetch(`${API_URL}/banks`, params);
       result = data.value;
     } else {
-      result = await $fetch(url, { query, signal: controller.signal });
+      result = await $fetch(`${API_URL}/banks`, params);
     }
 
     pagesCount.value = result.last_page;
+
+    if (banks.value?.[0]?.id == result.data?.[0]?.id) return;
+
     banks.value = result?.data ?? [];
   } catch (error) {
     if (error.name !== 'AbortError') console.error(error);
   }
+
+  await nextTick();
+  gsap.from('.participants__list', {
+    y: 25,
+    opacity: 0,
+    duration: 0.7
+  });
 };
 
 // initial SSR fetch
-await fetchBanks(true);
+fetchBanks(true);
 
 // debounce search watcher
 watch(search, newVal => {
@@ -69,18 +90,6 @@ watch(search, newVal => {
   debounceTimer = setTimeout(() => {
     fetchBanks();
   }, 300);
-});
-
-// animate new search results
-watch(banks, async () => {
-  if (!banks.value.length) return;
-  await nextTick();
-  gsap.from('.participants__item', {
-    y: 25,
-    opacity: 0,
-    duration: 0.75,
-    stagger: 0.2
-  });
 });
 
 const { t } = useI18n();

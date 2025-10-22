@@ -5,7 +5,8 @@
         <h1 class="heading">{{ $t('speakers.title') }}</h1>
         <p>{{ $t('speakers.text') }}</p>
       </div>
-      <nav class="speakers__list">
+      <SpinnerLoader v-if="!speakers" />
+      <nav v-else-if="speakers.length" class="speakers__list">
         <li v-for="speaker in speakers" :key="speaker?.id" class="speakers__item-container">
           <NuxtLink :to="$localePath(`/speakers/${speaker?.id}`)" class="speakers__item">
             <div class="speakers__item-image-container">
@@ -24,12 +25,13 @@
           </NuxtLink>
         </li>
       </nav>
+      <h3 v-else>{{ $t('no-results') }}</h3>
     </div>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-const speakers = useState('speakers', () => []);
+const speakers = useState('speakers', () => null);
 
 const fetchSpeakers = async () => {
   const url = `${API_URL}/speakers`;
@@ -41,7 +43,7 @@ const fetchSpeakers = async () => {
     console.error(error);
   }
 };
-await fetchSpeakers();
+fetchSpeakers();
 
 const { t } = useI18n();
 const breadcrumbs = computed(() => [

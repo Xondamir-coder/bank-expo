@@ -26,6 +26,7 @@
 
 <script setup>
 const { t } = useI18n();
+const route = useRoute();
 
 const showSuccessModal = useState('showSuccessModal');
 const showFormModal = useState('showFormModal');
@@ -55,12 +56,29 @@ const rows = computed(() => [
   }
 ]);
 
-const submitForm = () => {
-  showSuccessModal.value = true;
-  showFormModal.value = false;
-  setTimeout(() => {
-    showSuccessModal.value = false;
-  }, 3000);
+const submitForm = async () => {
+  try {
+    const res = await $fetch(`${API_URL}/enquiry`, {
+      method: 'POST',
+      body: objectToFormData({
+        name: name.value,
+        phone: tel.value,
+        organization: organization.value,
+        page_name: route.name.split('___')[0],
+        page_link: window.location.href
+      })
+    });
+    console.log(res);
+    showFormModal.value = false;
+    showSuccessModal.value = true;
+  } catch (error) {
+    console.error(error);
+  } finally {
+    setTimeout(() => {
+      showSuccessModal.value = false;
+      showFormModal.value = false;
+    }, 3000);
+  }
 };
 
 const validatePhoneNumber = () => {

@@ -1,4 +1,5 @@
 {
+  "loading": "Loading",
   "contact-us": "Contact Us",
   "get-started": "Get Started",
   "rights-reserved": "All rights reserved",
@@ -277,31 +278,9 @@
     "loan-interest": "Interest on the loan",
     "deposit-interest": "Interest on deposit",
     "go-to-site": "Go to site",
-    "items": [
-      {
-        "title": "About company",
-        "text": "InfinBANK – one of the leading commercial banks in Uzbekistan, provides modern financial services to clients. The bank has introduced a wide range of services not only for individuals but also for corporate clients. InfinBANK develops digital banking to create convenience for clients by offering mobile apps and online services"
-      },
-      {
-        "title": "Main directions",
-        "details": [
-          "Credit and deposit services for individuals",
-          "International money transfers",
-          "Internet banking and mobile banking services",
-          "Plastic cards (Visa, MasterCard, Uzcard, Humo)"
-        ]
-      },
-      {
-        "title": "Services presented at the exhibition",
-        "details": [
-          "New business credit programs",
-          "Preferential financing solutions for startups and small businesses",
-          "Internet banking and mobile banking services",
-          "Updated version of the mobile banking app",
-          "Services integrated with fintech"
-        ]
-      }
-    ]
+    "about-company": "About company",
+    "directions": "Main directions",
+    "services": "Services presented at the exhibition"
   },
 
   "category-filter": {
