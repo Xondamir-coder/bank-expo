@@ -89,11 +89,11 @@ export default () => {
     {
       label: t('nav.about'),
       links: aboutLinks.value
+    },
+    {
+      label: t('nav.media'),
+      links: mediaLinks.value
     }
-    // {
-    //   label: t('nav.media'),
-    //   links: mediaLinks.value
-    // }
   ]);
   const allLinks = computed(() => [...links.value, ...aboutLinks.value, ...mediaLinks.value]);
 
