@@ -54,7 +54,7 @@
           </div>
         </div>
       </div>
-      <FormSection />
+      <FormSection :title="$t('become-visitor')" />
       <div class="visitors__block visitors__plan">
         <MyPicture src="visitors-plan.jpg" alt="banner" class="visitors__plan-image" />
         <h2 class="heading text-secondary">

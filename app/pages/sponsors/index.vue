@@ -1,5 +1,5 @@
 <template>
-  <PartnersSponsorsBase :breadcrumbs />
+  <PartnersSponsorsBase :breadcrumbs :title="$t('become-sponsor')" />
 </template>
 
 <script setup>

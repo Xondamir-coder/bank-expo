@@ -29,6 +29,10 @@
   "no-results": "No results",
   "bank": "Bank",
   "banks": "Banks",
+  "become-partner": "Become a partner",
+  "become-sponsor": "Become a sponsor",
+  "become-visitor": "Become a visitor",
+  "become-speaker": "Become a speaker",
 
   "contacts": {
     "name": "Contacts",
@@ -41,7 +45,7 @@
 
   "nav": {
     "home": "Home",
-    "about": "About",
+    "about": "About Expo",
     "mission": "Mission",
     "venue": "Venue",
     "organizer": "Organizer",

@@ -37,6 +37,12 @@ const organization = ref('');
 
 const rows = computed(() => [
   {
+    label: t('form.organization.label'),
+    placeholder: t('form.organization.placeholder'),
+    type: 'text',
+    model: organization
+  },
+  {
     label: t('form.full-name.label'),
     placeholder: t('form.full-name.placeholder'),
     type: 'text',
@@ -47,12 +53,6 @@ const rows = computed(() => [
     placeholder: t('form.mobile-phone.placeholder'),
     type: 'tel',
     model: tel
-  },
-  {
-    label: t('form.organization.label'),
-    placeholder: t('form.organization.placeholder'),
-    type: 'text',
-    model: organization
   }
 ]);
 

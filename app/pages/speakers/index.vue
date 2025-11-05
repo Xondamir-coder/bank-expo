@@ -1,6 +1,6 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="speakers">
+    <section class="speakers">
       <div class="speakers__top">
         <h1 class="heading">{{ $t('speakers.title') }}</h1>
         <p>{{ $t('speakers.text') }}</p>
@@ -26,7 +26,8 @@
         </li>
       </nav>
       <h3 v-else>{{ $t('no-results') }}</h3>
-    </div>
+    </section>
+    <FormSection :title="$t('become-speaker')" />
   </BreadcrumbsLayout>
 </template>
 

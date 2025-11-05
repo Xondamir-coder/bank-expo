@@ -3,7 +3,7 @@
     <div v-if="showMenu" class="menu" :data-lenis-prevent="true">
       <nav class="menu__links">
         <NuxtLink
-          v-for="link in links"
+          v-for="link in allLinks"
           :key="link.to"
           class="menu__link"
           :to="$localePath(link.to)"
@@ -35,46 +35,7 @@
 </template>
 
 <script setup>
-const { t } = useI18n();
-
-const links = computed(() => [
-  {
-    to: '/mission',
-    label: t('nav.mission')
-  },
-  {
-    to: '/organizer',
-    label: t('nav.organizer')
-  },
-  {
-    to: '/venue',
-    label: t('nav.venue')
-  },
-  {
-    to: '/participants',
-    label: t('nav.participants')
-  },
-  {
-    to: '/speakers',
-    label: t('nav.speakers')
-  },
-  {
-    to: '/partners',
-    label: t('nav.partners')
-  },
-  {
-    to: '/sponsors',
-    label: t('nav.sponsors')
-  },
-  {
-    to: '/media',
-    label: t('nav.media-library')
-  },
-  {
-    to: '/media-accreditation',
-    label: t('nav.media-accreditation')
-  }
-]);
+const { allLinks } = useLinks();
 
 const showFormModal = useState('showFormModal');
 const showMenu = useState('showMenu', () => false);

@@ -29,6 +29,10 @@
   "no-results": "Нет результатов",
   "bank": "Банк",
   "banks": "Банки",
+  "become-partner": "Стать партнёром",
+  "become-sponsor": "Стать спонсором",
+  "become-visitor": "Стать посетителем",
+  "become-speaker": "Стать спикером",
 
   "contacts": {
     "name": "Контакты",
@@ -41,7 +45,7 @@
 
   "nav": {
     "home": "Главная",
-    "about": "О нас",
+    "about": "О Expo",
     "mission": "Миссия",
     "venue": "Место",
     "organizer": "Организатор",

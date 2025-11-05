@@ -23,7 +23,7 @@
         </NuxtLink>
       </div>
       <nav class="header__nav">
-        <div v-for="(link, index) in links" :key="index" class="header__link-container">
+        <div v-for="(link, index) in headerLinks" :key="index" class="header__link-container">
           <NuxtLink
             v-if="link.to"
             :to="$localePath(link.to)"
@@ -48,11 +48,6 @@
             <span class="header__link-label">
               {{ link.label }}
             </span>
-            <div class="dots">
-              <div class="dot" />
-              <div class="dot" />
-              <div class="dot" />
-            </div>
           </button>
           <div
             v-if="link.sublinks"
@@ -74,15 +69,6 @@
     </div>
     <div class="header__col header__col--right">
       <div class="flex header__col-inside">
-        <!-- <a class="header__social" target="_blank" href="#">
-          <IconsTelegram class="header__social-icon" />
-        </a>
-        <a class="header__social" target="_blank" href="#">
-          <IconsInstagram class="header__social-icon" />
-        </a>
-        <a class="header__link" href="mailto:Info@expobanking">
-          <span class="header__link-label"> Info@expobanking </span>
-        </a> -->
         <button class="header__button" @click="showFormModal = true">
           {{ $t('contact-us') }}
         </button>
@@ -109,56 +95,9 @@
 </template>
 
 <script setup>
-const { t, localeCodes, setLocale } = useI18n();
+const { localeCodes, setLocale } = useI18n();
 
-const links = computed(() => [
-  {
-    label: t('nav.about'),
-    sublinks: [
-      {
-        to: '/mission',
-        label: t('nav.mission')
-      },
-      {
-        to: '/organizer',
-        label: t('nav.organizer')
-      },
-      {
-        to: '/venue',
-        label: t('nav.venue')
-      }
-    ]
-  },
-  {
-    to: '/participants',
-    label: t('nav.participants')
-  },
-  {
-    to: '/speakers',
-    label: t('nav.speakers')
-  },
-  {
-    to: '/partners',
-    label: t('nav.partners')
-  },
-  {
-    to: '/sponsors',
-    label: t('nav.sponsors')
-  },
-  {
-    label: t('nav.media'),
-    sublinks: [
-      {
-        to: '/media',
-        label: t('nav.media-library')
-      },
-      {
-        to: '/media-accreditation',
-        label: t('nav.media-accreditation')
-      }
-    ]
-  }
-]);
+const { headerLinks } = useLinks();
 
 const showSublinks = ref(false);
 const showLanguageDropdown = ref(false);

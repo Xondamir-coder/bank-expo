@@ -3,7 +3,7 @@
     <div class="form-section__content">
       <div class="form-section__top">
         <h2 class="heading">
-          {{ $t('register-online') }}
+          {{ title }}
         </h2>
         <p>
           {{ $t('form-section.text') }}
@@ -29,6 +29,12 @@
 </template>
 
 <script setup>
+defineProps({
+  title: {
+    type: String,
+    required: true
+  }
+});
 useGSAPAnimate({ selector: '.form-section__top>*', base: { y: 25 } });
 useGSAPAnimate({ selector: '.form__row', base: { y: 25 } });
 useGSAPAnimate({ selector: '.form__bottom', base: { y: 25 } });

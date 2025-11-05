@@ -29,6 +29,10 @@
   "no-results": "Natija mavjud emas",
   "bank": "Bank",
   "banks": "Banklar",
+  "become-partner": "Hamkor bo'ling",
+  "become-sponsor": "Homiy bo'ling",
+  "become-visitor": "Mehmon bo'ling",
+  "become-speaker": "Ma’ruzachi bo'ling",
 
   "contacts": {
     "name": "Aloqalar",
@@ -41,7 +45,7 @@
 
   "nav": {
     "home": "Asosiy",
-    "about": "Biz",
+    "about": "Expo Haqida",
     "mission": "Maqsad",
     "venue": "Joy",
     "organizer": "Tashk",
@@ -52,7 +56,7 @@
     "media": "OAV",
     "media-library": "Media kutubxonasi",
     "media-accreditation": "OAV akkreditatsiyasi",
-    "for-visitors": "Tashrif buyuruvchilar uchun",
+    "for-visitors": "Tashrif buyuruvchilarga",
     "partners": "Hamkorlar",
     "terms-of-service": "Xizmat ko‘rsatish shartlari",
     "privacy-policy": "Maxfiylik siyosati"

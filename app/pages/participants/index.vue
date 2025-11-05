@@ -49,7 +49,7 @@ const fetchBanks = async (isInit = false) => {
     query: {
       page: currentPage.value,
       search: search.value,
-      take: 2
+      take: 10
     },
     signal: controller.signal
   };

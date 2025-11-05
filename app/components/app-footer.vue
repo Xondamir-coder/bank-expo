@@ -50,7 +50,7 @@
           </button> -->
         </div>
         <div class="footer__cols">
-          <div v-for="(item, index) in items" :key="index" class="footer__col">
+          <div v-for="(item, index) in footerLinks" :key="index" class="footer__col">
             <h4 class="footer__col-label">{{ item.label }}</h4>
             <nav class="footer__links">
               <NuxtLink
@@ -119,62 +119,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 const { t } = useI18n();
 const route = useRoute();
 const { $gsap } = useNuxtApp();
+const { footerLinks } = useLinks();
 
 // const showFormModal = useState('showFormModal');
 
-const items = computed(() => [
-  {
-    label: t('links'),
-    links: [
-      {
-        to: '/participants',
-        label: t('nav.participants')
-      },
-      {
-        to: '/speakers',
-        label: t('nav.speakers')
-      },
-      {
-        to: '/partners',
-        label: t('nav.partners')
-      },
-      {
-        to: '/sponsors',
-        label: t('nav.sponsors')
-      }
-    ]
-  },
-  {
-    label: t('nav.about'),
-    links: [
-      {
-        to: '/mission',
-        label: t('nav.mission')
-      },
-      {
-        to: '/organizer',
-        label: t('nav.organizer')
-      },
-      {
-        to: '/venue',
-        label: t('nav.venue')
-      }
-    ]
-  },
-  {
-    label: t('nav.media'),
-    links: [
-      {
-        to: '/media',
-        label: t('nav.media-library')
-      },
-      {
-        to: '/media-accreditation',
-        label: t('nav.media-accreditation')
-      }
-    ]
-  }
-]);
 const contacts = [
   {
     icon: IconsTelephone,

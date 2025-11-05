@@ -18,7 +18,7 @@
       <h3 v-else>
         {{ $t('no-results') }}
       </h3>
-      <FormSection />
+      <FormSection :title="title" />
     </div>
   </BreadcrumbsLayout>
 </template>
@@ -61,6 +61,10 @@ useGSAPAnimate({
 });
 
 defineProps({
+  title: {
+    type: String,
+    required: true
+  },
   breadcrumbs: {
     type: Array,
     required: true

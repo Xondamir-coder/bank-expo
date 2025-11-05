@@ -41,7 +41,7 @@
         </div>
       </div>
     </div>
-    <FormSection />
+    <FormSection :title="$t('become-partner')" />
   </BreadcrumbsLayout>
 </template>
 
