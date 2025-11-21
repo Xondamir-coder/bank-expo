@@ -73,6 +73,8 @@ const breadcrumbs = computed(() => [
 
 useGSAPAnimate({ selector: '.media__item-box', base: { y: 50 } });
 useGSAPAnimate({ selector: '.media .heading', base: { x: -30 } });
+
+useMySEO('media');
 </script>
 
 <style lang="scss" scoped>
