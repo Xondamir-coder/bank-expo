@@ -34,20 +34,8 @@ import IconsQuote from '~/components/icons/quote.vue';
 const { t, locale } = useI18n();
 const route = useRoute();
 
-const speakers = useState('speakers');
-
-const fetchSpeakers = async () => {
-  const url = `${API_URL}/speakers`;
-  try {
-    const { data, status } = await useFetch(url);
-    if (status.value === 'error') throw new Error('Error fetching speakers');
-    speakers.value = data.value;
-  } catch (error) {
-    console.error(error);
-  }
-};
-
-if (!speakers.value) await fetchSpeakers();
+const apiStore = useApiStore();
+const { speakers } = storeToRefs(apiStore);
 
 const speaker = computed(() => speakers.value?.find(speaker => +speaker.id === +route.params.id));
 const cards = computed(() => [

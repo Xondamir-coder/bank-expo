@@ -1,57 +1,31 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
     <div class="base">
+      <CategoryFilter />
       <ClientOnly>
-        <CategoryFilter v-if="filters" :filters @filter="filterBase" />
+        <SpinnerLoader v-if="!partners" />
+        <div v-else-if="partners.length" class="base__list">
+          <NuxtLink
+            v-for="partner in partners"
+            :key="partner?.id"
+            class="base__item"
+            :to="$localePath(`/${$route.name.split('___')[0]}/${partner?.id}`)"
+          >
+            <img :src="`${DOMAIN_URL}/${partner?.logo}`" class="base__logo" />
+          </NuxtLink>
+        </div>
+        <h3 v-else>
+          {{ $t('no-results') }}
+        </h3>
       </ClientOnly>
-      <SpinnerLoader v-if="!partners" />
-      <div v-else-if="partners.length" class="base__list">
-        <NuxtLink
-          v-for="partner in partners"
-          :key="partner?.id"
-          class="base__item"
-          :to="$localePath(`/${$route.name.split('___')[0]}/${partner?.id}`)"
-        >
-          <img :src="`${DOMAIN_URL}/${partner?.logo}`" class="base__logo" />
-        </NuxtLink>
-      </div>
-      <h3 v-else>
-        {{ $t('no-results') }}
-      </h3>
-      <FormSection :title="title" />
+      <FormSection :title />
     </div>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-const partners = useState('partners', () => null);
-const filters = ref();
-
-const fetchPartners = async catID => {
-  try {
-    const res = await $fetch(`${API_URL}/partners`, { query: { category_id: catID } });
-    partners.value = res;
-  } catch (error) {
-    console.error(error);
-  }
-};
-const filterBase = filter => {
-  fetchPartners(filter.id);
-};
-const fetchData = async () => {
-  try {
-    const [{ data: partnersData }, { data: filtersData }] = await Promise.all([
-      useFetch(`${API_URL}/partners`),
-      useFetch(`${API_URL}/partners-categories`)
-    ]);
-
-    partners.value = partnersData.value;
-    filters.value = filtersData.value;
-  } catch (error) {
-    console.error(error);
-  }
-};
-fetchData();
+const apiStore = useApiStore();
+const { partners } = storeToRefs(apiStore);
 
 useGSAPAnimate({
   selector: '.base__item',

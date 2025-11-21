@@ -7,14 +7,14 @@
       <div class="media__content">
         <div class="media__content-top">
           <h1 class="heading-28-18">
-            {{ item?.[`title_${$i18n.locale}`] }}
+            {{ currentMedia?.[`title_${$i18n.locale}`] }}
           </h1>
           <p class="text-18-14">
-            {{ item?.[`body_${$i18n.locale}`] }}
+            {{ currentMedia?.[`body_${$i18n.locale}`] }}
           </p>
         </div>
         <div class="media__content-bottom">
-          <CalendarDate :date="item?.date" />
+          <CalendarDate :date="currentMedia?.date || new Date().toISOString()" />
         </div>
       </div>
       <Transition name="fade">
@@ -43,25 +43,18 @@
 <script setup>
 const { t, locale } = useI18n();
 const route = useRoute();
+const apiStore = useApiStore();
+const { fetchMedia } = apiStore;
+const { media } = storeToRefs(apiStore);
 
 const currentIndex = ref(0);
 
-const media = useState('media');
+const currentMedia = computed(() => media.value?.data?.find(m => +m.id === +route.params.id));
 
-const fetchMedia = async () => {
-  try {
-    const { data, status } = await useFetch(`${API_URL}/media-center`);
-    if (status.value === 'error') throw new Error('error fetching media');
-    media.value = data.value?.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-if (!media.value) await fetchMedia();
+if (!currentMedia.value) await fetchMedia();
 
-const item = computed(() => media.value?.find(m => +m.id === +route.params.id));
-const gallery = computed(() => JSON.parse(item.value?.gallery));
-const activeImage = computed(() => gallery.value[currentIndex.value]);
+const gallery = computed(() => (currentMedia.value ? JSON.parse(currentMedia.value?.gallery) : ''));
+const activeImage = computed(() => (currentMedia.value ? gallery.value[currentIndex.value] : ''));
 
 const breadcrumbs = computed(() => [
   {
@@ -74,7 +67,7 @@ const breadcrumbs = computed(() => [
   },
   {
     to: `/media/${route.params.id}`,
-    label: `${item.value?.[`title_${locale.value}`].slice(0, 30)}...`
+    label: `${currentMedia.value?.[`title_${locale.value}`].slice(0, 30)}...`
   }
 ]);
 
@@ -92,6 +85,30 @@ useGSAPAnimate('.media__image-button', {
       each: 0.025
     }
   }
+});
+
+const getMediaSeoData = () => {
+  const mediaTitle = currentMedia.value?.[`title_${locale.value}`];
+  const en = {
+    title: `${mediaTitle} - Media Library`,
+    description: `Read ${mediaTitle} article from Bank Expo's media library. See photos and explore what they offer.`
+  };
+  const ru = {
+    title: `${mediaTitle} - Медиа Библиотека`,
+    description: `Изучите статью ${mediaTitle} из медиа библиотеки Bank Expo. Посмотрите фотографии и узнайте, что они предлагают.`
+  };
+  const uz = {
+    title: `${mediaTitle} - Media Kutubxonasi`,
+    description: `${mediaTitle} maqolasi Bank Expo media kutubxonasi bilan tanishing — umumiy ma'lumot, aloqa tafsilotlari, taklif etiladigan bank xizmatlari, filial manzillari va galereya.`
+  };
+  const data = { en, ru, uz };
+  return data[locale.value];
+};
+
+useSeoMeta({
+  ...getMediaSeoData(),
+  ogSiteName: 'Bank Expo',
+  ogImage: '/og-banner.jpg'
 });
 </script>
 

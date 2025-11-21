@@ -3,8 +3,8 @@
     <!-- arrow left -->
     <button
       class="pagination__button"
-      :disabled="currentPage === 1"
-      @click="changePage(currentPage - 1)"
+      :disabled="queryPage === 1"
+      @click="changePage(queryPage - 1)"
     >
       <IconsArrowLeft class="pagination__arrow" />
     </button>
@@ -15,7 +15,7 @@
       :key="i"
       class="pagination__button pagination__button--number"
       :class="{
-        active: i === currentPage,
+        active: i === queryPage,
         hidden: i > shownButtonsCount
       }"
       @click="changePage(i)"
@@ -36,7 +36,7 @@
     <button
       class="pagination__button pagination__button--number"
       :class="{
-        active: pagesCount === currentPage
+        active: pagesCount === queryPage
       }"
       @click="changePage(pagesCount)"
     >
@@ -46,8 +46,8 @@
     <!-- right arrow -->
     <button
       class="pagination__button"
-      :disabled="currentPage === pagesCount"
-      @click="changePage(currentPage + 1)"
+      :disabled="queryPage === pagesCount"
+      @click="changePage(queryPage + 1)"
     >
       <IconsArrowLeft class="pagination__arrow pagination__arrow--reverse" />
     </button>
@@ -55,14 +55,12 @@
 </template>
 
 <script setup>
-const currentPage = defineModel({
-  type: Number
-});
-
 const router = useRouter();
+const route = useRoute();
 const localePath = useLocalePath();
 
 //  reactive state
+const queryPage = computed(() => +route.query.page || 1);
 const shownButtonsCount = ref(3);
 const containerRef = ref();
 
@@ -82,16 +80,14 @@ const props = defineProps({
 const emits = defineEmits(['changePage']);
 
 //  methods
-const changePage = newPage => {
-  // Update current page
-  currentPage.value = newPage;
-
+const changePage = async newPage => {
   // Show more buttons if needed
-  if (currentPage.value !== props.pagesCount && currentPage.value >= shownButtonsCount.value) {
+  if (queryPage.value !== props.pagesCount && queryPage.value >= shownButtonsCount.value) {
     shownButtonsCount.value++;
   }
-  // Update query
-  router.replace({
+
+  // Update page
+  await router.replace({
     path: localePath(`/${props.pageName}`),
     query: { page: newPage }
   });

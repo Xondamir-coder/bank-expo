@@ -1,83 +1,63 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="media">
-      <h2 class="heading">
-        {{ $t('media-center') }}
-      </h2>
-      <SpinnerLoader v-if="!media" />
-      <nav v-else-if="media.length" class="media__list">
-        <div v-for="item in media" :key="item?.id" class="media__item-box">
-          <NuxtLink class="media__item" :to="$localePath(`/media/${item?.id}`)">
-            <div class="media__item-images">
-              <div
-                v-for="(image, i) in JSON.parse(item?.gallery)?.slice(0, 3)"
-                :key="i"
-                class="media__item-image-box"
-              >
-                <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="media__item-image" />
+    <ClientOnly>
+      <div class="media">
+        <h2 class="heading">
+          {{ $t('media-center') }}
+        </h2>
+        <SpinnerLoader v-if="!media" />
+        <nav v-else-if="media.data.length" class="media__list">
+          <div v-for="item in media.data" :key="item?.id" class="media__item-box">
+            <NuxtLink class="media__item" :to="$localePath(`/media/${item?.id}`)">
+              <div class="media__item-images">
+                <div
+                  v-for="(image, i) in JSON.parse(item?.gallery)?.slice(0, 3)"
+                  :key="i"
+                  class="media__item-image-box"
+                >
+                  <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="media__item-image" />
+                </div>
               </div>
-            </div>
-            <div class="media__item-content">
-              <div class="media__item-top">
-                <h3 class="heading-24-17">
-                  {{ item?.[`title_${$i18n.locale}`] }}
-                </h3>
-                <p class="text-18-14">
-                  {{ item?.[`body_${$i18n.locale}`] }}
-                </p>
+              <div class="media__item-content">
+                <div class="media__item-top">
+                  <h3 class="heading-24-17">
+                    {{ item?.[`title_${$i18n.locale}`] }}
+                  </h3>
+                  <p class="text-18-14">
+                    {{ item?.[`body_${$i18n.locale}`] }}
+                  </p>
+                </div>
+                <div class="media__item-bottom">
+                  <CalendarDate :date="item?.date" />
+                </div>
               </div>
-              <div class="media__item-bottom">
-                <CalendarDate :date="item?.date" />
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-      </nav>
-      <h3 v-else>{{ $t('no-results') }}</h3>
-    </div>
-    <AppPagination
-      v-if="pagesCount"
-      v-model="currentPage"
-      :pages-count="pagesCount"
-      page-name="media"
-      @change-page="fetchMedia"
-    />
+            </NuxtLink>
+          </div>
+        </nav>
+        <h3 v-else>{{ $t('no-results') }}</h3>
+      </div>
+      <AppPagination
+        :pages-count="media?.last_page || 1"
+        page-name="media"
+        @change-page="changePage"
+      />
+    </ClientOnly>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-const { query } = useRoute();
+const route = useRoute();
+const apiStore = useApiStore();
+const { media } = storeToRefs(apiStore);
+const { fetchMedia } = apiStore;
 
-const media = useState('media', () => null);
+if (import.meta.client) {
+  fetchMedia({ take: 10, page: route.query.page || 1 });
+}
 
-const currentPage = ref(+query.page || 1);
-const pagesCount = ref();
-
-const fetchMedia = async (isInit = false) => {
-  let result;
-  const params = {
-    query: {
-      page: currentPage.value,
-      take: 10
-    }
-  };
-
-  try {
-    if (isInit) {
-      const { data, status } = await useFetch(`${API_URL}/media-center`, params);
-      if (status.value === 'error') throw new Error('error fetching media');
-      result = data.value;
-    } else {
-      result = await $fetch(`${API_URL}/media-center`, params);
-    }
-
-    pagesCount.value = result.last_page;
-    media.value = result?.data ?? [];
-  } catch (error) {
-    console.error(error);
-  }
+const changePage = async () => {
+  await fetchMedia(route.query.page || 1);
 };
-fetchMedia(true);
 
 const { t } = useI18n();
 const breadcrumbs = computed(() => [

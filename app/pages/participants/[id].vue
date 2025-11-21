@@ -1,42 +1,42 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
-    <div class="participant__box">
-      <div class="participant__wrapper">
-        <div class="participant__card participant__header">
-          <img :src="`${DOMAIN_URL}/${bank?.logo}`" alt="" class="participant__logo" />
-          <div class="participant__header-content">
-            <h1 class="participant__header-title">{{ bank?.[`name_${$i18n.locale}`] }}</h1>
-            <p v-if="bank?.[`info_short_${$i18n.locale}`]">
-              {{ bank?.[`info_short_${$i18n.locale}`] }}
-            </p>
+    <ClientOnly>
+      <div class="participant__box">
+        <div class="participant__wrapper">
+          <div class="participant__card participant__header">
+            <img :src="`${DOMAIN_URL}/${bank?.logo}`" alt="" class="participant__logo" />
+            <div class="participant__header-content">
+              <h1 class="participant__header-title">{{ bank?.[`name_${$i18n.locale}`] }}</h1>
+              <p v-if="bank?.[`info_short_${$i18n.locale}`]">
+                {{ bank?.[`info_short_${$i18n.locale}`] }}
+              </p>
+            </div>
+          </div>
+          <div class="info-card participant__info">
+            <h3 class="info-card__title">
+              {{ $t('contact-info') }}
+            </h3>
+            <ul class="info-card__list">
+              <li
+                v-for="(detail, i) in details"
+                :key="i"
+                class="info-card__item"
+                :class="{ hidden: !detail?.text }"
+              >
+                <div class="info-card__item-box">
+                  <component :is="detail?.icon" class="info-card__item-icon" />
+                </div>
+                <p>
+                  <span>{{ detail?.label }}: </span>
+                  <a :href="detail?.href">
+                    {{ detail?.text }}
+                  </a>
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="info-card participant__info">
-          <h3 class="info-card__title">
-            {{ $t('contact-info') }}
-          </h3>
-          <ul class="info-card__list">
-            <li
-              v-for="(detail, i) in details"
-              :key="i"
-              class="info-card__item"
-              :class="{ hidden: !detail?.text }"
-            >
-              <div class="info-card__item-box">
-                <component :is="detail?.icon" class="info-card__item-icon" />
-              </div>
-              <p>
-                <span>{{ detail?.label }}: </span>
-                <a :href="detail?.href">
-                  {{ detail?.text }}
-                </a>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="participant__container">
-        <ClientOnly>
+        <div class="participant__container">
           <swiper-container
             v-if="images?.length"
             class="participant__card participant__swiper"
@@ -60,12 +60,12 @@
               <img :src="`${DOMAIN_URL}/${image}`" alt="banner" class="participant__image" />
             </swiper-slide>
           </swiper-container>
-        </ClientOnly>
-        <div class="participant__cards">
-          <InfoCard v-for="(card, index) in cards" :key="index" :info="card" />
+          <div class="participant__cards">
+            <InfoCard v-for="(card, index) in cards" :key="index" :info="card" />
+          </div>
         </div>
       </div>
-    </div>
+    </ClientOnly>
   </BreadcrumbsLayout>
 </template>
 
@@ -77,22 +77,15 @@ import IconsGlobe from '~/components/icons/globe.vue';
 
 const { t, locale } = useI18n();
 const route = useRoute();
+const apiStore = useApiStore();
+const { fetchBanks } = apiStore;
+const { banks } = storeToRefs(apiStore);
 
-const banks = useState('banks');
+const bank = computed(() => banks.value?.data.find(bank => +bank.id === +route.params.id));
 
-const fetchBanks = async () => {
-  try {
-    const { data, status } = await useFetch(`${API_URL}/banks`);
-    if (status.value === 'error') throw new Error('error fetching banks');
-    banks.value = data.value?.data;
-  } catch (error) {
-    console.error(error);
-  }
-};
-if (!banks.value) await fetchBanks();
+if (!bank.value) await fetchBanks();
 
-const bank = computed(() => banks.value?.find(bank => +bank.id === +route.params.id));
-const images = computed(() => JSON.parse(bank.value?.gallery) || []);
+const images = computed(() => (bank.value?.gallery ? JSON.parse(bank.value?.gallery) : []));
 const details = computed(() => [
   {
     icon: IconsLocation,

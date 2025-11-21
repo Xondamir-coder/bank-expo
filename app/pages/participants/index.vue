@@ -8,8 +8,8 @@
           class="participants__box"
         />
         <SpinnerLoader v-if="!banks" />
-        <ul v-else-if="banks.length" class="participants__list">
-          <li v-for="bank in banks" :key="bank.id" class="participants__item">
+        <ul v-else-if="banks?.data?.length" class="participants__list">
+          <li v-for="bank in banks.data" :key="bank.id" class="participants__item">
             <ParticipantsItem :participant="bank" />
           </li>
         </ul>
@@ -19,76 +19,43 @@
         <ParticipantsSidebar class="participants__box" />
       </div>
       <AppPagination
-        v-model="currentPage"
-        :pages-count="pagesCount"
+        :pages-count="banks?.last_page || 0"
         page-name="participants"
-        @change-page="fetchBanks"
+        @change-page="changePage"
       />
     </ClientOnly>
   </BreadcrumbsLayout>
 </template>
 
 <script setup>
-import gsap from 'gsap';
+const localePath = useLocalePath();
+const router = useRouter();
+const route = useRoute();
+const apiStore = useApiStore();
+const { banks } = storeToRefs(apiStore);
+const { fetchBanks } = apiStore;
 
-const { query } = useRoute();
+const search = ref(route.query.search || '');
 
-const banks = useState('banks', () => null);
+if (import.meta.client) {
+  fetchBanks({ page: route.query.page || 1, take: 10, search: search.value });
+}
 
-const search = ref('');
-const currentPage = ref(+query.page || 1);
-const pagesCount = ref(0);
-
-let controller;
-let debounceTimer;
-
-const fetchBanks = async (isInit = false) => {
-  if (controller) controller.abort();
-  controller = new AbortController();
-  const params = {
-    query: {
-      page: currentPage.value,
-      search: search.value,
-      take: 10
-    },
-    signal: controller.signal
-  };
-
-  let result;
-  try {
-    if (isInit) {
-      const { data } = await useFetch(`${API_URL}/banks`, params);
-      result = data.value;
-    } else {
-      result = await $fetch(`${API_URL}/banks`, params);
-    }
-
-    pagesCount.value = result.last_page;
-
-    if (banks.value?.[0]?.id == result.data?.[0]?.id) return;
-
-    banks.value = result?.data ?? [];
-  } catch (error) {
-    if (error.name !== 'AbortError') console.error(error);
-  }
-
-  await nextTick();
-  gsap.from('.participants__list', {
-    y: 25,
-    opacity: 0,
-    duration: 0.7
-  });
+const changePage = async () => {
+  await fetchBanks({ page: route.query.page || 1, search: search.value });
 };
 
-// initial SSR fetch
-fetchBanks(true);
-
 // debounce search watcher
+let debounceTimer;
 watch(search, newVal => {
   clearTimeout(debounceTimer);
   if (newVal === null) return;
-  debounceTimer = setTimeout(() => {
-    fetchBanks();
+  debounceTimer = setTimeout(async () => {
+    await router.replace({
+      path: localePath('/participants'),
+      query: { page: route.query.page || 1, ...(newVal && { search: newVal }) }
+    });
+    await fetchBanks({ page: route.query.page || 1, search: newVal });
   }, 300);
 });
 

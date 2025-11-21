@@ -12,9 +12,11 @@
 </template>
 
 <script setup>
-useWatchTogglers();
 const router = useRouter();
 const { $lenis } = useNuxtApp();
+const { fetchStaticData } = useApiStore();
+
+useWatchTogglers();
 
 if (import.meta.client) {
   router.afterEach(() => {
@@ -23,6 +25,7 @@ if (import.meta.client) {
     });
   });
 }
+await fetchStaticData();
 </script>
 
 <style scoped lang="scss">

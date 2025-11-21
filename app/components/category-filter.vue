@@ -1,13 +1,13 @@
 <template>
-  <div class="filter">
+  <div v-if="filters" class="filter">
     <h2 class="heading">{{ title }}</h2>
     <div class="filter__buttons">
       <button
         v-for="filter in filters"
         :key="filter?.id"
         class="filter__button"
-        :class="{ 'filter__button--active': filter?.id === currentFilter?.id }"
-        @click="changeFilter(filter)"
+        :class="{ 'filter__button--active': filter?.id === currentFilterID }"
+        @click="changeFilter(filter?.id)"
       >
         {{ filter?.[`name_${$i18n.locale}`] }}
       </button>
@@ -18,22 +18,16 @@
 <script setup>
 const { t } = useI18n();
 const route = useRoute();
+const apiStore = useApiStore();
+const { filters } = storeToRefs(apiStore);
+const { fetchPartners } = apiStore;
 
 const title = computed(() => t(`nav.${route.name.split('___')[0]}`));
+const currentFilterID = ref(filters.value?.[0]?.id);
 
-const props = defineProps({
-  filters: {
-    type: Array,
-    required: true
-  }
-});
-const emit = defineEmits(['filter']);
-
-const currentFilter = ref(props.filters[0]);
-
-const changeFilter = newFilter => {
-  currentFilter.value = newFilter;
-  emit('filter', currentFilter.value);
+const changeFilter = async newFilterID => {
+  currentFilterID.value = newFilterID;
+  await fetchPartners(currentFilterID.value);
 };
 
 useGSAPAnimate({ selector: '.filter h2', base: { x: -20 }, initialDelay: 0.1 });

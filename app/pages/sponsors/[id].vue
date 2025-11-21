@@ -1,46 +1,48 @@
 <template>
   <BreadcrumbsLayout :breadcrumbs>
     <h1 class="heading-42-20">{{ $t('nav.sponsors') }}</h1>
-    <div class="slug">
-      <div class="slug__icon-container">
-        <img :src="`${DOMAIN_URL}/${sponsor?.logo}`" class="slug__icon" />
+    <ClientOnly>
+      <div class="slug">
+        <div class="slug__icon-container">
+          <img :src="`${DOMAIN_URL}/${sponsor?.logo}`" class="slug__icon" />
+        </div>
+        <div class="slug__container">
+          <div class="info-card">
+            <h2 class="heading-38-16">{{ sponsor?.[`name_${$i18n.locale}`] }}</h2>
+            <p>{{ sponsor?.[`short_info_${$i18n.locale}`] }}</p>
+          </div>
+          <div class="info-card">
+            <h3 class="info-card__title">{{ $t('nav.about') }}</h3>
+            <ul class="info-card__details">
+              <li v-for="(text, i) in aboutTexts" :key="i" class="info-card__detail">
+                {{ text }}
+              </li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3 class="info-card__title">{{ $t('address') }} / {{ $t('info') }}</h3>
+            <ul class="info-card__list">
+              <li v-for="(detail, i) in details" :key="i" class="info-card__item">
+                <div class="info-card__item-box">
+                  <component :is="detail.icon" class="info-card__item-icon" />
+                </div>
+                <p>
+                  <span>{{ detail.label }}: </span>
+                  <a :href="detail.href">
+                    {{ detail.text }}
+                  </a>
+                </p>
+              </li>
+            </ul>
+            <ul class="info-card__details">
+              <li v-for="(text, i) in infoTexts" :key="i" class="info-card__detail">
+                {{ text }}
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="slug__container">
-        <div class="info-card">
-          <h2 class="heading-38-16">{{ sponsor?.[`name_${$i18n.locale}`] }}</h2>
-          <p>{{ sponsor?.[`short_info_${$i18n.locale}`] }}</p>
-        </div>
-        <div class="info-card">
-          <h3 class="info-card__title">{{ $t('nav.about') }}</h3>
-          <ul class="info-card__details">
-            <li v-for="(text, i) in aboutTexts" :key="i" class="info-card__detail">
-              {{ text }}
-            </li>
-          </ul>
-        </div>
-        <div class="info-card">
-          <h3 class="info-card__title">{{ $t('address') }} / {{ $t('info') }}</h3>
-          <ul class="info-card__list">
-            <li v-for="(detail, i) in details" :key="i" class="info-card__item">
-              <div class="info-card__item-box">
-                <component :is="detail.icon" class="info-card__item-icon" />
-              </div>
-              <p>
-                <span>{{ detail.label }}: </span>
-                <a :href="detail.href">
-                  {{ detail.text }}
-                </a>
-              </p>
-            </li>
-          </ul>
-          <ul class="info-card__details">
-            <li v-for="(text, i) in infoTexts" :key="i" class="info-card__detail">
-              {{ text }}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </ClientOnly>
     <FormSection :title="$t('become-sponsor')" />
   </BreadcrumbsLayout>
 </template>
@@ -51,21 +53,13 @@ import IconsMail from '~/components/icons/mail.vue';
 
 const route = useRoute();
 const { t, locale } = useI18n();
+const apiStore = useApiStore();
+const { fetchPartners } = apiStore;
+const { partners } = storeToRefs(apiStore);
 
-const sponsors = useState('sponsors');
+fetchPartners();
 
-const fetchPartners = async () => {
-  try {
-    const { data, status } = await useFetch(`${API_URL}/partners`);
-    if (status.value === 'error') throw new Error('error fetching partners');
-    sponsors.value = data.value;
-  } catch (error) {
-    console.error(error);
-  }
-};
-if (!sponsors.value) await fetchPartners();
-
-const sponsor = computed(() => sponsors.value?.find(i => +i.id === +route.params.id));
+const sponsor = computed(() => partners.value?.find(i => +i.id === +route.params.id));
 const aboutTexts = computed(() => extractItemsFromList(sponsor.value?.[`about_${locale.value}`]));
 const infoTexts = computed(() => extractItemsFromList(sponsor.value?.[`info_${locale.value}`]));
 const details = computed(() => [

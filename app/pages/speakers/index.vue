@@ -32,19 +32,8 @@
 </template>
 
 <script setup>
-const speakers = useState('speakers', () => null);
-
-const fetchSpeakers = async () => {
-  const url = `${API_URL}/speakers`;
-  try {
-    const { data, status } = await useFetch(url);
-    if (status.value === 'error') throw new Error('Error fetching speakers');
-    speakers.value = data.value;
-  } catch (error) {
-    console.error(error);
-  }
-};
-fetchSpeakers();
+const apiStore = useApiStore();
+const { speakers } = storeToRefs(apiStore);
 
 const { t } = useI18n();
 const breadcrumbs = computed(() => [

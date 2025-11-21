@@ -1,11 +1,13 @@
 <template>
   <nav class="breadcrumbs">
-    <div v-for="breadcrumb in breadcrumbs" :key="breadcrumb.to" class="breadcrumbs__link-box">
-      <NuxtLink class="breadcrumbs__link" :to="$localePath(breadcrumb.to)">
-        <span class="breadcrumbs__label">{{ breadcrumb.label }}</span>
-        <span class="breadcrumbs__divider">/</span>
-      </NuxtLink>
-    </div>
+    <ClientOnly>
+      <div v-for="breadcrumb in breadcrumbs" :key="breadcrumb.to" class="breadcrumbs__link-box">
+        <NuxtLink class="breadcrumbs__link" :to="$localePath(breadcrumb.to)">
+          <span class="breadcrumbs__label">{{ breadcrumb.label }}</span>
+          <span class="breadcrumbs__divider">/</span>
+        </NuxtLink>
+      </div>
+    </ClientOnly>
   </nav>
 </template>
 

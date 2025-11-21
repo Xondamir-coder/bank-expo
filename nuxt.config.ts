@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/styles/main.scss'],
-  modules: ['nuxt-swiper', '@nuxt/eslint', '@nuxtjs/seo', '@nuxtjs/i18n'],
+  modules: ['nuxt-swiper', '@nuxt/eslint', '@nuxtjs/seo', '@nuxtjs/i18n', '@pinia/nuxt'],
   app: {
     head: {
       titleTemplate: '%s | Bank Expo',
