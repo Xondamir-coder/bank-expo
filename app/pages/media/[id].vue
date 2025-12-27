@@ -67,7 +67,7 @@ const breadcrumbs = computed(() => [
   },
   {
     to: `/media/${route.params.id}`,
-    label: `${currentMedia.value?.[`title_${locale.value}`].slice(0, 30)}...`
+    label: currentMedia.value.id
   }
 ]);
 

@@ -302,7 +302,7 @@ onMounted(() => {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-block: max(1.4rem, 14px);
+      padding-block: max(1.4rem, 8px);
       padding-inline: max(1.2rem, 12px);
       text-transform: uppercase;
       &::after {

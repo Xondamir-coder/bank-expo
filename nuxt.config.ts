@@ -18,7 +18,13 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s | Bank Expo',
-      link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/favicon.svg'
+        }
+      ],
       script: [
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=G-HLF0C8Y8ZT',

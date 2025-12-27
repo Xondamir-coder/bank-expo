@@ -48,7 +48,7 @@ const showMenu = useState('showMenu', () => false);
   overflow-y: auto;
   position: fixed;
   inset: 0;
-  top: 81.6px;
+  top: 80px;
   color: #fff;
   background-color: #000c1a;
   z-index: 99;
